@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "rare_variant": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "RARE_VARIANT"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_cthulhu"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.rare_variant.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.rare_variant.description"
+    },
+    "frame": "challenge",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "rare_variant"
+    ]
+  ]
+}

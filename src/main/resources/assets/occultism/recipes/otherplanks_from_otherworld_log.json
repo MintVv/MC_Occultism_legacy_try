@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "occultism:building",
+  "ingredients": [
+    {
+      "item": "occultism:otherworld_log"
+    }
+  ],
+  "result": {
+    "item": "occultism:otherplanks",
+    "count": 4
+  }
+}

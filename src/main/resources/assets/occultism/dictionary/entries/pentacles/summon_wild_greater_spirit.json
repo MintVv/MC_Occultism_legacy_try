@@ -1,0 +1,64 @@
+{
+  "type": "modonomicon:content",
+  "background": {
+    "height": 26,
+    "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+    "width": 26
+  },
+  "category": "occultism:pentacles",
+  "condition": {
+    "type": "modonomicon:entry_read",
+    "entry_id": "occultism:pentacles/summon_marid"
+  },
+  "description": "",
+  "icon": {
+    "id": "occultism:pentacle_summon"
+  },
+  "id": "occultism:pentacles/summon_wild_greater_spirit",
+  "name": "book.occultism.dictionary_of_spirits.pentacles.summon_wild_greater_spirit.name",
+  "parents": [
+    {
+      "entry": "occultism:pentacles/summon_marid"
+    }
+  ],
+  "sort_number": 37,
+  "x": 13,
+  "y": -4,
+  "pages": [
+    {
+      "type": "modonomicon:text",
+      "condition": {
+        "type": "modonomicon:none"
+      },
+      "id": "intro",
+      "show_title_separator": true,
+      "sort_number": 0,
+      "text": "book.occultism.dictionary_of_spirits.pentacles.summon_wild_greater_spirit.intro.text",
+      "title": "book.occultism.dictionary_of_spirits.pentacles.summon_wild_greater_spirit.intro.title"
+    },
+    {
+      "type": "modonomicon:multiblock",
+      "condition": {
+        "type": "modonomicon:none"
+      },
+      "id": "multiblock",
+      "multiblock_id": "occultism:summon_wild_greater_spirit",
+      "multiblock_name": "",
+      "show_visualize_button": true,
+      "sort_number": 1,
+      "text": "",
+      "title": ""
+    },
+    {
+      "type": "modonomicon:text",
+      "condition": {
+        "type": "modonomicon:none"
+      },
+      "id": "uses",
+      "show_title_separator": true,
+      "sort_number": 2,
+      "text": "book.occultism.dictionary_of_spirits.pentacles.summon_wild_greater_spirit.uses.text",
+      "title": "book.occultism.dictionary_of_spirits.pentacles.summon_wild_greater_spirit.uses.title"
+    }
+  ]
+}

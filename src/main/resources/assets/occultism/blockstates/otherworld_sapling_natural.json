@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "uncovered=false": {
+      "model": "occultism:otherworld_sapling_natural"
+    },
+    "uncovered=true": {
+      "model": "occultism:otherworld_sapling"
+    }
+  }
+}

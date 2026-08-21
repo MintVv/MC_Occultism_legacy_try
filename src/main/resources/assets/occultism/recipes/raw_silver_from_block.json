@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "occultism:silver",
+  "ingredients": [
+    {
+      "item": "occultism:raw_silver_block"
+    }
+  ],
+  "result": {
+    "item": "occultism:raw_silver",
+    "count": 9
+  }
+}

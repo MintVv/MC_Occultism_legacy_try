@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "occultism:dust",
+  "ingredients": [
+    {
+      "item": "occultism:netherite_scrap_dust"
+    },
+    {
+      "item": "occultism:netherite_scrap_dust"
+    },
+    {
+      "item": "occultism:netherite_scrap_dust"
+    },
+    {
+      "item": "occultism:netherite_scrap_dust"
+    },
+    {
+      "item": "occultism:gold_dust"
+    },
+    {
+      "item": "occultism:gold_dust"
+    },
+    {
+      "item": "occultism:gold_dust"
+    },
+    {
+      "item": "occultism:gold_dust"
+    }
+  ],
+  "result": {
+    "item": "occultism:netherite_dust"
+  }
+}

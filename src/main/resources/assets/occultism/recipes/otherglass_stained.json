@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:otherglass",
+  "pattern": [
+    "nen",
+    "ege",
+    "nen"
+  ],
+  "key": {
+    "e": {
+      "item": "occultism:crushed_end_stone"
+    },
+    "g": {
+      "item": "minecraft:stained_glass",
+      "data": 32767
+    },
+    "n": {
+      "item": "occultism:iesnium_nugget"
+    }
+  },
+  "result": {
+    "item": "occultism:otherglass_natural"
+  }
+}

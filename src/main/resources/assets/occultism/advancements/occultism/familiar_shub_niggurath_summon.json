@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "shub_niggurath_summon": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "SHUB_NIGGURATH_SUMMON"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_shub_niggurath"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.shub_niggurath_summon.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.shub_niggurath_summon.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "shub_niggurath_summon"
+    ]
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "occultism:item/stable_wormhole_dark_unlinked",
+  "overrides": [
+    {
+      "predicate": {
+        "occultism:linked": 1.0
+      },
+      "model": "occultism:item/stable_wormhole_dark_linked"
+    }
+  ]
+}

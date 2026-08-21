@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "headless_cthulhu_head": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "HEADLESS_CTHULHU_HEAD"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_cthulhu"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.headless_cthulhu_head.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.headless_cthulhu_head.description"
+    },
+    "frame": "challenge",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "headless_cthulhu_head"
+    ]
+  ]
+}

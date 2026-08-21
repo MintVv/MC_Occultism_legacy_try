@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "cthulhu_sad": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "CTHULHU_SAD"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_cthulhu"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.cthulhu_sad.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.cthulhu_sad.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "cthulhu_sad"
+    ]
+  ]
+}

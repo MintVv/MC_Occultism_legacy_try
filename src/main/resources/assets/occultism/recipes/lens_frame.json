@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:lens_frame",
+  "pattern": [
+    "OOO",
+    "S S",
+    "OOO"
+  ],
+  "key": {
+    "O": {
+      "item": "occultism:otherstone"
+    },
+    "S": {
+      "item": "occultism:silver_ingot"
+    }
+  },
+  "result": {
+    "item": "occultism:lens_frame"
+  }
+}

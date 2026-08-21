@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:building",
+  "pattern": [
+    "PSP",
+    "PSP"
+  ],
+  "key": {
+    "P": {
+      "item": "occultism:otherplanks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "occultism:otherplanks_fence",
+    "count": 3
+  }
+}

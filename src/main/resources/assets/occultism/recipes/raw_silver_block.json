@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:silver",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "occultism:raw_silver"
+    }
+  },
+  "result": {
+    "item": "occultism:raw_silver_block"
+  }
+}

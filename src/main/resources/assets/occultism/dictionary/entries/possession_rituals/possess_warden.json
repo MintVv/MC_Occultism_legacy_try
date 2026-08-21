@@ -1,0 +1,45 @@
+{
+  "category": "occultism:possession_rituals",
+  "condition": {
+    "type": "modonomicon:entry_read",
+    "entry_id": "occultism:pentacles/possess_djinni"
+  },
+  "description": "book.occultism.dictionary_of_spirits.possession_rituals.possess_warden.description",
+  "icon": {
+    "id": "occultism:echo_dust"
+  },
+  "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_warden.name",
+  "parents": [
+    {
+      "entry": "occultism:possession_rituals/overview"
+    }
+  ],
+  "pages": [
+    {
+      "id": "entity",
+      "type": "modonomicon:entity",
+      "entity_id": "occultism:possessed_warden",
+      "entity_name": "",
+      "scale": 0.55,
+      "sort_number": 0,
+      "text": "book.occultism.dictionary_of_spirits.possession_rituals.possess_warden.entity.text",
+      "title": ""
+    },
+    {
+      "id": "ritual",
+      "type": "occultism:ritual_recipe",
+      "recipe_id_1": "occultism:ritual/possess_warden",
+      "sort_number": 1,
+      "title": "",
+      "text": ""
+    },
+    {
+      "id": "description",
+      "type": "modonomicon:text",
+      "show_title_separator": true,
+      "sort_number": 2,
+      "text": "book.occultism.dictionary_of_spirits.possession_rituals.possess_warden.description.text",
+      "title": ""
+    }
+  ]
+}

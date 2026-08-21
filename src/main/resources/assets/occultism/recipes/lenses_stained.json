@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:lenses",
+  "pattern": [
+    "PPP",
+    "PGP",
+    "PPP"
+  ],
+  "key": {
+    "G": {
+      "item": "occultism:spirit_attuned_gem"
+    },
+    "P": {
+      "item": "minecraft:stained_glass_pane",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "occultism:lenses"
+  }
+}

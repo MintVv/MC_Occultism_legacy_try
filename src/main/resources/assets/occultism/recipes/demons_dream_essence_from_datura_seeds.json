@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:datura",
+  "pattern": [
+    "SSS",
+    "SSS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "occultism:datura_seeds"
+    }
+  },
+  "result": {
+    "item": "occultism:demons_dream_essence"
+  }
+}

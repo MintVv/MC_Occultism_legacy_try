@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "axis=y,uncovered=false": {
+      "model": "occultism:oak_log"
+    },
+    "axis=z,uncovered=false": {
+      "model": "occultism:oak_log",
+      "x": 90
+    },
+    "axis=x,uncovered=false": {
+      "model": "occultism:oak_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=none,uncovered=false": {
+      "model": "occultism:oak_wood"
+    },
+    "axis=y,uncovered=true": {
+      "model": "occultism:stripped_otherworld_log"
+    },
+    "axis=z,uncovered=true": {
+      "model": "occultism:stripped_otherworld_log",
+      "x": 90
+    },
+    "axis=x,uncovered=true": {
+      "model": "occultism:stripped_otherworld_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=none,uncovered=true": {
+      "model": "occultism:stripped_otherworld_wood"
+    }
+  }
+}

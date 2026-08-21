@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "beholder_ray": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "BEHOLDER_RAY"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_beholder"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.beholder_ray.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.beholder_ray.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "beholder_ray"
+    ]
+  ]
+}

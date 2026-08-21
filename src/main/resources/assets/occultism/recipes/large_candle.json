@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:pentacle_tools",
+  "pattern": [
+    "S",
+    "T"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:string"
+    },
+    "T": {
+      "item": "occultism:tallow"
+    }
+  },
+  "result": {
+    "item": "occultism:large_candle"
+  }
+}

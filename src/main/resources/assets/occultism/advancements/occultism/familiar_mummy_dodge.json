@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "mummy_dodge": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "MUMMY_DODGE"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_mummy"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.mummy_dodge.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.mummy_dodge.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "mummy_dodge"
+    ]
+  ]
+}

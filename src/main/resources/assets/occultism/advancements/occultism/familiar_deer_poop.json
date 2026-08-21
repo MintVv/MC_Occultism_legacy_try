@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "deer_poop": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "DEER_POOP"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_deer"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.deer_poop.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.deer_poop.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "deer_poop"
+    ]
+  ]
+}

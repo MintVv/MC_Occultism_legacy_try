@@ -1,0 +1,40 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "dragon_pet": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "DRAGON_PET"
+      }
+    },
+    "dragon_fetch": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "DRAGON_FETCH"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:stick"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.dragon_best_friend.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.dragon_best_friend.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "dragon_pet"
+    ],
+    [
+      "dragon_fetch"
+    ]
+  ]
+}

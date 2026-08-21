@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:otherworld_goggles",
+  "pattern": [
+    " L ",
+    "LIL",
+    " F "
+  ],
+  "key": {
+    "F": {
+      "item": "occultism:lens_frame"
+    },
+    "I": {
+      "item": "occultism:infused_lenses"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "item": "occultism:otherworld_goggles"
+  }
+}

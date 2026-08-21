@@ -1,0 +1,33 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+.gradle-user-home
+.jdks
+
+# other
+eclipse
+run
+
+# local runtime / build artifacts
+logs/
+*.log
+.tmp_ct/
+.vscode/
+
+# upstream reference sources (not part of this mod)
+_reference/

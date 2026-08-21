@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:chalk_impure",
+  "pattern": [
+    "BA",
+    "BA",
+    "BA"
+  ],
+  "key": {
+    "A": {
+      "item": "occultism:otherworld_ashes"
+    },
+    "B": {
+      "item": "occultism:burnt_otherstone"
+    }
+  },
+  "result": {
+    "item": "occultism:chalk_white_impure"
+  }
+}

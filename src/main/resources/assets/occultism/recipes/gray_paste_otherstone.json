@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "occultism:gray_paste",
+  "ingredients": [
+    {
+      "item": "occultism:gray_paste"
+    },
+    {
+      "item": "occultism:burnt_otherstone"
+    }
+  ],
+  "result": {
+    "item": "occultism:otherstone",
+    "count": 1
+  }}

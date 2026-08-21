@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:ritual",
+  "pattern": [
+    "S S",
+    " S "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "occultism:sacrificial_bowl"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "occultism:afrit_essence",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0.7,
+                "max": 1.0
+              }
+            },
+            {
+              "function": "looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:otherplanks",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "occultism:otherplanks"
+    }
+  },
+  "result": {
+    "item": "occultism:otherplanks_trapdoor",
+    "count": 2
+  }
+}

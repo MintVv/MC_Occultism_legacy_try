@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "shub_cthulhu_friends": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "SHUB_CTHULHU_FRIENDS"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "minecraft:poppy"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.shub_cthulhu_friends.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.shub_cthulhu_friends.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "shub_cthulhu_friends"
+    ]
+  ]
+}

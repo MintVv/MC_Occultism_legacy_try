@@ -1,0 +1,51 @@
+{
+  "type": "modonomicon:content",
+  "background": {
+    "height": 26,
+    "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+    "width": 26
+  },
+  "category": "occultism:possession_rituals",
+  "condition": {
+    "type": "modonomicon:entry_read",
+    "entry_id": "occultism:pentacles/summon_wild_greater_spirit"
+  },
+  "description": "book.occultism.dictionary_of_spirits.possession_rituals.wither_skull.description",
+  "icon": {
+    "id": "minecraft:wither_skeleton_skull"
+  },
+  "id": "occultism:possession_rituals/wither_skull",
+  "name": "book.occultism.dictionary_of_spirits.possession_rituals.wither_skull.name",
+  "parents": [
+    {
+      "entry": "occultism:possession_rituals/overview"
+    }
+  ],
+  "sort_number": 18,
+  "x": -6,
+  "y": 1,
+  "pages": [
+    {
+      "type": "modonomicon:text",
+      "condition": {
+        "type": "modonomicon:none"
+      },
+      "id": "intro",
+      "show_title_separator": true,
+      "sort_number": 0,
+      "text": "book.occultism.dictionary_of_spirits.possession_rituals.wither_skull.intro.text",
+      "title": "book.occultism.dictionary_of_spirits.possession_rituals.wither_skull.intro.title"
+    },
+    {
+      "type": "occultism:ritual_recipe",
+      "condition": {
+        "type": "modonomicon:none"
+      },
+      "id": "ritual",
+      "recipe_id_1": "occultism:ritual/summon_wild_hunt",
+      "sort_number": 1,
+      "text": "",
+      "title": ""
+    }
+  ]
+}

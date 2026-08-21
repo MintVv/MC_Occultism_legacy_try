@@ -1,0 +1,19 @@
+﻿{
+  "variants": {
+    "sign=0": { "model": "occultism:chalk_glyph/0" },
+    "sign=1": { "model": "occultism:chalk_glyph/1" },
+    "sign=2": { "model": "occultism:chalk_glyph/2" },
+    "sign=3": { "model": "occultism:chalk_glyph/3" },
+    "sign=4": { "model": "occultism:chalk_glyph/4" },
+    "sign=5": { "model": "occultism:chalk_glyph/5" },
+    "sign=6": { "model": "occultism:chalk_glyph/6" },
+    "sign=7": { "model": "occultism:chalk_glyph/7" },
+    "sign=8": { "model": "occultism:chalk_glyph/8" },
+    "sign=9": { "model": "occultism:chalk_glyph/9" },
+    "sign=10": { "model": "occultism:chalk_glyph/10" },
+    "sign=11": { "model": "occultism:chalk_glyph/11" },
+    "sign=12": { "model": "occultism:chalk_glyph/12" },
+    "sign=13": { "model": "occultism:chalk_glyph/13" },
+    "sign=14": { "model": "occultism:chalk_glyph/14" }
+  }
+}

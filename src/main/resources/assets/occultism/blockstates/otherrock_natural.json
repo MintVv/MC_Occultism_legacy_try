@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "uncovered=false": {
+      "model": "occultism:otherrock_natural"
+    },
+    "uncovered=true": {
+      "model": "occultism:otherrock"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "powered=false": { "model": "occultism:otherplanks_pressure_plate" },
+    "powered=true": { "model": "occultism:otherplanks_pressure_plate_down" }
+  }
+}

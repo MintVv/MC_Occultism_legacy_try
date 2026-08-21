@@ -1,0 +1,33 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "possess_skeleton": {
+      "trigger": "occultism:ritual",
+      "conditions": {
+        "ritual_predicate": {
+          "ritual_id": "occultism:ritual/possess_skeleton"
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/possess_skeleton"
+    },
+    "title": {
+      "translate": "advancements.occultism.possess_skeleton.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.possess_skeleton.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "possess_skeleton"
+    ]
+  ]
+}

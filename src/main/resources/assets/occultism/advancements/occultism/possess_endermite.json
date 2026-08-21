@@ -1,0 +1,33 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "possess_endermite": {
+      "trigger": "occultism:ritual",
+      "conditions": {
+        "ritual_predicate": {
+          "ritual_id": "occultism:ritual/possess_endermite"
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/possess_endermite"
+    },
+    "title": {
+      "translate": "advancements.occultism.possess_endermite.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.possess_endermite.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "possess_endermite"
+    ]
+  ]
+}

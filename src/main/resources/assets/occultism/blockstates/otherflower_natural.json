@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "uncovered=false": {
+      "model": "occultism:otherflower_natural"
+    },
+    "uncovered=true": {
+      "model": "occultism:otherflower"
+    }
+  }
+}

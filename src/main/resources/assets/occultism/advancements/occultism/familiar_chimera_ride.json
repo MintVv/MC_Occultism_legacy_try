@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "chimera_ride": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "CHIMERA_RIDE"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_chimera"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.chimera_ride.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.chimera_ride.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "chimera_ride"
+    ]
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "check_decay=false,decayable=true,uncovered=false": { "model": "occultism:oak_leaves" },
+    "check_decay=true,decayable=true,uncovered=false": { "model": "occultism:oak_leaves" },
+    "check_decay=false,decayable=false,uncovered=false": { "model": "occultism:oak_leaves" },
+    "check_decay=true,decayable=false,uncovered=false": { "model": "occultism:oak_leaves" },
+    "check_decay=false,decayable=true,uncovered=true": { "model": "occultism:otherworld_leaves" },
+    "check_decay=true,decayable=true,uncovered=true": { "model": "occultism:otherworld_leaves" },
+    "check_decay=false,decayable=false,uncovered=true": { "model": "occultism:otherworld_leaves" },
+    "check_decay=true,decayable=false,uncovered=true": { "model": "occultism:otherworld_leaves" }
+  }
+}

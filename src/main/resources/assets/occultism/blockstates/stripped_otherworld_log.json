@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "occultism:stripped_otherworld_log"
+    },
+    "axis=z": {
+      "model": "occultism:stripped_otherworld_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "occultism:stripped_otherworld_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=none": {
+      "model": "occultism:stripped_otherworld_wood"
+    }
+  }
+}

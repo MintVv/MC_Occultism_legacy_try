@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:iesnium",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "occultism:raw_iesnium"
+    }
+  },
+  "result": {
+    "item": "occultism:raw_iesnium_block"
+  }
+}

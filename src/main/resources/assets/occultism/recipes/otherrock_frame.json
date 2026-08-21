@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:otherrock",
+  "pattern": [
+    "OOO",
+    "O O",
+    "OOO"
+  ],
+  "key": {
+    "O": {
+      "item": "occultism:otherrock"
+    }
+  },
+  "result": {
+    "item": "occultism:otherrock_frame"
+  }
+}

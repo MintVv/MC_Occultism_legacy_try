@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "greedy_item": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "GREEDY_ITEM"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_greedy"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.greedy_item.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.greedy_item.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "greedy_item"
+    ]
+  ]
+}

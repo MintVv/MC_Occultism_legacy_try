@@ -1,0 +1,6 @@
+﻿{
+  "variants": {
+    "half=bottom,variant=default": { "model": "occultism:polished_otherstone_slab" },
+    "half=top,variant=default": { "model": "occultism:polished_otherstone_slab_top" }
+  }
+}

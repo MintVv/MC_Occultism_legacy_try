@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:tools",
+  "pattern": [
+    " G ",
+    "XYX",
+    " G "
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "X": {
+      "item": "minecraft:glass"
+    },
+    "Y": {
+      "item": "occultism:spirit_attuned_gem"
+    }
+  },
+  "result": {
+    "item": "occultism:divination_rod"
+  }
+}

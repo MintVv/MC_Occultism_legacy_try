@@ -1,0 +1,1 @@
+{ "type": "minecraft:crafting_shapeless", "group": "occultism:otherstone", "ingredients": [ { "item": "occultism:otherstone" } ], "result": { "item": "occultism:otherstone_button" } }

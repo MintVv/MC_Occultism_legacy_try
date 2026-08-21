@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:ritual",
+  "pattern": [
+    "G G",
+    " G ",
+    "SSS"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "minecraft:stone",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "occultism:golden_sacrificial_bowl"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "devil_fire": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "DEVIL_FIRE"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_devil"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.devil_fire.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.devil_fire.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "devil_fire"
+    ]
+  ]
+}

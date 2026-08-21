@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "uncovered=false": {
+      "model": "occultism:otherglass_hidden"
+    },
+    "uncovered=true": {
+      "model": "occultism:end_stone"
+    }
+  }
+}

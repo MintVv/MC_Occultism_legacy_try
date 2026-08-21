@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "bat_eat": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "BAT_EAT"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_bat"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.bat_eat.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.bat_eat.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "bat_eat"
+    ]
+  ]
+}

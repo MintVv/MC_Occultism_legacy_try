@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "occultism:otherflower_dye",
+  "ingredients": [
+    { "item": "occultism:otherflower" },
+    { "item": "minecraft:dye", "data": 5 }
+  ],
+  "result": { "item": "minecraft:dye", "data": 5, "count": 4 }
+}

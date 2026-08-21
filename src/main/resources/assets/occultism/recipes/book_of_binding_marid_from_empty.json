@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:book_of_binding",
+  "pattern": [
+    " D ",
+    "DBD",
+    " D "
+  ],
+  "key": {
+    "B": {
+      "item": "occultism:book_of_binding_empty"
+    },
+    "D": {
+      "item": "minecraft:dye",
+      "data": 2
+    }
+  },
+  "result": {
+    "item": "occultism:book_of_binding_marid"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:otherworld",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "occultism:stripped_otherworld_log"
+    }
+  },
+  "result": {
+    "item": "occultism:stripped_otherworld_wood",
+    "count": 3
+  }
+}

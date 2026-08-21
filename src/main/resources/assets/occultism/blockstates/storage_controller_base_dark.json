@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "occultism:storage_controller_base_dark"
+    }
+  }
+}

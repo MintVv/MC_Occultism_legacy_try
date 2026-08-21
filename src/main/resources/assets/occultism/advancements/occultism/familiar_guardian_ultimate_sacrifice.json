@@ -1,0 +1,31 @@
+{
+  "parent": "occultism:occultism/root",
+  "criteria": {
+    "guardian_ultimate_sacrifice": {
+      "trigger": "occultism:familiar",
+      "conditions": {
+        "type": "GUARDIAN_ULTIMATE_SACRIFICE"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "item": "occultism:ritual_dummy/familiar_guardian"
+    },
+    "title": {
+      "translate": "advancements.occultism.familiar.guardian_ultimate_sacrifice.title"
+    },
+    "description": {
+      "translate": "advancements.occultism.familiar.guardian_ultimate_sacrifice.description"
+    },
+    "frame": "challenge",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "requirements": [
+    [
+      "guardian_ultimate_sacrifice"
+    ]
+  ]
+}

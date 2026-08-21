@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:iesnium",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "occultism:iesnium_nugget"
+    }
+  },
+  "result": {
+    "item": "occultism:iesnium_ingot"
+  }
+}

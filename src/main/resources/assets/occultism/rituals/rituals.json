@@ -1,0 +1,4433 @@
+[
+  {
+    "id": "summon_foliot_cleaner",
+    "display_name": "Summon Foliot Cleaner",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "entity_to_summon": "occultism:foliot",
+    "spirit_job_type": "occultism:cleaner",
+    "ingredients": [
+      "occultism:brush",
+      "minecraft:chest",
+      "minecraft:dispenser",
+      "minecraft:hopper"
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:book_of_calling_foliot_cleaner"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_foliot_cleaner"
+    }
+  },
+  {
+    "id": "summon_foliot_transport_items",
+    "display_name": "Summon Foliot Transporter",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "entity_to_summon": "occultism:foliot",
+    "spirit_job_type": "occultism:transport_items",
+    "ingredients": [
+      "minecraft:minecart",
+      "minecraft:chest",
+      "minecraft:dispenser",
+      "minecraft:hopper"
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:book_of_calling_foliot_transport_items"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_foliot_transport_items"
+    }
+  },
+  {
+    "id": "summon_foliot_farmer",
+    "display_name": "Summon Foliot Farmer",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "entity_to_summon": "occultism:foliot",
+    "spirit_job_type": "occultism:farmer",
+    "ingredients": [
+      "occultism:otherworld_ashes",
+      "minecraft:wheat",
+      "minecraft:carrot",
+      "minecraft:potato",
+      "minecraft:wooden_hoe"
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:book_of_calling_foliot_farmer"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_foliot_farmer"
+    }
+  },
+  {
+    "id": "summon_foliot_lumberjack",
+    "display_name": "Summon Foliot Lumberjack",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "entity_to_summon": "occultism:foliot",
+    "spirit_job_type": "occultism:lumberjack",
+    "ingredients": [
+      "occultism:otherworld_ashes",
+      {
+        "item": "minecraft:sapling",
+        "metadata": 0
+      },
+      {
+        "item": "minecraft:sapling",
+        "metadata": 2
+      },
+      {
+        "item": "minecraft:sapling",
+        "metadata": 1
+      },
+      "minecraft:wooden_axe"
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:book_of_calling_foliot_lumberjack"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_foliot_lumberjack"
+    }
+  },
+  {
+    "id": "summon_foliot_smelter",
+    "display_name": "Summon Foliot Smelter",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "entity_to_summon": "occultism:foliot",
+    "spirit_job_type": "occultism:smelt_tier1",
+    "ingredients": [
+      "#c:storage_blocks/coal",
+      "minecraft:furnace",
+      "occultism:tallow"
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:book_of_calling_foliot_smelter"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_foliot_smelter"
+    }
+  },
+  {
+    "id": "summon_foliot_crusher",
+    "display_name": "Summon Foliot Crusher",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "entity_to_summon": "occultism:foliot",
+    "spirit_job_type": "occultism:crush_tier1",
+    "ingredients": [
+      "minecraft:iron_ingot",
+      "minecraft:gold_ingot",
+      "occultism:silver_ingot",
+      "occultism:raw_silver"
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:book_of_calling_foliot_crusher"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_foliot_crusher"
+    }
+  },
+  {
+    "id": "summon_foliot_crystallizer",
+    "display_name": "Summon Foliot Crystallizer",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "entity_to_summon": "occultism:foliot",
+    "spirit_job_type": "occultism:crystal_tier1",
+    "ingredients": [
+      "occultism:infused_lenses",
+      "occultism:crushed_end_stone",
+      {
+        "item": "minecraft:dye",
+        "metadata": 4
+      },
+      "minecraft:emerald"
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:book_of_calling_foliot_crystallizer"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_foliot_crystallizer"
+    }
+  },
+  {
+    "id": "summon_foliot_otherstone_trader",
+    "display_name": "Summon Otherstone Trader",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "entity_to_summon": "occultism:foliot",
+    "spirit_job_type": "occultism:trader_otherstone",
+    "spirit_max_age": 3600,
+    "ingredients": [
+      {
+        "item": "minecraft:stone",
+        "metadata": 0
+      },
+      {
+        "item": "minecraft:stone",
+        "metadata": 1
+      },
+      {
+        "item": "minecraft:stone",
+        "metadata": 3
+      },
+      {
+        "item": "minecraft:stone",
+        "metadata": 5
+      }
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:book_of_calling_foliot_otherstone_trader"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_foliot_otherstone_trader"
+    }
+  },
+  {
+    "id": "summon_foliot_sapling_trader",
+    "display_name": "Summon Otherworld Sapling Trader",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "entity_to_summon": "occultism:foliot",
+    "spirit_job_type": "occultism:trader_otherworld_saplings",
+    "spirit_max_age": 3600,
+    "ingredients": [
+      {
+        "item": "minecraft:sapling",
+        "metadata": 0
+      },
+      {
+        "item": "minecraft:sapling",
+        "metadata": 2
+      },
+      {
+        "item": "minecraft:sapling",
+        "metadata": 1
+      },
+      {
+        "item": "minecraft:sapling",
+        "metadata": 3
+      }
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:book_of_calling_foliot_sapling_trader"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_foliot_sapling_trader"
+    }
+  },
+  {
+    "id": "summon_foliot_otherrock_trader",
+    "display_name": "Summon Otherrock Trader",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "entity_to_summon": "occultism:foliot",
+    "spirit_job_type": "occultism:trader_otherrock",
+    "spirit_max_age": 3600,
+    "ingredients": [
+      {
+        "item": "minecraft:stone",
+        "metadata": 0
+      },
+      {
+        "item": "minecraft:stone",
+        "metadata": 1
+      },
+      {
+        "item": "minecraft:stone",
+        "metadata": 3
+      },
+      "minecraft:magma"
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:book_of_calling_foliot_otherrock_trader"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_foliot_otherrock_trader"
+    }
+  },
+  {
+    "id": "summon_djinni_clear_weather",
+    "display_name": "Summoning of Clear Sky",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 800,
+    "spirit_job_type": "occultism:clear_weather",
+    "ingredients": [
+      "#c:crops/beetroot",
+      "#c:crops/carrot",
+      "#c:crops/potato",
+      "#c:crops/wheat"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_djinni_clear_weather"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_djinni_clear_weather"
+    }
+  },
+  {
+    "id": "summon_djinni_day_time",
+    "display_name": "Summoning of Dawn",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 800,
+    "spirit_job_type": "occultism:day_time",
+    "ingredients": [
+      "minecraft:torch",
+      "#minecraft:saplings",
+      "minecraft:wheat",
+      "#c:dyes/yellow"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_djinni_day_time"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_djinni_day_time"
+    }
+  },
+  {
+    "id": "summon_djinni_night_time",
+    "display_name": "Summoning of Dusk",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 800,
+    "spirit_job_type": "occultism:night_time",
+    "ingredients": [
+      "#c:gunpowders",
+      "minecraft:rotten_flesh",
+      "#c:bones",
+      "#c:dyes/black"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_djinni_night_time"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_djinni_night_time"
+    }
+  },
+  {
+    "id": "summon_djinni_crusher",
+    "display_name": "Summon Djinni Crusher",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1600,
+    "spirit_job_type": "occultism:crush_tier2",
+    "spirit_tier": "occultism:djinni",
+    "ingredients": [
+      "#c:dusts/iron",
+      "#c:dusts/gold",
+      "#c:dusts/copper",
+      "#c:dusts/silver"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:book_of_calling_djinni_crusher"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_djinni_crusher"
+    }
+  },
+  {
+    "id": "summon_djinni_crystallizer",
+    "display_name": "Summon Djinni Crystallizer",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1600,
+    "spirit_job_type": "occultism:crystal_tier2",
+    "spirit_tier": "occultism:djinni",
+    "ingredients": [
+      "occultism:gray_paste",
+      "#c:gems/lapis",
+      "#c:gems/amethyst",
+      "#c:gems/emerald"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:book_of_calling_djinni_crystallizer"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_djinni_crystallizer"
+    }
+  },
+  {
+    "id": "summon_djinni_smelter",
+    "display_name": "Summon Djinni Smelter",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1600,
+    "spirit_job_type": "occultism:smelt_tier2",
+    "spirit_tier": "occultism:djinni",
+    "ingredients": [
+      "minecraft:fire_charge",
+      "minecraft:furnace",
+      "minecraft:furnace",
+      "minecraft:flint_and_steel"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:book_of_calling_djinni_smelter"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_djinni_smelter"
+    }
+  },
+  {
+    "id": "summon_djinni_gambler",
+    "display_name": "Summon Djinni Gambler",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1600,
+    "spirit_job_type": "occultism:gambler",
+    "spirit_tier": "occultism:djinni",
+    "spirit_max_age": 1800,
+    "ingredients": [
+      "#c:gems/emerald",
+      "#c:storage_blocks/diamond",
+      "#c:ingots/gold",
+      "#c:storage_blocks/silver"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:book_of_calling_djinni_gambler"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_djinni_gambler"
+    }
+  },
+  {
+    "id": "summon_afrit_crusher",
+    "display_name": "Summon Afrit Crusher",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 2400,
+    "spirit_job_type": "occultism:crush_tier3",
+    "spirit_tier": "occultism:afrit",
+    "ingredients": [
+      "#c:dusts/iesnium",
+      "#c:dusts/emerald",
+      "#c:dusts/lapis",
+      "#c:dusts/amethyst",
+      "#c:dusts/obsidian"
+    ],
+    "pentacle_id": "occultism:summon_afrit",
+    "result": {
+      "id": "occultism:book_of_calling_afrit_crusher"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_afrit_crusher"
+    }
+  },
+  {
+    "id": "summon_afrit_crystallizer",
+    "display_name": "Summon Afrit Crystallizer",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 2400,
+    "spirit_job_type": "occultism:crystal_tier3",
+    "spirit_tier": "occultism:afrit",
+    "ingredients": [
+      "occultism:gray_paste",
+      "minecraft:lapis_block",
+      "occultism:amethyst_block",
+      "minecraft:quartz_block",
+      "minecraft:quartz_block"
+    ],
+    "pentacle_id": "occultism:summon_afrit",
+    "result": {
+      "id": "occultism:book_of_calling_afrit_crystallizer"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_afrit_crystallizer"
+    }
+  },
+  {
+    "id": "summon_afrit_smelter",
+    "display_name": "Summon Afrit Smelter",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 2400,
+    "spirit_job_type": "occultism:smelt_tier3",
+    "spirit_tier": "occultism:afrit",
+    "ingredients": [
+      "minecraft:blaze_rod",
+      "minecraft:lava_bucket",
+      "minecraft:magma",
+      "minecraft:nether_brick",
+      "minecraft:soul_sand"
+    ],
+    "pentacle_id": "occultism:summon_afrit",
+    "result": {
+      "id": "occultism:book_of_calling_afrit_smelter"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_afrit_smelter"
+    }
+  },
+  {
+    "id": "summon_marid_crusher",
+    "display_name": "Summon Marid Crusher",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 3200,
+    "spirit_job_type": "occultism:crush_tier4",
+    "spirit_tier": "occultism:marid",
+    "ingredients": [
+      "minecraft:diamond_block",
+      "occultism:iesnium_block",
+      "minecraft:emerald_block",
+      "#c:storage_blocks/netherite",
+      "minecraft:ghast_tear"
+    ],
+    "pentacle_id": "occultism:summon_marid",
+    "result": {
+      "id": "occultism:book_of_calling_marid_crusher"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_marid_crusher"
+    }
+  },
+  {
+    "id": "summon_marid_crystallizer",
+    "display_name": "Summon Marid Crystallizer",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 3200,
+    "spirit_job_type": "occultism:crystal_tier4",
+    "spirit_tier": "occultism:marid",
+    "ingredients": [
+      "occultism:gray_paste",
+      "occultism:iesnium_block",
+      "occultism:budding_amethyst",
+      "minecraft:sea_lantern",
+      "occultism:reinforced_deepslate"
+    ],
+    "pentacle_id": "occultism:summon_marid",
+    "result": {
+      "id": "occultism:book_of_calling_marid_crystallizer"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_marid_crystallizer"
+    }
+  },
+  {
+    "id": "summon_marid_smelter",
+    "display_name": "Summon Marid Smelter",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 3200,
+    "spirit_job_type": "occultism:smelt_tier4",
+    "spirit_tier": "occultism:marid",
+    "ingredients": [
+      "minecraft:dragon_breath",
+      "occultism:iesnium_block",
+      "minecraft:obsidian",
+      "minecraft:coal_block",
+      "minecraft:gold_block",
+      "minecraft:soul_sand"
+    ],
+    "pentacle_id": "occultism:summon_marid",
+    "result": {
+      "id": "occultism:book_of_calling_marid_smelter"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_marid_smelter"
+    }
+  },
+  {
+    "id": "summon_wondering_trader",
+    "display_name": "Summon Wondering Trader",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1600,
+    "entity_to_summon": "minecraft:villager",
+    "ingredients": [
+      "occultism:otherworld_essence",
+      "minecraft:emerald",
+      "occultism:otherworld_essence",
+      "minecraft:emerald"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_wondering_trader"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_wondering_trader"
+    }
+  },
+  {
+    "id": "summon_afrit_rain_weather",
+    "display_name": "Summoning of Rain",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1200,
+    "spirit_job_type": "occultism:rain_weather",
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.cows",
+      "tag": "c:cows"
+    },
+    "ingredients": [
+      "#c:sands",
+      "minecraft:reeds",
+      "minecraft:cactus",
+      "minecraft:deadbush"
+    ],
+    "pentacle_id": "occultism:summon_afrit",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_afrit_rain_weather"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_afrit_rain_weather"
+    }
+  },
+  {
+    "id": "summon_afrit_thunder_weather",
+    "display_name": "Summoning of Thunderstorm",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1200,
+    "spirit_job_type": "occultism:thunder_weather",
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.cows",
+      "tag": "c:cows"
+    },
+    "ingredients": [
+      "#c:bones",
+      "#c:gunpowders",
+      "#c:gunpowders",
+      "minecraft:ghast_tear"
+    ],
+    "pentacle_id": "occultism:summon_afrit",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_afrit_thunder_weather"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_afrit_thunder_weather"
+    }
+  },
+  {
+    "id": "possess_skeleton",
+    "display_name": "Possess Skeleton",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.chicken",
+      "tag": "c:chickens"
+    },
+    "entity_to_summon": "occultism:possessed_skeleton",
+    "ingredients": [
+      "#c:bones",
+      "#c:bones",
+      "#c:bones",
+      "#c:bones"
+    ],
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "minecraft:skull",
+      "metadata": 0
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_skeleton"
+    }
+  },
+  {
+    "id": "possess_endermite",
+    "display_name": "Possess Endermite",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 600,
+    "entity_to_summon": "occultism:possessed_endermite",
+    "ingredients": [
+      "minecraft:dirt",
+      "minecraft:stone",
+      "minecraft:dirt",
+      "minecraft:stone"
+    ],
+    "item_to_use": "#c:eggs",
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "minecraft:end_stone"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_endermite"
+    }
+  },
+  {
+    "id": "possess_witch",
+    "display_name": "Possess Witch",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 400,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.chicken",
+      "tag": "c:chickens"
+    },
+    "entity_to_summon": "minecraft:witch",
+    "ingredients": [
+      "minecraft:glass_bottle",
+      "minecraft:redstone",
+      "minecraft:brown_mushroom",
+      "minecraft:red_mushroom"
+    ],
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_witch"
+    }
+  },
+  {
+    "id": "possess_phantom",
+    "display_name": "Possess Phantom",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.flying_passive",
+      "tag": "occultism:flying_passive"
+    },
+    "entity_to_summon": "occultism:possessed_phantom",
+    "ingredients": [
+      "minecraft:leather",
+      "minecraft:feather",
+      "minecraft:leather",
+      "minecraft:feather"
+    ],
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:phantom_membrane"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_phantom"
+    }
+  },
+  {
+    "id": "possess_enderman",
+    "display_name": "Possess Enderman",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.pigs",
+      "tag": "c:pigs"
+    },
+    "entity_to_summon": "occultism:possessed_enderman",
+    "ingredients": [
+      "#c:bones",
+      "#c:strings",
+      "minecraft:end_stone",
+      "minecraft:rotten_flesh"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "minecraft:ender_pearl"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_enderman"
+    }
+  },
+  {
+    "id": "possess_blaze",
+    "display_name": "Possess Blaze",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 800,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.chicken",
+      "tag": "c:chickens"
+    },
+    "entity_to_summon": "minecraft:blaze",
+    "ingredients": [
+      "minecraft:fire_charge",
+      "minecraft:firework_charge",
+      "minecraft:torch",
+      "occultism:large_candle",
+      "#c:ingots/gold",
+      "#c:ingots/copper"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_blaze"
+    }
+  },
+  {
+    "id": "possess_ghast",
+    "display_name": "Possess Ghast",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.cows",
+      "tag": "c:cows"
+    },
+    "entity_to_summon": "occultism:possessed_ghast",
+    "ingredients": [
+      "minecraft:netherrack",
+      "minecraft:netherrack",
+      "minecraft:netherrack",
+      "minecraft:magma",
+      "minecraft:magma",
+      "minecraft:magma",
+      "minecraft:lava_bucket",
+      "minecraft:lava_bucket",
+      "minecraft:lava_bucket",
+      "#c:gems/diamond"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "minecraft:ghast_tear"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_ghast"
+    }
+  },
+  {
+    "id": "possess_unbound_parrot",
+    "display_name": "Possess Unbound Parrot",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 400,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.chicken",
+      "tag": "c:chickens"
+    },
+    "entity_to_summon": "minecraft:parrot",
+    "ingredients": [
+      "minecraft:feather",
+      {
+        "item": "minecraft:dye",
+        "metadata": 2
+      },
+      {
+        "item": "minecraft:dye",
+        "metadata": 11
+      },
+      {
+        "item": "minecraft:dye",
+        "metadata": 1
+      },
+      {
+        "item": "minecraft:dye",
+        "metadata": 4
+      }
+    ],
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_unbound_parrot"
+    }
+  },
+  {
+    "id": "possess_unbound_otherworld_bird",
+    "display_name": "Possess Unbound Otherworld Bird",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.parrots",
+      "tag": "c:parrots"
+    },
+    "entity_to_summon": "occultism:otherworld_bird",
+    "ingredients": [
+      "#c:feathers",
+      "#c:feathers",
+      "#minecraft:leaves",
+      "#c:eggs"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_unbound_otherworld_bird"
+    }
+  },
+  {
+    "id": "summon_wild_otherworld_bird",
+    "display_name": "Summon Wild Otherworld Bird",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.parrots",
+      "tag": "c:parrots"
+    },
+    "entity_to_summon": "occultism:otherworld_bird",
+    "ingredients": [
+      "#c:feathers",
+      "#c:feathers",
+      "minecraft:cobweb",
+      "#minecraft:leaves",
+      "#c:eggs"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_wild_otherworld_bird"
+    }
+  },
+  {
+    "id": "summon_wild_parrot",
+    "display_name": "Summon Wild Parrot",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.chicken",
+      "tag": "c:chickens"
+    },
+    "entity_to_summon": "minecraft:parrot",
+    "ingredients": [
+      "#c:feathers",
+      "#c:dyes/green",
+      "#c:dyes/yellow",
+      "#c:dyes/red",
+      "#c:dyes/blue",
+      "#c:eggs"
+    ],
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_wild_parrot"
+    }
+  },
+  {
+    "id": "familiar_parrot",
+    "display_name": "Parrot Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_with_chance_of_chicken_tamed",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 400,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.chicken",
+      "tag": "c:chickens"
+    },
+    "entity_to_summon": "minecraft:parrot",
+    "ingredients": [
+      "#c:feathers",
+      "#c:dyes/green",
+      "#c:dyes/yellow",
+      "#c:dyes/red",
+      "#c:dyes/blue",
+      "#c:strings"
+    ],
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_parrot"
+    }
+  },
+  {
+    "id": "familiar_bat",
+    "display_name": "Bat Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.bats",
+      "tag": "c:bats"
+    },
+    "entity_to_summon": "occultism:bat_familiar",
+    "ingredients": [
+      "minecraft:golden_carrot",
+      "minecraft:spider_eye",
+      "#c:dusts/glowstone",
+      "minecraft:lava_bucket",
+      "minecraft:torch"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_bat"
+    }
+  },
+  {
+    "id": "familiar_cthulhu",
+    "display_name": "Cthulhu Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.squid",
+      "tag": "c:squids"
+    },
+    "entity_to_summon": "occultism:cthulhu_familiar",
+    "ingredients": [
+      "#minecraft:fishes",
+      "#minecraft:fishes",
+      "#minecraft:fishes",
+      "#minecraft:fishes",
+      "#minecraft:fishes",
+      "#minecraft:fishes",
+      "#minecraft:fishes",
+      "#minecraft:fishes"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_cthulhu"
+    }
+  },
+  {
+    "id": "familiar_dragon",
+    "display_name": "Dragon Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.horses",
+      "tag": "c:horses"
+    },
+    "entity_to_summon": "occultism:dragon_familiar",
+    "ingredients": [
+      "minecraft:lava_bucket",
+      "minecraft:flint_and_steel",
+      "#c:storage_blocks/coal",
+      "#c:storage_blocks/quartz",
+      "#c:storage_blocks/gold",
+      "#c:gunpowders",
+      "#c:obsidians",
+      "#c:obsidians"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_dragon"
+    }
+  },
+  {
+    "id": "familiar_greedy",
+    "display_name": "Greedy Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.zombies",
+      "tag": "minecraft:zombies"
+    },
+    "entity_to_summon": "occultism:greedy_familiar",
+    "ingredients": [
+      "#c:chests",
+      "#c:storage_blocks/iron",
+      "minecraft:dispenser",
+      "minecraft:hopper"
+    ],
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_greedy"
+    }
+  },
+  {
+    "id": "familiar_deer",
+    "display_name": "Deer Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.cows",
+      "tag": "c:cows"
+    },
+    "entity_to_summon": "occultism:deer_familiar",
+    "ingredients": [
+      "#c:rods/wooden",
+      "#c:rods/wooden",
+      "#c:rods/wooden",
+      "#c:rods/wooden",
+      "#c:strings",
+      "#c:strings"
+    ],
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_deer"
+    }
+  },
+  {
+    "id": "familiar_beaver",
+    "display_name": "Beaver Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.pigs",
+      "tag": "c:pigs"
+    },
+    "entity_to_summon": "occultism:beaver_familiar",
+    "ingredients": [
+      "#minecraft:logs",
+      "#minecraft:logs",
+      "#minecraft:logs",
+      "#minecraft:logs"
+    ],
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_beaver"
+    }
+  },
+  {
+    "id": "familiar_mummy",
+    "display_name": "Mummy Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration": 60,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.llamas",
+      "tag": "c:llamas"
+    },
+    "entity_to_summon": "occultism:mummy_familiar",
+    "ingredients": [
+      "#c:slime_balls",
+      "#c:slime_balls",
+      "minecraft:paper",
+      "minecraft:paper",
+      "#minecraft:wool",
+      "#minecraft:wool",
+      "#minecraft:wool",
+      "#minecraft:wool"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_mummy"
+    }
+  },
+  {
+    "id": "familiar_devil",
+    "display_name": "Devil Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration": 60,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.horses",
+      "tag": "c:horses"
+    },
+    "entity_to_summon": "occultism:devil_familiar",
+    "ingredients": [
+      "#c:magma",
+      "#c:bones",
+      "#c:magma",
+      "#c:bones",
+      "minecraft:lava_bucket"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_devil"
+    }
+  },
+  {
+    "id": "familiar_guardian",
+    "display_name": "Guardian Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration": 90,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.humans",
+      "tag": "occultism:humans"
+    },
+    "entity_to_summon": "occultism:guardian_familiar",
+    "ingredients": [
+      "#c:gems/diamond",
+      "#c:gems/diamond",
+      "#c:gems/diamond",
+      "#c:gems/diamond",
+      "minecraft:golden_apple",
+      "minecraft:golden_apple"
+    ],
+    "pentacle_id": "occultism:possess_afrit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_guardian"
+    }
+  },
+  {
+    "id": "familiar_headless",
+    "display_name": "Headless Ratman Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration": 60,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.snow_golem",
+      "tag": "c:golems/snow"
+    },
+    "entity_to_summon": "occultism:headless_familiar",
+    "ingredients": [
+      "#c:crops/wheat",
+      "#c:crops/wheat",
+      "minecraft:hay_block",
+      "#c:rods/wooden",
+      "#c:rods/wooden",
+      "minecraft:pumpkin"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_headless"
+    }
+  },
+  {
+    "id": "summon_demonic_husband",
+    "display_name": "Summon Demonic Husband",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration": 80,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.chicken",
+      "tag": "c:chickens"
+    },
+    "entity_to_summon": "occultism:demonic_husband",
+    "ingredients": [
+      "#c:ingots/gold",
+      "#c:gems/emerald",
+      "#c:gunpowders",
+      "minecraft:porkchop",
+      "#minecraft:swords",
+      "minecraft:glass_bottle"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_demonic_husband"
+    }
+  },
+  {
+    "id": "summon_demonic_wife",
+    "display_name": "Summon Demonic Wife",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration": 80,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.chicken",
+      "tag": "c:chickens"
+    },
+    "entity_to_summon": "occultism:demonic_wife",
+    "ingredients": [
+      "#c:ingots/gold",
+      "#c:gems/diamond",
+      "#c:gunpowders",
+      "minecraft:porkchop",
+      "#minecraft:swords",
+      "minecraft:glass_bottle"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_demonic_wife"
+    }
+  },
+  {
+    "id": "familiar_otherworld_bird",
+    "display_name": "Otherworld Bird Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.parrots",
+      "tag": "c:parrots"
+    },
+    "entity_to_summon": "occultism:otherworld_bird",
+    "ingredients": [
+      "#c:feathers",
+      "#c:feathers",
+      "#c:eggs",
+      "#minecraft:leaves",
+      "#c:strings"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_otherworld_bird"
+    }
+  },
+  {
+    "id": "possess_weak_shulker",
+    "display_name": "Possess Weak Shulker",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.cubemob",
+      "tag": "occultism:cubemob"
+    },
+    "entity_to_summon": "occultism:possessed_weak_shulker",
+    "ingredients": [
+      "#c:ender_pearls",
+      {
+        "item": "minecraft:concrete",
+        "metadata": 10
+      },
+      "minecraft:end_stone",
+      {
+        "item": "minecraft:concrete",
+        "metadata": 2
+      }
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "minecraft:chorus_fruit"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_weak_shulker"
+    }
+  },
+  {
+    "id": "possess_shulker",
+    "display_name": "Possess Shulker",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.cubemob",
+      "tag": "occultism:cubemob"
+    },
+    "entity_to_summon": "occultism:possessed_shulker",
+    "ingredients": [
+      "minecraft:dragon_breath",
+      "minecraft:obsidian",
+      "minecraft:end_stone",
+      "minecraft:purple_glazed_terracotta"
+    ],
+    "pentacle_id": "occultism:possess_afrit",
+    "result": {
+      "id": "minecraft:shulker_shell"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_shulker"
+    }
+  },
+  {
+    "id": "possess_guardian",
+    "display_name": "Possess Guardian",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1000,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.fish",
+      "tag": "c:fish"
+    },
+    "entity_to_summon": "minecraft:guardian",
+    "ingredients": [
+      {
+        "item": "minecraft:dye",
+        "metadata": 0
+      },
+      "minecraft:waterlily",
+      "minecraft:lapis_block",
+      "minecraft:sea_lantern",
+      "minecraft:water_bucket"
+    ],
+    "pentacle_id": "occultism:possess_unbound_afrit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_guardian"
+    }
+  },
+  {
+    "id": "possess_elder_guardian",
+    "display_name": "Possess Elder Guardian",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1800,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.fish",
+      "tag": "c:fish"
+    },
+    "entity_to_summon": "occultism:possessed_elder_guardian",
+    "ingredients": [
+      "occultism:copper_block",
+      {
+        "item": "minecraft:prismarine",
+        "metadata": 0
+      },
+      {
+        "item": "minecraft:prismarine",
+        "metadata": 1
+      },
+      {
+        "item": "minecraft:prismarine",
+        "metadata": 2
+      },
+      {
+        "item": "minecraft:wool",
+        "metadata": 4
+      },
+      "minecraft:sea_lantern",
+      "minecraft:water_bucket",
+      "minecraft:water_bucket",
+      "minecraft:water_bucket",
+      "minecraft:emerald"
+    ],
+    "pentacle_id": "occultism:possess_afrit",
+    "result": {
+      "id": "occultism:nautilus_shell"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_elder_guardian"
+    }
+  },
+  {
+    "id": "possess_zombified_piglin",
+    "display_name": "Possess Zombie Pigman",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1000,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.pigs",
+      "tag": "c:pigs"
+    },
+    "entity_to_summon": "minecraft:zombie_pigman",
+    "ingredients": [
+      "minecraft:netherrack",
+      "minecraft:brown_mushroom",
+      "minecraft:red_mushroom",
+      "minecraft:quartz"
+    ],
+    "pentacle_id": "occultism:possess_unbound_afrit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_zombified_piglin"
+    }
+  },
+  {
+    "id": "possess_hoglin",
+    "display_name": "Possess Hoglin",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.pigs",
+      "tag": "c:pigs"
+    },
+    "entity_to_summon": "occultism:possessed_hoglin",
+    "ingredients": [
+      "occultism:netherite_scrap_dust",
+      "#c:leathers",
+      "#c:netherracks",
+      "#c:netherracks",
+      "minecraft:porkchop",
+      "minecraft:porkchop",
+      "minecraft:porkchop",
+      "occultism:spirit_attuned_crystal"
+    ],
+    "pentacle_id": "occultism:possess_afrit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_hoglin"
+    }
+  },
+  {
+    "id": "possess_goat",
+    "display_name": "Summon Goat of Mercy",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 1600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.horses",
+      "tag": "c:horses"
+    },
+    "entity_to_summon": "occultism:mercy_goat",
+    "ingredients": [
+      "minecraft:quartz",
+      "minecraft:quartz",
+      "minecraft:rabbit_foot",
+      "minecraft:rabbit_foot",
+      "minecraft:rabbit_foot",
+      "minecraft:rabbit_foot",
+      "minecraft:rabbit_hide",
+      "minecraft:rabbit_hide",
+      "minecraft:rabbit_hide",
+      "minecraft:rabbit_hide",
+      "#minecraft:wool",
+      "#minecraft:wool"
+    ],
+    "pentacle_id": "occultism:possess_marid",
+    "result": {
+      "id": "occultism:cruelty_essence"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_goat"
+    }
+  },
+  {
+    "id": "possess_bee",
+    "display_name": "Summon Possessed Bee",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 800,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.bees",
+      "tag": "c:bees"
+    },
+    "entity_to_summon": "occultism:possessed_bee",
+    "ingredients": [
+      "minecraft:sugar",
+      "minecraft:glass_bottle",
+      "minecraft:yellow_flower",
+      "occultism:bee_nest"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:cursed_honey"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_bee"
+    }
+  },
+  {
+    "id": "possess_iesnium_golem",
+    "display_name": "Possess Iesnium Golem",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 1600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.iron_golem",
+      "tag": "c:iron_golems"
+    },
+    "entity_to_summon": "minecraft:villager_golem",
+    "ingredients": [
+      "occultism:iesnium_block",
+      "occultism:iesnium_block",
+      "occultism:iesnium_block",
+      "occultism:marid_essence",
+      "occultism:spirit_attuned_crystal",
+      "minecraft:nether_star",
+      "occultism:soul_gem"
+    ],
+    "pentacle_id": "occultism:possess_marid",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_iesnium_golem"
+    }
+  },
+  {
+    "id": "possess_random_animal_common",
+    "display_name": "Possess Random Common Animal",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 200,
+    "entity_tag_to_summon": "occultism:random_animals_common",
+    "ingredients": [
+      "minecraft:wheat_seeds",
+      "minecraft:wheat_seeds",
+      "minecraft:wheat_seeds",
+      "minecraft:wheat_seeds",
+      "minecraft:wheat",
+      "minecraft:carrot",
+      "minecraft:potato",
+      "minecraft:beetroot"
+    ],
+    "item_to_use": "minecraft:egg",
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_random_animal_common"
+    }
+  },
+  {
+    "id": "possess_random_animal_rideable",
+    "display_name": "Possess Random Rideable Animal",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 400,
+    "entity_tag_to_summon": "occultism:random_animals_rideable",
+    "ingredients": [
+      "minecraft:hay_block",
+      "minecraft:hay_block",
+      "minecraft:apple",
+      "minecraft:golden_apple",
+      "minecraft:carrot",
+      "minecraft:golden_carrot",
+      "minecraft:cactus",
+      "minecraft:saddle"
+    ],
+    "item_to_use": "minecraft:experience_bottle",
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_random_animal_rideable"
+    }
+  },
+  {
+    "id": "possess_random_animal_small",
+    "display_name": "Possess Random Small Animal",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 200,
+    "entity_tag_to_summon": "occultism:random_animals_small",
+    "ingredients": [
+      "minecraft:feather",
+      "minecraft:feather",
+      "minecraft:string",
+      "minecraft:string",
+      "minecraft:iron_nugget",
+      "minecraft:iron_nugget",
+      "minecraft:sugar",
+      "minecraft:sugar"
+    ],
+    "item_to_use": "minecraft:egg",
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_random_animal_small"
+    }
+  },
+  {
+    "id": "possess_random_animal_special",
+    "display_name": "Possess Random Special Animal",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 400,
+    "entity_tag_to_summon": "occultism:random_animals_special",
+    "ingredients": [
+      "minecraft:wool",
+      "minecraft:wool",
+      "minecraft:red_mushroom",
+      "minecraft:brown_mushroom",
+      "minecraft:iron_block",
+      "minecraft:packed_ice",
+      "minecraft:hardened_clay",
+      "minecraft:pumpkin"
+    ],
+    "item_to_use": "minecraft:snowball",
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_random_animal_special"
+    }
+  },
+  {
+    "id": "possess_random_animal_water",
+    "display_name": "Possess Random Water Animal",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 200,
+    "entity_tag_to_summon": "occultism:random_animals_water",
+    "ingredients": [
+      "minecraft:water_bucket",
+      "minecraft:water_bucket",
+      "minecraft:clay_ball",
+      "minecraft:clay_ball",
+      "minecraft:fish",
+      "minecraft:fish",
+      "minecraft:snowball",
+      "minecraft:snowball"
+    ],
+    "item_to_use": "minecraft:snowball",
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_random_animal_water"
+    }
+  },
+  {
+    "id": "possess_villager",
+    "display_name": "Possess Villager",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 400,
+    "entity_tag_to_summon": "occultism:villagers",
+    "ingredients": [
+      "minecraft:bed",
+      "minecraft:furnace",
+      "minecraft:pumpkin_pie"
+    ],
+    "item_to_use": "minecraft:experience_bottle",
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_villager"
+    }
+  },
+  {
+    "id": "wild_random_animal_common",
+    "display_name": "Summon Wild Common Animals",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "occultism:spirit_attuned_gem",
+    "duration_ticks": 960,
+    "entity_tag_to_summon": "occultism:random_animals_common",
+    "summon_number": 7,
+    "ingredients": [
+      "minecraft:wheat_seeds",
+      "minecraft:wheat_seeds",
+      "minecraft:wheat_seeds",
+      "minecraft:wheat_seeds",
+      "minecraft:wheat",
+      "minecraft:carrot",
+      "minecraft:potato",
+      "minecraft:beetroot"
+    ],
+    "item_to_use": "minecraft:egg",
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_random_animal_common"
+    }
+  },
+  {
+    "id": "wild_random_animal_rideable",
+    "display_name": "Summon Wild Rideable Animals",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "occultism:spirit_attuned_gem",
+    "duration_ticks": 960,
+    "entity_tag_to_summon": "occultism:random_animals_rideable",
+    "summon_number": 3,
+    "ingredients": [
+      "minecraft:hay_block",
+      "minecraft:hay_block",
+      "minecraft:apple",
+      "minecraft:golden_apple",
+      "minecraft:carrot",
+      "minecraft:golden_carrot",
+      "minecraft:cactus",
+      "minecraft:saddle"
+    ],
+    "item_to_use": "minecraft:experience_bottle",
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_random_animal_rideable"
+    }
+  },
+  {
+    "id": "wild_random_animal_small",
+    "display_name": "Summon Wild Small Animals",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "occultism:spirit_attuned_gem",
+    "duration_ticks": 960,
+    "entity_tag_to_summon": "occultism:random_animals_small",
+    "summon_number": 7,
+    "ingredients": [
+      "minecraft:feather",
+      "minecraft:feather",
+      "minecraft:string",
+      "minecraft:string",
+      "minecraft:iron_nugget",
+      "minecraft:iron_nugget",
+      "minecraft:sugar",
+      "minecraft:sugar"
+    ],
+    "item_to_use": "minecraft:egg",
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_random_animal_small"
+    }
+  },
+  {
+    "id": "wild_random_animal_special",
+    "display_name": "Summon Wild Special Animals",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "occultism:spirit_attuned_gem",
+    "duration_ticks": 960,
+    "entity_tag_to_summon": "occultism:random_animals_special",
+    "summon_number": 3,
+    "ingredients": [
+      "minecraft:wool",
+      "minecraft:wool",
+      "minecraft:red_mushroom",
+      "minecraft:brown_mushroom",
+      "minecraft:iron_block",
+      "minecraft:packed_ice",
+      "minecraft:hardened_clay",
+      "minecraft:pumpkin"
+    ],
+    "item_to_use": "minecraft:snowball",
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_random_animal_special"
+    }
+  },
+  {
+    "id": "wild_random_animal_water",
+    "display_name": "Summon Wild Water Animals",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "occultism:spirit_attuned_gem",
+    "duration_ticks": 960,
+    "entity_tag_to_summon": "occultism:random_animals_water",
+    "summon_number": 7,
+    "ingredients": [
+      "minecraft:water_bucket",
+      "minecraft:water_bucket",
+      "minecraft:clay_ball",
+      "minecraft:clay_ball",
+      "minecraft:fish",
+      "minecraft:fish",
+      "minecraft:snowball",
+      "minecraft:snowball"
+    ],
+    "item_to_use": "minecraft:snowball",
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_random_animal_water"
+    }
+  },
+  {
+    "id": "wild_villager",
+    "display_name": "Summon Wild Villagers",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "occultism:spirit_attuned_gem",
+    "duration_ticks": 960,
+    "entity_tag_to_summon": "occultism:villagers",
+    "summon_number": 3,
+    "ingredients": [
+      "minecraft:bed",
+      "minecraft:furnace",
+      "minecraft:pumpkin_pie"
+    ],
+    "item_to_use": "minecraft:experience_bottle",
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_villager"
+    }
+  },
+  {
+    "id": "wild_creeper",
+    "display_name": "Summon Wild Creepers",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "minecraft:flint_and_steel",
+    "duration_ticks": 1920,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.pigs",
+      "tag": "c:pigs"
+    },
+    "entity_to_summon": "minecraft:creeper",
+    "summon_number": 5,
+    "ingredients": [
+      "minecraft:mossy_cobblestone",
+      "minecraft:tnt",
+      "minecraft:mossy_cobblestone",
+      {
+        "item": "minecraft:leaves",
+        "metadata": 32767
+      }
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_creeper"
+    }
+  },
+  {
+    "id": "summon_wild_afrit",
+    "display_name": "Summon Wild Afrit",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.cows",
+      "tag": "c:cows"
+    },
+    "entity_to_summon": "occultism:afrit_wild",
+    "ingredients": [
+      "#c:netherracks",
+      "#c:gems/quartz",
+      "minecraft:flint_and_steel",
+      "#c:gunpowders"
+    ],
+    "pentacle_id": "occultism:summon_wild_afrit",
+    "result": {
+      "id": "occultism:afrit_essence"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_wild_afrit"
+    }
+  },
+  {
+    "id": "summon_wild_hunt",
+    "display_name": "Summon Wild Hunt",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild_hunt",
+    "activation_item": {
+      "item": "minecraft:skull",
+      "metadata": 0
+    },
+    "duration_ticks": 600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.humans",
+      "tag": "occultism:humans"
+    },
+    "entity_to_summon": "occultism:wild_hunt_wither_skeleton",
+    "ingredients": [
+      "#c:storage_blocks/copper",
+      "#c:storage_blocks/silver",
+      "#c:storage_blocks/gold",
+      "#c:gems/diamond",
+      "minecraft:netherrack",
+      "minecraft:soul_sand"
+    ],
+    "pentacle_id": "occultism:summon_wild_greater_spirit",
+    "result": {
+      "id": "minecraft:skull",
+      "metadata": 1
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_wild_hunt"
+    }
+  },
+  {
+    "id": "wild_horde_illager",
+    "display_name": "Summon Wild Illager Horde",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "minecraft:golden_apple",
+    "duration_ticks": 1920,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.humans",
+      "tag": "occultism:humans"
+    },
+    "entity_to_summon": "minecraft:evocation_illager",
+    "summon_number": 1,
+    "ingredients": [
+      {
+        "item": "minecraft:log2",
+        "metadata": 1
+      },
+      {
+        "item": "minecraft:log2",
+        "metadata": 1
+      },
+      {
+        "item": "minecraft:log2",
+        "metadata": 1
+      },
+      "#c:dusts/emerald",
+      "#c:dusts/emerald",
+      "#c:dusts/emerald"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_horde_illager"
+    }
+  },
+  {
+    "id": "wild_husk",
+    "display_name": "Summon Wild Husks",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "#c:tools/pickaxes",
+    "duration_ticks": 1920,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.llamas",
+      "tag": "c:llamas"
+    },
+    "entity_to_summon": "minecraft:husk",
+    "summon_number": 5,
+    "ingredients": [
+      "minecraft:sandstone",
+      "minecraft:deadbush",
+      "minecraft:rotten_flesh",
+      "minecraft:gold_ingot"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_husk"
+    }
+  },
+  {
+    "id": "wild_parched",
+    "display_name": "Summon Wild Parched",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "#c:tools/pickaxes",
+    "duration_ticks": 1920,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.llamas",
+      "tag": "c:llamas"
+    },
+    "entity_to_summon": "minecraft:stray",
+    "summon_number": 5,
+    "ingredients": [
+      "minecraft:sandstone",
+      "minecraft:deadbush",
+      "minecraft:bone",
+      "minecraft:gold_ingot"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_parched"
+    }
+  },
+  {
+    "id": "wild_drowned",
+    "display_name": "Summon Wild Drowned",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "minecraft:fishing_rod",
+    "duration_ticks": 1920,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.fish",
+      "tag": "c:fish"
+    },
+    "entity_to_summon": "minecraft:zombie",
+    "summon_number": 5,
+    "ingredients": [
+      {
+        "item": "minecraft:fish",
+        "metadata": 3
+      },
+      "minecraft:gravel",
+      "minecraft:waterlily",
+      "minecraft:gravel"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_drowned"
+    }
+  },
+  {
+    "id": "wild_silverfish",
+    "display_name": "Summon Wild Silverfish",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_wild",
+    "activation_item": "occultism:brush",
+    "duration_ticks": 1920,
+    "entity_to_summon": "minecraft:silverfish",
+    "summon_number": 5,
+    "ingredients": [
+      "minecraft:sand",
+      "minecraft:hardened_clay",
+      "minecraft:gravel",
+      "minecraft:hardened_clay"
+    ],
+    "item_to_use": "#c:eggs",
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/wild_silverfish"
+    }
+  },
+  {
+    "id": "craft_miner_foliot_unspecialized",
+    "display_name": "Craft Foliot Miner",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_miner_spirit",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "occultism:magic_lamp_empty",
+      "minecraft:iron_pickaxe",
+      "minecraft:iron_ingot",
+      "minecraft:gravel"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:miner_foliot_unspecialized"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_miner_foliot_unspecialized"
+    }
+  },
+  {
+    "id": "craft_fragile_soul_gem",
+    "display_name": "Craft Fragile Soul Gem",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 600,
+    "ingredients": [
+      "minecraft:iron_ingot",
+      "minecraft:egg",
+      "minecraft:glass"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:fragile_soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_fragile_soul_gem"
+    }
+  },
+  {
+    "id": "craft_nature_paste",
+    "display_name": "Craft Nature Paste",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      {
+        "item": "minecraft:leaves",
+        "metadata": 0
+      },
+      {
+        "item": "minecraft:sapling",
+        "metadata": 0
+      },
+      "minecraft:wheat_seeds",
+      {
+        "item": "minecraft:leaves",
+        "metadata": 1
+      },
+      {
+        "item": "minecraft:sapling",
+        "metadata": 1
+      },
+      "minecraft:wheat_seeds",
+      {
+        "item": "minecraft:leaves",
+        "metadata": 2
+      },
+      {
+        "item": "minecraft:sapling",
+        "metadata": 2
+      },
+      "minecraft:wheat_seeds"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:nature_paste"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_nature_paste"
+    }
+  },
+  {
+    "id": "craft_research_fragment_dust",
+    "display_name": "Craft Research Fragment Dust",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "minecraft:redstone",
+      "minecraft:experience_bottle",
+      "minecraft:enchanted_book",
+      "minecraft:experience_bottle"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:research_fragment_dust"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_research_fragment_dust"
+    }
+  },
+  {
+    "id": "craft_satchel",
+    "display_name": "Craft Surprisingly Substantial Satchel",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_with_spirit_name",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "minecraft:chest",
+      "minecraft:leather",
+      "minecraft:leather",
+      "minecraft:string",
+      "occultism:silver_ingot"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:satchel"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_satchel"
+    }
+  },
+  {
+    "id": "craft_infused_lenses",
+    "display_name": "Craft Infused Lenses",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "occultism:lenses",
+      "occultism:silver_ingot",
+      "occultism:silver_ingot",
+      "minecraft:gold_ingot"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:infused_lenses"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_infused_lenses"
+    }
+  },
+  {
+    "id": "craft_knowledge_tablet",
+    "display_name": "Craft Knowledge Tablet",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_with_spirit_name",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "occultism:otherstone_tablet",
+      "occultism:research_fragment_dust",
+      "occultism:spirit_attuned_crystal",
+      "minecraft:ender_pearl"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:knowledge_tablet"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_knowledge_tablet"
+    }
+  },
+  {
+    "id": "craft_ritual_satchel_t1",
+    "display_name": "Craft Apprentice Ritual Satchel",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_with_spirit_name",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "minecraft:hopper",
+      "minecraft:dispenser",
+      {
+        "item": "minecraft:wool",
+        "metadata": 15
+      },
+      {
+        "item": "minecraft:wool",
+        "metadata": 15
+      },
+      "minecraft:leather",
+      "minecraft:leather",
+      "minecraft:string",
+      "occultism:silver_ingot"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:ritual_satchel_t1"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_ritual_satchel_t1"
+    }
+  },
+  {
+    "id": "craft_vitality_compass",
+    "display_name": "Craft Vitality Compass",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "minecraft:emerald",
+      "occultism:spirit_attuned_crystal",
+      "minecraft:compass",
+      "occultism:spirit_attuned_crystal"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:vitality_compass"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_vitality_compass"
+    }
+  },
+  {
+    "id": "craft_stable_wormhole",
+    "display_name": "Craft Stable Wormhole",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "occultism:otherstone_frame",
+      "minecraft:ender_pearl",
+      "minecraft:quartz",
+      "minecraft:quartz",
+      "minecraft:gold_ingot",
+      "minecraft:gold_ingot"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:stable_wormhole"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_stable_wormhole"
+    }
+  },
+  {
+    "id": "craft_stabilizer_tier1",
+    "display_name": "Craft Storage Stabilizer Tier 1",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "occultism:storage_stabilizer_tier0",
+      "#c:storage_blocks/copper",
+      "minecraft:blaze_powder",
+      "occultism:spirit_attuned_crystal"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:storage_stabilizer_tier1"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_stabilizer_tier1"
+    }
+  },
+  {
+    "id": "craft_storage_controller_base",
+    "display_name": "Craft Storage Actuator Base",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "occultism:otherstone_pedestal",
+      "#c:ingots/copper",
+      "#c:ingots/copper",
+      "minecraft:gold_ingot"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:storage_controller_base"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_storage_controller_base"
+    }
+  },
+  {
+    "id": "craft_stable_wormhole_dark",
+    "display_name": "Craft Dark Stable Wormhole",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "occultism:otherrock_frame",
+      "minecraft:ender_pearl",
+      "minecraft:quartz",
+      "minecraft:quartz",
+      "minecraft:gold_ingot",
+      "minecraft:gold_ingot"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:stable_wormhole_dark"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_stable_wormhole_dark"
+    }
+  },
+  {
+    "id": "craft_stabilizer_tier1_dark",
+    "display_name": "Craft Dark Storage Stabilizer Tier 1",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "occultism:storage_stabilizer_tier0_dark",
+      "#c:storage_blocks/copper",
+      "minecraft:blaze_powder",
+      "occultism:spirit_attuned_crystal"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:storage_stabilizer_tier1_dark"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_stabilizer_tier1_dark"
+    }
+  },
+  {
+    "id": "craft_storage_controller_base_dark",
+    "display_name": "Craft Dark Storage Actuator Base",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "occultism:otherrock_pedestal",
+      "#c:ingots/copper",
+      "#c:ingots/copper",
+      "minecraft:gold_ingot"
+    ],
+    "pentacle_id": "occultism:craft_foliot",
+    "result": {
+      "id": "occultism:storage_controller_base_dark"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_storage_controller_base_dark"
+    }
+  },
+  {
+    "id": "craft_stabilizer_tier2",
+    "display_name": "Craft Storage Stabilizer Tier 2",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "occultism:storage_stabilizer_tier1",
+      "#c:storage_blocks/silver",
+      "minecraft:ghast_tear",
+      "occultism:spirit_attuned_gem",
+      "occultism:spirit_attuned_gem"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:storage_stabilizer_tier2"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_stabilizer_tier2"
+    }
+  },
+  {
+    "id": "craft_stabilizer_tier2_dark",
+    "display_name": "Craft Dark Storage Stabilizer Tier 2",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "occultism:storage_stabilizer_tier1_dark",
+      "#c:storage_blocks/silver",
+      "minecraft:ghast_tear",
+      "occultism:spirit_attuned_gem",
+      "occultism:spirit_attuned_gem"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:storage_stabilizer_tier2_dark"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_stabilizer_tier2_dark"
+    }
+  },
+  {
+    "id": "craft_storage_remote",
+    "display_name": "Craft Storage Accessor",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_with_spirit_name",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "occultism:storage_remote_inert",
+      "#c:ender_pearls",
+      "#c:ender_pearls",
+      "#c:gems/quartz"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:storage_remote"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_storage_remote"
+    }
+  },
+  {
+    "id": "craft_soul_gem",
+    "display_name": "Craft Soul Gem",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:upgrade",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "occultism:fragile_soul_gem",
+      "#c:ingots/copper",
+      "#c:ingots/silver",
+      "#c:ingots/gold",
+      "#c:gems/diamond",
+      "#minecraft:soul_fire_base_blocks",
+      "#minecraft:soul_fire_base_blocks",
+      "#minecraft:soul_fire_base_blocks"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_soul_gem"
+    }
+  },
+  {
+    "id": "craft_infused_pickaxe",
+    "display_name": "Craft Infused Pickaxe",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_with_spirit_name",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "#c:rods/wooden",
+      "#c:rods/wooden",
+      "occultism:spirit_attuned_pickaxe_head",
+      "#c:ingots/silver",
+      "#c:ingots/silver"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:infused_pickaxe"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_infused_pickaxe"
+    }
+  },
+  {
+    "id": "craft_spirit_grindstone",
+    "display_name": "Craft Spirit Grindstone",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "minecraft:anvil",
+      "#c:glass_blocks",
+      "occultism:spirit_attuned_crystal",
+      "#c:gems/prismarine"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:spirit_grindstone"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_spirit_grindstone"
+    }
+  },
+  {
+    "id": "craft_ritual_satchel_t2",
+    "display_name": "Craft Artisanal Ritual Satchel",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_with_spirit_name",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 3600,
+    "ingredients": [
+      "minecraft:hopper",
+      "minecraft:dispenser",
+      {
+        "item": "minecraft:wool",
+        "metadata": 0
+      },
+      "#c:leathers",
+      "#c:strings",
+      "#c:ingots/silver",
+      "occultism:afrit_essence",
+      "#c:ender_pearls",
+      "#c:ender_pearls",
+      "#c:ender_pearls",
+      "#c:ender_pearls"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:ritual_satchel_t2"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_ritual_satchel_t2"
+    }
+  },
+  {
+    "id": "craft_upgrade_ritual_satchel",
+    "display_name": "Craft Artisanal Ritual Satchel",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:upgrade",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1800,
+    "ingredients": [
+      "occultism:ritual_satchel_t1",
+      "occultism:afrit_essence",
+      "#c:ender_pearls",
+      "#c:ender_pearls",
+      "#c:ender_pearls",
+      "#c:ender_pearls"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:ritual_satchel_t2"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_upgrade_ritual_satchel"
+    }
+  },
+  {
+    "id": "craft_stabilizer_tier3",
+    "display_name": "Craft Storage Stabilizer Tier 3",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 3600,
+    "ingredients": [
+      "occultism:storage_stabilizer_tier2",
+      "#c:storage_blocks/gold",
+      "minecraft:totem_of_undying",
+      "occultism:spirit_attuned_crystal",
+      "occultism:afrit_essence"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:storage_stabilizer_tier3"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_stabilizer_tier3"
+    }
+  },
+  {
+    "id": "craft_stabilizer_tier3_dark",
+    "display_name": "Craft Dark Storage Stabilizer Tier 3",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 3600,
+    "ingredients": [
+      "occultism:storage_stabilizer_tier2_dark",
+      "#c:storage_blocks/gold",
+      "minecraft:totem_of_undying",
+      "occultism:spirit_attuned_crystal",
+      "occultism:afrit_essence"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:storage_stabilizer_tier3_dark"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_stabilizer_tier3_dark"
+    }
+  },
+  {
+    "id": "craft_stabilizer_tier4",
+    "display_name": "Craft Storage Stabilizer Tier 4",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 4800,
+    "ingredients": [
+      "occultism:storage_stabilizer_tier3",
+      "#c:storage_blocks/iesnium",
+      "minecraft:beacon",
+      "occultism:spirit_attuned_crystal",
+      "occultism:spirit_attuned_crystal",
+      "occultism:marid_essence"
+    ],
+    "pentacle_id": "occultism:craft_marid",
+    "result": {
+      "id": "occultism:storage_stabilizer_tier4"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_stabilizer_tier4"
+    }
+  },
+  {
+    "id": "craft_stabilizer_tier4_dark",
+    "display_name": "Craft Dark Storage Stabilizer Tier 4",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 4800,
+    "ingredients": [
+      "occultism:storage_stabilizer_tier3_dark",
+      "#c:storage_blocks/iesnium",
+      "minecraft:beacon",
+      "occultism:spirit_attuned_crystal",
+      "occultism:spirit_attuned_crystal",
+      "occultism:marid_essence"
+    ],
+    "pentacle_id": "occultism:craft_marid",
+    "result": {
+      "id": "occultism:storage_stabilizer_tier4_dark"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_stabilizer_tier4_dark"
+    }
+  },
+  {
+    "id": "craft_dimensional_matrix",
+    "display_name": "Craft Dimensional Matrix",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_with_spirit_name",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "minecraft:quartz_block",
+      "minecraft:quartz_block",
+      "minecraft:quartz_block",
+      "#c:ender_pearls"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:dimensional_matrix"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_dimensional_matrix"
+    }
+  },
+  {
+    "id": "craft_dimensional_mineshaft",
+    "display_name": "Craft Dimensional Mineshaft",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      [
+        "occultism:otherstone",
+        "occultism:otherrock"
+      ],
+      [
+        "occultism:otherstone",
+        "occultism:otherrock"
+      ],
+      [
+        "occultism:otherstone",
+        "occultism:otherrock"
+      ],
+      [
+        "occultism:otherstone",
+        "occultism:otherrock"
+      ],
+      "#c:ingots/gold",
+      "#c:storage_blocks/iesnium",
+      "occultism:spirit_attuned_crystal"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:dimensional_mineshaft"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_dimensional_mineshaft"
+    }
+  },
+  {
+    "id": "craft_dimensional_extractor",
+    "display_name": "Craft Dimensional Extractor",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      [
+        "occultism:otherstone_pedestal",
+        "occultism:otherrock_pedestal"
+      ],
+      "minecraft:hopper",
+      "#c:storage_blocks/gold",
+      "occultism:spirit_attuned_crystal",
+      "#c:ingots/iesnium",
+      "#c:ingots/iesnium"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:dimensional_extractor"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_dimensional_extractor"
+    }
+  },
+  {
+    "id": "craft_entity_wormhole",
+    "display_name": "Craft Entity Wormhole",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "occultism:otherstone_frame",
+      "#c:ender_pearls",
+      "#c:obsidians/crying",
+      "#c:ingots/iesnium"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:entity_wormhole"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_entity_wormhole"
+    }
+  },
+  {
+    "id": "craft_entity_wormhole_dark",
+    "display_name": "Craft Dark Entity Wormhole",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "occultism:otherrock_frame",
+      "#c:ender_pearls",
+      "#c:obsidians/crying",
+      "#c:ingots/iesnium"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:entity_wormhole_dark"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_entity_wormhole_dark"
+    }
+  },
+  {
+    "id": "craft_gray_paste",
+    "display_name": "Craft Gray Paste",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "#c:gunpowders",
+      "minecraft:clay_ball",
+      "minecraft:feather",
+      "#c:dyes/gray"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:gray_paste"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_gray_paste"
+    }
+  },
+  {
+    "id": "craft_familiar_ring",
+    "display_name": "Craft Familiar Ring",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "occultism:soul_gem",
+      "#c:ingots/gold",
+      "#c:ingots/gold",
+      "#c:ingots/silver",
+      "#c:ingots/silver"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:familiar_ring"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_familiar_ring"
+    }
+  },
+  {
+    "id": "craft_ender_satchel",
+    "display_name": "Craft Ender Satchel",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_with_spirit_name",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "#c:chests/ender",
+      "#c:leathers",
+      "#c:leathers",
+      "#c:strings",
+      "#c:ingots/silver",
+      "#c:ingots/gold"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:ender_satchel"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_ender_satchel"
+    }
+  },
+  {
+    "id": "craft_witherite_dust",
+    "display_name": "Craft Witherite Dust",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 3600,
+    "ingredients": [
+      "#c:dusts/netherite",
+      {
+        "item": "minecraft:skull",
+        "metadata": 1
+      },
+      "#c:dusts/blackstone",
+      "minecraft:nether_star"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:witherite_dust",
+      "count": 3
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_witherite_dust"
+    }
+  },
+  {
+    "id": "craft_dragonyst_dust",
+    "display_name": "Craft Dragonyst Dust",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 4800,
+    "ingredients": [
+      "#c:dusts/amethyst",
+      "#c:dusts/amethyst",
+      "#c:dusts/end_stone",
+      "minecraft:end_crystal",
+      "minecraft:end_crystal",
+      "minecraft:end_crystal",
+      "minecraft:end_crystal",
+      "minecraft:dragon_breath",
+      "minecraft:dragon_breath",
+      "minecraft:dragon_breath"
+    ],
+    "pentacle_id": "occultism:craft_marid",
+    "result": {
+      "id": "occultism:dragonyst_dust"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_dragonyst_dust"
+    }
+  },
+  {
+    "id": "craft_true_sight_staff",
+    "display_name": "Craft True Sight Staff",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 4800,
+    "ingredients": [
+      "occultism:iesnium_ingot",
+      "occultism:iesnium_pickaxe",
+      "occultism:otherworld_goggles",
+      "occultism:divination_rod",
+      "occultism:otherworld_essence",
+      "occultism:marid_essence"
+    ],
+    "pentacle_id": "occultism:craft_marid",
+    "result": {
+      "id": "occultism:true_sight_staff"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_true_sight_staff"
+    }
+  },
+  {
+    "id": "craft_miner_djinni_ores",
+    "display_name": "Craft Djinni Ore Miner",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_miner_spirit",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 2400,
+    "ingredients": [
+      "occultism:miner_foliot_unspecialized",
+      "occultism:iesnium_pickaxe",
+      "#c:ingots/gold",
+      "#c:gems/lapis",
+      "occultism:spirit_attuned_crystal"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:miner_djinni_ores"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_miner_djinni_ores"
+    }
+  },
+  {
+    "id": "craft_miner_afrit_deeps",
+    "display_name": "Craft Afrit Deeps Miner",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_miner_spirit",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 3600,
+    "ingredients": [
+      "occultism:miner_djinni_ores",
+      "occultism:iesnium_pickaxe",
+      "occultism:spirit_attuned_crystal",
+      "occultism:afrit_essence",
+      "minecraft:ender_pearl",
+      "minecraft:obsidian"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:miner_afrit_deeps"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_miner_afrit_deeps"
+    }
+  },
+  {
+    "id": "craft_miner_marid_master",
+    "display_name": "Craft Marid Master Miner",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_miner_spirit",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 4800,
+    "ingredients": [
+      "occultism:miner_afrit_deeps",
+      "occultism:iesnium_pickaxe",
+      "occultism:spirit_attuned_crystal",
+      "minecraft:diamond_pickaxe",
+      "minecraft:dragon_breath",
+      "minecraft:totem_of_undying",
+      "minecraft:nether_star",
+      "occultism:marid_essence"
+    ],
+    "pentacle_id": "occultism:craft_marid",
+    "result": {
+      "id": "occultism:miner_marid_master"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_miner_marid_master"
+    }
+  },
+  {
+    "id": "craft_iesnium_sacrificial_bowl",
+    "display_name": "Craft Iesnium Ritual Bowl",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 3600,
+    "ingredients": [
+      "occultism:golden_sacrificial_bowl",
+      "occultism:research_fragment_dust",
+      "occultism:spirit_attuned_crystal",
+      "#c:storage_blocks/iesnium",
+      "occultism:afrit_essence"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:iesnium_sacrificial_bowl"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_iesnium_sacrificial_bowl"
+    }
+  },
+  {
+    "id": "craft_dark_iesnium_sacrificial_bowl",
+    "display_name": "Craft Dark Iesnium Ritual Bowl",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 3600,
+    "ingredients": [
+      "occultism:dark_golden_sacrificial_bowl",
+      "occultism:research_fragment_dust",
+      "occultism:spirit_attuned_crystal",
+      "#c:storage_blocks/iesnium",
+      "occultism:afrit_essence"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:dark_iesnium_sacrificial_bowl"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_dark_iesnium_sacrificial_bowl"
+    }
+  },
+  {
+    "id": "craft_iesnium_butcher_knife",
+    "display_name": "Craft Iesnium Butcher Knife",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_with_spirit_name",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 3600,
+    "ingredients": [
+      "occultism:butcher_knife",
+      "#c:ingots/iesnium",
+      "occultism:afrit_essence",
+      "#c:ingots/iesnium",
+      "#c:dusts/netherite"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:iesnium_butcher_knife"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_iesnium_butcher_knife"
+    }
+  },
+  {
+    "id": "craft_dimensional_battlefield",
+    "display_name": "Craft Dimensional Battlefield",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 3600,
+    "ingredients": [
+      [
+        "occultism:otherstone",
+        "occultism:otherrock"
+      ],
+      [
+        "occultism:otherstone",
+        "occultism:otherrock"
+      ],
+      [
+        "occultism:otherstone",
+        "occultism:otherrock"
+      ],
+      [
+        "occultism:otherstone",
+        "occultism:otherrock"
+      ],
+      "#c:ingots/netherite",
+      "#c:storage_blocks/iesnium",
+      "occultism:spirit_attuned_crystal",
+      "occultism:afrit_essence"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:dimensional_battlefield"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_dimensional_battlefield"
+    }
+  },
+  {
+    "id": "craft_iesnium_anvil",
+    "display_name": "Craft Iesnium Anvil",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 4800,
+    "ingredients": [
+      "minecraft:anvil",
+      "#c:storage_blocks/iesnium",
+      "#c:storage_blocks/iesnium",
+      "#c:storage_blocks/iesnium",
+      "occultism:marid_essence"
+    ],
+    "pentacle_id": "occultism:craft_marid",
+    "result": {
+      "id": "occultism:iesnium_anvil"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_iesnium_anvil"
+    }
+  },
+  {
+    "id": "misc_chalk_rainbow",
+    "display_name": "Forge Rainbow Chalk",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:brush",
+    "duration_ticks": 8240,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.sheep",
+      "tag": "c:sheep"
+    },
+    "ingredients": [
+      "occultism:chalk_red",
+      "occultism:chalk_brown",
+      "occultism:chalk_orange",
+      "occultism:chalk_yellow",
+      "occultism:chalk_lime",
+      "occultism:chalk_green",
+      "occultism:chalk_cyan",
+      "occultism:chalk_blue",
+      "occultism:chalk_light_blue",
+      "occultism:chalk_pink",
+      "occultism:chalk_magenta",
+      "occultism:chalk_purple"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:chalk_rainbow"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_chalk_rainbow"
+    }
+  },
+  {
+    "id": "misc_chalk_void",
+    "display_name": "Forge Void Chalk",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:brush",
+    "duration_ticks": 8240,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.squid",
+      "tag": "c:squids"
+    },
+    "ingredients": [
+      "occultism:chalk_white",
+      "occultism:chalk_light_gray",
+      "occultism:chalk_gray",
+      "occultism:chalk_black"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:chalk_void"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_chalk_void"
+    }
+  },
+  {
+    "id": "misc_trinity_gem",
+    "display_name": "Forge Trinity Gem",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:soul_gem",
+    "duration_ticks": 8240,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.humans",
+      "tag": "occultism:humans"
+    },
+    "ingredients": [
+      "occultism:afrit_essence",
+      "occultism:marid_essence",
+      "occultism:cruelty_essence",
+      "#c:dusts/echo",
+      "#c:dusts/dragonyst",
+      "#c:dusts/witherite",
+      "#c:dusts/iesnium",
+      "#c:dusts/iesnium",
+      "#c:dusts/iesnium"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:trinity_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_trinity_gem"
+    }
+  },
+  {
+    "id": "misc_stabilizer_tier5",
+    "display_name": "Forge Storage Stabilizer Tier 5",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:storage_stabilizer_tier4",
+    "duration_ticks": 8240,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.endermen",
+      "tag": "c:endermen"
+    },
+    "ingredients": [
+      "minecraft:noteblock",
+      "#c:storage_blocks/netherite",
+      "#c:obsidians/crying",
+      "#c:storage_blocks/iesnium",
+      "occultism:spirit_attuned_crystal",
+      "occultism:spirit_attuned_crystal",
+      "minecraft:golden_apple",
+      "#c:dusts/dragonyst"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:storage_stabilizer_tier5"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_stabilizer_tier5"
+    }
+  },
+  {
+    "id": "misc_stabilizer_tier5_dark",
+    "display_name": "Forge Dark Storage Stabilizer Tier 5",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:storage_stabilizer_tier4_dark",
+    "duration_ticks": 8240,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.endermen",
+      "tag": "c:endermen"
+    },
+    "ingredients": [
+      "minecraft:noteblock",
+      "#c:storage_blocks/netherite",
+      "#c:obsidians/crying",
+      "#c:storage_blocks/iesnium",
+      "occultism:spirit_attuned_crystal",
+      "occultism:spirit_attuned_crystal",
+      "minecraft:golden_apple",
+      "#c:dusts/dragonyst"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:storage_stabilizer_tier5_dark"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_stabilizer_tier5_dark"
+    }
+  },
+  {
+    "id": "misc_stabilized_storage",
+    "display_name": "Forge Stabilized Dimensional Storage Actuator",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:upgrade",
+    "activation_item": "minecraft:noteblock",
+    "duration_ticks": 8240,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.shulker",
+      "tag": "c:shulkers"
+    },
+    "ingredients": [
+      "occultism:storage_controller",
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      "#c:dusts/echo",
+      "#c:dusts/echo"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:storage_controller_stabilized"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_stabilized_storage"
+    }
+  },
+  {
+    "id": "misc_stabilized_storage_dark",
+    "display_name": "Forge Dark Stabilized Dimensional Storage Actuator",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:upgrade",
+    "activation_item": "minecraft:noteblock",
+    "duration_ticks": 8240,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.shulker",
+      "tag": "c:shulkers"
+    },
+    "ingredients": [
+      "occultism:storage_controller_dark",
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      [
+        "occultism:storage_stabilizer_tier5",
+        "occultism:storage_stabilizer_tier5_dark"
+      ],
+      "#c:dusts/echo",
+      "#c:dusts/echo"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:storage_controller_stabilized_dark"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_stabilized_storage_dark"
+    }
+  },
+  {
+    "id": "summon_djinni_prototype",
+    "display_name": "Summon Djinni Prototype",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1000,
+    "spirit_tier": "occultism:djinni",
+    "ingredients": [
+      "occultism:silver_ingot",
+      "occultism:gold_dust"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_djinni_prototype"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_djinni_prototype"
+    }
+  },
+  {
+    "id": "possess_djinni_prototype",
+    "display_name": "Possess Djinni Prototype",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "ingredients": [
+      "minecraft:ender_pearl",
+      "occultism:silver_dust"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:lenses"
+    }
+  },
+  {
+    "id": "summon_unbound_afrit",
+    "display_name": "Summon Unbound Afrit",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration": 100,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.cows",
+      "tag": "c:cows"
+    },
+    "spirit_tier": "occultism:afrit",
+    "ingredients": [
+      "#c:netherracks",
+      "#c:ingots/iesnium",
+      "minecraft:flint_and_steel",
+      "#c:gunpowders"
+    ],
+    "pentacle_id": "occultism:summon_unbound_afrit",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_unbound_afrit"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_unbound_afrit"
+    }
+  },
+  {
+    "id": "summon_unbound_afrit_prototype",
+    "display_name": "Summon Unbound Afrit Prototype",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1200,
+    "spirit_tier": "occultism:afrit",
+    "ingredients": [
+      "minecraft:blaze_powder",
+      "occultism:tallow"
+    ],
+    "pentacle_id": "occultism:summon_unbound_afrit",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_unbound_afrit_prototype"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_unbound_afrit_prototype"
+    }
+  },
+  {
+    "id": "summon_unbound_marid",
+    "display_name": "Summon Unbound Marid",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 1400,
+    "spirit_tier": "occultism:marid",
+    "ingredients": [
+      "minecraft:sea_lantern",
+      "minecraft:prismarine_crystals",
+      "minecraft:prismarine_shard",
+      "minecraft:ghast_tear"
+    ],
+    "item_to_use": "minecraft:ender_eye",
+    "pentacle_id": "occultism:summon_unbound_marid",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_unbound_marid"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_unbound_marid"
+    }
+  },
+  {
+    "id": "summon_afrit_prototype",
+    "display_name": "Summon Afrit Prototype",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_afrit",
+    "duration_ticks": 1200,
+    "spirit_tier": "occultism:afrit",
+    "ingredients": [
+      "occultism:afrit_essence",
+      "occultism:gold_dust"
+    ],
+    "pentacle_id": "occultism:summon_afrit",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_afrit_prototype"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_afrit_prototype"
+    }
+  },
+  {
+    "id": "summon_marid_prototype",
+    "display_name": "Summon Marid Prototype",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_marid",
+    "duration_ticks": 1600,
+    "spirit_tier": "occultism:marid",
+    "ingredients": [
+      "occultism:marid_essence",
+      "occultism:dragonyst_dust",
+      "minecraft:end_crystal",
+      "occultism:amethyst_dust"
+    ],
+    "pentacle_id": "occultism:summon_marid",
+    "result": {
+      "id": "occultism:ritual_dummy/summon_marid_prototype"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_marid_prototype"
+    }
+  },
+  {
+    "id": "possess_unbound_afrit_prototype",
+    "display_name": "Possess Unbound Afrit Prototype",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1000,
+    "ingredients": [
+      "minecraft:blaze_rod",
+      "occultism:obsidian_dust"
+    ],
+    "pentacle_id": "occultism:possess_unbound_afrit",
+    "result": {
+      "id": "occultism:burnt_otherstone"
+    }
+  },
+  {
+    "id": "possess_afrit_prototype",
+    "display_name": "Possess Afrit Prototype",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1000,
+    "ingredients": [
+      "occultism:afrit_essence",
+      "occultism:obsidian_dust"
+    ],
+    "pentacle_id": "occultism:possess_afrit",
+    "result": {
+      "id": "occultism:iesnium_nugget",
+      "count": 4
+    }
+  },
+  {
+    "id": "craft_afrit_prototype",
+    "display_name": "Craft Afrit Prototype",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1400,
+    "ingredients": [
+      "occultism:raw_iesnium",
+      "occultism:afrit_essence",
+      "occultism:obsidian_dust"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:iesnium_ingot"
+    }
+  },
+  {
+    "id": "resurrect_familiar",
+    "display_name": "Resurrect Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:resurrect_familiar",
+    "activation_item": "occultism:soul_shard",
+    "duration": 15,
+    "ingredients": [
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence"
+    ],
+    "pentacle_id": "occultism:summon_foliot",
+    "result": {
+      "id": "occultism:ritual_dummy/resurrect_familiar"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/resurrect_familiar"
+    }
+  },
+  {
+    "id": "resurrect_allay",
+    "display_name": "Purify Vex to Allay",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "minecraft:sugar",
+    "duration": 20,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.vex",
+      "tag": "c:vex"
+    },
+    "entity_to_summon": "occultism:purified_allay",
+    "ingredients": [
+      "minecraft:redstone",
+      "minecraft:glowstone_dust",
+      "occultism:silver_dust",
+      "occultism:gold_dust"
+    ],
+    "pentacle_id": "occultism:resurrect_spirit",
+    "result": {
+      "id": "occultism:ritual_dummy/resurrect_allay"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/resurrect_allay"
+    }
+  },
+  {
+    "id": "resurrect_mob",
+    "display_name": "Resurrect Mob",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:resurrect",
+    "activation_item": "occultism:soul_shattered",
+    "duration": 55,
+    "ingredients": [
+      "occultism:spirit_attuned_crystal",
+      "occultism:otherworld_essence",
+      "occultism:tallow",
+      "occultism:tallow",
+      "occultism:tallow",
+      "occultism:tallow",
+      "occultism:tallow",
+      "occultism:tallow",
+      "occultism:tallow",
+      "occultism:tallow",
+      "occultism:tallow",
+      "minecraft:ghast_tear"
+    ],
+    "pentacle_id": "occultism:resurrect_spirit",
+    "result": {
+      "id": "occultism:ritual_dummy/resurrect_mob"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/resurrect_mob"
+    }
+  },
+  {
+    "id": "contact_wild_spirit_prototype",
+    "display_name": "Contact Wild Spirit Prototype",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:contact",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 800,
+    "ingredients": [
+      "minecraft:feather",
+      "occultism:otherworld_ashes"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:awakened_feather"
+    }
+  },
+  {
+    "id": "contact_eldritch_spirit_prototype",
+    "display_name": "Contact Eldritch Spirit Prototype",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:contact",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 1200,
+    "ingredients": [
+      "occultism:purified_ink",
+      "occultism:awakened_feather",
+      "occultism:soul_gem"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:taboo_book"
+    }
+  },
+  {
+    "id": "misc_miner_ancient_eldritch",
+    "display_name": "Infuse Eldritch Ancient Miner",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft_miner_spirit",
+    "activation_item": "occultism:mining_dim_core",
+    "duration_ticks": 8240,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.creeper",
+      "tag": "occultism:creepers"
+    },
+    "ingredients": [
+      "occultism:miner_marid_master",
+      "occultism:miner_marid_master",
+      "occultism:miner_marid_master",
+      "occultism:miner_marid_master",
+      "occultism:miner_marid_master",
+      "occultism:miner_marid_master",
+      "occultism:miner_marid_master",
+      "occultism:miner_marid_master"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:miner_ancient_eldritch"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_miner_ancient_eldritch"
+    }
+  },
+  {
+    "id": "misc_iron_horse_armor",
+    "display_name": "Forge Iron Horse Armor",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "minecraft:saddle",
+    "duration_ticks": 4120,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.armadillos",
+      "tag": "c:armadillos"
+    },
+    "ingredients": [
+      "#c:ingots/iron",
+      "#c:ingots/iron",
+      "#c:ingots/iron",
+      "#c:ingots/iron"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "minecraft:iron_horse_armor"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_iron_horse_armor"
+    }
+  },
+  {
+    "id": "misc_golden_horse_armor",
+    "display_name": "Forge Golden Horse Armor",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "minecraft:saddle",
+    "duration_ticks": 4120,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.armadillos",
+      "tag": "c:armadillos"
+    },
+    "ingredients": [
+      "#c:ingots/gold",
+      "#c:ingots/gold",
+      "#c:ingots/gold",
+      "#c:ingots/gold"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "minecraft:golden_horse_armor"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_golden_horse_armor"
+    }
+  },
+  {
+    "id": "misc_diamond_horse_armor",
+    "display_name": "Forge Diamond Horse Armor",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "minecraft:saddle",
+    "duration_ticks": 4120,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.armadillos",
+      "tag": "c:armadillos"
+    },
+    "ingredients": [
+      "#c:gems/diamond",
+      "#c:gems/diamond",
+      "#c:gems/diamond",
+      "#c:gems/diamond"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "minecraft:diamond_horse_armor"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_diamond_horse_armor"
+    }
+  },
+  {
+    "id": "misc_copper_horse_armor",
+    "display_name": "Forge Copper Horse Armor",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "minecraft:saddle",
+    "duration_ticks": 4120,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.armadillos",
+      "tag": "c:armadillos"
+    },
+    "ingredients": [
+      "#c:ingots/copper",
+      "#c:ingots/copper",
+      "#c:ingots/copper",
+      "#c:ingots/copper"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:copper_horse_armor"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_copper_horse_armor"
+    }
+  },
+  {
+    "id": "misc_bee_nest",
+    "display_name": "Forge Bee Nest",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:upgrade",
+    "activation_item": "minecraft:chest",
+    "duration_ticks": 4120,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.bees",
+      "tag": "c:bees"
+    },
+    "ingredients": [
+      "minecraft:planks",
+      "minecraft:wheat",
+      "minecraft:wheat",
+      "minecraft:yellow_flower"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:bee_nest"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_bee_nest"
+    }
+  },
+  {
+    "id": "misc_bell",
+    "display_name": "Forge Bell",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "#c:storage_blocks/gold",
+    "duration_ticks": 4120,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.goats",
+      "tag": "c:goats"
+    },
+    "ingredients": [
+      "#c:nuggets/gold",
+      "minecraft:iron_bars",
+      "#c:stones",
+      "#c:stones",
+      "#minecraft:logs"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:bell"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_bell"
+    }
+  },
+  {
+    "id": "misc_budding_amethyst",
+    "display_name": "Forge Budding Amethyst",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:amethyst_block",
+    "duration_ticks": 4120,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.pigs",
+      "tag": "c:pigs"
+    },
+    "ingredients": [
+      "#c:dusts/amethyst",
+      "#c:dusts/amethyst",
+      "#c:dusts/amethyst",
+      "#c:dusts/amethyst",
+      "#c:dusts/amethyst",
+      "#c:dusts/amethyst"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:budding_amethyst"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_budding_amethyst"
+    }
+  },
+  {
+    "id": "misc_reinforced_deepslate",
+    "display_name": "Forge Reinforced Deepslate",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "minecraft:stone",
+    "duration_ticks": 4120,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.warden",
+      "tag": "c:wardens"
+    },
+    "ingredients": [
+      "minecraft:iron_bars",
+      "minecraft:iron_bars",
+      "minecraft:iron_bars",
+      "minecraft:iron_bars",
+      "#c:obsidians",
+      "#c:obsidians",
+      "#c:obsidians",
+      "#c:obsidians",
+      "#c:ingots/iesnium"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:reinforced_deepslate"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_reinforced_deepslate"
+    }
+  },
+  {
+    "id": "misc_wild_trim",
+    "display_name": "Forge Wild Trim",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "minecraft:diamond_block",
+    "duration_ticks": 4120,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.llamas",
+      "tag": "c:llamas"
+    },
+    "ingredients": [
+      "minecraft:mossy_cobblestone",
+      {
+        "item": "minecraft:sapling",
+        "metadata": 3
+      },
+      "minecraft:reeds",
+      "minecraft:speckled_melon",
+      "minecraft:mossy_cobblestone",
+      {
+        "item": "minecraft:sapling",
+        "metadata": 3
+      },
+      "minecraft:reeds",
+      "minecraft:speckled_melon",
+      "minecraft:mossy_cobblestone",
+      {
+        "item": "minecraft:sapling",
+        "metadata": 3
+      },
+      "minecraft:reeds",
+      "minecraft:speckled_melon"
+    ],
+    "pentacle_id": "occultism:contact_wild_spirit",
+    "result": {
+      "id": "occultism:wild_trim"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_wild_trim"
+    }
+  },
+  {
+    "id": "misc_celestial_chalice",
+    "display_name": "Forge Celestial Chalice",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:iesnium_sacrificial_bowl",
+    "duration_ticks": 8240,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.ravager",
+      "tag": "c:ravagers"
+    },
+    "ingredients": [
+      "minecraft:nether_star",
+      "occultism:bell",
+      "minecraft:glowstone",
+      "minecraft:chorus_flower",
+      "#c:storage_blocks/netherite",
+      "minecraft:sponge",
+      "occultism:reinforced_deepslate",
+      "minecraft:obsidian",
+      "#c:storage_blocks/iesnium",
+      "minecraft:end_bricks",
+      "minecraft:ender_eye",
+      "occultism:budding_amethyst"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:celestial_chalice"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_celestial_chalice"
+    }
+  },
+  {
+    "id": "misc_eldritch_chalice",
+    "display_name": "Forge Eldritch Chalice",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:craft",
+    "activation_item": "occultism:dark_iesnium_sacrificial_bowl",
+    "duration_ticks": 8240,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.ravager",
+      "tag": "c:ravagers"
+    },
+    "ingredients": [
+      "minecraft:nether_star",
+      "occultism:bell",
+      "minecraft:glowstone",
+      "minecraft:chorus_flower",
+      "#c:storage_blocks/netherite",
+      "minecraft:sponge",
+      "occultism:reinforced_deepslate",
+      "minecraft:obsidian",
+      "#c:storage_blocks/iesnium",
+      "minecraft:end_bricks",
+      "minecraft:ender_eye",
+      "occultism:budding_amethyst"
+    ],
+    "pentacle_id": "occultism:contact_eldritch_spirit",
+    "result": {
+      "id": "occultism:eldritch_chalice"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/misc_eldritch_chalice"
+    }
+  },
+  {
+    "id": "repair_tools",
+    "display_name": "Repair Tools",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:repair",
+    "activation_item": "#c:tools",
+    "duration_ticks": 300,
+    "ingredients": [
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence",
+      "occultism:spirit_attuned_gem"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:repair_icon"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/repair_tools"
+    }
+  },
+  {
+    "id": "repair_armors",
+    "display_name": "Repair Armors",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:repair",
+    "activation_item": "#c:armors",
+    "duration_ticks": 300,
+    "ingredients": [
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence",
+      "occultism:spirit_attuned_gem"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:repair_icon"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/repair_armors"
+    }
+  },
+  {
+    "id": "repair_chalks",
+    "display_name": "Repair Chalks",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:repair",
+    "activation_item": "#occultism:tools/chalk",
+    "duration_ticks": 200,
+    "ingredients": [
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence",
+      "occultism:spirit_attuned_gem"
+    ],
+    "pentacle_id": "occultism:craft_djinni",
+    "result": {
+      "id": "occultism:repair_icon"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/repair_chalks"
+    }
+  },
+  {
+    "id": "repair_miners",
+    "display_name": "Repair Miners",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:repair",
+    "activation_item": "#occultism:miners",
+    "duration_ticks": 300,
+    "ingredients": [
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence",
+      "occultism:otherworld_essence",
+      "occultism:spirit_attuned_gem"
+    ],
+    "pentacle_id": "occultism:craft_afrit",
+    "result": {
+      "id": "occultism:repair_icon"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/repair_miners"
+    }
+  },
+  {
+    "id": "familiar_blacksmith",
+    "display_name": "Blacksmith Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_foliot",
+    "duration_ticks": 600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.zombies",
+      "tag": "minecraft:zombies"
+    },
+    "entity_to_summon": "occultism:blacksmith_familiar",
+    "ingredients": [
+      "minecraft:iron_shovel",
+      "minecraft:iron_pickaxe",
+      "minecraft:iron_axe",
+      "minecraft:anvil",
+      "#c:stones",
+      "#c:stones",
+      "#c:stones",
+      "#c:stones"
+    ],
+    "pentacle_id": "occultism:possess_foliot",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_blacksmith"
+    }
+  },
+  {
+    "id": "familiar_fairy",
+    "display_name": "Fairy Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.horses",
+      "tag": "c:horses"
+    },
+    "entity_to_summon": "occultism:fairy_familiar",
+    "ingredients": [
+      "minecraft:golden_apple",
+      "minecraft:golden_apple",
+      "minecraft:ghast_tear",
+      "minecraft:gunpowder",
+      "minecraft:gunpowder",
+      "minecraft:gunpowder",
+      "minecraft:dragon_breath"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_fairy"
+    }
+  },
+  {
+    "id": "familiar_beholder",
+    "display_name": "Beholder Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 600,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.spiders",
+      "tag": "c:spiders"
+    },
+    "entity_to_summon": "occultism:beholder_familiar",
+    "ingredients": [
+      "minecraft:spider_eye",
+      "minecraft:spider_eye",
+      "minecraft:spider_eye",
+      "minecraft:spider_eye",
+      "#c:dusts/glowstone",
+      "#c:dusts/glowstone",
+      "#c:dusts/glowstone",
+      "#c:dusts/glowstone"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_beholder"
+    }
+  },
+  {
+    "id": "familiar_chimera",
+    "display_name": "Chimera Familiar",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_tamed",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.sheep",
+      "tag": "c:sheep"
+    },
+    "entity_to_summon": "occultism:chimera_familiar",
+    "ingredients": [
+      "#c:leathers",
+      "#c:strings",
+      "#c:feathers",
+      "#minecraft:wool",
+      "#c:bones",
+      "minecraft:mutton",
+      "minecraft:beef",
+      "minecraft:porkchop",
+      "minecraft:chicken"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:soul_gem"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/familiar_chimera"
+    }
+  },
+  {
+    "id": "summon_djinni_manage_machine",
+    "display_name": "Summon Djinni Machine Operator",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon_spirit_with_job",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "spirit_max_age": -1,
+    "entity_to_summon": "occultism:foliot_job",
+    "spirit_job_type": "occultism:manage_machine",
+    "spirit_tier": "occultism:djinni",
+    "ingredients": [
+      "#c:storage_blocks/coal",
+      "minecraft:gold_ingot",
+      "minecraft:iron_ingot",
+      "minecraft:furnace"
+    ],
+    "pentacle_id": "occultism:summon_djinni",
+    "result": {
+      "id": "occultism:book_of_calling_djinni_manage_machine"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/summon_djinni_manage_machine"
+    }
+  },
+  {
+    "id": "possess_warden",
+    "display_name": "Possess Warden",
+    "type": "occultism:ritual",
+    "ritual_type": "occultism:summon",
+    "activation_item": "occultism:book_of_binding_bound_djinni",
+    "duration_ticks": 1200,
+    "entity_to_sacrifice": {
+      "display_name": "ritual.occultism.sacrifice.warden",
+      "tag": "occultism:warden_sacrifice"
+    },
+    "entity_to_summon": "occultism:possessed_warden",
+    "ingredients": [
+      "occultism:echo_dust",
+      "occultism:echo_dust",
+      "occultism:echo_dust",
+      "minecraft:redstone",
+      "minecraft:redstone",
+      "minecraft:redstone",
+      "minecraft:obsidian",
+      "minecraft:obsidian",
+      "minecraft:obsidian",
+      "minecraft:obsidian",
+      "minecraft:obsidian",
+      "minecraft:obsidian"
+    ],
+    "pentacle_id": "occultism:possess_djinni",
+    "result": {
+      "id": "occultism:echo_dust"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_warden"
+    }
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "occultism:datura",
+  "ingredients": [
+    {
+      "item": "occultism:datura"
+    }
+  ],
+  "result": {
+    "item": "occultism:datura_seeds",
+    "count": 2
+  }
+}
