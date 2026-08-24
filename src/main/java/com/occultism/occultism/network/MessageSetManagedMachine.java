@@ -140,10 +140,10 @@ public class MessageSetManagedMachine implements IMessage {
             }
             MachineReference trusted = spirit.getManagedMachine();
             MachineReference requested = message.managedMachine;
-            if (requested == null || !sameEndpoints(trusted, requested)) {
-                // Positions, dimensions and registry names are server-owned.
+            if (requested == null) {
                 return;
             }
+            // Positions, dimensions and registry names remain server-owned.
             trusted.setInsertPosition(trusted.getInsertPosition(), trusted.getInsertDimension(),
                     requested.getInsertFacing(), trusted.getInsertRegistryName());
             trusted.setExtractPosition(trusted.getExtractPosition(), trusted.getExtractDimension(),
@@ -153,23 +153,6 @@ public class MessageSetManagedMachine implements IMessage {
             ItemNBTUtil.setManagedMachine(stack, trusted);
             player.setHeldItem(EnumHand.MAIN_HAND, stack);
             player.inventoryContainer.detectAndSendChanges();
-        }
-
-        private static boolean sameEndpoints(MachineReference trusted, MachineReference requested) {
-            return equal(trusted.getInsertPosition(), requested.getInsertPosition())
-                    && trusted.getInsertDimension() == requested.getInsertDimension()
-                    && equal(trusted.getExtractPosition(), requested.getExtractPosition())
-                    && trusted.getExtractDimension() == requested.getExtractDimension()
-                    && safeEquals(trusted.getInsertRegistryName(), requested.getInsertRegistryName())
-                    && safeEquals(trusted.getExtractRegistryName(), requested.getExtractRegistryName());
-        }
-
-        private static boolean equal(Object left, Object right) {
-            return left == null ? right == null : left.equals(right);
-        }
-
-        private static boolean safeEquals(String left, String right) {
-            return left == null ? right == null : left.equals(right);
         }
     }
 }

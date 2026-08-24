@@ -406,7 +406,8 @@ class BlacksmithPortContractTest {
         }
         assertEquals(new HashSet<>(Arrays.asList("EntityBatFamiliar.java", "EntityBeaverFamiliar.java",
                 "EntityBeholderFamiliar.java",
-                "EntityCthulhuFamiliar.java", "EntityDeerFamiliar.java", "EntityDragonFamiliar.java",
+                "EntityCthulhuFamiliar.java", "EntityDeerFamiliar.java", "EntityDevilFamiliar.java",
+                "EntityDragonFamiliar.java",
                 "EntityGoatFamiliar.java", "EntityGuardianFamiliar.java", "EntityGreedyFamiliar.java",
                 "EntityHeadlessFamiliar.java", "EntityMummyFamiliar.java",
                 "EntityShubNiggurathFamiliar.java")), implementors,

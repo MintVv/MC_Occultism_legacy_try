@@ -10,6 +10,10 @@ import com.occultism.occultism.entity.EntityFoliotJob;
 import com.occultism.occultism.entity.EntityPossessedEnderman;
 import com.occultism.occultism.entity.EntityPossessedEndermite;
 import com.occultism.occultism.entity.EntityPossessedGhast;
+import com.occultism.occultism.entity.EntityPossessedBlaze;
+import com.occultism.occultism.entity.EntityPossessedGuardian;
+import com.occultism.occultism.entity.EntityPossessedWitch;
+import com.occultism.occultism.entity.EntityPossessedZombifiedPiglin;
 import com.occultism.occultism.entity.EntityShubNiggurathSpawn;
 import com.occultism.occultism.entity.IFamiliar;
 import com.occultism.occultism.entity.IWildHuntEntity;
@@ -68,6 +72,10 @@ public class ItemDemonDreamFood extends ItemFood {
                 || target instanceof EntityPossessedEndermite
                 || target instanceof EntityPossessedEnderman
                 || target instanceof EntityPossessedGhast
+                || target instanceof EntityPossessedBlaze
+                || target instanceof EntityPossessedGuardian
+                || target instanceof EntityPossessedWitch
+                || target instanceof EntityPossessedZombifiedPiglin
                 || target instanceof IFamiliar
                 || target instanceof EntityParrot
                 || target instanceof EntityShubNiggurathSpawn

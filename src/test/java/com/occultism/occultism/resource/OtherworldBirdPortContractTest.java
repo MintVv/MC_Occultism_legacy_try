@@ -54,9 +54,35 @@ class OtherworldBirdPortContractTest {
         assertTrue(source.contains("ticksExisted % 10 == 0"));
         assertTrue(source.contains("MobEffects.JUMP_BOOST"));
         assertTrue(source.contains("ModPotions.FAIRY_SLOW_FALL"));
+        assertTrue(source.contains("ModPotions.DOUBLE_JUMP"));
+        assertTrue(source.contains("new PotionEffect(ModPotions.DOUBLE_JUMP, 120, 4"));
         assertTrue(source.contains("canSitOnShoulder()"));
         assertFalse(source.contains("EntityAILandOnOwnersShoulder"));
-        assertTrue(source.contains("no local Double Jump effect"));
+    }
+
+    @Test
+    void doubleJumpUsesAPlayerCapabilityAndServerValidatedInput() throws IOException {
+        String capability = readJava("capability", "DoubleJumpCapability.java");
+        String movement = readJava("util", "MovementUtil.java");
+        String handler = readJava("handler", "DoubleJumpHandler.java");
+        String client = readJava("client", "ClientDoubleJumpHandler.java");
+        String packet = readJava("network", "MessageDoubleJump.java");
+        String sync = readJava("network", "MessageSetJumps.java");
+        String potions = readJava("registry", "ModPotions.java");
+        String english = readUtf8(ASSET_ROOT.resolve("lang/en_us.lang"));
+        String chinese = readUtf8(ASSET_ROOT.resolve("lang/zh_cn.lang"));
+
+        assertTrue(capability.contains("setInteger(\"jumps\""));
+        assertTrue(movement.contains("capability.getJumps() >= getMaxJumps(player)"));
+        assertTrue(movement.contains("player.isElytraFlying()"));
+        assertTrue(handler.contains("event.player.onGround"));
+        assertTrue(client.contains("keyBindJump.isKeyDown()"));
+        assertTrue(client.contains("new MessageDoubleJump()"));
+        assertTrue(packet.contains("MovementUtil.doubleJump(player)"));
+        assertTrue(sync.contains("MessageSetJumps"));
+        assertTrue(potions.contains("DOUBLE_JUMP"));
+        assertTrue(english.contains("effect.occultism.double_jump=Double Jump"));
+        assertTrue(chinese.contains("effect.occultism.double_jump=双重跳跃"));
     }
 
     @Test

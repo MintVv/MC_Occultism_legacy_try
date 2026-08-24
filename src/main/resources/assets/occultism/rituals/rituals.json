@@ -589,7 +589,7 @@
     "ritual_type": "occultism:summon",
     "activation_item": "occultism:book_of_binding_bound_djinni",
     "duration_ticks": 1600,
-    "entity_to_summon": "minecraft:villager",
+    "entity_to_summon": "occultism:wondering_trader",
     "ingredients": [
       "occultism:otherworld_essence",
       "minecraft:emerald",
@@ -717,7 +717,7 @@
       "display_name": "ritual.occultism.sacrifice.chicken",
       "tag": "c:chickens"
     },
-    "entity_to_summon": "minecraft:witch",
+    "entity_to_summon": "occultism:possessed_witch",
     "ingredients": [
       "minecraft:glass_bottle",
       "minecraft:redstone",
@@ -795,7 +795,7 @@
       "display_name": "ritual.occultism.sacrifice.chicken",
       "tag": "c:chickens"
     },
-    "entity_to_summon": "minecraft:blaze",
+    "entity_to_summon": "occultism:possessed_blaze",
     "ingredients": [
       "minecraft:fire_charge",
       "minecraft:firework_charge",
@@ -1422,7 +1422,7 @@
       "display_name": "ritual.occultism.sacrifice.fish",
       "tag": "c:fish"
     },
-    "entity_to_summon": "minecraft:guardian",
+    "entity_to_summon": "occultism:possessed_guardian",
     "ingredients": [
       {
         "item": "minecraft:dye",
@@ -1496,7 +1496,7 @@
       "display_name": "ritual.occultism.sacrifice.pigs",
       "tag": "c:pigs"
     },
-    "entity_to_summon": "minecraft:zombie_pigman",
+    "entity_to_summon": "occultism:possessed_zombie_piglin",
     "ingredients": [
       "minecraft:netherrack",
       "minecraft:brown_mushroom",
@@ -1612,7 +1612,7 @@
       "display_name": "ritual.occultism.sacrifice.iron_golem",
       "tag": "c:iron_golems"
     },
-    "entity_to_summon": "minecraft:villager_golem",
+    "entity_to_summon": "occultism:iesnium_golem",
     "ingredients": [
       "occultism:iesnium_block",
       "occultism:iesnium_block",
@@ -1961,7 +1961,7 @@
       "display_name": "ritual.occultism.sacrifice.pigs",
       "tag": "c:pigs"
     },
-    "entity_to_summon": "minecraft:creeper",
+    "entity_to_summon": "occultism:wild_horde_creeper",
     "summon_number": 5,
     "ingredients": [
       "minecraft:mossy_cobblestone",
@@ -2049,7 +2049,7 @@
       "display_name": "ritual.occultism.sacrifice.humans",
       "tag": "occultism:humans"
     },
-    "entity_to_summon": "minecraft:evocation_illager",
+    "entity_to_summon": "occultism:wild_horde_illager",
     "summon_number": 1,
     "ingredients": [
       {
@@ -2087,7 +2087,7 @@
       "display_name": "ritual.occultism.sacrifice.llamas",
       "tag": "c:llamas"
     },
-    "entity_to_summon": "minecraft:husk",
+    "entity_to_summon": "occultism:wild_horde_husk",
     "summon_number": 5,
     "ingredients": [
       "minecraft:sandstone",
@@ -2114,7 +2114,7 @@
       "display_name": "ritual.occultism.sacrifice.llamas",
       "tag": "c:llamas"
     },
-    "entity_to_summon": "minecraft:stray",
+    "entity_to_summon": "occultism:wild_horde_parched",
     "summon_number": 5,
     "ingredients": [
       "minecraft:sandstone",
@@ -2141,7 +2141,7 @@
       "display_name": "ritual.occultism.sacrifice.fish",
       "tag": "c:fish"
     },
-    "entity_to_summon": "minecraft:zombie",
+    "entity_to_summon": "occultism:wild_horde_drowned",
     "summon_number": 5,
     "ingredients": [
       {
@@ -2167,7 +2167,7 @@
     "ritual_type": "occultism:summon_wild",
     "activation_item": "occultism:brush",
     "duration_ticks": 1920,
-    "entity_to_summon": "minecraft:silverfish",
+    "entity_to_summon": "occultism:wild_horde_silverfish",
     "summon_number": 5,
     "ingredients": [
       "minecraft:sand",
@@ -3563,6 +3563,7 @@
       "display_name": "ritual.occultism.sacrifice.cows",
       "tag": "c:cows"
     },
+    "entity_to_summon": "occultism:afrit_wild",
     "spirit_tier": "occultism:afrit",
     "ingredients": [
       "#c:netherracks",
@@ -3586,6 +3587,7 @@
     "activation_item": "occultism:book_of_binding_bound_afrit",
     "duration_ticks": 1200,
     "spirit_tier": "occultism:afrit",
+    "entity_to_summon": "occultism:afrit_wild",
     "ingredients": [
       "minecraft:blaze_powder",
       "occultism:tallow"
@@ -3606,6 +3608,7 @@
     "activation_item": "occultism:book_of_binding_bound_marid",
     "duration_ticks": 1400,
     "spirit_tier": "occultism:marid",
+    "entity_to_summon": "occultism:marid_wild",
     "ingredients": [
       "minecraft:sea_lantern",
       "minecraft:prismarine_crystals",

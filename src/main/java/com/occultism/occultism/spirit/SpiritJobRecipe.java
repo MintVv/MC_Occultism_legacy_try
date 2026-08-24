@@ -28,12 +28,19 @@ public class SpiritJobRecipe {
     private final List<ItemStack> inputs;
     private final List<String> oreInputs;
     private final ItemStack output;
+    private final int minimumTier;
 
     private SpiritJobRecipe(SpiritJobType type, List<ItemStack> inputs, List<String> oreInputs, ItemStack output) {
+        this(type, inputs, oreInputs, output, -1);
+    }
+
+    private SpiritJobRecipe(SpiritJobType type, List<ItemStack> inputs, List<String> oreInputs, ItemStack output,
+            int minimumTier) {
         this.type = type;
         this.inputs = Collections.unmodifiableList(inputs);
         this.oreInputs = Collections.unmodifiableList(oreInputs);
         this.output = output.copy();
+        this.minimumTier = minimumTier;
     }
 
     public SpiritJobType getType() {
@@ -54,6 +61,10 @@ public class SpiritJobRecipe {
 
     public ItemStack getOutput() {
         return this.output.copy();
+    }
+
+    public int getMinimumTier() {
+        return this.minimumTier;
     }
 
     public boolean hasOutput(ItemStack stack) {
@@ -94,8 +105,12 @@ public class SpiritJobRecipe {
     }
 
     public static SpiritJobRecipe findFirst(SpiritJobType type, ItemStack stack) {
+        return findFirst(type, stack, null);
+    }
+
+    public static SpiritJobRecipe findFirst(SpiritJobType type, ItemStack stack, SpiritTier tier) {
         for (SpiritJobRecipe recipe : getRecipes(type)) {
-            if (recipe.matches(stack)) {
+            if (recipe.isAvailableTo(tier) && recipe.matches(stack)) {
                 return recipe;
             }
         }
@@ -185,6 +200,8 @@ public class SpiritJobRecipe {
         recipes.add(crystallize("oreEmerald", new ItemStack(Blocks.EMERALD_ORE), new ItemStack(Items.EMERALD, 2)));
         recipes.add(crystallize("oreDiamond", new ItemStack(Blocks.DIAMOND_ORE), new ItemStack(Items.DIAMOND, 2)));
         recipes.add(crystallize("oreQuartz", new ItemStack(Blocks.QUARTZ_ORE), new ItemStack(Items.QUARTZ, 2)));
+        recipes.add(crystallize(SpiritTier.MARID.getJobTier(), new ItemStack(ModBlocks.AMETHYST_BLOCK),
+                new ItemStack(ModBlocks.BUDDING_AMETHYST)));
         return Collections.unmodifiableList(recipes);
     }
 
@@ -213,6 +230,11 @@ public class SpiritJobRecipe {
                 Collections.emptyList(), output);
     }
 
+    private static SpiritJobRecipe crystallize(int minimumTier, ItemStack input, ItemStack output) {
+        return new SpiritJobRecipe(SpiritJobType.CRYSTALLIZER, Collections.singletonList(input),
+                Collections.emptyList(), output, minimumTier);
+    }
+
     private static SpiritJobRecipe crystallize(String oreName, ItemStack displayInput, ItemStack output) {
         return new SpiritJobRecipe(SpiritJobType.CRYSTALLIZER, Collections.singletonList(displayInput),
                 Collections.singletonList(oreName), output);
@@ -235,6 +257,10 @@ public class SpiritJobRecipe {
             }
         }
         return false;
+    }
+
+    public boolean isAvailableTo(SpiritTier tier) {
+        return this.minimumTier < 0 || (tier != null && tier.getJobTier() >= this.minimumTier);
     }
 
     private boolean hasAnyOutput(Collection<ItemStack> stacks) {

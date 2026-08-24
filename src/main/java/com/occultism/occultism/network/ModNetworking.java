@@ -46,6 +46,18 @@ public final class ModNetworking {
                 id++, Side.SERVER);
         CHANNEL.registerMessage(MessageRequestOrder.Handler.class, MessageRequestOrder.class,
                 id++, Side.SERVER);
+        CHANNEL.registerMessage(MessageSetBookOfCallingMode.Handler.class, MessageSetBookOfCallingMode.class,
+                id++, Side.SERVER);
+        CHANNEL.registerMessage(MessageSetBookOfCallingWorkAreaSize.Handler.class,
+                MessageSetBookOfCallingWorkAreaSize.class, id++, Side.SERVER);
+        CHANNEL.registerMessage(MessageSetSpiritFilterMode.Handler.class, MessageSetSpiritFilterMode.class,
+                id++, Side.SERVER);
+        CHANNEL.registerMessage(MessageSetSpiritTagFilter.Handler.class, MessageSetSpiritTagFilter.class,
+                id++, Side.SERVER);
+        CHANNEL.registerMessage(MessageDoubleJump.Handler.class, MessageDoubleJump.class,
+                id++, Side.SERVER);
+        CHANNEL.registerMessage(MessageSetJumps.Handler.class, MessageSetJumps.class,
+                id++, Side.CLIENT);
     }
 
     /** Sends a storage-terminal setting update from a client GUI. */
@@ -83,6 +95,22 @@ public final class ModNetworking {
         }
     }
 
+    /** Sends the client-side transporter mode change to the server. */
+    public static void sendSpiritFilterMode(boolean blacklist, int entityId) {
+        MessageSetSpiritFilterMode message = new MessageSetSpiritFilterMode(blacklist, entityId);
+        if (message.isValid()) {
+            CHANNEL.sendToServer(message);
+        }
+    }
+
+    /** Sends the bounded tag filter when the transporter screen closes. */
+    public static void sendSpiritTagFilter(String tagFilter, int entityId) {
+        MessageSetSpiritTagFilter message = new MessageSetSpiritTagFilter(tagFilter, entityId);
+        if (message.isValid()) {
+            CHANNEL.sendToServer(message);
+        }
+    }
+
     /** Sends a fresh virtual stack snapshot after a server-side inventory mutation. */
     public static void syncStorageStacks(EntityPlayerMP player, TileEntityStorageController controller) {
         if (player == null || controller == null || controller.isInvalid()) {
@@ -111,6 +139,17 @@ public final class ModNetworking {
         FamiliarRingCapability ring = player.getCapability(ModCapabilities.FAMILIAR_RING, (EnumFacing) null);
         if (ring != null) {
             CHANNEL.sendTo(new MessageSyncFamiliarRing(ring), player);
+        }
+    }
+
+    public static void syncDoubleJump(EntityPlayerMP player) {
+        if (player == null || ModCapabilities.DOUBLE_JUMP == null) {
+            return;
+        }
+        com.occultism.occultism.capability.DoubleJumpCapability capability = player.getCapability(
+                ModCapabilities.DOUBLE_JUMP, (EnumFacing) null);
+        if (capability != null) {
+            CHANNEL.sendTo(new MessageSetJumps(capability.getJumps()), player);
         }
     }
 }

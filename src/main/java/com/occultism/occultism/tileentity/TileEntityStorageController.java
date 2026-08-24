@@ -22,6 +22,7 @@ import com.occultism.occultism.registry.ModBlocks;
 import com.occultism.occultism.registry.ModItems;
 import com.occultism.occultism.config.ModConfig;
 import com.occultism.occultism.block.BlockStorageController;
+import com.occultism.occultism.block.BlockStorageStabilizer;
 import com.occultism.occultism.spirit.DepositOrder;
 import com.occultism.occultism.spirit.MachineReference;
 import net.minecraft.block.Block;
@@ -1152,6 +1153,9 @@ public class TileEntityStorageController extends TileEntity
 
     /** Recomputes capacity from the six unobstructed rays above this controller. */
     public void updateStabilizers() {
+        if (this.world == null || this.pos == null) {
+            return;
+        }
         int slots = configuredBaseSlotCount();
         for (BlockPos stabilizer : this.findValidStabilizers()) {
             slots += getSlotsForStabilizerBlock(this.world.getBlockState(stabilizer).getBlock());
@@ -1160,9 +1164,8 @@ public class TileEntityStorageController extends TileEntity
     }
 
     /**
-     * Finds the first stabilizer in each direction from the block above the controller.
-     * 1.12 assets do not carry the upstream FACING property, so block identity is the
-     * portable contract for this initial dynamic-capacity implementation.
+     * Finds the first correctly oriented stabilizer in each direction from the block
+     * above the controller. A non-air block before the stabilizer blocks the ray.
      */
     public List<BlockPos> findValidStabilizers() {
         if (this.world == null || this.pos == null) {
@@ -1173,9 +1176,21 @@ public class TileEntityStorageController extends TileEntity
         for (EnumFacing facing : EnumFacing.values()) {
             BlockPos current = start;
             for (int distance = 0; distance <= MAX_STABILIZER_DISTANCE; distance++) {
-                Block block = this.world.getBlockState(current).getBlock();
-                if (isStorageStabilizer(block)) {
-                    result.add(current);
+                IBlockState state = this.world.getBlockState(current);
+                Block block = state.getBlock();
+                // The downward ray starts one block above the controller and
+                // crosses the controller itself before reaching below it.
+                if (current.equals(this.pos)) {
+                    current = current.offset(facing);
+                    continue;
+                }
+                if (block instanceof BlockStorageStabilizer) {
+                    if (state.getValue(BlockStorageStabilizer.FACING) == facing.getOpposite()) {
+                        result.add(current);
+                    }
+                    break;
+                }
+                if (!this.world.isAirBlock(current)) {
                     break;
                 }
                 current = current.offset(facing);
@@ -1185,18 +1200,7 @@ public class TileEntityStorageController extends TileEntity
     }
 
     public static boolean isStorageStabilizer(Block block) {
-        return block == ModBlocks.STORAGE_STABILIZER_TIER0
-                || block == ModBlocks.STORAGE_STABILIZER_TIER1
-                || block == ModBlocks.STORAGE_STABILIZER_TIER2
-                || block == ModBlocks.STORAGE_STABILIZER_TIER3
-                || block == ModBlocks.STORAGE_STABILIZER_TIER4
-                || block == ModBlocks.STORAGE_STABILIZER_TIER5
-                || block == ModBlocks.STORAGE_STABILIZER_TIER0_DARK
-                || block == ModBlocks.STORAGE_STABILIZER_TIER1_DARK
-                || block == ModBlocks.STORAGE_STABILIZER_TIER2_DARK
-                || block == ModBlocks.STORAGE_STABILIZER_TIER3_DARK
-                || block == ModBlocks.STORAGE_STABILIZER_TIER4_DARK
-                || block == ModBlocks.STORAGE_STABILIZER_TIER5_DARK;
+        return block instanceof BlockStorageStabilizer;
     }
 
     public static int getSlotsForStabilizerBlock(Block block) {

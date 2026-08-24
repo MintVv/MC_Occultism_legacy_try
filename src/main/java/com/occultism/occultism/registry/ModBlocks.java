@@ -41,6 +41,7 @@ import com.occultism.occultism.block.BlockSpiritFire;
 import com.occultism.occultism.block.BlockSpiritGrindstone;
 import com.occultism.occultism.block.BlockStableWormhole;
 import com.occultism.occultism.block.BlockStorageController;
+import com.occultism.occultism.block.BlockStorageStabilizer;
 import com.occultism.occultism.block.BlockTranslucentModel;
 import com.occultism.occultism.block.OtherworldBlockTier;
 import net.minecraft.block.Block;
@@ -221,30 +222,30 @@ public final class ModBlocks {
             new BlockStorageController(), 2.0F, 10.0F, 0);
     public static final Block STORAGE_CONTROLLER_STABILIZED_DARK = block("storage_controller_stabilized_dark",
             new BlockStorageController(), 2.0F, 10.0F, 0);
-    public static final Block STORAGE_STABILIZER_TIER0 = block("storage_stabilizer_tier0", new BlockModelOnly(Material.IRON),
+    public static final Block STORAGE_STABILIZER_TIER0 = block("storage_stabilizer_tier0", new BlockStorageStabilizer(),
             2.0F, 10.0F, 0);
-    public static final Block STORAGE_STABILIZER_TIER1 = block("storage_stabilizer_tier1", new BlockModelOnly(Material.IRON),
+    public static final Block STORAGE_STABILIZER_TIER1 = block("storage_stabilizer_tier1", new BlockStorageStabilizer(),
             2.0F, 10.0F, 0);
-    public static final Block STORAGE_STABILIZER_TIER2 = block("storage_stabilizer_tier2", new BlockModelOnly(Material.IRON),
+    public static final Block STORAGE_STABILIZER_TIER2 = block("storage_stabilizer_tier2", new BlockStorageStabilizer(),
             2.0F, 10.0F, 0);
-    public static final Block STORAGE_STABILIZER_TIER3 = block("storage_stabilizer_tier3", new BlockModelOnly(Material.IRON),
+    public static final Block STORAGE_STABILIZER_TIER3 = block("storage_stabilizer_tier3", new BlockStorageStabilizer(),
             2.0F, 10.0F, 0);
-    public static final Block STORAGE_STABILIZER_TIER4 = block("storage_stabilizer_tier4", new BlockModelOnly(Material.IRON),
+    public static final Block STORAGE_STABILIZER_TIER4 = block("storage_stabilizer_tier4", new BlockStorageStabilizer(),
             2.0F, 10.0F, 0);
-    public static final Block STORAGE_STABILIZER_TIER5 = block("storage_stabilizer_tier5", new BlockModelOnly(Material.IRON),
+    public static final Block STORAGE_STABILIZER_TIER5 = block("storage_stabilizer_tier5", new BlockStorageStabilizer(),
             2.0F, 10.0F, 0);
     public static final Block STORAGE_STABILIZER_TIER0_DARK = block("storage_stabilizer_tier0_dark",
-            new BlockModelOnly(Material.IRON), 2.0F, 10.0F, 0);
+            new BlockStorageStabilizer(), 2.0F, 10.0F, 0);
     public static final Block STORAGE_STABILIZER_TIER1_DARK = block("storage_stabilizer_tier1_dark",
-            new BlockModelOnly(Material.IRON), 2.0F, 10.0F, 0);
+            new BlockStorageStabilizer(), 2.0F, 10.0F, 0);
     public static final Block STORAGE_STABILIZER_TIER2_DARK = block("storage_stabilizer_tier2_dark",
-            new BlockModelOnly(Material.IRON), 2.0F, 10.0F, 0);
+            new BlockStorageStabilizer(), 2.0F, 10.0F, 0);
     public static final Block STORAGE_STABILIZER_TIER3_DARK = block("storage_stabilizer_tier3_dark",
-            new BlockModelOnly(Material.IRON), 2.0F, 10.0F, 0);
+            new BlockStorageStabilizer(), 2.0F, 10.0F, 0);
     public static final Block STORAGE_STABILIZER_TIER4_DARK = block("storage_stabilizer_tier4_dark",
-            new BlockModelOnly(Material.IRON), 2.0F, 10.0F, 0);
+            new BlockStorageStabilizer(), 2.0F, 10.0F, 0);
     public static final Block STORAGE_STABILIZER_TIER5_DARK = block("storage_stabilizer_tier5_dark",
-            new BlockModelOnly(Material.IRON), 2.0F, 10.0F, 0);
+            new BlockStorageStabilizer(), 2.0F, 10.0F, 0);
     public static final Block SPIRIT_GRINDSTONE = block("spirit_grindstone", new BlockSpiritGrindstone(), 2.0F,
             10.0F, 0);
     public static final Block DIMENSIONAL_EXTRACTOR = block("dimensional_extractor",

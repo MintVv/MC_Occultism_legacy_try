@@ -14,6 +14,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.inventory.InventoryCraftResult;
+import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
@@ -28,21 +29,27 @@ import net.minecraft.entity.player.EntityPlayerMP;
 
 public class ContainerStorageController extends Container {
 
-    public static final int VISIBLE_STORAGE_ROWS = TileEntityStorageController.ROWS;
+    /** The upstream terminal exposes a four-row virtual item page. */
+    public static final int VISIBLE_STORAGE_ROWS = 4;
     private static final int VISIBLE_STORAGE_SLOTS = VISIBLE_STORAGE_ROWS * TileEntityStorageController.COLUMNS;
     private static final int STORAGE_LEFT = 8;
-    private static final int STORAGE_TOP = 18;
-    private static final int PLAYER_INVENTORY_LEFT = 8;
-    private static final int PLAYER_INVENTORY_TOP = 140;
-    private static final int HOTBAR_TOP = 198;
-    private static final int CRAFTING_OUTPUT_X = 292;
-    private static final int CRAFTING_OUTPUT_Y = 44;
-    private static final int CRAFTING_GRID_X = 226;
-    private static final int CRAFTING_GRID_Y = 26;
+    private static final int STORAGE_TOP = 24;
+    private static final int CRAFTING_OUTPUT_X = 130 + 48;
+    private static final int CRAFTING_OUTPUT_Y = 131;
+    private static final int CRAFTING_GRID_X = 37 + 48;
+    private static final int CRAFTING_GRID_Y = 113;
+    private static final int ORDER_SLOT_X = 13;
+    private static final int ORDER_SLOT_Y = 36;
+    private static final int PLAYER_INVENTORY_LEFT = 8 + 48;
+    private static final int PLAYER_INVENTORY_TOP = 174;
+    private static final int HOTBAR_TOP = 232;
 
     private final TileEntityStorageController storageController;
     private final InventoryPlayer playerInventory;
     private final boolean remoteAccess;
+    private final boolean remoteItemAccess;
+    private final int remoteSlot;
+    private final TileEntityStableWormhole stableWormhole;
     private final int storageSize;
     private int storageRows;
     private int storageScrollRow;
@@ -56,6 +63,7 @@ public class ContainerStorageController extends Container {
     private final int playerSlotEnd;
     private final InventoryCrafting craftMatrix;
     private final InventoryCraftResult craftResult;
+    private final InventoryBasic orderInventory;
     private IRecipe currentRecipe;
     private boolean recipeLocked;
 
@@ -65,12 +73,34 @@ public class ContainerStorageController extends Container {
 
     public ContainerStorageController(InventoryPlayer playerInventory, TileEntityStorageController storageController,
             boolean remoteAccess) {
+        this(playerInventory, storageController, remoteAccess, remoteAccess, -1, null);
+    }
+
+    /** Creates a terminal opened through one exact Remote ItemStack slot. */
+    public ContainerStorageController(InventoryPlayer playerInventory, TileEntityStorageController storageController,
+            int remoteSlot) {
+        this(playerInventory, storageController, true, true, remoteSlot, null);
+    }
+
+    /** Creates a terminal opened through a stable wormhole block. */
+    public ContainerStorageController(InventoryPlayer playerInventory, TileEntityStorageController storageController,
+            TileEntityStableWormhole stableWormhole) {
+        this(playerInventory, storageController, true, false, -1, stableWormhole);
+    }
+
+    private ContainerStorageController(InventoryPlayer playerInventory, TileEntityStorageController storageController,
+            boolean remoteAccess, boolean remoteItemAccess, int remoteSlot,
+            TileEntityStableWormhole stableWormhole) {
         this.storageController = storageController;
         this.playerInventory = playerInventory;
         this.remoteAccess = remoteAccess;
+        this.remoteItemAccess = remoteItemAccess;
+        this.remoteSlot = remoteSlot;
+        this.stableWormhole = stableWormhole;
         this.storageSize = storageController.getStorageSlotCount();
         this.craftMatrix = new InventoryCrafting(this, 3, 3);
         this.craftResult = new InventoryCraftResult();
+        this.orderInventory = new InventoryBasic("occultism.storage_controller.order", false, 1);
         this.currentRecipe = null;
         this.recipeLocked = false;
         this.storageRows = 1;
@@ -78,16 +108,9 @@ public class ContainerStorageController extends Container {
         this.clientStorageSnapshotSet = false;
         this.clientUsedSlots = 0;
         this.clientMaxSlots = this.storageSize;
-        this.playerInventoryStart = this.storageSize + 10;
+        this.playerInventoryStart = 11;
         this.playerHotbarStart = this.playerInventoryStart + 27;
         this.playerSlotEnd = this.playerHotbarStart + 9;
-
-        for (int slot = 0; slot < this.storageSize; slot++) {
-            int row = slot / TileEntityStorageController.COLUMNS;
-            int column = slot % TileEntityStorageController.COLUMNS;
-            this.addSlotToContainer(new VirtualStorageSlot(storageController, slot,
-                    STORAGE_LEFT + column * 18, this.storageSlotY(row)));
-        }
 
         this.addSlotToContainer(new StorageCraftingResultSlot(playerInventory.player, this.craftMatrix,
                 this.craftResult, 0, CRAFTING_OUTPUT_X, CRAFTING_OUTPUT_Y));
@@ -103,16 +126,20 @@ public class ContainerStorageController extends Container {
             }
         }
 
+        this.orderInventory.setInventorySlotContents(0, this.readPersistedOrderStack());
+        this.addSlotToContainer(new StorageOrderSlot(this.orderInventory, 0, ORDER_SLOT_X, ORDER_SLOT_Y));
+
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 9; column++) {
-                this.addSlotToContainer(new Slot(playerInventory, column + row * 9 + 9,
+                int inventorySlot = column + row * 9 + 9;
+                this.addSlotToContainer(this.createPlayerSlot(inventorySlot,
                         PLAYER_INVENTORY_LEFT + column * 18, PLAYER_INVENTORY_TOP + row * 18));
             }
         }
 
         for (int column = 0; column < 9; column++) {
-            this.addSlotToContainer(new Slot(playerInventory, column, PLAYER_INVENTORY_LEFT + column * 18,
-                    HOTBAR_TOP));
+            this.addSlotToContainer(this.createPlayerSlot(column,
+                    PLAYER_INVENTORY_LEFT + column * 18, HOTBAR_TOP));
         }
 
         // Restore the terminal-owned matrix after all slots are registered.  The
@@ -120,7 +147,7 @@ public class ContainerStorageController extends Container {
         // physical ITEM_HANDLER capability.
         this.recipeLocked = true;
         try {
-            List<ItemStack> persistedMatrix = storageController.getCraftingMatrix();
+            List<ItemStack> persistedMatrix = this.readPersistedCraftingMatrix();
             for (int slot = 0; slot < this.craftMatrix.getSizeInventory() && slot < persistedMatrix.size(); slot++) {
                 ItemStack stack = persistedMatrix.get(slot);
                 if (stack != null && !stack.isEmpty()) {
@@ -131,7 +158,29 @@ public class ContainerStorageController extends Container {
             this.recipeLocked = false;
         }
         this.refreshStorageView();
+        this.syncOrderStackToController();
         this.updateCraftingResult();
+    }
+
+    private Slot createPlayerSlot(int inventorySlot, int xPosition, int yPosition) {
+        if (this.remoteItemAccess && this.remoteSlot >= 0 && this.remoteSlot == inventorySlot) {
+            return new LockedRemoteSlot(this.playerInventory, inventorySlot, xPosition, yPosition);
+        }
+        return new Slot(this.playerInventory, inventorySlot, xPosition, yPosition);
+    }
+
+    private List<ItemStack> readPersistedCraftingMatrix() {
+        if (this.remoteItemAccess) {
+            return ItemStorageRemote.getCraftingMatrix(this.getStorageRemote());
+        }
+        return this.storageController.getCraftingMatrix();
+    }
+
+    private ItemStack readPersistedOrderStack() {
+        if (this.remoteItemAccess) {
+            return ItemStorageRemote.getOrderStack(this.getStorageRemote());
+        }
+        return this.storageController.getOrderStack();
     }
 
     public TileEntityStorageController getStorageController() {
@@ -162,6 +211,37 @@ public class ContainerStorageController extends Container {
 
     public boolean isRemoteAccess() {
         return this.remoteAccess;
+    }
+
+    public boolean isRemoteItemAccess() {
+        return this.remoteItemAccess;
+    }
+
+    public int getRemoteSlot() {
+        return this.remoteSlot;
+    }
+
+    /** Returns the exact Remote ItemStack used to open this terminal. */
+    public ItemStack getStorageRemote() {
+        if (!this.remoteItemAccess || this.playerInventory == null) {
+            return ItemStack.EMPTY;
+        }
+        if (this.remoteSlot >= 0) {
+            if (this.remoteSlot >= this.playerInventory.getSizeInventory()) {
+                return ItemStack.EMPTY;
+            }
+            ItemStack selected = this.playerInventory.getStackInSlot(this.remoteSlot);
+            return selected != null && !selected.isEmpty()
+                    && selected.getItem() instanceof ItemStorageRemote ? selected : ItemStack.EMPTY;
+        }
+        for (int slot = 0; slot < this.playerInventory.getSizeInventory(); slot++) {
+            ItemStack candidate = this.playerInventory.getStackInSlot(slot);
+            if (candidate != null && !candidate.isEmpty()
+                    && candidate.getItem() instanceof ItemStorageRemote) {
+                return candidate;
+            }
+        }
+        return ItemStack.EMPTY;
     }
 
     public int getStorageSize() {
@@ -321,15 +401,26 @@ public class ContainerStorageController extends Container {
         }
     }
 
-    /** Mirrors the open container matrix into terminal NBT without exposing it as storage. */
+    /** Mirrors the open container matrix into controller or Remote terminal state. */
     private void syncCraftingMatrixToController() {
-        if (this.storageController == null || this.recipeLocked) {
+        if (this.recipeLocked) {
             return;
         }
         List<ItemStack> matrix = new ArrayList<>(this.craftMatrix.getSizeInventory());
         for (int slot = 0; slot < this.craftMatrix.getSizeInventory(); slot++) {
             ItemStack stack = this.craftMatrix.getStackInSlot(slot);
             matrix.add(stack == null || stack.isEmpty() ? ItemStack.EMPTY : stack.copy());
+        }
+        if (this.remoteItemAccess) {
+            ItemStack remote = this.getStorageRemote();
+            if (!remote.isEmpty()) {
+                ItemStorageRemote.setCraftingMatrix(remote, matrix);
+                this.playerInventory.markDirty();
+            }
+            return;
+        }
+        if (this.storageController == null) {
+            return;
         }
         this.storageController.setCraftingMatrix(matrix);
     }
@@ -361,6 +452,75 @@ public class ContainerStorageController extends Container {
 
     public ClientStorageCache getClientStorageCache() {
         return this.clientStorageCache;
+    }
+
+    public InventoryBasic getOrderInventory() {
+        return this.orderInventory;
+    }
+
+    public ItemStack getOrderStack() {
+        return this.orderInventory.getStackInSlot(0).copy();
+    }
+
+    /** Mirrors the order slot into persistent controller or Remote state after a click. */
+    public void syncOrderStackToController() {
+        ItemStack order = this.orderInventory.getStackInSlot(0);
+        if (this.remoteItemAccess) {
+            ItemStack remote = this.getStorageRemote();
+            if (!remote.isEmpty()) {
+                ItemStorageRemote.setOrderStack(remote, order);
+                this.playerInventory.markDirty();
+            }
+            return;
+        }
+        ItemStack current = this.storageController.getOrderStack();
+        if (!ItemStack.areItemStacksEqual(order, current)) {
+            this.storageController.setOrderStack(order);
+        }
+    }
+
+    /** Consumes an order after a managed-machine request is accepted. */
+    public void consumeOrderStack() {
+        this.orderInventory.setInventorySlotContents(0, ItemStack.EMPTY);
+        if (this.remoteItemAccess) {
+            ItemStack remote = this.getStorageRemote();
+            if (!remote.isEmpty()) {
+                ItemStorageRemote.setOrderStack(remote, ItemStack.EMPTY);
+                this.playerInventory.markDirty();
+            }
+        } else {
+            this.storageController.clearOrderStack();
+        }
+        this.detectAndSendChanges();
+    }
+
+    public void clearCraftingMatrixAndReturn(EntityPlayer player) {
+        if (player == null) {
+            return;
+        }
+        boolean oldLock = this.recipeLocked;
+        this.recipeLocked = true;
+        try {
+            for (int i = 0; i < this.craftMatrix.getSizeInventory(); i++) {
+                ItemStack stack = this.craftMatrix.getStackInSlot(i);
+                if (!stack.isEmpty()) {
+                    this.returnStackSafely(player, stack.copy());
+                    this.craftMatrix.setInventorySlotContents(i, ItemStack.EMPTY);
+                }
+            }
+            if (this.remoteItemAccess) {
+                ItemStack remote = this.getStorageRemote();
+                if (!remote.isEmpty()) {
+                    ItemStorageRemote.setCraftingMatrix(remote, Collections.<ItemStack>emptyList());
+                    this.playerInventory.markDirty();
+                }
+            } else {
+                this.storageController.clearCraftingMatrix();
+            }
+        } finally {
+            this.recipeLocked = oldLock;
+        }
+        this.updateCraftingResult();
     }
 
     /** Upstream-compatible cache injection hook for integrations such as JEI. */
@@ -413,30 +573,10 @@ public class ContainerStorageController extends Container {
         this.storageRows = Math.max(1, (entryCount + TileEntityStorageController.COLUMNS - 1)
                 / TileEntityStorageController.COLUMNS);
         this.storageScrollRow = Math.max(0, Math.min(this.storageScrollRow, this.getMaxStorageScrollRow()));
-        for (int slotIndex = 0; slotIndex < this.storageSize; slotIndex++) {
-            Slot slot = this.inventorySlots.get(slotIndex);
-            if (!(slot instanceof VirtualStorageSlot) || slotIndex >= VISIBLE_STORAGE_SLOTS) {
-                slot.xPos = STORAGE_LEFT;
-                slot.yPos = -200;
-                continue;
-            }
-            int virtualIndex = this.storageScrollRow * TileEntityStorageController.COLUMNS + slotIndex;
-            int rowIndex = slotIndex / TileEntityStorageController.COLUMNS;
-            int column = slotIndex % TileEntityStorageController.COLUMNS;
-            VirtualStorageSlot virtualSlot = (VirtualStorageSlot) slot;
-            virtualSlot.setVirtualEntryIndex(virtualIndex < entryCount ? virtualIndex : -1);
-            if (this.clientStorageSnapshotSet) {
-                virtualSlot.setClientSnapshot(virtualIndex < entryCount
-                        ? this.clientStorageSnapshot.get(virtualIndex) : ItemStack.EMPTY);
-            }
-            slot.xPos = STORAGE_LEFT + column * 18;
-            slot.yPos = STORAGE_TOP + rowIndex * 18;
-        }
     }
 
     public boolean isStorageSlotVisible(int slotIndex) {
-        return slotIndex >= 0 && slotIndex < Math.min(this.storageSize, VISIBLE_STORAGE_SLOTS)
-                && this.inventorySlots.get(slotIndex) instanceof VirtualStorageSlot;
+        return slotIndex >= 0 && slotIndex < VISIBLE_STORAGE_SLOTS;
     }
 
     private int storageSlotY(int row) {
@@ -469,6 +609,21 @@ public class ContainerStorageController extends Container {
         if (!this.isStorageControllerLoaded() || playerIn == null) {
             return false;
         }
+        if (this.remoteItemAccess) {
+            ItemStack selected = this.getStorageRemote();
+            if (selected.isEmpty()) {
+                return false;
+            }
+            if (this.remoteSlot >= 0) {
+                return ItemStorageRemote.isLinkedToController(selected, this.storageController.getWorld(),
+                        this.storageController.getPos());
+            }
+        }
+
+        if (this.stableWormhole != null) {
+            return this.isStableWormholeAccessValid(playerIn);
+        }
+
         if (playerIn.inventory != null) {
             for (int slot = 0; slot < playerIn.inventory.getSizeInventory(); slot++) {
                 ItemStack stack = playerIn.inventory.getStackInSlot(slot);
@@ -496,6 +651,20 @@ public class ContainerStorageController extends Container {
             }
         }
         return false;
+    }
+
+    private boolean isStableWormholeAccessValid(EntityPlayer playerIn) {
+        if (this.stableWormhole == null || this.stableWormhole.isInvalid()
+                || this.stableWormhole.getWorld() == null || this.stableWormhole.getPos() == null
+                || this.stableWormhole.getWorld().getTileEntity(this.stableWormhole.getPos()) != this.stableWormhole
+                || !this.stableWormhole.isLinkedToController(this.storageController.getWorld(),
+                        this.storageController.getPos())) {
+            return false;
+        }
+        BlockPos wormholePos = this.stableWormhole.getPos();
+        return playerIn.world == this.stableWormhole.getWorld()
+                && playerIn.getDistanceSq(wormholePos.getX() + 0.5D, wormholePos.getY() + 0.5D,
+                        wormholePos.getZ() + 0.5D) <= 64.0D;
     }
 
     /**
@@ -528,18 +697,41 @@ public class ContainerStorageController extends Container {
     @Override
     public void onContainerClosed(EntityPlayer playerIn) {
         if (this.storageController.getWorld() != null && !this.storageController.getWorld().isRemote) {
-            // Matrix stacks are returned below.  Clear the terminal copy first so
-            // a subsequent open cannot count or display the returned items twice.
-            this.storageController.clearCraftingMatrix();
-            for (int i = 0; i < this.craftMatrix.getSizeInventory(); i++) {
-                ItemStack stack = this.craftMatrix.getStackInSlot(i);
-                if (!stack.isEmpty()) {
-                    this.returnStackSafely(playerIn, stack.copy());
-                    this.craftMatrix.setInventorySlotContents(i, ItemStack.EMPTY);
+            if (this.remoteItemAccess) {
+                // Remote state belongs to the item and survives reopening.  The
+                // locked slot prevents the backing stack from being swapped
+                // while the window is active.
+                this.syncCraftingMatrixToController();
+                this.syncOrderStackToController();
+            } else {
+                this.syncOrderStackToController();
+                // Matrix stacks are returned below.  Clear the terminal copy first so
+                // a subsequent open cannot count or display the returned items twice.
+                this.storageController.clearCraftingMatrix();
+                for (int i = 0; i < this.craftMatrix.getSizeInventory(); i++) {
+                    ItemStack stack = this.craftMatrix.getStackInSlot(i);
+                    if (!stack.isEmpty()) {
+                        this.returnStackSafely(playerIn, stack.copy());
+                        this.craftMatrix.setInventorySlotContents(i, ItemStack.EMPTY);
+                    }
                 }
             }
         }
         super.onContainerClosed(playerIn);
+    }
+
+    @Override
+    public ItemStack slotClick(int slotId, int dragType, net.minecraft.inventory.ClickType clickTypeIn,
+            EntityPlayer player) {
+        if (slotId >= 0 && slotId < this.inventorySlots.size()
+                && this.inventorySlots.get(slotId) instanceof LockedRemoteSlot) {
+            return ItemStack.EMPTY;
+        }
+        ItemStack result = super.slotClick(slotId, dragType, clickTypeIn, player);
+        if (slotId == 10) {
+            this.syncOrderStackToController();
+        }
+        return result;
     }
 
     @Override
@@ -557,33 +749,7 @@ public class ContainerStorageController extends Container {
         ItemStack stack = slot.getStack();
         original = stack.copy();
 
-        if (index < this.storageSize) {
-            if (!(slot instanceof VirtualStorageSlot)) {
-                return ItemStack.EMPTY;
-            }
-            int virtualIndex = ((VirtualStorageSlot) slot).getVirtualEntryIndex();
-            if (virtualIndex < 0) {
-                return ItemStack.EMPTY;
-            }
-
-            // Extract through the controller handler first. If the player's
-            // inventory cannot accept everything, put the remainder back via
-            // the same handler so no aggregate snapshot can duplicate items.
-            ItemStack extracted = this.storageController.extractVirtualStack(virtualIndex, stack.getCount(), false);
-            if (extracted.isEmpty()) {
-                return ItemStack.EMPTY;
-            }
-            ItemStack remainder = extracted.copy();
-            this.mergeItemStack(remainder, this.playerInventoryStart, this.playerSlotEnd, false);
-            int accepted = extracted.getCount() - remainder.getCount();
-            if (accepted <= 0) {
-                this.storageController.insertIntoStorage(extracted, false);
-                return ItemStack.EMPTY;
-            }
-            if (!remainder.isEmpty()) {
-                this.storageController.insertIntoStorage(remainder, false);
-            }
-        } else if (index == this.storageSize) {
+        if (index == 0) {
             // Shift-clicking the result crafts as many batches as fit in the
             // player's inventory. The method performs all mutations server-side.
             if (this.storageController.getWorld() == null || this.storageController.getWorld().isRemote) {
@@ -591,7 +757,7 @@ public class ContainerStorageController extends Container {
             }
             this.craftShift(playerIn);
             return ItemStack.EMPTY;
-        } else if (index > this.storageSize && index < this.playerInventoryStart) {
+        } else if (index >= 1 && index <= 9) {
             // Crafting ingredients are returned to the player's inventory when
             // shift-clicked; they must never be routed through the aggregate slot.
             if (!this.mergeItemStack(stack, this.playerInventoryStart, this.playerSlotEnd, false)) {
@@ -608,16 +774,6 @@ public class ContainerStorageController extends Container {
             }
         }
 
-        if (index < this.storageSize) {
-            slot.onSlotChanged();
-            slot.onTake(playerIn, original);
-            if (playerIn instanceof EntityPlayerMP) {
-                com.occultism.occultism.network.ModNetworking.syncStorageStacks((EntityPlayerMP) playerIn,
-                        this.storageController);
-            }
-            return original;
-        }
-
         if (stack.isEmpty()) {
             slot.putStack(ItemStack.EMPTY);
         } else {
@@ -629,6 +785,9 @@ public class ContainerStorageController extends Container {
         }
 
         slot.onTake(playerIn, stack);
+        if (index == 10) {
+            this.syncOrderStackToController();
+        }
         if (playerIn instanceof EntityPlayerMP) {
             com.occultism.occultism.network.ModNetworking.syncStorageStacks((EntityPlayerMP) playerIn,
                     this.storageController);
@@ -822,6 +981,57 @@ public class ContainerStorageController extends Container {
         ItemStack remaining = this.storageController.insertIntoStorage(stack, false);
         stack.setCount(remaining.getCount());
         return stack.getCount() < before;
+    }
+
+    /** The fixed order slot is persistent terminal state, not physical storage. */
+    private static final class StorageOrderSlot extends Slot {
+
+        private StorageOrderSlot(InventoryBasic inventory, int index, int xPosition, int yPosition) {
+            super(inventory, index, xPosition, yPosition);
+        }
+
+        @Override
+        public int getItemStackLimit(ItemStack stack) {
+            return 64;
+        }
+
+        @Override
+        public boolean canTakeStack(EntityPlayer playerIn) {
+            return true;
+        }
+    }
+
+    /** Hides and hard-locks the Remote ItemStack that owns this container. */
+    private static final class LockedRemoteSlot extends Slot {
+
+        private LockedRemoteSlot(InventoryPlayer inventory, int index, int xPosition, int yPosition) {
+            super(inventory, index, xPosition, yPosition);
+        }
+
+        @Override
+        public boolean isItemValid(ItemStack stack) {
+            return false;
+        }
+
+        @Override
+        public boolean canTakeStack(EntityPlayer playerIn) {
+            return false;
+        }
+
+        @Override
+        public ItemStack getStack() {
+            return ItemStack.EMPTY;
+        }
+
+        @Override
+        public void putStack(ItemStack stack) {
+            // The backing inventory slot remains authoritative while the GUI is open.
+        }
+
+        @Override
+        public void onSlotChanged() {
+            // Ignore client/container attempts to mutate the locked slot.
+        }
     }
 
     private static final class StorageCraftingResultSlot extends SlotCrafting {

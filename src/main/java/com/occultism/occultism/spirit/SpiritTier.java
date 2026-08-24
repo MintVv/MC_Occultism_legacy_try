@@ -37,6 +37,24 @@ public enum SpiritTier {
         return this.renderScale;
     }
 
+    /** Returns the ascending job tier used by tier-gated processing recipes. */
+    public int getJobTier() {
+        switch (this) {
+            case FOLIOT:
+                return 1;
+            case DJINNI:
+                return 2;
+            case AFRIT:
+                return 3;
+            case MARID:
+                return 4;
+            case ANCIENT:
+                return 5;
+            default:
+                return 1;
+        }
+    }
+
     public static SpiritTier fromId(String id) {
         if (id == null || id.trim().isEmpty()) {
             return null;

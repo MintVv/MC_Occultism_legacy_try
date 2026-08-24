@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.occultism.occultism.container.ContainerStorageController;
 import com.occultism.occultism.network.ModNetworking;
 import com.occultism.occultism.tileentity.TileEntityStorageController;
+import com.occultism.occultism.tileentity.TileEntityStableWormhole;
 import com.occultism.occultism.tileentity.StorageSortDirection;
 import com.occultism.occultism.tileentity.StorageSortType;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -43,6 +44,24 @@ public class GuiStorageController extends GuiContainer {
         // The right-hand terminal panel contains the 3x3 crafting matrix and
         // result slot; the storage viewport and player inventory remain at the
         // vanilla 176px coordinates on the left.
+        this.xSize = 362;
+        this.ySize = 222;
+    }
+
+    public GuiStorageController(InventoryPlayer playerInventory, TileEntityStorageController storageController,
+            int remoteSlot) {
+        super(new ContainerStorageController(playerInventory, storageController, remoteSlot));
+        this.playerInventory = playerInventory;
+        this.storageController = storageController;
+        this.xSize = 362;
+        this.ySize = 222;
+    }
+
+    public GuiStorageController(InventoryPlayer playerInventory, TileEntityStorageController storageController,
+            TileEntityStableWormhole stableWormhole) {
+        super(new ContainerStorageController(playerInventory, storageController, stableWormhole));
+        this.playerInventory = playerInventory;
+        this.storageController = storageController;
         this.xSize = 362;
         this.ySize = 222;
     }

@@ -303,12 +303,16 @@ public class ItemBookOfCallingFoliotJob extends Item {
 
     private EnumActionResult configurePosition(ItemStack stack, EntityPlayer player, World world, BlockPos pos,
             EnumFacing facing) {
+        BookOfCallingMode mode = this.getCurrentMode(stack);
+        TileEntity tile = world.getTileEntity(pos);
         if (world.isRemote) {
+            if (this.jobType == SpiritJobType.MANAGE_MACHINE
+                    && mode == BookOfCallingMode.SET_MANAGED_MACHINE && hasItemHandlerOnAnySide(tile)) {
+                this.openManagedMachineGui(stack);
+            }
             return EnumActionResult.SUCCESS;
         }
 
-        BookOfCallingMode mode = this.getCurrentMode(stack);
-        TileEntity tile = world.getTileEntity(pos);
         if (this.jobType == SpiritJobType.MANAGE_MACHINE) {
             return this.configureManageMachinePosition(stack, player, world, pos, facing, mode);
         }
@@ -365,15 +369,26 @@ public class ItemBookOfCallingFoliotJob extends Item {
             ItemNBTUtil.setStorageControllerPosition(stack, pos, dimension);
             spirit.setStorageControllerPos(pos, dimension);
         } else if (mode == BookOfCallingMode.SET_MANAGED_MACHINE) {
-            if (!hasItemHandler(tile, facing)) {
+            if (!hasItemHandlerOnAnySide(tile)) {
                 player.sendStatusMessage(new TextComponentTranslation(LANG_PREFIX + ".message.not_inventory"), true);
                 return EnumActionResult.FAIL;
             }
-            MachineReference reference = MachineReference.from(tile, facing);
-            reference.setInsertPosition(pos, dimension, facing, registry);
-            // A new machine starts with its own output side. A separate extract
-            // point can be configured afterwards with SET_EXTRACT.
-            reference.setExtractPosition(pos, dimension, EnumFacing.DOWN, registry);
+            MachineReference reference = ItemNBTUtil.getManagedMachine(stack);
+            boolean sameMachine = reference != null && pos.equals(reference.getInsertPosition())
+                    && dimension == reference.getInsertDimension();
+            if (sameMachine) {
+                reference.setInsertPosition(pos, dimension, reference.getInsertFacing(), registry);
+                if (pos.equals(reference.getExtractPosition())
+                        && dimension == reference.getExtractDimension()) {
+                    reference.setExtractPosition(pos, dimension, reference.getExtractFacing(), registry);
+                }
+            } else {
+                reference = MachineReference.from(tile, facing);
+                reference.setInsertPosition(pos, dimension, facing, registry);
+                // A new machine starts with its own output side. A separate extract
+                // point can be configured afterwards with SET_EXTRACT.
+                reference.setExtractPosition(pos, dimension, EnumFacing.DOWN, registry);
+            }
             ItemNBTUtil.setManagedMachine(stack, reference);
             spirit.setManagedMachine(reference);
         } else if (mode == BookOfCallingMode.SET_EXTRACT) {
@@ -401,6 +416,24 @@ public class ItemBookOfCallingFoliotJob extends Item {
                 && tile.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, facing) != null;
     }
 
+    private static boolean hasItemHandlerOnAnySide(@Nullable TileEntity tile) {
+        if (tile == null) {
+            return false;
+        }
+        for (EnumFacing facing : EnumFacing.values()) {
+            if (hasItemHandler(tile, facing)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @SideOnly(Side.CLIENT)
+    private void openManagedMachineGui(ItemStack stack) {
+        com.occultism.occultism.client.gui.ClientBookOfCallingGuiHelper.openManagedMachine(
+                ItemNBTUtil.getManagedMachine(stack));
+    }
+
     private void applyStoredConfigurationToSpirit(ItemStack stack, EntityFoliotJob spirit) {
         spirit.setWorkAreaPos(ItemNBTUtil.getWorkAreaPosition(stack));
         spirit.setWorkAreaSize(this.getCurrentWorkAreaSize(stack));
@@ -412,7 +445,7 @@ public class ItemBookOfCallingFoliotJob extends Item {
     }
 
     private void syncConfigurationFromSpirit(ItemStack stack, EntityFoliotJob spirit) {
-        ItemNBTUtil.setBookOfCallingWorkAreaSize(stack, spirit.getWorkAreaSize().ordinal());
+        ItemNBTUtil.setBookOfCallingWorkAreaSize(stack, spirit.getWorkAreaSize().getValue());
         if (spirit.getWorkAreaPos() != null) {
             ItemNBTUtil.setWorkAreaPosition(stack, spirit.getWorkAreaPos());
         }
@@ -460,8 +493,8 @@ public class ItemBookOfCallingFoliotJob extends Item {
     }
 
     public WorkAreaSize getCurrentWorkAreaSize(ItemStack stack) {
-        WorkAreaSize size = WorkAreaSize.byOrdinal(ItemNBTUtil.getBookOfCallingWorkAreaSize(stack));
-        ItemNBTUtil.setBookOfCallingWorkAreaSize(stack, size.ordinal());
+        WorkAreaSize size = WorkAreaSize.fromPersistedValue(ItemNBTUtil.getBookOfCallingWorkAreaSize(stack));
+        ItemNBTUtil.setBookOfCallingWorkAreaSize(stack, size.getValue());
         return size;
     }
 
@@ -484,7 +517,7 @@ public class ItemBookOfCallingFoliotJob extends Item {
         }
         ItemNBTUtil.setBookOfCallingMode(stack, mode.ordinal());
         if (mode.hasSize() && workAreaSize != null) {
-            ItemNBTUtil.setBookOfCallingWorkAreaSize(stack, workAreaSize.ordinal());
+            ItemNBTUtil.setBookOfCallingWorkAreaSize(stack, workAreaSize.getValue());
         }
     }
 

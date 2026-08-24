@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.occultism.occultism.spirit.SpiritJobRecipe;
 import com.occultism.occultism.spirit.SpiritJobType;
+import com.occultism.occultism.spirit.SpiritTier;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.item.EntityItem;
@@ -46,7 +47,7 @@ public class ItemFoliotJobToken extends Item {
             return new ActionResult<>(EnumActionResult.PASS, held);
         }
 
-        SpiritJobRecipe recipe = SpiritJobRecipe.findFirst(this.jobType, target.getItem());
+        SpiritJobRecipe recipe = SpiritJobRecipe.findFirst(this.jobType, target.getItem(), SpiritTier.FOLIOT);
         this.convertItem(worldIn, target, recipe);
         worldIn.playSound(null, playerIn.posX, playerIn.posY, playerIn.posZ,
                 SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, SoundCategory.PLAYERS, 0.7F, 1.2F);
@@ -71,7 +72,7 @@ public class ItemFoliotJobToken extends Item {
             if (item.isDead || item.getItem().isEmpty()) {
                 continue;
             }
-            if (SpiritJobRecipe.findFirst(this.jobType, item.getItem()) == null) {
+            if (SpiritJobRecipe.findFirst(this.jobType, item.getItem(), SpiritTier.FOLIOT) == null) {
                 continue;
             }
             double distance = player.getDistanceSq(item);

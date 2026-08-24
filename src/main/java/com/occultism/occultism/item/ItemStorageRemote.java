@@ -6,6 +6,8 @@ import com.occultism.occultism.api.common.data.GlobalBlockPos;
 import com.occultism.occultism.gui.ModGuiHandler;
 import com.occultism.occultism.tileentity.TileEntityStorageController;
 import com.occultism.occultism.util.ItemNBTUtil;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.resources.I18n;
@@ -14,6 +16,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -34,6 +37,12 @@ public class ItemStorageRemote extends Item {
     private static final String TAG_CONTROLLER_DIMENSION = "StorageControllerDimension";
     /** Upstream-compatible nested global position; flat keys remain for 1.12 saves. */
     public static final String TAG_LINKED_STORAGE_CONTROLLER = "linkedStorageController";
+    /** Upstream terminal state persisted on the remote item itself. */
+    public static final String TAG_CRAFTING_MATRIX = "craftingMatrix";
+    public static final String TAG_ORDER_STACK = "orderStack";
+    /** 1.12 stores ItemStack.Count as a byte; retain the configured super-stack size. */
+    public static final String TAG_REAL_SIZE = "RealSize";
+    public static final int CRAFTING_MATRIX_SIZE = 9;
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand,
@@ -76,9 +85,35 @@ public class ItemStorageRemote extends Item {
             return new ActionResult<>(EnumActionResult.SUCCESS, stack);
         }
 
-        playerIn.openGui(Occultism.INSTANCE, ModGuiHandler.STORAGE_REMOTE, targetWorld,
-                pos.getX(), pos.getY(), pos.getZ());
+        int selectedSlot = findInventorySlot(playerIn, stack, handIn);
+        if (selectedSlot < 0) {
+            return new ActionResult<>(EnumActionResult.FAIL, stack);
+        }
+        // The GUI handler resolves the linked controller from this exact item
+        // slot.  Passing the player's world keeps the slot identity stable
+        // even when the controller lives in another loaded dimension.
+        playerIn.openGui(Occultism.INSTANCE, ModGuiHandler.STORAGE_REMOTE, worldIn,
+                selectedSlot, 0, 0);
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+    }
+
+    private static int findInventorySlot(EntityPlayer player, ItemStack held, EnumHand hand) {
+        if (player == null || player.inventory == null) {
+            return -1;
+        }
+        if (hand == EnumHand.MAIN_HAND) {
+            int selected = player.inventory.currentItem;
+            if (selected >= 0 && selected < player.inventory.getSizeInventory()
+                    && player.inventory.getStackInSlot(selected) == held) {
+                return selected;
+            }
+        }
+        for (int slot = 0; slot < player.inventory.getSizeInventory(); slot++) {
+            if (player.inventory.getStackInSlot(slot) == held) {
+                return slot;
+            }
+        }
+        return -1;
     }
 
     @Override
@@ -100,17 +135,40 @@ public class ItemStorageRemote extends Item {
     }
 
     private static void setLinkedController(ItemStack stack, World world, BlockPos pos) {
+        setLinkedController(stack, new GlobalBlockPos(pos, world));
+    }
+
+    /** Writes both the legacy 1.12 keys and the nested upstream-compatible link. */
+    public static void setLinkedController(ItemStack stack, GlobalBlockPos reference) {
+        if (stack == null || stack.isEmpty() || reference == null || !reference.isPresent()) {
+            return;
+        }
         NBTTagCompound tag = stack.getTagCompound();
         if (tag == null) {
             tag = new NBTTagCompound();
         }
+        BlockPos pos = reference.getPos();
         tag.setInteger(TAG_CONTROLLER_X, pos.getX());
         tag.setInteger(TAG_CONTROLLER_Y, pos.getY());
         tag.setInteger(TAG_CONTROLLER_Z, pos.getZ());
-        tag.setInteger(TAG_CONTROLLER_DIMENSION, world.provider.getDimension());
+        tag.setInteger(TAG_CONTROLLER_DIMENSION, reference.getDimension());
         tag.setTag(TAG_LINKED_STORAGE_CONTROLLER,
-                new GlobalBlockPos(pos, world).serializeNBT());
+                reference.serializeNBT());
         stack.setTagCompound(tag);
+    }
+
+    /** Clears all remote link schemas without touching unrelated item NBT. */
+    public static void clearLinkedController(ItemStack stack) {
+        if (stack == null || stack.isEmpty() || !stack.hasTagCompound()) {
+            return;
+        }
+        NBTTagCompound tag = stack.getTagCompound();
+        tag.removeTag(TAG_CONTROLLER_X);
+        tag.removeTag(TAG_CONTROLLER_Y);
+        tag.removeTag(TAG_CONTROLLER_Z);
+        tag.removeTag(TAG_CONTROLLER_DIMENSION);
+        tag.removeTag(TAG_LINKED_STORAGE_CONTROLLER);
+        stack.setTagCompound(tag.isEmpty() ? null : tag);
     }
 
     /** Returns the linked reference without resolving a dimension or loading a chunk. */
@@ -143,10 +201,10 @@ public class ItemStorageRemote extends Item {
     @Nullable
     public static IStorageController getStorageController(ItemStack stack, @Nullable World world) {
         GlobalBlockPos reference = getLinkedControllerPosition(stack);
-        if (reference == null || world == null || reference.getPos() == null) {
+        if (reference == null || reference.getPos() == null) {
             return null;
         }
-        World targetWorld = world.provider.getDimension() == reference.getDimension()
+        World targetWorld = world != null && world.provider.getDimension() == reference.getDimension()
                 ? world : DimensionManager.getWorld(reference.getDimension());
         if (targetWorld == null || !targetWorld.isBlockLoaded(reference.getPos())) {
             return null;
@@ -179,5 +237,86 @@ public class ItemStorageRemote extends Item {
         GlobalBlockPos linked = getLinkedControllerPosition(stack);
         return linked != null && linked.getPos().equals(targetPos)
                 && linked.getDimension() == targetWorld.provider.getDimension();
+    }
+
+    /** Reads the nine terminal crafting slots from a Remote ItemStack. */
+    public static List<ItemStack> getCraftingMatrix(ItemStack stack) {
+        List<ItemStack> result = new ArrayList<>(Collections.nCopies(CRAFTING_MATRIX_SIZE, ItemStack.EMPTY));
+        if (stack == null || stack.isEmpty() || !stack.hasTagCompound()
+                || !stack.getTagCompound().hasKey(TAG_CRAFTING_MATRIX, 9)) {
+            return result;
+        }
+        NBTTagList encoded = stack.getTagCompound().getTagList(TAG_CRAFTING_MATRIX, 10);
+        int limit = Math.min(CRAFTING_MATRIX_SIZE, encoded.tagCount());
+        for (int slot = 0; slot < limit; slot++) {
+            try {
+                ItemStack decoded = new ItemStack(encoded.getCompoundTagAt(slot));
+                if (encoded.getCompoundTagAt(slot).hasKey(TAG_REAL_SIZE, 3)) {
+                    decoded.setCount(Math.max(0, encoded.getCompoundTagAt(slot).getInteger(TAG_REAL_SIZE)));
+                }
+                result.set(slot, decoded.isEmpty() ? ItemStack.EMPTY : decoded);
+            } catch (RuntimeException ignored) {
+                result.set(slot, ItemStack.EMPTY);
+            }
+        }
+        return result;
+    }
+
+    /** Persists the terminal crafting slots without changing unrelated Remote NBT. */
+    public static void setCraftingMatrix(ItemStack stack, List<ItemStack> matrix) {
+        if (stack == null || stack.isEmpty()) {
+            return;
+        }
+        NBTTagCompound tag = stack.getTagCompound();
+        if (tag == null) {
+            tag = new NBTTagCompound();
+        }
+        NBTTagList encoded = new NBTTagList();
+        for (int slot = 0; slot < CRAFTING_MATRIX_SIZE; slot++) {
+            ItemStack value = matrix != null && slot < matrix.size() ? matrix.get(slot) : ItemStack.EMPTY;
+            ItemStack safeValue = value == null || value.isEmpty() ? ItemStack.EMPTY : value;
+            NBTTagCompound item = safeValue.writeToNBT(new NBTTagCompound());
+            item.setInteger(TAG_REAL_SIZE, safeValue.getCount());
+            encoded.appendTag(item);
+        }
+        tag.setTag(TAG_CRAFTING_MATRIX, encoded);
+        stack.setTagCompound(tag);
+    }
+
+    /** Reads the terminal order slot from a Remote ItemStack. */
+    public static ItemStack getOrderStack(ItemStack stack) {
+        if (stack == null || stack.isEmpty() || !stack.hasTagCompound()
+                || !stack.getTagCompound().hasKey(TAG_ORDER_STACK, 10)) {
+            return ItemStack.EMPTY;
+        }
+        try {
+            NBTTagCompound encoded = stack.getTagCompound().getCompoundTag(TAG_ORDER_STACK);
+            ItemStack order = new ItemStack(encoded);
+            if (encoded.hasKey(TAG_REAL_SIZE, 3)) {
+                order.setCount(Math.max(0, encoded.getInteger(TAG_REAL_SIZE)));
+            }
+            return order;
+        } catch (RuntimeException ignored) {
+            return ItemStack.EMPTY;
+        }
+    }
+
+    /** Persists or clears the terminal order slot on a Remote ItemStack. */
+    public static void setOrderStack(ItemStack stack, ItemStack order) {
+        if (stack == null || stack.isEmpty()) {
+            return;
+        }
+        NBTTagCompound tag = stack.getTagCompound();
+        if (tag == null) {
+            tag = new NBTTagCompound();
+        }
+        if (order == null || order.isEmpty()) {
+            tag.removeTag(TAG_ORDER_STACK);
+        } else {
+            NBTTagCompound encoded = order.writeToNBT(new NBTTagCompound());
+            encoded.setInteger(TAG_REAL_SIZE, order.getCount());
+            tag.setTag(TAG_ORDER_STACK, encoded);
+        }
+        stack.setTagCompound(tag.isEmpty() ? null : tag);
     }
 }

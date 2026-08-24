@@ -1,12 +1,14 @@
 package com.occultism.occultism.entity;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Nullable;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityVex;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -21,12 +23,14 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
-public class EntityPurifiedAllay extends EntityVex {
+public class EntityPurifiedAllay extends EntityVex implements IFamiliar {
 
     private static final double FOLLOW_RANGE = 10.0D;
     private static final double PICKUP_RANGE_SQ = 1.4D;
     private static final double RETURN_RANGE_SQ = 3.0D;
     private int pickupCooldown;
+    @Nullable
+    private UUID familiarOwnerId;
 
     public EntityPurifiedAllay(World worldIn) {
         super(worldIn);
@@ -61,6 +65,9 @@ public class EntityPurifiedAllay extends EntityVex {
 
     @Override
     protected boolean processInteract(EntityPlayer player, EnumHand hand) {
+        if (this.familiarOwnerId != null && this.getFamiliarOwner() != player) {
+            return false;
+        }
         ItemStack held = this.getHeldItemMainhand();
         if (held.isEmpty()) {
             return false;
@@ -104,23 +111,56 @@ public class EntityPurifiedAllay extends EntityVex {
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
         this.pickupCooldown = compound.getInteger("OccultismPickupCooldown");
+        if (compound.hasKey("OccultismFamiliarOwner", 8)) {
+            try {
+                this.familiarOwnerId = UUID.fromString(compound.getString("OccultismFamiliarOwner"));
+            } catch (IllegalArgumentException ignored) {
+                this.familiarOwnerId = null;
+            }
+        } else {
+            this.familiarOwnerId = null;
+        }
     }
 
     @Override
     public void writeEntityToNBT(NBTTagCompound compound) {
         super.writeEntityToNBT(compound);
         compound.setInteger("OccultismPickupCooldown", this.pickupCooldown);
+        if (this.familiarOwnerId != null) {
+            compound.setString("OccultismFamiliarOwner", this.familiarOwnerId.toString());
+        }
+    }
+
+    @Override
+    @Nullable
+    public EntityLivingBase getFamiliarOwner() {
+        if (this.familiarOwnerId == null || this.world == null) {
+            return null;
+        }
+        return this.world.getPlayerEntityByUUID(this.familiarOwnerId);
+    }
+
+    @Override
+    public void setFamiliarOwner(EntityLivingBase owner) {
+        if (owner != null) {
+            this.familiarOwnerId = owner.getUniqueID();
+        }
+    }
+
+    @Override
+    public EntityLivingBase getFamiliarEntity() {
+        return this;
     }
 
     private void updatePurifiedAllayBehavior() {
-        EntityPlayer nearestPlayer = this.world.getNearestPlayerNotCreative(this, FOLLOW_RANGE);
+        EntityPlayer followTarget = this.getFollowTarget();
         ItemStack held = this.getHeldItemMainhand();
         if (!held.isEmpty()) {
-            this.returnHeldItemToPlayer(nearestPlayer);
+            this.returnHeldItemToPlayer(followTarget);
             return;
         }
         if (this.pickupCooldown > 0) {
-            this.followPlayer(nearestPlayer);
+            this.followPlayer(followTarget);
             return;
         }
         EntityItem target = this.findNearestPickup();
@@ -132,7 +172,16 @@ public class EntityPurifiedAllay extends EntityVex {
             }
             return;
         }
-        this.followPlayer(nearestPlayer);
+        this.followPlayer(followTarget);
+    }
+
+    @Nullable
+    private EntityPlayer getFollowTarget() {
+        if (this.familiarOwnerId != null) {
+            EntityLivingBase owner = this.getFamiliarOwner();
+            return owner instanceof EntityPlayer && owner.isEntityAlive() ? (EntityPlayer) owner : null;
+        }
+        return this.world.getNearestPlayerNotCreative(this, FOLLOW_RANGE);
     }
 
     private void returnHeldItemToPlayer(@Nullable EntityPlayer player) {

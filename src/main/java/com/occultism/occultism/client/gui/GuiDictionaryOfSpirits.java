@@ -1940,29 +1940,11 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
 
     private static String getLocalEntitySubstitute(String id) {
         switch (id) {
-            case "occultism:possessed_witch":
-                return "minecraft:witch";
-            case "occultism:possessed_blaze":
-                return "minecraft:blaze";
-            case "occultism:possessed_zombie_piglin":
-                return "minecraft:zombie_pigman";
-            case "occultism:possessed_guardian":
-                return "minecraft:guardian";
-            case "occultism:wild_horde_husk":
-                return "minecraft:husk";
-            case "occultism:wild_horde_parched":
-                return "minecraft:stray";
-            case "occultism:wild_horde_drowned":
-                return "minecraft:zombie";
-            case "occultism:wild_horde_creeper":
-                return "minecraft:creeper";
-            case "occultism:wild_horde_silverfish":
-                return "minecraft:silverfish";
             case "occultism:otherworld_bird":
             case "minecraft:allay":
                 return "minecraft:parrot";
             case "occultism:iesnium_golem":
-                return "minecraft:villager_golem";
+                return "occultism:iesnium_golem";
             case "occultism:possessed_bee":
             case "occultism:mercy_goat":
             case "occultism:demonic_husband":

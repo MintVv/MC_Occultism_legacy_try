@@ -199,8 +199,12 @@ class MachineManagementPortContractTest {
         String chinese = readUtf8(ASSET_ROOT.resolve("lang/zh_cn.lang"));
         assertTrue(english.contains("item.occultism.book_of_calling_djinni_manage_machine.name="));
         assertTrue(english.contains("item.occultism.ritual_dummy.summon_djinni_manage_machine.tooltip="));
+        assertTrue(english.contains("transfers matching items between them"));
+        assertTrue(!english.contains("Machine management AI is not available in this port yet"));
         assertTrue(chinese.contains("item.occultism.book_of_calling_djinni_manage_machine.name="));
         assertTrue(chinese.contains("item.occultism.ritual_dummy.summon_djinni_manage_machine.tooltip="));
+        assertTrue(chinese.contains("转移匹配物品"));
+        assertTrue(!chinese.contains("机器管理 AI 暂未移植"));
     }
 
     private static JsonObject findRitual(String id) throws IOException {

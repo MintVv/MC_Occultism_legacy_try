@@ -39,15 +39,25 @@ public final class InventoryAccess {
     }
 
     public static boolean hasAnyExtractable(@Nullable TileEntity tile) {
-        return hasAnyExtractable(tile, null);
+        return hasAnyExtractable(tile, null, stack -> true);
     }
 
     public static boolean hasAnyExtractable(@Nullable TileEntity tile, @Nullable EnumFacing facing) {
+        return hasAnyExtractable(tile, facing, stack -> true);
+    }
+
+    public static boolean hasAnyExtractable(@Nullable TileEntity tile, Predicate<ItemStack> predicate) {
+        return hasAnyExtractable(tile, null, predicate);
+    }
+
+    public static boolean hasAnyExtractable(@Nullable TileEntity tile, @Nullable EnumFacing facing,
+            Predicate<ItemStack> predicate) {
+        Predicate<ItemStack> filter = predicate == null ? stack -> true : predicate;
         if (tile instanceof IInventory) {
-            return hasInventoryExtractable((IInventory) tile, facing);
+            return hasInventoryExtractable((IInventory) tile, facing, filter);
         }
 
-        return selectItemHandler(tile, facing, InventoryAccess::hasHandlerExtractable) != null;
+        return selectItemHandler(tile, facing, handler -> hasHandlerExtractable(handler, filter)) != null;
     }
 
     public static ItemStack insert(@Nullable TileEntity tile, ItemStack stack) {
@@ -151,19 +161,22 @@ public final class InventoryAccess {
         return false;
     }
 
-    private static boolean hasInventoryExtractable(IInventory inventory, @Nullable EnumFacing facing) {
+    private static boolean hasInventoryExtractable(IInventory inventory, @Nullable EnumFacing facing,
+            Predicate<ItemStack> predicate) {
         if (inventory instanceof ISidedInventory && facing != null) {
             ISidedInventory sided = (ISidedInventory) inventory;
             for (int slot : sided.getSlotsForFace(facing)) {
                 ItemStack existing = inventory.getStackInSlot(slot);
-                if (!existing.isEmpty() && sided.canExtractItem(slot, existing, facing)) {
+                if (!existing.isEmpty() && predicate.test(existing)
+                        && sided.canExtractItem(slot, existing, facing)) {
                     return true;
                 }
             }
             return false;
         }
         for (int slot = 0; slot < inventory.getSizeInventory(); slot++) {
-            if (!inventory.getStackInSlot(slot).isEmpty()) {
+            ItemStack existing = inventory.getStackInSlot(slot);
+            if (!existing.isEmpty() && predicate.test(existing)) {
                 return true;
             }
         }
@@ -200,9 +213,10 @@ public final class InventoryAccess {
         return false;
     }
 
-    private static boolean hasHandlerExtractable(IItemHandler handler) {
+    private static boolean hasHandlerExtractable(IItemHandler handler, Predicate<ItemStack> predicate) {
         for (int slot = 0; slot < handler.getSlots(); slot++) {
-            if (!handler.extractItem(slot, 1, true).isEmpty()) {
+            ItemStack extracted = handler.extractItem(slot, 1, true);
+            if (!extracted.isEmpty() && predicate.test(extracted)) {
                 return true;
             }
         }

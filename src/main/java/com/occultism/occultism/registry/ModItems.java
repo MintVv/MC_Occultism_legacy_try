@@ -563,6 +563,9 @@ public final class ModItems {
     public static final Item IESNIUM_BUTCHER_KNIFE = butcherKnife("iesnium_butcher_knife", IESNIUM_TOOL_MATERIAL,
             true, 14.0D, -1.8D);
     public static final Item CRUELTY_ESSENCE = item("cruelty_essence");
+    public static final Item DEMONIC_MEAT = demonDreamFood("demonic_meat", 0)
+            .addEffect(MobEffects.STRENGTH, 30 * 20, 0, 1.0F)
+            .addEffect(MobEffects.FIRE_RESISTANCE, 5 * 60 * 20, 0, 1.0F);
     public static final Item CURSED_HONEY = demonDreamFood("cursed_honey", 0)
             .addEffect(MobEffects.REGENERATION, 8 * 20, 0, 1.0F)
             .addEffect(MobEffects.ABSORPTION, 45 * 20, 0, 1.0F);
@@ -898,6 +901,7 @@ public final class ModItems {
             BUTCHER_KNIFE,
             IESNIUM_BUTCHER_KNIFE,
             CRUELTY_ESSENCE,
+            DEMONIC_MEAT,
             CURSED_HONEY,
             SWEET_HONEY_HEART,
             TRINITY_GEM,

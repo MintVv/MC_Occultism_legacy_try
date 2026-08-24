@@ -28,13 +28,17 @@ import com.occultism.occultism.entity.EntityFoliotJob;
 import com.occultism.occultism.entity.EntityPossessedEnderman;
 import com.occultism.occultism.entity.EntityPossessedEndermite;
 import com.occultism.occultism.entity.EntityPossessedGhast;
+import com.occultism.occultism.entity.EntityPossessedBlaze;
 import com.occultism.occultism.entity.EntityPossessedBee;
+import com.occultism.occultism.entity.EntityPossessedGuardian;
 import com.occultism.occultism.entity.EntityPossessedHoglin;
 import com.occultism.occultism.entity.EntityPossessedPhantom;
 import com.occultism.occultism.entity.EntityPossessedWarden;
 import com.occultism.occultism.entity.EntityPossessedShulker;
 import com.occultism.occultism.entity.EntityPossessedSkeleton;
 import com.occultism.occultism.entity.EntityPossessedWeakShulker;
+import com.occultism.occultism.entity.EntityPossessedWitch;
+import com.occultism.occultism.entity.EntityPossessedZombifiedPiglin;
 import com.occultism.occultism.entity.EntityShubNiggurathSpawn;
 import com.occultism.occultism.entity.EntityWildHuntSkeleton;
 import com.occultism.occultism.item.ItemDemonDreamFood;
@@ -47,12 +51,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.monster.EntityBlaze;
 import net.minecraft.entity.monster.EntityElderGuardian;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityEndermite;
 import net.minecraft.entity.monster.EntityGhast;
+import net.minecraft.entity.monster.EntityGuardian;
+import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.monster.EntityShulker;
 import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityBat;
@@ -85,7 +93,11 @@ class PossessedEntityPortContractTest {
             "possessed_elder_guardian",
             "possessed_phantom",
             "possessed_hoglin",
-            "possessed_warden");
+            "possessed_warden",
+            "possessed_witch",
+            "possessed_blaze",
+            "possessed_guardian",
+            "possessed_zombie_piglin");
 
     @BeforeAll
     static void bootstrapMinecraft() {
@@ -103,7 +115,10 @@ class PossessedEntityPortContractTest {
                     "new ResourceLocation(Tags.MOD_ID, \"" + id + "\")"));
             previous = current;
         }
-        assertEquals(39, countOccurrences(entities, "nextEntityId++"));
+        assertEquals(59, countOccurrences(entities, "nextEntityId++"));
+        int otherworldBirdRegistration = entities.lastIndexOf("EntityOtherworldBird.class");
+        int iesniumGolemRegistration = entities.lastIndexOf("EntityIesniumGolem.class");
+        assertTrue(iesniumGolemRegistration > otherworldBirdRegistration);
         int phantomRegistration = entities.lastIndexOf("EntityPossessedPhantom.class");
         assertTrue(phantomRegistration >= 0);
         assertTrue(entities.substring(phantomRegistration, Math.min(entities.length(), phantomRegistration + 220))
@@ -120,6 +135,10 @@ class PossessedEntityPortContractTest {
         assertRenderer(renderers, "EntityPossessedPhantom", "RenderPossessedPhantom");
         assertRenderer(renderers, "EntityPossessedHoglin", "RenderPossessedHoglin");
         assertRenderer(renderers, "EntityPossessedWarden", "RenderPossessedWarden");
+        assertRenderer(renderers, "EntityPossessedWitch", "RenderWitch");
+        assertRenderer(renderers, "EntityPossessedBlaze", "RenderBlaze");
+        assertRenderer(renderers, "EntityPossessedGuardian", "RenderGuardian");
+        assertRenderer(renderers, "EntityPossessedZombifiedPiglin", "RenderPigZombie");
 
         String items = readJava("registry", "ModItems.java");
         assertEquals(2, countOccurrences(items, "RITUAL_DUMMY_POSSESS_WARDEN"));
@@ -196,6 +215,33 @@ class PossessedEntityPortContractTest {
         assertAttribute(warden, SharedMonsterAttributes.ATTACK_DAMAGE, 15.0D);
         assertAttribute(warden, SharedMonsterAttributes.MOVEMENT_SPEED, 0.6D);
         assertTrue(warden.isImmuneToFire());
+
+        EntityPossessedWitch witch = new EntityPossessedWitch(null);
+        assertTrue(witch instanceof EntityWitch);
+        assertAttribute(witch, SharedMonsterAttributes.MAX_HEALTH, 35.0D);
+        assertAttribute(witch, SharedMonsterAttributes.MOVEMENT_SPEED, 0.3D);
+
+        EntityPossessedBlaze blaze = new EntityPossessedBlaze(null);
+        assertTrue(blaze instanceof EntityBlaze);
+        assertAttribute(blaze, SharedMonsterAttributes.MAX_HEALTH, 66.6D);
+        assertAttribute(blaze, SharedMonsterAttributes.MOVEMENT_SPEED, 0.4D);
+        assertAttribute(blaze, SharedMonsterAttributes.ATTACK_DAMAGE, 12.0D);
+        assertTrue(blaze.isImmuneToFire());
+        assertFalse(blaze.isWet());
+
+        EntityPossessedGuardian possessedGuardian = new EntityPossessedGuardian(null);
+        assertTrue(possessedGuardian instanceof EntityGuardian);
+        assertAttribute(possessedGuardian, SharedMonsterAttributes.MAX_HEALTH, 60.0D);
+        assertAttribute(possessedGuardian, SharedMonsterAttributes.ARMOR, 6.0D);
+
+        EntityPossessedZombifiedPiglin piglin = new EntityPossessedZombifiedPiglin(null);
+        assertTrue(piglin instanceof EntityPigZombie);
+        assertAttribute(piglin, SharedMonsterAttributes.MAX_HEALTH, 80.0D);
+        assertAttribute(piglin, SharedMonsterAttributes.MOVEMENT_SPEED, 0.26D);
+        assertAttribute(piglin, SharedMonsterAttributes.ATTACK_DAMAGE, 6.0D);
+        assertAttribute(piglin, SharedMonsterAttributes.ARMOR, 6.0D);
+        assertAttribute(piglin, SharedMonsterAttributes.ARMOR_TOUGHNESS, 20.0D);
+        assertTrue(piglin.isImmuneToFire());
     }
 
     @Test
@@ -214,7 +260,11 @@ class PossessedEntityPortContractTest {
                 "EntityPossessedElderGuardian.java",
                 "EntityPossessedPhantom.java",
                 "EntityPossessedHoglin.java",
-                "EntityPossessedWarden.java")) {
+                "EntityPossessedWarden.java",
+                "EntityPossessedWitch.java",
+                "EntityPossessedBlaze.java",
+                "EntityPossessedGuardian.java",
+                "EntityPossessedZombifiedPiglin.java")) {
             String source = readJava("entity", file);
             assertTrue(source.contains("this.peacefulRemovalGuard.begin(this)"), file);
             assertTrue(source.contains("this.peacefulRemovalGuard.finish(this, protect)"), file);
@@ -249,6 +299,10 @@ class PossessedEntityPortContractTest {
         assertTrue(warden.contains("MobEffects.BLINDNESS"));
         assertTrue(warden.contains("target.knockBack(this, 0.5F"));
         assertTrue(warden.contains("this.peacefulRemovalGuard.begin(this)"));
+
+        String piglin = readJava("entity", "EntityPossessedZombifiedPiglin.java");
+        assertTrue(piglin.contains("SPAWN_REINFORCEMENTS_CHANCE"));
+        assertTrue(piglin.contains("setBaseValue(0.0D)"));
     }
 
     @Test
@@ -351,6 +405,14 @@ class PossessedEntityPortContractTest {
                 "occultism:soul_gem");
         assertRitual(rituals, "possess_warden", 1200, "occultism:possessed_warden", 12,
                 "occultism:echo_dust");
+        assertRitual(rituals, "possess_witch", 400, "occultism:possessed_witch", 4,
+                "occultism:soul_gem");
+        assertRitual(rituals, "possess_blaze", 800, "occultism:possessed_blaze", 6,
+                "occultism:soul_gem");
+        assertRitual(rituals, "possess_guardian", 1000, "occultism:possessed_guardian", 5,
+                "occultism:soul_gem");
+        assertRitual(rituals, "possess_zombified_piglin", 1000,
+                "occultism:possessed_zombie_piglin", 4, "occultism:soul_gem");
 
         JsonObject skeleton = findObject(rituals, "id", "possess_skeleton");
         assertEquals("c:chickens", string(skeleton.getAsJsonObject("entity_to_sacrifice"), "tag"));
@@ -466,6 +528,10 @@ class PossessedEntityPortContractTest {
                 new EntityPossessedEndermite(null),
                 new EntityPossessedEnderman(null),
                 new EntityPossessedGhast(null),
+                new EntityPossessedBlaze(null),
+                new EntityPossessedGuardian(null),
+                new EntityPossessedWitch(null),
+                new EntityPossessedZombifiedPiglin(null),
                 new EntityBatFamiliar(null),
                 new EntityParrot(null),
                 new EntityShubNiggurathSpawn(null),
@@ -500,6 +566,10 @@ class PossessedEntityPortContractTest {
         ResourceLocation echoDustId = new ResourceLocation("occultism", "echo_dust");
         if (!ForgeRegistries.ITEMS.containsKey(echoDustId)) {
             ForgeRegistries.ITEMS.register(ModItems.ECHO_DUST);
+        }
+        ResourceLocation demonicMeatId = new ResourceLocation("occultism", "demonic_meat");
+        if (!ForgeRegistries.ITEMS.containsKey(demonicMeatId)) {
+            ForgeRegistries.ITEMS.register(ModItems.DEMONIC_MEAT);
         }
         for (String id : ENTITY_IDS) {
             String json = readUtf8(lootRoot.resolve(id + ".json"));
@@ -571,6 +641,27 @@ class PossessedEntityPortContractTest {
                 "minecraft:record_11", 1));
         assertNotNull(findEntryWithWeight(warden.getAsJsonArray("pools").get(2).getAsJsonObject(),
                 "minecraft:record_cat", 1));
+
+        JsonObject witch = readJson(lootRoot.resolve("possessed_witch.json")).getAsJsonObject();
+        assertEquals(2, witch.getAsJsonArray("pools").size());
+        assertNotNull(findItemEntry(witch, "minecraft:experience_bottle"));
+        assertNotNull(findItemEntry(witch, "minecraft:glass_bottle"));
+        assertNotNull(findItemEntry(witch, "minecraft:potion"));
+
+        JsonObject blaze = readJson(lootRoot.resolve("possessed_blaze.json")).getAsJsonObject();
+        assertEquals(3, blaze.getAsJsonArray("pools").size());
+        assertCountAndLooting(findItemEntry(blaze, "minecraft:blaze_rod"), 2.0D, 6.0D);
+        assertCountAndLooting(findItemEntry(blaze, "minecraft:blaze_powder"), 0.0D, 13.0D);
+
+        JsonObject guardian = readJson(lootRoot.resolve("possessed_guardian.json")).getAsJsonObject();
+        assertEquals(3, guardian.getAsJsonArray("pools").size());
+        assertCountAndLooting(findItemEntry(guardian, "minecraft:prismarine_shard"), 2.0D, 5.0D);
+        assertCountAndLooting(findItemEntry(guardian, "minecraft:prismarine_crystals"), 1.0D, 3.0D);
+
+        JsonObject piglin = readJson(lootRoot.resolve("possessed_zombie_piglin.json")).getAsJsonObject();
+        assertEquals(2, piglin.getAsJsonArray("pools").size());
+        assertCountAndLooting(findItemEntry(piglin, "occultism:demonic_meat"), 1.0D, 4.0D);
+        assertCountAndLooting(findItemEntry(piglin, "minecraft:gold_nugget"), 0.0D, 2.0D);
     }
 
     @Test
@@ -608,7 +699,8 @@ class PossessedEntityPortContractTest {
         }
 
         for (String id : Arrays.asList("possess_endermite", "possess_enderman", "possess_ghast",
-                "possess_weak_shulker", "possess_shulker", "possess_elder_guardian")) {
+                "possess_weak_shulker", "possess_shulker", "possess_elder_guardian", "possess_witch",
+                "possess_blaze", "possess_guardian", "possess_zombified_piglin")) {
             String key = "item.occultism.ritual_dummy." + id + ".tooltip";
             assertFalse(languageValue(english, key).contains("local substitute"), id);
             assertFalse(languageValue(chinese, key).contains("本地替代"), id);
@@ -651,6 +743,18 @@ class PossessedEntityPortContractTest {
                 .contains("compatibility entity"));
         assertTrue(languageValue(chinese, "item.occultism.ritual_dummy.possess_warden.tooltip")
                 .contains("兼容实体"));
+        assertTrue(english.contains("item.occultism.demonic_meat.name=Demonic Meat"));
+        assertTrue(chinese.contains("item.occultism.demonic_meat.name=恶魔肉"));
+        assertTrue(languageValue(english, "item.occultism.demonic_meat.auto_tooltip")
+                .contains("Fire Resistance for 5 minutes"));
+        assertTrue(languageValue(chinese, "item.occultism.demonic_meat.auto_tooltip")
+                .contains("5 分钟抗火"));
+
+        String items = readJava("registry", "ModItems.java");
+        assertTrue(items.contains("public static final Item DEMONIC_MEAT = demonDreamFood(\"demonic_meat\", 0)"));
+        assertTrue(items.contains(".addEffect(MobEffects.STRENGTH, 30 * 20, 0, 1.0F)"));
+        assertTrue(items.contains(".addEffect(MobEffects.FIRE_RESISTANCE, 5 * 60 * 20, 0, 1.0F)"));
+        assertTrue(section(items, "public static final Item[] ITEMS = {", "};").contains("DEMONIC_MEAT"));
 
         assertFalse(languageValue(english, dictionaryKey("possess_endermite", "entity.text"))
                 .contains("25%%"));
@@ -674,8 +778,8 @@ class PossessedEntityPortContractTest {
                 .contains("不含现代版本的受弹增殖机制"));
         String englishSubstitutes = languageValue(english, "guide.occultism.dictionary.possession_substitutes.body");
         String chineseSubstitutes = languageValue(chinese, "guide.occultism.dictionary.possession_substitutes.body");
-        assertTrue(englishSubstitutes.contains("Eight possession rituals now use registered Occultism entities"));
-        assertTrue(chineseSubstitutes.contains("八种附身仪式现已使用 Occultism 专属注册实体"));
+        assertTrue(englishSubstitutes.contains("Thirteen possession rituals now use registered Occultism entities"));
+        assertTrue(chineseSubstitutes.contains("十三种附身仪式现已使用 Occultism 专属注册实体"));
         assertFalse(englishSubstitutes.contains("endermite, witch, bat-as-phantom, enderman"));
         assertFalse(chineseSubstitutes.contains("末影螨、女巫、蝙蝠替代幻翼、末影人"));
 

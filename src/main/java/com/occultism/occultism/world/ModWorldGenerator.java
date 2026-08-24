@@ -14,6 +14,8 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 public final class ModWorldGenerator implements IWorldGenerator {
 
+    private static final WorldGenOtherworldGrove OTHERWORLD_GROVE = new WorldGenOtherworldGrove(true);
+
     private static final Predicate<IBlockState> NETHERRACK = new Predicate<IBlockState>() {
         @Override
         public boolean apply(IBlockState input) {
@@ -29,6 +31,10 @@ public final class ModWorldGenerator implements IWorldGenerator {
         if (dimension == 0) {
             generateOre(ModBlocks.COPPER_ORE.getDefaultState(), world, random, chunkX, chunkZ, 32, 96, 8, 12);
             generateOre(ModBlocks.SILVER_ORE.getDefaultState(), world, random, chunkX, chunkZ, 8, 48, 6, 8);
+            if (random.nextInt(WorldGenOtherworldGrove.GENERATION_CHANCE) == 0) {
+                BlockPos grovePos = grovePos(random, chunkX, chunkZ);
+                OTHERWORLD_GROVE.generate(world, random, grovePos);
+            }
         } else if (dimension == -1) {
             generateOre(ModBlocks.IESNIUM_ORE_NATURAL.getDefaultState(), world, random, chunkX, chunkZ, 8, 64, 4, 4,
                     NETHERRACK);
@@ -55,6 +61,15 @@ public final class ModWorldGenerator implements IWorldGenerator {
         int x = chunkX * 16 + random.nextInt(16);
         int y = minY + random.nextInt(maxY - minY + 1);
         int z = chunkZ * 16 + random.nextInt(16);
+        return new BlockPos(x, y, z);
+    }
+
+    private static BlockPos grovePos(Random random, int chunkX, int chunkZ) {
+        int x = chunkX * 16 + 7 + random.nextInt(2);
+        int y = WorldGenOtherworldGrove.MIN_GENERATION_Y
+                + random.nextInt(WorldGenOtherworldGrove.MAX_GENERATION_Y
+                        - WorldGenOtherworldGrove.MIN_GENERATION_Y + 1);
+        int z = chunkZ * 16 + 7 + random.nextInt(2);
         return new BlockPos(x, y, z);
     }
 }

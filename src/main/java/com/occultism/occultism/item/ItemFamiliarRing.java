@@ -18,6 +18,7 @@ import com.occultism.occultism.entity.EntityGreedyFamiliar;
 import com.occultism.occultism.entity.EntityGoatFamiliar;
 import com.occultism.occultism.entity.EntityGuardianFamiliar;
 import com.occultism.occultism.entity.EntityHeadlessFamiliar;
+import com.occultism.occultism.entity.EntityIesniumGolem;
 import com.occultism.occultism.entity.EntityMercyGoat;
 import com.occultism.occultism.entity.EntityMummyFamiliar;
 import com.occultism.occultism.entity.EntityPossessedBee;
@@ -552,6 +553,9 @@ public class ItemFamiliarRing extends Item {
     }
 
     private static boolean canCaptureFamiliar(@Nullable Entity entity, EntityPlayer player) {
+        if (entity instanceof EntityIesniumGolem) {
+            return false;
+        }
         if (isTransportOnlyFamiliar(entity)) {
             return entity.isEntityAlive();
         }

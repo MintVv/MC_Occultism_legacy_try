@@ -86,8 +86,11 @@ public class BlockStableWormhole extends BlockModelOnly {
                 return true;
             }
 
-            playerIn.openGui(Occultism.INSTANCE, ModGuiHandler.STORAGE_REMOTE, targetWorld,
-                    controllerPos.getX(), controllerPos.getY(), controllerPos.getZ());
+            // Keep the wormhole as the access source.  The GUI handler resolves
+            // its linked controller from this block, so it cannot be confused
+            // with a Remote ItemStack slot.
+            playerIn.openGui(Occultism.INSTANCE, ModGuiHandler.STORAGE_WORMHOLE, worldIn,
+                    pos.getX(), pos.getY(), pos.getZ());
         }
         return true;
     }

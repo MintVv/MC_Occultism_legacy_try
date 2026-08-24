@@ -1,6 +1,7 @@
 package com.occultism.occultism.network;
 
 import com.occultism.occultism.item.BookOfCallingMode;
+import com.occultism.occultism.container.ContainerBookOfCalling;
 import com.occultism.occultism.item.ItemBookOfCallingFoliotJob;
 import com.occultism.occultism.item.WorkAreaSize;
 
@@ -22,8 +23,10 @@ public class MessageSetBookOfCallingConfig implements IMessage {
 
     public MessageSetBookOfCallingConfig(int slot, BookOfCallingMode mode, WorkAreaSize workAreaSize) {
         this.slot = slot;
-        this.mode = mode.ordinal();
-        this.workAreaSize = workAreaSize.ordinal();
+        // Retain the original 1.12 packet format. The replacement packets use
+        // the upstream stable enum values.
+        this.mode = mode == null ? -1 : mode.ordinal();
+        this.workAreaSize = workAreaSize == null ? -1 : workAreaSize.ordinal();
     }
 
     @Override
@@ -44,22 +47,81 @@ public class MessageSetBookOfCallingConfig implements IMessage {
 
         @Override
         public IMessage onMessage(MessageSetBookOfCallingConfig message, MessageContext ctx) {
+            if (ctx.side != net.minecraftforge.fml.relauncher.Side.SERVER || message == null) {
+                return null;
+            }
             EntityPlayerMP player = ctx.getServerHandler().player;
             player.getServerWorld().addScheduledTask(() -> {
-                if (message.slot < 0 || message.slot >= player.inventory.getSizeInventory()) {
+                if (message.mode < 0 || message.mode >= BookOfCallingMode.values().length
+                        || message.workAreaSize < 0 || message.workAreaSize >= WorkAreaSize.values().length) {
                     return;
                 }
-                ItemStack stack = player.inventory.getStackInSlot(message.slot);
-                if (!(stack.getItem() instanceof ItemBookOfCallingFoliotJob)) {
-                    return;
-                }
-                ItemBookOfCallingFoliotJob book = (ItemBookOfCallingFoliotJob) stack.getItem();
-                book.setBookConfiguration(stack, BookOfCallingMode.byOrdinal(message.mode),
-                        WorkAreaSize.byOrdinal(message.workAreaSize), player.getEntityWorld());
-                player.inventory.setInventorySlotContents(message.slot, stack);
-                player.inventoryContainer.detectAndSendChanges();
+                applyConfiguration(player, message.slot, BookOfCallingMode.byOrdinal(message.mode),
+                        WorkAreaSize.byOrdinal(message.workAreaSize));
             });
             return null;
+        }
+    }
+
+    static boolean applyMode(EntityPlayerMP player, int slot, BookOfCallingMode mode) {
+        ItemBookOfCallingFoliotJob book = getValidatedBook(player, slot);
+        if (book == null || mode == null || !book.supportsMode(mode)) {
+            return false;
+        }
+        ItemStack stack = player.inventory.getStackInSlot(slot);
+        book.setBookConfiguration(stack, mode, book.getCurrentWorkAreaSize(stack), player.getEntityWorld());
+        player.inventory.setInventorySlotContents(slot, stack);
+        syncContainerState(player);
+        return true;
+    }
+
+    static boolean applyWorkAreaSize(EntityPlayerMP player, int slot, WorkAreaSize workAreaSize) {
+        ItemBookOfCallingFoliotJob book = getValidatedBook(player, slot);
+        if (book == null || workAreaSize == null) {
+            return false;
+        }
+        ItemStack stack = player.inventory.getStackInSlot(slot);
+        BookOfCallingMode mode = book.getCurrentMode(stack);
+        if (!mode.hasSize()) {
+            return false;
+        }
+        book.setBookConfiguration(stack, mode, workAreaSize, player.getEntityWorld());
+        player.inventory.setInventorySlotContents(slot, stack);
+        syncContainerState(player);
+        return true;
+    }
+
+    private static boolean applyConfiguration(EntityPlayerMP player, int slot, BookOfCallingMode mode,
+            WorkAreaSize workAreaSize) {
+        ItemBookOfCallingFoliotJob book = getValidatedBook(player, slot);
+        if (book == null || mode == null || workAreaSize == null || !book.supportsMode(mode)) {
+            return false;
+        }
+        ItemStack stack = player.inventory.getStackInSlot(slot);
+        book.setBookConfiguration(stack, mode, workAreaSize, player.getEntityWorld());
+        player.inventory.setInventorySlotContents(slot, stack);
+        syncContainerState(player);
+        return true;
+    }
+
+    private static ItemBookOfCallingFoliotJob getValidatedBook(EntityPlayerMP player, int slot) {
+        if (player == null || !(player.openContainer instanceof ContainerBookOfCalling)) {
+            return null;
+        }
+        ContainerBookOfCalling container = (ContainerBookOfCalling) player.openContainer;
+        if (!container.isBookSlot(slot) || !container.canInteractWith(player)
+                || slot < 0 || slot >= player.inventory.getSizeInventory()) {
+            return null;
+        }
+        ItemStack stack = player.inventory.getStackInSlot(slot);
+        return stack.getItem() instanceof ItemBookOfCallingFoliotJob
+                ? (ItemBookOfCallingFoliotJob) stack.getItem() : null;
+    }
+
+    private static void syncContainerState(EntityPlayerMP player) {
+        player.inventoryContainer.detectAndSendChanges();
+        if (player.openContainer != player.inventoryContainer) {
+            player.openContainer.detectAndSendChanges();
         }
     }
 }

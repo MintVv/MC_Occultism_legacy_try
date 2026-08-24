@@ -18,13 +18,20 @@ import net.minecraft.entity.IEntityLivingData;
 
 public class EntityMercyGoat extends EntitySheep {
 
+    public static final int RAM_COOLDOWN_TICKS = 60;
+    public static final double RAM_RANGE_SQ = 2.25D;
+    public static final float RAM_DAMAGE = 4.0F;
+    public static final float RAM_KNOCKBACK = 0.7F;
+
     private boolean droppedCrueltyEssence;
+    private int ramCooldown;
 
     public EntityMercyGoat(World worldIn) {
         super(worldIn);
         this.setFleeceColor(EnumDyeColor.WHITE);
         this.setSheared(false);
         this.enablePersistence();
+        this.experienceValue = 3;
     }
 
     @Override
@@ -38,6 +45,18 @@ public class EntityMercyGoat extends EntitySheep {
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         return false;
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+        if (this.world.isRemote) {
+            return;
+        }
+        if (this.ramCooldown > 0) {
+            this.ramCooldown--;
+        }
+        this.updateMercyGoatRam();
     }
 
     @Override
@@ -62,5 +81,29 @@ public class EntityMercyGoat extends EntitySheep {
             this.droppedCrueltyEssence = true;
             this.entityDropItem(new ItemStack(ModItems.CRUELTY_ESSENCE), 0.0F);
         }
+    }
+
+    private void updateMercyGoatRam() {
+        EntityPlayer target = this.world.getNearestPlayerNotCreative(this, 12.0D);
+        if (target == null || !target.isEntityAlive()) {
+            return;
+        }
+
+        double distanceSq = this.getDistanceSq(target);
+        if (distanceSq > RAM_RANGE_SQ) {
+            this.getNavigator().tryMoveToEntityLiving(target, 1.35D);
+            return;
+        }
+        if (this.ramCooldown > 0) {
+            return;
+        }
+
+        boolean hit = target.attackEntityFrom(DamageSource.causeMobDamage(this), RAM_DAMAGE);
+        if (hit) {
+            target.knockBack(this, RAM_KNOCKBACK, target.posX - this.posX, target.posZ - this.posZ);
+            this.world.playSound(null, this.posX, this.posY, this.posZ, net.minecraft.init.SoundEvents.ENTITY_SHEEP_HURT,
+                    net.minecraft.util.SoundCategory.HOSTILE, 0.7F, 0.9F);
+        }
+        this.ramCooldown = RAM_COOLDOWN_TICKS;
     }
 }

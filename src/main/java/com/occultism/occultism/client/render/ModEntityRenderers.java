@@ -2,10 +2,17 @@ package com.occultism.occultism.client.render;
 
 import com.occultism.occultism.entity.EntityBatFamiliar;
 import com.occultism.occultism.entity.EntityAfritWild;
+import com.occultism.occultism.entity.EntityMaridWild;
 import com.occultism.occultism.entity.EntityBeholderFamiliar;
 import com.occultism.occultism.entity.EntityBeaverFamiliar;
 import com.occultism.occultism.entity.EntityBlacksmithFamiliar;
 import com.occultism.occultism.entity.EntityBoundSpirit;
+import com.occultism.occultism.entity.EntityDjinni;
+import com.occultism.occultism.entity.EntityAfrit;
+import com.occultism.occultism.entity.EntityMarid;
+import com.occultism.occultism.entity.EntityDjinniJob;
+import com.occultism.occultism.entity.EntityAfritJob;
+import com.occultism.occultism.entity.EntityMaridJob;
 import com.occultism.occultism.entity.EntityCthulhuFamiliar;
 import com.occultism.occultism.entity.EntityChimeraFamiliar;
 import com.occultism.occultism.entity.EntityDeerFamiliar;
@@ -15,14 +22,18 @@ import com.occultism.occultism.entity.EntityDevilFamiliar;
 import com.occultism.occultism.entity.EntityDragonFamiliar;
 import com.occultism.occultism.entity.EntityFairyFamiliar;
 import com.occultism.occultism.entity.EntityFoliotJob;
+import com.occultism.occultism.entity.EntityFoliot;
 import com.occultism.occultism.entity.EntityGreedyFamiliar;
 import com.occultism.occultism.entity.EntityGoatFamiliar;
 import com.occultism.occultism.entity.EntityGuardianFamiliar;
 import com.occultism.occultism.entity.EntityHeadlessFamiliar;
+import com.occultism.occultism.entity.EntityIesniumGolem;
 import com.occultism.occultism.entity.EntityMercyGoat;
 import com.occultism.occultism.entity.EntityMummyFamiliar;
 import com.occultism.occultism.entity.EntityOtherworldBird;
 import com.occultism.occultism.entity.EntityPossessedBee;
+import com.occultism.occultism.entity.EntityPossessedBlaze;
+import com.occultism.occultism.entity.EntityPossessedGuardian;
 import com.occultism.occultism.entity.EntityPossessedElderGuardian;
 import com.occultism.occultism.entity.EntityPossessedEnderman;
 import com.occultism.occultism.entity.EntityPossessedEndermite;
@@ -30,6 +41,8 @@ import com.occultism.occultism.entity.EntityPossessedGhast;
 import com.occultism.occultism.entity.EntityPossessedHoglin;
 import com.occultism.occultism.entity.EntityPossessedPhantom;
 import com.occultism.occultism.entity.EntityPossessedWarden;
+import com.occultism.occultism.entity.EntityPossessedWitch;
+import com.occultism.occultism.entity.EntityPossessedZombifiedPiglin;
 import com.occultism.occultism.entity.EntityPossessedShulker;
 import com.occultism.occultism.entity.EntityPossessedSkeleton;
 import com.occultism.occultism.entity.EntityPossessedWeakShulker;
@@ -39,16 +52,33 @@ import com.occultism.occultism.entity.EntityShubNiggurathSpawn;
 import com.occultism.occultism.entity.EntityThrownSword;
 import com.occultism.occultism.entity.EntityWildHuntSkeleton;
 import com.occultism.occultism.entity.EntityWildHuntWitherSkeleton;
+import com.occultism.occultism.entity.EntityWonderingTrader;
+import com.occultism.occultism.entity.EntityWildHordeCreeper;
+import com.occultism.occultism.entity.EntityWildHordeDrowned;
+import com.occultism.occultism.entity.EntityWildHordeEvoker;
+import com.occultism.occultism.entity.EntityWildHordeHusk;
+import com.occultism.occultism.entity.EntityWildHordeParched;
+import com.occultism.occultism.entity.EntityWildHordeSilverfish;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderElderGuardian;
 import net.minecraft.client.renderer.entity.RenderEnderman;
 import net.minecraft.client.renderer.entity.RenderEndermite;
 import net.minecraft.client.renderer.entity.RenderGhast;
+import net.minecraft.client.renderer.entity.RenderBlaze;
+import net.minecraft.client.renderer.entity.RenderCreeper;
+import net.minecraft.client.renderer.entity.RenderEvoker;
+import net.minecraft.client.renderer.entity.RenderGuardian;
+import net.minecraft.client.renderer.entity.RenderHusk;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RenderPigZombie;
 import net.minecraft.client.renderer.entity.RenderSheep;
 import net.minecraft.client.renderer.entity.RenderShulker;
 import net.minecraft.client.renderer.entity.RenderSkeleton;
 import net.minecraft.client.renderer.entity.RenderWitherSkeleton;
+import net.minecraft.client.renderer.entity.RenderWitch;
+import net.minecraft.client.renderer.entity.RenderVillager;
+import net.minecraft.client.renderer.entity.RenderSilverfish;
+import net.minecraft.client.renderer.entity.RenderZombie;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.relauncher.Side;
@@ -68,6 +98,13 @@ public final class ModEntityRenderers {
                         return new RenderFoliotJob(manager);
                     }
                 });
+        RenderingRegistry.registerEntityRenderingHandler(EntityFoliot.class,
+                new IRenderFactory<EntityFoliot>() {
+                    @Override
+                    public Render<? super EntityFoliot> createRenderFor(RenderManager manager) {
+                        return new RenderFoliotJob(manager);
+                    }
+                });
         RenderingRegistry.registerEntityRenderingHandler(EntityBoundSpirit.class,
                 new IRenderFactory<EntityBoundSpirit>() {
                     @Override
@@ -75,11 +112,60 @@ public final class ModEntityRenderers {
                         return new RenderBoundSpirit(manager);
                     }
                 });
+        RenderingRegistry.registerEntityRenderingHandler(EntityDjinni.class,
+                new IRenderFactory<EntityDjinni>() {
+                    @Override
+                    public Render<? super EntityDjinni> createRenderFor(RenderManager manager) {
+                        return new RenderBoundSpirit(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityAfrit.class,
+                new IRenderFactory<EntityAfrit>() {
+                    @Override
+                    public Render<? super EntityAfrit> createRenderFor(RenderManager manager) {
+                        return new RenderBoundSpirit(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityMarid.class,
+                new IRenderFactory<EntityMarid>() {
+                    @Override
+                    public Render<? super EntityMarid> createRenderFor(RenderManager manager) {
+                        return new RenderBoundSpirit(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityDjinniJob.class,
+                new IRenderFactory<EntityDjinniJob>() {
+                    @Override
+                    public Render<? super EntityDjinniJob> createRenderFor(RenderManager manager) {
+                        return new RenderFoliotJob(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityAfritJob.class,
+                new IRenderFactory<EntityAfritJob>() {
+                    @Override
+                    public Render<? super EntityAfritJob> createRenderFor(RenderManager manager) {
+                        return new RenderFoliotJob(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityMaridJob.class,
+                new IRenderFactory<EntityMaridJob>() {
+                    @Override
+                    public Render<? super EntityMaridJob> createRenderFor(RenderManager manager) {
+                        return new RenderFoliotJob(manager);
+                    }
+                });
         RenderingRegistry.registerEntityRenderingHandler(EntityAfritWild.class,
                 new IRenderFactory<EntityAfritWild>() {
                     @Override
                     public Render<? super EntityAfritWild> createRenderFor(RenderManager manager) {
                         return new RenderAfritWild(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityMaridWild.class,
+                new IRenderFactory<EntityMaridWild>() {
+                    @Override
+                    public Render<? super EntityMaridWild> createRenderFor(RenderManager manager) {
+                        return new RenderMaridWild(manager);
                     }
                 });
         RenderingRegistry.registerEntityRenderingHandler(EntityOtherworldBird.class,
@@ -332,6 +418,90 @@ public final class ModEntityRenderers {
                     @Override
                     public Render<? super EntityPossessedWarden> createRenderFor(RenderManager manager) {
                         return new RenderPossessedWarden(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityPossessedWitch.class,
+                new IRenderFactory<EntityPossessedWitch>() {
+                    @Override
+                    public Render<? super EntityPossessedWitch> createRenderFor(RenderManager manager) {
+                        return new RenderWitch(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityPossessedBlaze.class,
+                new IRenderFactory<EntityPossessedBlaze>() {
+                    @Override
+                    public Render<? super EntityPossessedBlaze> createRenderFor(RenderManager manager) {
+                        return new RenderBlaze(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityPossessedGuardian.class,
+                new IRenderFactory<EntityPossessedGuardian>() {
+                    @Override
+                    public Render<? super EntityPossessedGuardian> createRenderFor(RenderManager manager) {
+                        return new RenderGuardian(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityPossessedZombifiedPiglin.class,
+                new IRenderFactory<EntityPossessedZombifiedPiglin>() {
+                    @Override
+                    public Render<? super EntityPossessedZombifiedPiglin> createRenderFor(RenderManager manager) {
+                        return new RenderPigZombie(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityIesniumGolem.class,
+                new IRenderFactory<EntityIesniumGolem>() {
+                    @Override
+                    public Render<? super EntityIesniumGolem> createRenderFor(RenderManager manager) {
+                        return new RenderIesniumGolem(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityWonderingTrader.class,
+                new IRenderFactory<EntityWonderingTrader>() {
+                    @Override
+                    public Render<? super EntityWonderingTrader> createRenderFor(RenderManager manager) {
+                        return new RenderVillager(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityWildHordeEvoker.class,
+                new IRenderFactory<EntityWildHordeEvoker>() {
+                    @Override
+                    public Render<? super EntityWildHordeEvoker> createRenderFor(RenderManager manager) {
+                        return new RenderEvoker(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityWildHordeHusk.class,
+                new IRenderFactory<EntityWildHordeHusk>() {
+                    @Override
+                    public Render<? super EntityWildHordeHusk> createRenderFor(RenderManager manager) {
+                        return new RenderHusk(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityWildHordeParched.class,
+                new IRenderFactory<EntityWildHordeParched>() {
+                    @Override
+                    public Render<? super EntityWildHordeParched> createRenderFor(RenderManager manager) {
+                        return new RenderSkeleton(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityWildHordeDrowned.class,
+                new IRenderFactory<EntityWildHordeDrowned>() {
+                    @Override
+                    public Render<? super EntityWildHordeDrowned> createRenderFor(RenderManager manager) {
+                        return new RenderZombie(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityWildHordeCreeper.class,
+                new IRenderFactory<EntityWildHordeCreeper>() {
+                    @Override
+                    public Render<? super EntityWildHordeCreeper> createRenderFor(RenderManager manager) {
+                        return new RenderCreeper(manager);
+                    }
+                });
+        RenderingRegistry.registerEntityRenderingHandler(EntityWildHordeSilverfish.class,
+                new IRenderFactory<EntityWildHordeSilverfish>() {
+                    @Override
+                    public Render<? super EntityWildHordeSilverfish> createRenderFor(RenderManager manager) {
+                        return new RenderSilverfish(manager);
                     }
                 });
     }

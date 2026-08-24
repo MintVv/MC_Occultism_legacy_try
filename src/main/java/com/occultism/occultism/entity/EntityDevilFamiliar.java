@@ -19,20 +19,31 @@ import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraftforge.items.ItemHandlerHelper;
 
-public class EntityDevilFamiliar extends EntityFamiliarBase implements IFamiliar {
+public class EntityDevilFamiliar extends EntityFamiliarBase implements IBlacksmithUpgradable {
 
+    private static final DataParameter<Boolean> BLACKSMITH_UPGRADE =
+            EntityDataManager.createKey(EntityDevilFamiliar.class, DataSerializers.BOOLEAN);
+    private static final long SIN_INTERVAL = 20L * 60L * 33L;
     private static final double OWNER_EFFECT_RANGE_SQ = 64.0D;
     private final float heightOffset;
+    private long sinLastTime;
 
     public EntityDevilFamiliar(World worldIn) {
         super(worldIn);
@@ -41,6 +52,12 @@ public class EntityDevilFamiliar extends EntityFamiliarBase implements IFamiliar
         this.enablePersistence();
         this.experienceValue = 2;
         this.heightOffset = this.rand.nextFloat() * 5.0F;
+    }
+
+    @Override
+    protected void entityInit() {
+        super.entityInit();
+        this.dataManager.register(BLACKSMITH_UPGRADE, Boolean.FALSE);
     }
 
     @Override
@@ -86,6 +103,25 @@ public class EntityDevilFamiliar extends EntityFamiliarBase implements IFamiliar
 
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
+        ItemStack stack = player.getHeldItem(hand);
+        if (this.isOwner(player) && isNormalGoldenApple(stack)) {
+            if (!this.world.isRemote) {
+                long remaining = this.sinLastTime + SIN_INTERVAL - this.world.getTotalWorldTime();
+                if (!this.hasBlacksmithUpgrade()) {
+                    player.sendStatusMessage(new TextComponentTranslation("dialog.occultism.devil.no_upgrade"), true);
+                } else if (remaining < 0L) {
+                    this.sinLastTime = this.world.getTotalWorldTime();
+                    if (!player.capabilities.isCreativeMode) {
+                        stack.shrink(1);
+                    }
+                    ItemHandlerHelper.giveItemToPlayer(player, new ItemStack(Items.GOLDEN_APPLE, 1, 1));
+                } else {
+                    player.sendStatusMessage(new TextComponentTranslation("dialog.occultism.devil.sin_on_cooldown",
+                            Long.valueOf(remaining)), true);
+                }
+            }
+            return true;
+        }
         if (hand == EnumHand.MAIN_HAND && this.isOwner(player) && player.getHeldItem(hand).isEmpty()) {
             this.setSitting(!this.isSitting());
             if (this.aiSit != null) {
@@ -131,10 +167,43 @@ public class EntityDevilFamiliar extends EntityFamiliarBase implements IFamiliar
         return this;
     }
 
+    public boolean hasBlacksmithUpgrade() {
+        return this.dataManager.get(BLACKSMITH_UPGRADE).booleanValue();
+    }
+
+    @Override
+    public boolean canBlacksmithUpgrade() {
+        return !this.hasBlacksmithUpgrade();
+    }
+
+    @Override
+    public void blacksmithUpgrade() {
+        if (this.canBlacksmithUpgrade()) {
+            this.setBlacksmithUpgrade(true);
+        }
+    }
+
+    @Override
+    public void writeEntityToNBT(NBTTagCompound compound) {
+        super.writeEntityToNBT(compound);
+        compound.setBoolean("hasBlacksmithUpgrade", this.hasBlacksmithUpgrade());
+        compound.setLong("sinLastTime", this.sinLastTime);
+    }
+
     @Override
     public void readEntityFromNBT(NBTTagCompound compound) {
         super.readEntityFromNBT(compound);
+        this.setBlacksmithUpgrade(compound.getBoolean("hasBlacksmithUpgrade"));
+        this.sinLastTime = compound.getLong("sinLastTime");
         this.isImmuneToFire = true;
+    }
+
+    private void setBlacksmithUpgrade(boolean value) {
+        this.dataManager.set(BLACKSMITH_UPGRADE, Boolean.valueOf(value));
+    }
+
+    private static boolean isNormalGoldenApple(ItemStack stack) {
+        return !stack.isEmpty() && stack.getItem() == Items.GOLDEN_APPLE && stack.getItemDamage() == 0;
     }
 
     public boolean isOwnerNearForEffect() {

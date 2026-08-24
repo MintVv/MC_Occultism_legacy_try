@@ -8,6 +8,9 @@ import com.occultism.occultism.client.gui.GuiEnderSatchel;
 import com.occultism.occultism.client.gui.GuiIesniumAnvil;
 import com.occultism.occultism.client.gui.GuiSatchel;
 import com.occultism.occultism.client.gui.GuiSpiritGrindstone;
+import com.occultism.occultism.client.gui.GuiSpirit;
+import com.occultism.occultism.client.gui.GuiSpiritTransporter;
+import com.occultism.occultism.client.gui.GuiBoundSpirit;
 import com.occultism.occultism.client.gui.GuiStorageController;
 import com.occultism.occultism.container.ContainerDimensionalMineshaft;
 import com.occultism.occultism.container.ContainerDimensionalBattlefield;
@@ -17,10 +20,18 @@ import com.occultism.occultism.container.ContainerEnderSatchel;
 import com.occultism.occultism.container.ContainerIesniumAnvil;
 import com.occultism.occultism.container.ContainerSatchel;
 import com.occultism.occultism.container.ContainerSpiritGrindstone;
+import com.occultism.occultism.container.ContainerSpirit;
+import com.occultism.occultism.container.ContainerSpiritTransporter;
+import com.occultism.occultism.container.ContainerBoundSpirit;
 import com.occultism.occultism.container.ContainerStorageController;
 import com.occultism.occultism.container.SatchelInventory;
 import com.occultism.occultism.item.ItemSatchel;
 import com.occultism.occultism.item.ItemBookOfCallingFoliotJob;
+import com.occultism.occultism.item.ItemStorageRemote;
+import com.occultism.occultism.tileentity.TileEntityStableWormhole;
+import com.occultism.occultism.api.common.blockentity.IStorageController;
+import com.occultism.occultism.entity.EntityFoliotJob;
+import com.occultism.occultism.entity.EntityBoundSpirit;
 import com.occultism.occultism.registry.ModBlocks;
 import com.occultism.occultism.registry.ModItems;
 import com.occultism.occultism.tileentity.TileEntityDimensionalMineshaft;
@@ -47,6 +58,9 @@ public class ModGuiHandler implements IGuiHandler {
     public static final int IESNIUM_ANVIL = 8;
     public static final int DIMENSIONAL_BATTLEFIELD = 9;
     public static final int BOOK_OF_CALLING = 10;
+    public static final int SPIRIT = 11;
+    public static final int STORAGE_WORMHOLE = 12;
+    public static final int BOUND_SPIRIT = 13;
 
     @Override
     public Object getServerGuiElement(int id, EntityPlayer player, World world, int x, int y, int z) {
@@ -81,16 +95,49 @@ public class ModGuiHandler implements IGuiHandler {
                 return new ContainerStorageController(player.inventory, (TileEntityStorageController) tile);
             }
         } else if (id == STORAGE_REMOTE) {
+            if (x >= 0 && x < player.inventory.getSizeInventory()) {
+                ItemStack remote = player.inventory.getStackInSlot(x);
+                IStorageController resolved = ItemStorageRemote.getStorageController(remote, world);
+                if (resolved instanceof TileEntityStorageController
+                        && !((TileEntityStorageController) resolved).isInvalid()) {
+                    return new ContainerStorageController(player.inventory,
+                            (TileEntityStorageController) resolved, x);
+                }
+            }
+        } else if (id == STORAGE_WORMHOLE) {
             TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
-            if (tile instanceof TileEntityStorageController && !tile.isInvalid()) {
-                return new ContainerStorageController(player.inventory, (TileEntityStorageController) tile, true);
+            if (tile instanceof TileEntityStableWormhole) {
+                IStorageController resolved = ((TileEntityStableWormhole) tile).getLinkedStorageController();
+                if (resolved instanceof TileEntityStorageController
+                        && !((TileEntityStorageController) resolved).isInvalid()) {
+                    return new ContainerStorageController(player.inventory,
+                            (TileEntityStorageController) resolved, (TileEntityStableWormhole) tile);
+                }
             }
         } else if (id == DICTIONARY_OF_SPIRITS) {
             return new ContainerDictionaryOfSpirits();
         } else if (id == BOOK_OF_CALLING) {
-            ItemStack stack = player.inventory.getStackInSlot(x);
-            if (!stack.isEmpty() && stack.getItem() instanceof ItemBookOfCallingFoliotJob) {
-                return new ContainerBookOfCalling();
+            if (x >= 0 && x < player.inventory.getSizeInventory()) {
+                ItemStack stack = player.inventory.getStackInSlot(x);
+                if (!stack.isEmpty() && stack.getItem() instanceof ItemBookOfCallingFoliotJob) {
+                    return new ContainerBookOfCalling(x);
+                }
+            }
+        } else if (id == SPIRIT) {
+            net.minecraft.entity.Entity entity = world.getEntityByID(x);
+            if (entity instanceof EntityFoliotJob && entity.isEntityAlive()
+                    && entity.getDistanceSq(player) < 64.0D) {
+                EntityFoliotJob spirit = (EntityFoliotJob) entity;
+                return spirit.supportsTransporterFilter()
+                        ? new ContainerSpiritTransporter(player.inventory, spirit)
+                        : new ContainerSpirit(player.inventory, spirit);
+            }
+        } else if (id == BOUND_SPIRIT) {
+            net.minecraft.entity.Entity entity = world.getEntityByID(x);
+            if (entity instanceof EntityBoundSpirit && entity.isEntityAlive()
+                    && entity.getDistanceSq(player) < 64.0D
+                    && ((EntityBoundSpirit) entity).canPlayerAccess(player)) {
+                return new ContainerBoundSpirit(player.inventory, (EntityBoundSpirit) entity);
             }
         } else if (id == IESNIUM_ANVIL) {
             BlockPos pos = new BlockPos(x, y, z);
@@ -135,18 +182,36 @@ public class ModGuiHandler implements IGuiHandler {
                 return new GuiStorageController(player.inventory, (TileEntityStorageController) tile);
             }
         } else if (id == STORAGE_REMOTE) {
+            return new GuiStorageController(player.inventory, new TileEntityStorageController(), x);
+        } else if (id == STORAGE_WORMHOLE) {
             TileEntity tile = world.getTileEntity(new BlockPos(x, y, z));
-            TileEntityStorageController storageController = tile instanceof TileEntityStorageController
-                    && !tile.isInvalid()
-                    ? (TileEntityStorageController) tile
-                    : new TileEntityStorageController();
-            return new GuiStorageController(player.inventory, storageController, true);
+            TileEntityStableWormhole wormhole = tile instanceof TileEntityStableWormhole
+                    ? (TileEntityStableWormhole) tile : new TileEntityStableWormhole();
+            return new GuiStorageController(player.inventory, new TileEntityStorageController(), wormhole);
         } else if (id == DICTIONARY_OF_SPIRITS) {
             return new GuiDictionaryOfSpirits();
         } else if (id == BOOK_OF_CALLING) {
-            ItemStack stack = player.inventory.getStackInSlot(x);
-            if (!stack.isEmpty() && stack.getItem() instanceof ItemBookOfCallingFoliotJob) {
-                return new GuiBookOfCalling(x);
+            if (x >= 0 && x < player.inventory.getSizeInventory()) {
+                ItemStack stack = player.inventory.getStackInSlot(x);
+                if (!stack.isEmpty() && stack.getItem() instanceof ItemBookOfCallingFoliotJob) {
+                    return new GuiBookOfCalling(x);
+                }
+            }
+        } else if (id == SPIRIT) {
+            net.minecraft.entity.Entity entity = world.getEntityByID(x);
+            if (entity instanceof EntityFoliotJob && entity.isEntityAlive()
+                    && entity.getDistanceSq(player) < 64.0D) {
+                EntityFoliotJob spirit = (EntityFoliotJob) entity;
+                return spirit.supportsTransporterFilter()
+                        ? new GuiSpiritTransporter(player.inventory, spirit)
+                        : new GuiSpirit(player.inventory, spirit);
+            }
+        } else if (id == BOUND_SPIRIT) {
+            net.minecraft.entity.Entity entity = world.getEntityByID(x);
+            if (entity instanceof EntityBoundSpirit && entity.isEntityAlive()
+                    && entity.getDistanceSq(player) < 64.0D
+                    && ((EntityBoundSpirit) entity).canPlayerAccess(player)) {
+                return new GuiBoundSpirit(player.inventory, (EntityBoundSpirit) entity);
             }
         } else if (id == IESNIUM_ANVIL) {
             BlockPos pos = new BlockPos(x, y, z);

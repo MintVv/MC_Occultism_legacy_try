@@ -4,6 +4,7 @@ import com.occultism.occultism.Tags;
 import com.occultism.occultism.potion.PotionBatLifesteal;
 import com.occultism.occultism.potion.PotionBeaverHarvest;
 import com.occultism.occultism.potion.PotionDragonGreed;
+import com.occultism.occultism.potion.PotionDoubleJump;
 import com.occultism.occultism.potion.PotionFairySlowFall;
 import com.occultism.occultism.potion.PotionMummyDodge;
 import com.occultism.occultism.potion.PotionThirdEye;
@@ -29,6 +30,8 @@ public final class ModPotions {
             .setRegistryName(Tags.MOD_ID, "dragon_greed");
     public static final Potion FAIRY_SLOW_FALL = new PotionFairySlowFall()
             .setRegistryName(Tags.MOD_ID, "fairy_slow_fall");
+    public static final Potion DOUBLE_JUMP = new PotionDoubleJump()
+            .setRegistryName(Tags.MOD_ID, "double_jump");
     public static final PotionType THIRD_EYE_POTION = new PotionType("third_eye",
             new PotionEffect(THIRD_EYE, 60 * 20, 1))
                     .setRegistryName(Tags.MOD_ID, "third_eye_potion");
@@ -42,7 +45,7 @@ public final class ModPotions {
     @SubscribeEvent
     public static void registerPotions(RegistryEvent.Register<Potion> event) {
         event.getRegistry().registerAll(THIRD_EYE, BEAVER_HARVEST, MUMMY_DODGE, BAT_LIFESTEAL, DRAGON_GREED,
-                FAIRY_SLOW_FALL);
+                FAIRY_SLOW_FALL, DOUBLE_JUMP);
     }
 
     @SubscribeEvent

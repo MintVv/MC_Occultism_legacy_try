@@ -9,6 +9,7 @@ import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.ingredients.IModIngredientRegistration;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import mezz.jei.api.recipe.IRecipeWrapper;
+import mezz.jei.api.recipe.VanillaRecipeCategoryUid;
 import net.minecraft.item.ItemStack;
 import com.occultism.occultism.mineshaft.DimensionalMineshaftRecipe;
 import com.occultism.occultism.registry.ModBlocks;
@@ -60,6 +61,9 @@ public class RitualJeiPlugin implements IModPlugin {
         registry.addRecipeCatalyst(new ItemStack(ModItems.MINER_AFRIT_DEEPS), DIMENSIONAL_MINESHAFT_UID);
         registry.addRecipeCatalyst(new ItemStack(ModItems.MINER_MARID_MASTER), DIMENSIONAL_MINESHAFT_UID);
         registry.addRecipeCatalyst(new ItemStack(ModItems.MINER_ANCIENT_ELDRITCH), DIMENSIONAL_MINESHAFT_UID);
+        registry.getRecipeTransferRegistry().addRecipeTransferHandler(
+                new StorageControllerRecipeTransferHandler(registry.getJeiHelpers().recipeTransferHandlerHelper()),
+                VanillaRecipeCategoryUid.CRAFTING);
     }
 
     private static List<IRecipeWrapper> wrapSpiritFireRecipes() {

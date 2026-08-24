@@ -288,6 +288,8 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         EntityPlayer castingPlayer = this.findCastingPlayer();
         if (entity instanceof IFamiliar && castingPlayer != null) {
             ((IFamiliar) entity).setFamiliarOwner(castingPlayer);
+        } else if (entity instanceof EntityBoundSpirit && castingPlayer != null) {
+            ((EntityBoundSpirit) entity).setSpiritOwner(castingPlayer);
         }
         this.spawnEntitySummonParticles(entity);
         return true;
@@ -315,14 +317,15 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         if (jobType != null) {
             return this.spawnFoliotJobEntity(jobType, definition);
         }
-        if (definition != null && definition.hasSpiritTier()) {
-            return this.spawnBoundSpiritEntity(definition);
-        }
         if (this.isWildHuntRitual(definition)) {
             return this.spawnWildHunt(definition);
         }
-
-        return definition != null && definition.summonsEntity() && this.spawnConfiguredEntities(definition);
+        // An explicit entity_to_summon is authoritative. This is required by
+        // the unbound Afrit/Marid rituals, whose spirit_tier is only metadata.
+        if (definition != null && definition.summonsEntity()) {
+            return this.spawnConfiguredEntities(definition);
+        }
+        return definition != null && definition.hasSpiritTier() && this.spawnBoundSpiritEntity(definition);
     }
 
     private boolean hasNonItemRitualResult(RitualDefinition definition) {
@@ -429,7 +432,11 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
     }
 
     private boolean spawnBoundSpiritEntity(RitualDefinition definition) {
-        EntityBoundSpirit spirit = new EntityBoundSpirit(this.world, definition.getSpiritTier());
+        EntityBoundSpirit spirit = EntityBoundSpirit.createForTier(this.world, definition.getSpiritTier());
+        EntityPlayer castingPlayer = this.findCastingPlayer();
+        if (castingPlayer != null) {
+            spirit.setSpiritOwner(castingPlayer);
+        }
         this.applyBoundSpiritName(spirit);
         spirit.setLocationAndAngles(this.pos.getX() + 0.5D, this.pos.getY() + 1.0D, this.pos.getZ() + 0.5D,
                 this.world.rand.nextFloat() * 360.0F, 0.0F);
@@ -458,10 +465,9 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
     }
 
     private boolean spawnFoliotJobEntity(SpiritJobType jobType, RitualDefinition definition) {
-        EntityFoliotJob spirit = new EntityFoliotJob(this.world, jobType);
-        if (definition != null && definition.hasSpiritTier()) {
-            spirit.setTier(definition.getSpiritTier());
-        }
+        com.occultism.occultism.spirit.SpiritTier tier = definition != null && definition.hasSpiritTier()
+                ? definition.getSpiritTier() : com.occultism.occultism.spirit.SpiritTier.FOLIOT;
+        EntityFoliotJob spirit = EntityFoliotJob.createForTier(this.world, jobType, tier);
         if (definition != null && definition.hasSpiritMaxAge()) {
             spirit.setSpiritMaxAge(definition.getSpiritMaxAge());
         }
@@ -523,6 +529,14 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
     }
 
     private void applyTamedOwner(RitualDefinition definition, Entity entity) {
+        if (definition != null && "resurrect_allay".equals(definition.getId())
+                && entity instanceof IFamiliar && this.castingPlayerId != null) {
+            EntityPlayer castingPlayer = this.findCastingPlayer();
+            if (castingPlayer != null) {
+                ((IFamiliar) entity).setFamiliarOwner(castingPlayer);
+            }
+            return;
+        }
         if (definition == null || this.castingPlayerId == null || !(entity instanceof EntityTameable)
                 || !this.isTamedSummonRitual(definition)) {
             return;

@@ -20,6 +20,42 @@ public final class ModConfig {
 
     public static final class SpiritJobSettings {
 
+        @Config.Name("crusherFoliot")
+        public final ProcessingSpiritSettings crusherFoliot = new ProcessingSpiritSettings(2.0D, 1.0D, 1);
+
+        @Config.Name("crusherDjinni")
+        public final ProcessingSpiritSettings crusherDjinni = new ProcessingSpiritSettings(1.0D, 1.5D, 1);
+
+        @Config.Name("crusherAfrit")
+        public final ProcessingSpiritSettings crusherAfrit = new ProcessingSpiritSettings(0.5D, 2.0D, 1);
+
+        @Config.Name("crusherMarid")
+        public final ProcessingSpiritSettings crusherMarid = new ProcessingSpiritSettings(0.2D, 3.0D, 1);
+
+        @Config.Name("crystallizerFoliot")
+        public final ProcessingSpiritSettings crystallizerFoliot = new ProcessingSpiritSettings(1.0D, 1.0D, 1);
+
+        @Config.Name("crystallizerDjinni")
+        public final ProcessingSpiritSettings crystallizerDjinni = new ProcessingSpiritSettings(0.5D, 1.5D, 1);
+
+        @Config.Name("crystallizerAfrit")
+        public final ProcessingSpiritSettings crystallizerAfrit = new ProcessingSpiritSettings(0.3D, 2.0D, 1);
+
+        @Config.Name("crystallizerMarid")
+        public final ProcessingSpiritSettings crystallizerMarid = new ProcessingSpiritSettings(0.1D, 3.0D, 1);
+
+        @Config.Name("smelterFoliot")
+        public final ProcessingSpiritSettings smelterFoliot = new ProcessingSpiritSettings(1.0D, 1.0D, 1);
+
+        @Config.Name("smelterDjinni")
+        public final ProcessingSpiritSettings smelterDjinni = new ProcessingSpiritSettings(0.5D, 1.0D, 1);
+
+        @Config.Name("smelterAfrit")
+        public final ProcessingSpiritSettings smelterAfrit = new ProcessingSpiritSettings(0.1D, 1.0D, 1);
+
+        @Config.Name("smelterMarid")
+        public final ProcessingSpiritSettings smelterMarid = new ProcessingSpiritSettings(0.01D, 1.0D, 1);
+
         @Config.Name("blacksmithFamiliarRepairChance")
         @Config.Comment("Chance for a blacksmith familiar to repair one item by 2 durability when stone is picked up.")
         @Config.RangeDouble(min = 0.0D)
@@ -34,6 +70,30 @@ public final class ModConfig {
         @Config.Comment("Cooldown in ticks between blacksmith familiar upgrades.")
         @Config.RangeInt(min = 0)
         public int blacksmithFamiliarUpgradeCooldown = 20 * 20;
+
+        public static final class ProcessingSpiritSettings {
+
+            @Config.Name("timeMultiplier")
+            @Config.Comment("Multiplier applied to the local processing time for this tier.")
+            @Config.RangeDouble(min = 0.0D)
+            public double timeMultiplier;
+
+            @Config.Name("outputMultiplier")
+            @Config.Comment("Multiplier applied to processing output for this tier.")
+            @Config.RangeDouble(min = 0.0D)
+            public double outputMultiplier;
+
+            @Config.Name("operationCount")
+            @Config.Comment("Maximum number of input items processed in one operation.")
+            @Config.RangeInt(min = 1)
+            public int operationCount;
+
+            private ProcessingSpiritSettings(double timeMultiplier, double outputMultiplier, int operationCount) {
+                this.timeMultiplier = timeMultiplier;
+                this.outputMultiplier = outputMultiplier;
+                this.operationCount = operationCount;
+            }
+        }
     }
 
     public static final class StorageSettings {

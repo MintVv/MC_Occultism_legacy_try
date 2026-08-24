@@ -98,6 +98,7 @@ public class EntityOtherworldBird extends EntityParrot implements IFamiliar {
         // equivalents and document the missing upstream capability.
         return Arrays.asList(
                 new PotionEffect(MobEffects.JUMP_BOOST, 60, 5, false, false),
-                new PotionEffect(ModPotions.FAIRY_SLOW_FALL, 300, 0, false, false));
+                new PotionEffect(ModPotions.FAIRY_SLOW_FALL, 300, 0, false, false),
+                new PotionEffect(ModPotions.DOUBLE_JUMP, 120, 4, false, false));
     }
 }

@@ -50,6 +50,9 @@ public class ItemDebugSummonSpirit extends Item {
 
         BlockPos spawnPos = pos.offset(facing);
         EntityLiving spirit = this.createSpirit(worldIn);
+        if (spirit instanceof EntityBoundSpirit) {
+            ((EntityBoundSpirit) spirit).setSpiritOwner(player);
+        }
         spirit.setPositionAndRotation(spawnPos.getX() + 0.5D, spawnPos.getY(), spawnPos.getZ() + 0.5D,
                 player.rotationYaw + 180.0F, 0.0F);
         if (this.debugName != null && !this.debugName.isEmpty()) {
@@ -82,9 +85,9 @@ public class ItemDebugSummonSpirit extends Item {
 
     private EntityLiving createSpirit(World world) {
         if (this.jobType == null) {
-            return new EntityBoundSpirit(world, this.tier);
+            return EntityBoundSpirit.createForTier(world, this.tier);
         }
-        EntityFoliotJob spirit = new EntityFoliotJob(world, this.jobType, this.tier);
+        EntityFoliotJob spirit = EntityFoliotJob.createForTier(world, this.jobType, this.tier);
         spirit.setSpiritMaxAge(-1);
         return spirit;
     }

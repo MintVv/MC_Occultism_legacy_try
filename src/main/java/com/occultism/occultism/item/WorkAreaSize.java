@@ -27,4 +27,23 @@ public enum WorkAreaSize {
         WorkAreaSize[] values = values();
         return ordinal >= 0 && ordinal < values.length ? values[ordinal] : SMALL;
     }
+
+    /** Returns the upstream persisted/wire value, or null for a malformed value. */
+    public static WorkAreaSize fromValue(int value) {
+        for (WorkAreaSize size : values()) {
+            if (size.value == value) {
+                return size;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Reads the stable upstream value while retaining compatibility with the
+     * original 1.12 ordinal-based NBT format.
+     */
+    public static WorkAreaSize fromPersistedValue(int value) {
+        WorkAreaSize stable = fromValue(value);
+        return stable == null ? byOrdinal(value) : stable;
+    }
 }

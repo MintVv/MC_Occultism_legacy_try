@@ -1,14 +1,21 @@
 package com.occultism.occultism.entity;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Queue;
 import java.util.Set;
 
 import javax.annotation.Nullable;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOCase;
+
 import com.occultism.occultism.Occultism;
+import com.occultism.occultism.config.ModConfig;
+import com.occultism.occultism.gui.ModGuiHandler;
 import com.occultism.occultism.registry.ModBlocks;
 import com.occultism.occultism.registry.ModItems;
 import com.occultism.occultism.item.ItemSoulShard;
@@ -59,14 +66,28 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class EntityFoliotJob extends EntityCreature {
+
+    public static final int MAX_FILTER_SLOTS = 14;
+    public static final int MAX_TAG_FILTER_LENGTH = 90;
 
     private static final DataParameter<Integer> JOB_TYPE =
             EntityDataManager.createKey(EntityFoliotJob.class, DataSerializers.VARINT);
     private static final DataParameter<Integer> TIER =
             EntityDataManager.createKey(EntityFoliotJob.class, DataSerializers.VARINT);
+    private static final DataParameter<Integer> SPIRIT_AGE =
+            EntityDataManager.createKey(EntityFoliotJob.class, DataSerializers.VARINT);
+    private static final DataParameter<Integer> SPIRIT_MAX_AGE =
+            EntityDataManager.createKey(EntityFoliotJob.class, DataSerializers.VARINT);
+    private static final DataParameter<Boolean> FILTER_BLACKLIST =
+            EntityDataManager.createKey(EntityFoliotJob.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<NBTTagCompound> FILTER_ITEMS =
+            EntityDataManager.createKey(EntityFoliotJob.class, DataSerializers.COMPOUND_TAG);
+    private static final DataParameter<String> TAG_FILTER =
+            EntityDataManager.createKey(EntityFoliotJob.class, DataSerializers.STRING);
 
     private static final String DROP_JOB_KEY = "OccultismFoliotJobDrop";
     private static final String DROP_TICK_KEY = "OccultismFoliotJobDropTick";
@@ -98,8 +119,32 @@ public class EntityFoliotJob extends EntityCreature {
     private DepositOrder currentDepositOrder;
     private Queue<DepositOrder> depositOrderQueue = new ArrayDeque<>();
     private WorkAreaSize workAreaSize = WorkAreaSize.SMALL;
-    private int spiritAge;
-    private int spiritMaxAge = -1;
+    private boolean loadingFilterItems;
+    private final ItemStackHandler filterItems = new ItemStackHandler(MAX_FILTER_SLOTS) {
+        @Override
+        public int getSlotLimit(int slot) {
+            return 1;
+        }
+
+        @Override
+        public void setStackInSlot(int slot, ItemStack stack) {
+            ItemStack normalized = stack == null || stack.isEmpty()
+                    ? ItemStack.EMPTY : stack.copy();
+            if (!normalized.isEmpty()) {
+                normalized.setCount(1);
+            }
+            super.setStackInSlot(slot, normalized);
+        }
+
+        @Override
+        protected void onContentsChanged(int slot) {
+            if (!EntityFoliotJob.this.loadingFilterItems
+                    && (EntityFoliotJob.this.world == null || !EntityFoliotJob.this.world.isRemote)) {
+                EntityFoliotJob.this.syncFilterItems();
+                EntityFoliotJob.this.transporterSourcePos = null;
+            }
+        }
+    };
     private boolean droppedSoulShard;
     private int lastDebugMessageTick = -1000;
     private String lastDebugMessage = "";
@@ -135,16 +180,44 @@ public class EntityFoliotJob extends EntityCreature {
         this.setTier(tier);
     }
 
+    /** Creates the dedicated high-tier job entity while retaining the legacy fallback. */
+    public static EntityFoliotJob createForTier(World worldIn, SpiritJobType jobType, SpiritTier tier) {
+        if (tier == SpiritTier.DJINNI) {
+            return new EntityDjinniJob(worldIn, jobType);
+        }
+        if (tier == SpiritTier.AFRIT) {
+            return new EntityAfritJob(worldIn, jobType);
+        }
+        if (tier == SpiritTier.MARID) {
+            return new EntityMaridJob(worldIn, jobType);
+        }
+        return new EntityFoliotJob(worldIn, jobType, tier);
+    }
+
     @Override
     protected void entityInit() {
         super.entityInit();
         this.dataManager.register(JOB_TYPE, Integer.valueOf(SpiritJobType.CRUSHER.ordinal()));
         this.dataManager.register(TIER, Integer.valueOf(SpiritTier.FOLIOT.ordinal()));
+        this.dataManager.register(SPIRIT_AGE, Integer.valueOf(0));
+        this.dataManager.register(SPIRIT_MAX_AGE, Integer.valueOf(-1));
+        this.dataManager.register(FILTER_BLACKLIST, Boolean.FALSE);
+        this.dataManager.register(FILTER_ITEMS, new NBTTagCompound());
+        this.dataManager.register(TAG_FILTER, "");
     }
 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
+        if (this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE) == null) {
+            this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
+        }
+        if (this.getEntityAttribute(SharedMonsterAttributes.ARMOR) == null) {
+            this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ARMOR);
+        }
+        if (this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS) == null) {
+            this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS);
+        }
         this.applyTierAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16.0D);
     }
@@ -191,6 +264,17 @@ public class EntityFoliotJob extends EntityCreature {
     }
 
     @Override
+    public boolean processInteract(EntityPlayer player, EnumHand hand) {
+        if (player != null && player.isSneaking() && player.getHeldItem(hand).isEmpty() && this.isEntityAlive()) {
+            if (!this.world.isRemote) {
+                player.openGui(Occultism.INSTANCE, ModGuiHandler.SPIRIT, this.world, this.getEntityId(), 0, 0);
+            }
+            return true;
+        }
+        return super.processInteract(player, hand);
+    }
+
+    @Override
     public void onDeath(DamageSource cause) {
         this.unregisterFromStorageController();
         super.onDeath(cause);
@@ -211,6 +295,7 @@ public class EntityFoliotJob extends EntityCreature {
 
     public void setJobType(SpiritJobType jobType) {
         this.dataManager.set(JOB_TYPE, Integer.valueOf(jobType.ordinal()));
+        this.updateEntitySizeForJob();
     }
 
     public SpiritTier getTier() {
@@ -225,9 +310,10 @@ public class EntityFoliotJob extends EntityCreature {
     public void setTier(SpiritTier tier) {
         this.dataManager.set(TIER, Integer.valueOf((tier == null ? SpiritTier.FOLIOT : tier).ordinal()));
         this.applyTierAttributes();
+        this.updateEntitySizeForJob();
     }
 
-    private void applyTierAttributes() {
+    protected void applyTierAttributes() {
         if (this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH) == null) {
             return;
         }
@@ -239,27 +325,194 @@ public class EntityFoliotJob extends EntityCreature {
         }
     }
 
+    /** Hook for dedicated job entities whose physical dimensions depend on the job. */
+    protected void updateEntitySizeForJob() {
+    }
+
     public void setSpiritMaxAge(int spiritMaxAge) {
-        this.spiritMaxAge = spiritMaxAge > 0 ? spiritMaxAge : -1;
+        this.dataManager.set(SPIRIT_MAX_AGE, Integer.valueOf(spiritMaxAge > 0 ? spiritMaxAge : -1));
     }
 
     public int getSpiritMaxAge() {
-        return this.spiritMaxAge;
+        return this.dataManager.get(SPIRIT_MAX_AGE).intValue();
     }
 
     public int getSpiritAge() {
-        return this.spiritAge;
+        return this.dataManager.get(SPIRIT_AGE).intValue();
+    }
+
+    public void setSpiritAge(int spiritAge) {
+        this.dataManager.set(SPIRIT_AGE, Integer.valueOf(Math.max(0, spiritAge)));
+    }
+
+    public boolean supportsTransporterFilter() {
+        return this.getJobType() == SpiritJobType.CLEANER
+                || this.getJobType() == SpiritJobType.TRANSPORT_ITEMS;
+    }
+
+    public boolean isFilterBlacklist() {
+        return this.dataManager.get(FILTER_BLACKLIST).booleanValue();
+    }
+
+    public void setFilterBlacklist(boolean blacklist) {
+        this.dataManager.set(FILTER_BLACKLIST, Boolean.valueOf(blacklist));
+        this.transporterSourcePos = null;
+    }
+
+    public String getTagFilter() {
+        return this.dataManager.get(TAG_FILTER);
+    }
+
+    public void setTagFilter(@Nullable String tagFilter) {
+        this.dataManager.set(TAG_FILTER, normalizeTagFilter(tagFilter));
+        this.transporterSourcePos = null;
+    }
+
+    public ItemStackHandler getFilterItems() {
+        return this.filterItems;
+    }
+
+    public boolean isAllowedByTransportFilter(ItemStack stack) {
+        boolean matches = matchesItemFilter(stack) || matchesTagFilter(stack, this.getTagFilter());
+        return this.isFilterBlacklist() ? !matches : matches;
+    }
+
+    private boolean matchesItemFilter(ItemStack stack) {
+        if (stack == null || stack.isEmpty()) {
+            return false;
+        }
+        for (int slot = 0; slot < this.filterItems.getSlots(); slot++) {
+            ItemStack filter = this.filterItems.getStackInSlot(slot);
+            if (!filter.isEmpty() && ItemStack.areItemsEqual(filter, stack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    static boolean matchesTagFilter(ItemStack stack, @Nullable String tagFilter) {
+        if (stack == null || stack.isEmpty() || tagFilter == null || tagFilter.isEmpty()) {
+            return false;
+        }
+        for (String rawFilter : tagFilter.split(";")) {
+            String filter = rawFilter.trim();
+            if (filter.isEmpty()) {
+                continue;
+            }
+            if (filter.regionMatches(true, 0, "item:", 0, 5)) {
+                String itemFilter = filter.substring(5);
+                if (stack.getItem().getRegistryName() != null
+                        && FilenameUtils.wildcardMatch(stack.getItem().getRegistryName().toString(), itemFilter,
+                                IOCase.INSENSITIVE)) {
+                    return true;
+                }
+                continue;
+            }
+            if (filter.regionMatches(true, 0, "tag:", 0, 4)) {
+                filter = filter.substring(4);
+            }
+            for (String alias : getOreDictionaryAliases(stack)) {
+                if (FilenameUtils.wildcardMatch(alias, filter, IOCase.INSENSITIVE)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static List<String> getOreDictionaryAliases(ItemStack stack) {
+        List<String> aliases = new ArrayList<>();
+        for (int oreId : OreDictionary.getOreIDs(stack)) {
+            String oreName = OreDictionary.getOreName(oreId);
+            if (oreName == null || oreName.isEmpty()) {
+                continue;
+            }
+            aliases.add(oreName);
+            String[] parts = oreName.split("(?<=[a-z0-9])(?=[A-Z])");
+            String category = pluralizeTagCategory(parts[0].toLowerCase(Locale.ROOT));
+            StringBuilder path = new StringBuilder(category);
+            if (parts.length > 1) {
+                path.append('/');
+                for (int index = 1; index < parts.length; index++) {
+                    if (index > 1) {
+                        path.append('_');
+                    }
+                    path.append(parts[index].toLowerCase(Locale.ROOT));
+                }
+            }
+            aliases.add("c:" + category);
+            aliases.add("forge:" + category);
+            aliases.add("c:" + path);
+            aliases.add("forge:" + path);
+        }
+        return aliases;
+    }
+
+    private static String pluralizeTagCategory(String category) {
+        if ("ore".equals(category)) {
+            return "ores";
+        }
+        if ("log".equals(category)) {
+            return "logs";
+        }
+        if ("plank".equals(category)) {
+            return "planks";
+        }
+        if ("block".equals(category)) {
+            return "storage_blocks";
+        }
+        if (category.endsWith("s")) {
+            return category;
+        }
+        return category + "s";
+    }
+
+    public static String normalizeTagFilter(@Nullable String value) {
+        if (value == null) {
+            return "";
+        }
+        String normalized = value.replace('\r', ' ').replace('\n', ' ').trim();
+        return normalized.length() <= MAX_TAG_FILTER_LENGTH
+                ? normalized : normalized.substring(0, MAX_TAG_FILTER_LENGTH);
+    }
+
+    private void syncFilterItems() {
+        NBTTagCompound serialized = this.filterItems.serializeNBT();
+        serialized.setInteger("Size", MAX_FILTER_SLOTS);
+        this.dataManager.set(FILTER_ITEMS, serialized);
+    }
+
+    private void loadFilterItems(NBTTagCompound serialized) {
+        NBTTagCompound bounded = serialized == null ? new NBTTagCompound() : serialized.copy();
+        bounded.setInteger("Size", MAX_FILTER_SLOTS);
+        this.loadingFilterItems = true;
+        try {
+            this.filterItems.deserializeNBT(bounded);
+            for (int slot = 0; slot < this.filterItems.getSlots(); slot++) {
+                ItemStack stack = this.filterItems.getStackInSlot(slot);
+                if (!stack.isEmpty() && stack.getCount() != 1) {
+                    ItemStack single = stack.copy();
+                    single.setCount(1);
+                    this.filterItems.setStackInSlot(slot, single);
+                }
+            }
+        } finally {
+            this.loadingFilterItems = false;
+        }
+        if (this.world != null && !this.world.isRemote) {
+            this.syncFilterItems();
+        }
     }
 
     private boolean updateSpiritAge() {
-        if (this.spiritMaxAge < 0) {
+        if (this.getSpiritMaxAge() < 0) {
             return false;
         }
         if (this.ticksExisted % SPIRIT_AGE_INTERVAL != 0) {
             return false;
         }
-        this.spiritAge++;
-        if (this.spiritAge <= this.spiritMaxAge) {
+        this.setSpiritAge(this.getSpiritAge() + 1);
+        if (this.getSpiritAge() <= this.getSpiritMaxAge()) {
             return false;
         }
         this.debugAI("Spirit max age reached, dropping held item and despawning", this.getPosition(),
@@ -1014,15 +1267,22 @@ public class EntityFoliotJob extends EntityCreature {
     private TileEntity getTransporterSourceInventory() {
         if (this.transporterSourcePos != null) {
             TileEntity source = this.world.getTileEntity(this.transporterSourcePos);
-            if (InventoryAccess.isInventory(source) && !this.isTransporterDepositPos(source.getPos())) {
+            if (InventoryAccess.isInventory(source)
+                    && InventoryAccess.hasAnyExtractable(source, this::isAllowedByTransportFilter)
+                    && !this.isTransporterDepositPos(source.getPos())) {
                 return source;
             }
             this.transporterSourcePos = null;
         }
         if (this.extractPos != null) {
             TileEntity configuredSource = this.getConfiguredExtractInventory();
-            this.transporterSourcePos = configuredSource == null ? null : configuredSource.getPos();
-            return configuredSource;
+            if (configuredSource != null
+                    && !this.isTransporterDepositPos(configuredSource.getPos())
+                    && InventoryAccess.hasAnyExtractable(configuredSource, this::isAllowedByTransportFilter)) {
+                this.transporterSourcePos = configuredSource.getPos();
+                return configuredSource;
+            }
+            this.transporterSourcePos = null;
         }
 
         TileEntity source = this.findNearestInventoryWithItems(this.depositPos);
@@ -1068,7 +1328,8 @@ public class EntityFoliotJob extends EntityCreature {
     private ItemStack extractFirstMovableStack(TileEntity inventory) {
         return InventoryAccess.extractFirst(inventory,
                 stack -> Math.min(stack.getCount(), TRANSPORTER_STACK_SIZE),
-                stack -> InventoryAccess.hasSpace(this.getTransporterTargetInventory(stack), stack));
+                stack -> this.isAllowedByTransportFilter(stack)
+                        && InventoryAccess.hasSpace(this.getTransporterTargetInventory(stack), stack));
     }
 
     @Nullable
@@ -1085,7 +1346,7 @@ public class EntityFoliotJob extends EntityCreature {
                         continue;
                     }
                     TileEntity tile = this.world.getTileEntity(pos);
-                    if (!InventoryAccess.hasAnyExtractable(tile)) {
+                    if (!InventoryAccess.hasAnyExtractable(tile, this::isAllowedByTransportFilter)) {
                         continue;
                     }
                     double distance = this.getDistanceSq(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D);
@@ -1438,10 +1699,12 @@ public class EntityFoliotJob extends EntityCreature {
     }
 
     private void completeWork(SpiritJobRecipe recipe, ItemStack held) {
-        ItemStack output = recipe.createOutput(1);
+        int operationCount = Math.min(held.getCount(), this.getProcessingOperationCount());
+        ItemStack output = recipe.createOutput(operationCount);
+        output.setCount((int) (output.getCount() * this.getProcessingOutputMultiplier(recipe)));
         this.debugAI("Completed job recipe -> " + describeStack(output), this.getPosition(),
                 EnumParticleTypes.VILLAGER_HAPPY);
-        held.shrink(1);
+        held.shrink(operationCount);
         this.setHeldItem(EnumHand.MAIN_HAND, held.isEmpty() ? ItemStack.EMPTY : held);
         this.outputProcessedStack(output);
         this.world.playEvent(2004, this.getPosition(), 0);
@@ -1451,10 +1714,12 @@ public class EntityFoliotJob extends EntityCreature {
     }
 
     private void completeSmelting(ItemStack smeltingResult, ItemStack held) {
+        int operationCount = Math.min(held.getCount(), this.getProcessingOperationCount());
         ItemStack output = smeltingResult.copy();
+        output.setCount(output.getCount() * operationCount);
         this.debugAI("Completed smelting -> " + describeStack(output), this.getPosition(),
                 EnumParticleTypes.VILLAGER_HAPPY);
-        held.shrink(1);
+        held.shrink(operationCount);
         this.setHeldItem(EnumHand.MAIN_HAND, held.isEmpty() ? ItemStack.EMPTY : held);
         this.outputProcessedStack(output);
         this.world.playEvent(2004, this.getPosition(), 0);
@@ -1483,7 +1748,7 @@ public class EntityFoliotJob extends EntityCreature {
             return false;
         }
         if (this.getJobType() == SpiritJobType.CLEANER) {
-            return true;
+            return this.isAllowedByTransportFilter(stack);
         }
         if (this.getJobType() == SpiritJobType.SMELTER) {
             return !this.findSmeltingResult(stack).isEmpty();
@@ -1498,7 +1763,7 @@ public class EntityFoliotJob extends EntityCreature {
         if (this.getJobType() == SpiritJobType.SMELTER || this.isTrader()) {
             return null;
         }
-        return SpiritJobRecipe.findFirst(this.getJobType(), stack);
+        return SpiritJobRecipe.findFirst(this.getJobType(), stack, this.getTier());
     }
 
     private ItemStack findSmeltingResult(ItemStack stack) {
@@ -1698,7 +1963,7 @@ public class EntityFoliotJob extends EntityCreature {
         if (this.getJobType() == SpiritJobType.CLEANER) {
             return stack.getCount();
         }
-        return this.isTrader() ? this.getTraderOperationCount() : 1;
+        return this.isTrader() ? this.getTraderOperationCount() : this.getProcessingOperationCount();
     }
 
     private int getTraderOperationCount() {
@@ -1720,7 +1985,69 @@ public class EntityFoliotJob extends EntityCreature {
         if (this.getJobType() == SpiritJobType.GAMBLER) {
             return PROCESS_TIME;
         }
-        return this.getJobType() == SpiritJobType.SMELTER ? PROCESS_TIME * 2 : PROCESS_TIME;
+        ModConfig.SpiritJobSettings.ProcessingSpiritSettings settings = this.getProcessingSettings();
+        if (settings == null) {
+            return this.getJobType() == SpiritJobType.SMELTER ? PROCESS_TIME * 2 : PROCESS_TIME;
+        }
+        int baseTime = this.getJobType() == SpiritJobType.SMELTER ? PROCESS_TIME * 2 : PROCESS_TIME;
+        return Math.max(1, (int) Math.round(baseTime * settings.timeMultiplier));
+    }
+
+    private int getProcessingOperationCount() {
+        ModConfig.SpiritJobSettings.ProcessingSpiritSettings settings = this.getProcessingSettings();
+        return settings == null ? 1 : Math.max(1, settings.operationCount);
+    }
+
+    private float getProcessingOutputMultiplier(SpiritJobRecipe recipe) {
+        if (recipe == null || this.getJobType() == SpiritJobType.SMELTER) {
+            return 1.0F;
+        }
+        ModConfig.SpiritJobSettings.ProcessingSpiritSettings settings = this.getProcessingSettings();
+        return settings == null ? 1.0F : Math.max(0.0F, (float) settings.outputMultiplier);
+    }
+
+    @Nullable
+    private ModConfig.SpiritJobSettings.ProcessingSpiritSettings getProcessingSettings() {
+        if (this.getJobType() == SpiritJobType.CRUSHER) {
+            switch (this.getTier()) {
+                case DJINNI:
+                    return ModConfig.SPIRIT_JOBS.crusherDjinni;
+                case AFRIT:
+                    return ModConfig.SPIRIT_JOBS.crusherAfrit;
+                case MARID:
+                case ANCIENT:
+                    return ModConfig.SPIRIT_JOBS.crusherMarid;
+                default:
+                    return ModConfig.SPIRIT_JOBS.crusherFoliot;
+            }
+        }
+        if (this.getJobType() == SpiritJobType.CRYSTALLIZER) {
+            switch (this.getTier()) {
+                case DJINNI:
+                    return ModConfig.SPIRIT_JOBS.crystallizerDjinni;
+                case AFRIT:
+                    return ModConfig.SPIRIT_JOBS.crystallizerAfrit;
+                case MARID:
+                case ANCIENT:
+                    return ModConfig.SPIRIT_JOBS.crystallizerMarid;
+                default:
+                    return ModConfig.SPIRIT_JOBS.crystallizerFoliot;
+            }
+        }
+        if (this.getJobType() == SpiritJobType.SMELTER) {
+            switch (this.getTier()) {
+                case DJINNI:
+                    return ModConfig.SPIRIT_JOBS.smelterDjinni;
+                case AFRIT:
+                    return ModConfig.SPIRIT_JOBS.smelterAfrit;
+                case MARID:
+                case ANCIENT:
+                    return ModConfig.SPIRIT_JOBS.smelterMarid;
+                default:
+                    return ModConfig.SPIRIT_JOBS.smelterFoliot;
+            }
+        }
+        return null;
     }
 
     private void dropHeldItem() {
@@ -1896,9 +2223,12 @@ public class EntityFoliotJob extends EntityCreature {
         compound.setInteger("JobType", this.getJobType().ordinal());
         compound.setInteger("SpiritTier", this.getTier().ordinal());
         compound.setInteger("WorkTimer", this.workTimer);
-        compound.setInteger("SpiritAge", this.spiritAge);
-        compound.setInteger("SpiritMaxAge", this.spiritMaxAge);
-        compound.setInteger("WorkAreaSize", this.workAreaSize.ordinal());
+        compound.setInteger("SpiritAge", this.getSpiritAge());
+        compound.setInteger("SpiritMaxAge", this.getSpiritMaxAge());
+        compound.setBoolean("isFilterBlacklist", this.isFilterBlacklist());
+        compound.setTag("filterItems", this.filterItems.serializeNBT());
+        compound.setString("tagFilter", this.getTagFilter());
+        compound.setInteger("WorkAreaSize", this.workAreaSize.getValue());
         writeBlockPos(compound, "WorkArea", this.workAreaPos);
         writeBlockPos(compound, "Deposit", this.depositPos);
         writeBlockPos(compound, "Extract", this.extractPos);
@@ -1932,10 +2262,17 @@ public class EntityFoliotJob extends EntityCreature {
         SpiritTier[] tiers = SpiritTier.values();
         this.setTier(tier >= 0 && tier < tiers.length ? tiers[tier] : SpiritTier.FOLIOT);
         this.workTimer = compound.getInteger("WorkTimer");
-        this.spiritAge = compound.getInteger("SpiritAge");
-        this.spiritMaxAge = compound.hasKey("SpiritMaxAge") ? compound.getInteger("SpiritMaxAge") : -1;
+        this.setSpiritAge(compound.getInteger("SpiritAge"));
+        this.setSpiritMaxAge(compound.hasKey("SpiritMaxAge") ? compound.getInteger("SpiritMaxAge") : -1);
+        boolean hasFilterData = compound.hasKey("isFilterBlacklist", 1)
+                || compound.hasKey("filterItems", 10) || compound.hasKey("tagFilter", 8);
+        this.setFilterBlacklist(compound.hasKey("isFilterBlacklist", 1)
+                ? compound.getBoolean("isFilterBlacklist") : !hasFilterData);
+        this.loadFilterItems(compound.hasKey("filterItems", 10)
+                ? compound.getCompoundTag("filterItems") : new NBTTagCompound());
+        this.setTagFilter(compound.hasKey("tagFilter", 8) ? compound.getString("tagFilter") : "");
         this.workAreaSize = compound.hasKey("WorkAreaSize")
-                ? WorkAreaSize.byOrdinal(compound.getInteger("WorkAreaSize")) : WorkAreaSize.SMALL;
+                ? WorkAreaSize.fromPersistedValue(compound.getInteger("WorkAreaSize")) : WorkAreaSize.SMALL;
         this.workAreaPos = readBlockPos(compound, "WorkArea");
         this.depositPos = readBlockPos(compound, "Deposit");
         this.extractPos = readBlockPos(compound, "Extract");
@@ -1960,6 +2297,14 @@ public class EntityFoliotJob extends EntityCreature {
             }
         }
         this.currentRecipe = this.findSpiritJobRecipe(this.getHeldItemMainhand());
+    }
+
+    @Override
+    public void notifyDataManagerChange(DataParameter<?> key) {
+        super.notifyDataManagerChange(key);
+        if (FILTER_ITEMS.equals(key) && this.world != null && this.world.isRemote) {
+            this.loadFilterItems(this.dataManager.get(FILTER_ITEMS));
+        }
     }
 
     private static ManageMachineState readManageMachineState(@Nullable String value) {

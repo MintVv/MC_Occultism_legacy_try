@@ -1,7 +1,10 @@
 {
   "variants": {
-    "normal": {
-      "model": "occultism:storage_stabilizer_tier5"
-    }
+    "facing=down": { "model": "occultism:storage_stabilizer_tier5", "x": 180 },
+    "facing=east": { "model": "occultism:storage_stabilizer_tier5", "x": 90, "y": 90 },
+    "facing=north": { "model": "occultism:storage_stabilizer_tier5", "x": 90 },
+    "facing=south": { "model": "occultism:storage_stabilizer_tier5", "x": 90, "y": 180 },
+    "facing=up": { "model": "occultism:storage_stabilizer_tier5" },
+    "facing=west": { "model": "occultism:storage_stabilizer_tier5", "x": 90, "y": 270 }
   }
 }

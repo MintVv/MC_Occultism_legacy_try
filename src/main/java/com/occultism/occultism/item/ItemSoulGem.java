@@ -13,6 +13,7 @@ import net.minecraft.entity.MultiPartEntityPart;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.player.EntityPlayer;
+import com.occultism.occultism.entity.EntityIesniumGolem;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
@@ -136,6 +137,13 @@ public class ItemSoulGem extends Item {
         if (target instanceof EntityPlayer || hasEntity(stack)) {
             return EnumActionResult.FAIL;
         }
+        if (target instanceof EntityIesniumGolem) {
+            if (!player.world.isRemote) {
+                player.sendStatusMessage(new TextComponentTranslation(getTranslationKey() + ".message.entity_type_denied"),
+                        true);
+            }
+            return EnumActionResult.FAIL;
+        }
         if (player.world.isRemote) {
             return EnumActionResult.SUCCESS;
         }
@@ -201,6 +209,37 @@ public class ItemSoulGem extends Item {
 
     public static boolean hasEntity(ItemStack stack) {
         return !stack.isEmpty() && stack.hasTagCompound() && stack.getTagCompound().hasKey(TAG_ENTITY, 10);
+    }
+
+    /** Stores a healthy, position-independent snapshot in the canonical soul-gem format. */
+    public static boolean storeEntity(ItemStack stack, EntityLivingBase target) {
+        if (stack.isEmpty() || target == null || target.isDead) {
+            return false;
+        }
+        ResourceLocation id = EntityList.getKey(target);
+        if (id == null) {
+            return false;
+        }
+
+        NBTTagCompound entityData = new NBTTagCompound();
+        float health = target.getHealth();
+        target.setHealth(target.getMaxHealth());
+        boolean written;
+        try {
+            written = target.writeToNBTOptional(entityData);
+        } finally {
+            target.setHealth(health);
+        }
+        if (!written) {
+            return false;
+        }
+
+        entityData.setString("id", id.toString());
+        entityData.removeTag("Pos");
+        entityData.removeTag("Motion");
+        entityData.removeTag("Rotation");
+        setStoredEntity(stack, entityData, id.toString(), target.getDisplayName().getUnformattedText());
+        return hasEntity(stack);
     }
 
     private static void setStoredEntity(ItemStack stack, @Nullable NBTTagCompound entityData, String id, String name) {
@@ -273,6 +312,9 @@ public class ItemSoulGem extends Item {
     }
 
     private static boolean isDenied(EntityLivingBase target) {
+        if (target instanceof EntityIesniumGolem) {
+            return true;
+        }
         if (!target.isNonBoss()) {
             return true;
         }

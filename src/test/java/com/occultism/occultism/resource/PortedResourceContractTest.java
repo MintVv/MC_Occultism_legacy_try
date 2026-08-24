@@ -138,11 +138,13 @@ class PortedResourceContractTest {
                 "ModGuiHandler.java"));
 
         assertTrue(remote.contains("DimensionManager.getWorld(dimension)"));
-        assertTrue(remote.contains("playerIn.openGui(Occultism.INSTANCE, ModGuiHandler.STORAGE_REMOTE, targetWorld"));
+        assertTrue(remote.contains("playerIn.openGui(Occultism.INSTANCE, ModGuiHandler.STORAGE_REMOTE, worldIn"));
+        assertTrue(remote.contains("findInventorySlot(playerIn, stack, handIn)"));
         assertFalse(remote.contains("wrong_dimension"));
         assertTrue(wormhole.contains("DimensionManager.getWorld(wormhole.getLinkedDimension())"));
-        assertTrue(wormhole.contains("playerIn.openGui(Occultism.INSTANCE, ModGuiHandler.STORAGE_REMOTE, targetWorld"));
-        assertTrue(gui.contains("new ContainerStorageController(player.inventory, (TileEntityStorageController) tile, true)"));
+        assertTrue(wormhole.contains("ModGuiHandler.STORAGE_WORMHOLE"));
+        assertTrue(gui.contains("new ContainerStorageController(player.inventory,\n                            (TileEntityStorageController) resolved, x)"));
+        assertTrue(gui.contains("new ContainerStorageController(player.inventory,\n                            (TileEntityStorageController) resolved, (TileEntityStableWormhole) tile)"));
     }
 
     @Test
