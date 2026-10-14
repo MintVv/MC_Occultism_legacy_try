@@ -1,6 +1,6 @@
 {
-  "source": "occultism-26.1.2 generated Modonomicon dictionary_of_spirits",
-  "policy": "Entries are selected from upstream Modonomicon data when their referenced ritual/crafting/spirit-fire recipe exists in this 1.12 port, or when they are upstream overview/pentacle structure entries for implemented local systems. Decorative/modern-only misc block entries are excluded from this index.",
+  "source": "occultism-upstream generated Modonomicon dictionary_of_spirits + local 1.12 compatibility overlays",
+  "policy": "The upstream generated Modonomicon book is authoritative. Local compatibility overlays are retained only for 1.12 content that has no entry in the pinned upstream snapshot.",
   "categories": [
     {
       "id": "getting_started",
@@ -9,13 +9,9 @@
       "background_parallax_layers": [],
       "background_texture_zoom_multiplier": 1.0,
       "background_width": 512,
-      "description": "",
-      "display_mode": "node",
       "icon": {
-        "id": "occultism:dictionary_of_spirits_icon"
+        "item": "occultism:dictionary_of_spirits_icon"
       },
-      "max_scroll_x": 512,
-      "max_scroll_y": 512,
       "name": "book.occultism.dictionary_of_spirits.getting_started.name",
       "show_category_button": true,
       "sort_number": 1,
@@ -34,12 +30,12 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.intro.description",
           "icon": {
-            "id": "occultism:dictionary_of_spirits_icon"
+            "item": "occultism:dictionary_of_spirits_icon"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.intro.name",
           "sort_number": 0,
           "x": -11,
-          "y": 0,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -82,17 +78,20 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.demons_dream.description",
           "icon": {
-            "id": "occultism:datura"
+            "item": "occultism:datura"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.demons_dream.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/intro"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/intro",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 1,
           "x": -11,
-          "y": 2,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -222,17 +221,20 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.spirit_fire.description",
           "icon": {
-            "id": "occultism:spirit_fire"
+            "item": "occultism:spirit_fire"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.spirit_fire.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/demons_dream"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/demons_dream",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 2,
           "x": -7,
-          "y": 2,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -350,17 +352,20 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.healing_spirits.description",
           "icon": {
-            "id": "minecraft:splash_potion"
+            "item": "minecraft:splash_potion"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.healing_spirits.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/demons_dream"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/demons_dream",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 3,
           "x": -9,
-          "y": 4,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -414,16 +419,23 @@
             "entry_id": "occultism:getting_started/demons_dream"
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.third_eye.description",
-          "icon": "occultism:textures/mob_effect/third_eye.png",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/mob_effect/third_eye.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.getting_started.third_eye.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/demons_dream"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/demons_dream",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 4,
           "x": -11,
-          "y": 4,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -478,17 +490,20 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.divination_rod.description",
           "icon": {
-            "id": "occultism:divination_rod"
+            "item": "occultism:divination_rod"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.divination_rod.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/spirit_fire"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/spirit_fire",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 5,
           "x": -7,
-          "y": 0,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -704,17 +719,20 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.candle.description",
           "icon": {
-            "id": "occultism:large_candle"
+            "item": "occultism:candle_white"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.candle.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/spirit_fire"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/spirit_fire",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 7,
           "x": -5,
-          "y": 2,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -805,17 +823,20 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.ritual_prep_chalk.description",
           "icon": {
-            "id": "occultism:chalk_white"
+            "item": "occultism:chalk_white"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.ritual_prep_chalk.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/candle"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/candle",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 8,
           "x": -3,
-          "y": 0,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -918,17 +939,20 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.brush.description",
           "icon": {
-            "id": "occultism:brush"
+            "item": "occultism:brush"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.brush.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/ritual_prep_chalk"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/ritual_prep_chalk",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 9,
           "x": -3,
-          "y": -2,
+          "y": -4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -971,17 +995,20 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.ritual_prep_bowl.description",
           "icon": {
-            "id": "occultism:golden_sacrificial_bowl"
+            "item": "occultism:golden_sacrificial_bowl"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.ritual_prep_bowl.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/ritual_prep_chalk"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/ritual_prep_chalk",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 10,
           "x": -1,
-          "y": 0,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -1060,17 +1087,20 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.books_of_binding.description",
           "icon": {
-            "id": "occultism:book_of_binding_bound_foliot"
+            "item": "occultism:book_of_binding_bound_foliot"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.books_of_binding.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/candle"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/candle",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 11,
           "x": -3,
-          "y": 4,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -1242,20 +1272,26 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.first_ritual.description",
           "icon": {
-            "id": "occultism:pentacle_summon"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.first_ritual.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/ritual_prep_bowl"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/ritual_prep_bowl",
+              "line_enabled": true,
+              "line_reversed": false
             },
             {
-              "entry": "occultism:getting_started/books_of_binding"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/books_of_binding",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 15,
           "x": 1,
-          "y": 2,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -1448,12 +1484,16 @@
             "type": "modonomicon:none"
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.more_rituals.description",
-          "icon": "occultism:textures/gui/book/robe.png",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/robe.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.getting_started.more_rituals.name",
           "parents": [],
           "sort_number": 18,
           "x": 5,
-          "y": 4,
+          "y": 2,
           "pages": [
             {
               "id": "more_rituals/description",
@@ -1480,17 +1520,20 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.grey_particles.description",
           "icon": {
-            "id": "minecraft:gray_dye"
+            "item": "minecraft:gray_dye"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.grey_particles.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/first_ritual"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/first_ritual",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 19,
           "x": 3,
-          "y": 6,
+          "y": 4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -1519,17 +1562,24 @@
             "type": "modonomicon:entry_read",
             "entry_id": "occultism:getting_started/grey_particles"
           },
-          "description": "book.occultism.dictionary_of_spirits.getting_started.spirits.description",
-          "icon": "occultism:textures/gui/book/spirits.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/spirits.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.getting_started.spirits.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/grey_particles"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/grey_particles",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 20,
           "x": 5,
-          "y": 6,
+          "y": 4,
           "pages": [
             {
               "id": "spirits/description",
@@ -1556,7 +1606,7 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.otherworld_goggles.description",
           "icon": {
-            "id": "occultism:otherworld_goggles"
+            "item": "occultism:otherworld_goggles"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.otherworld_goggles.name",
           "parents": [],
@@ -1605,12 +1655,15 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.infused_pickaxe.description",
           "icon": {
-            "id": "occultism:infused_pickaxe"
+            "item": "occultism:infused_pickaxe"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.infused_pickaxe.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/otherworld_goggles"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/otherworld_goggles",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 22,
@@ -1682,12 +1735,15 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.iesnium.description",
           "icon": {
-            "id": "occultism:iesnium_ore"
+            "item": "occultism:iesnium_ore"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.iesnium.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/infused_pickaxe"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/infused_pickaxe",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 23,
@@ -1783,12 +1839,15 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.iesnium_pickaxe.description",
           "icon": {
-            "id": "occultism:iesnium_pickaxe"
+            "item": "occultism:iesnium_pickaxe"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.iesnium_pickaxe.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/iesnium"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/iesnium",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 24,
@@ -1836,16 +1895,19 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.magic_lamps.description",
           "icon": {
-            "id": "occultism:magic_lamp_empty"
+            "item": "occultism:magic_lamp_empty"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.magic_lamps.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/first_ritual"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/iesnium",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 25,
-          "x": 3,
+          "x": 11,
           "y": -2,
           "pages": [
             {
@@ -2139,7 +2201,7 @@
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.storage.description",
           "icon": {
-            "id": "occultism:storage_controller"
+            "item": "occultism:storage_controller"
           },
           "name": "book.occultism.dictionary_of_spirits.getting_started.storage.name",
           "parents": [],
@@ -2171,16 +2233,23 @@
             "entry_id": "occultism:pentacles/possess_foliot"
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.possession_rituals.description",
-          "icon": "occultism:textures/gui/book/possession.png",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/possession.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.getting_started.possession_rituals.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/more_rituals"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/more_rituals",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 36,
           "x": 9,
-          "y": 6,
+          "y": 4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -2222,16 +2291,23 @@
             "entry_id": "occultism:pentacles/possess_foliot"
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.familiar_rituals.description",
-          "icon": "occultism:textures/gui/book/familiar.png",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/parrot.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.getting_started.familiar_rituals.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/more_rituals"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/more_rituals",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 37,
           "x": 11,
-          "y": 6,
+          "y": 4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -2273,16 +2349,23 @@
             "entry_id": "occultism:pentacles/summon_foliot"
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.summoning_rituals.description",
-          "icon": "occultism:textures/gui/book/summoning.png",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/summoning.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.getting_started.summoning_rituals.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/more_rituals"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/more_rituals",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 38,
           "x": 13,
-          "y": 6,
+          "y": 4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -2324,16 +2407,23 @@
             "entry_id": "occultism:pentacles/craft_foliot"
           },
           "description": "book.occultism.dictionary_of_spirits.getting_started.crafting_rituals.description",
-          "icon": "occultism:textures/gui/book/infusion.png",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/infusion.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.getting_started.crafting_rituals.name",
           "parents": [
             {
-              "entry": "occultism:getting_started/more_rituals"
+              "draw_arrow": true,
+              "entry": "occultism:getting_started/more_rituals",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 39,
           "x": 15,
-          "y": 6,
+          "y": 4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -2370,19 +2460,11 @@
       "background_parallax_layers": [],
       "background_texture_zoom_multiplier": 1.0,
       "background_width": 512,
-      "condition": {
-        "type": "modonomicon:entry_read",
-        "entry_id": "occultism:getting_started/intro"
-      },
-      "description": "",
-      "display_mode": "node",
       "icon": {
         "height": 16,
         "texture": "occultism:textures/gui/book/spirits.png",
         "width": 16
       },
-      "max_scroll_x": 512,
-      "max_scroll_y": 512,
       "name": "book.occultism.dictionary_of_spirits.spirits.name",
       "show_category_button": true,
       "sort_number": 2,
@@ -2400,7 +2482,11 @@
             "type": "modonomicon:none"
           },
           "description": "book.occultism.dictionary_of_spirits.spirits.overview.description",
-          "icon": "occultism:textures/gui/book/spirits.png",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/spirits.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.spirits.overview.name",
           "sort_number": 0,
           "x": -8,
@@ -2519,12 +2605,15 @@
           },
           "description": "book.occultism.dictionary_of_spirits.spirits.true_names.description",
           "icon": {
-            "id": "minecraft:writable_book"
+            "item": "minecraft:writable_book"
           },
           "name": "book.occultism.dictionary_of_spirits.spirits.true_names.name",
           "parents": [
             {
-              "entry": "occultism:spirits/overview"
+              "draw_arrow": true,
+              "entry": "occultism:spirits/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 3,
@@ -2583,11 +2672,18 @@
             "entry_id": "occultism:spirits/true_names"
           },
           "description": "book.occultism.dictionary_of_spirits.spirits.unbound_spirits.description",
-          "icon": "occultism:textures/gui/book/unbound_spirits.png",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/unbound_spirits.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.spirits.unbound_spirits.name",
           "parents": [
             {
-              "entry": "occultism:spirits/true_names"
+              "draw_arrow": true,
+              "entry": "occultism:spirits/true_names",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 4,
@@ -2658,11 +2754,18 @@
             "entry_id": "occultism:spirits/unbound_spirits"
           },
           "description": "book.occultism.dictionary_of_spirits.spirits.wild_hunt.description",
-          "icon": "occultism:textures/gui/book/wild_hunt.png",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/wild_hunt.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.spirits.wild_hunt.name",
           "parents": [
             {
-              "entry": "occultism:spirits/unbound_spirits"
+              "draw_arrow": true,
+              "entry": "occultism:spirits/unbound_spirits",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 5,
@@ -2708,18 +2811,14 @@
         "type": "modonomicon:entry_read",
         "entry_id": "occultism:getting_started/intro"
       },
-      "description": "",
-      "display_mode": "node",
       "icon": {
         "height": 16,
         "texture": "occultism:textures/gui/book/robe.png",
         "width": 16
       },
-      "max_scroll_x": 512,
-      "max_scroll_y": 512,
       "name": "book.occultism.dictionary_of_spirits.rituals.name",
       "show_category_button": true,
-      "sort_number": 3,
+      "sort_number": 4,
       "entries": [
         {
           "id": "overview",
@@ -2733,8 +2832,12 @@
           "condition": {
             "type": "modonomicon:none"
           },
-          "description": "book.occultism.dictionary_of_spirits.rituals.overview.description",
-          "icon": "occultism:textures/gui/book/robe.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/robe.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.rituals.overview.name",
           "sort_number": 0,
           "x": -1,
@@ -2788,17 +2891,19 @@
           },
           "category": "occultism:rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.rituals.item_use.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:flint_and_steel"
+            "item": "minecraft:flint_and_steel"
           },
           "name": "book.occultism.dictionary_of_spirits.rituals.item_use.name",
           "parents": [
             {
-              "entry": "occultism:rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 1,
@@ -2829,17 +2934,19 @@
           },
           "category": "occultism:rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.rituals.sacrifice.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:iron_sword"
+            "item": "minecraft:iron_sword"
           },
           "name": "book.occultism.dictionary_of_spirits.rituals.sacrifice.name",
           "parents": [
             {
-              "entry": "occultism:rituals/item_use"
+              "draw_arrow": true,
+              "entry": "occultism:rituals/item_use",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 2,
@@ -2870,15 +2977,21 @@
           },
           "category": "occultism:rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.rituals.summoning_rituals.description",
-          "icon": "occultism:textures/gui/book/summoning.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/summoning.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.rituals.summoning_rituals.name",
           "parents": [
             {
-              "entry": "occultism:rituals/sacrifice"
+              "draw_arrow": true,
+              "entry": "occultism:rituals/sacrifice",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 3,
@@ -2905,15 +3018,21 @@
           },
           "category": "occultism:rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.rituals.possession_rituals.description",
-          "icon": "occultism:textures/gui/book/possession.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/possession.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.rituals.possession_rituals.name",
           "parents": [
             {
-              "entry": "occultism:rituals/sacrifice"
+              "draw_arrow": true,
+              "entry": "occultism:rituals/sacrifice",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 4,
@@ -2940,15 +3059,21 @@
           },
           "category": "occultism:rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.rituals.crafting_rituals.description",
-          "icon": "occultism:textures/gui/book/infusion.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/infusion.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.rituals.crafting_rituals.name",
           "parents": [
             {
-              "entry": "occultism:rituals/sacrifice"
+              "draw_arrow": true,
+              "entry": "occultism:rituals/sacrifice",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 5,
@@ -2975,15 +3100,21 @@
           },
           "category": "occultism:rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.rituals.familiar_rituals.description",
-          "icon": "occultism:textures/gui/book/familiar.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/parrot.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.rituals.familiar_rituals.name",
           "parents": [
             {
-              "entry": "occultism:rituals/sacrifice"
+              "draw_arrow": true,
+              "entry": "occultism:rituals/sacrifice",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 6,
@@ -3013,18 +3144,12 @@
         "type": "modonomicon:entry_read",
         "entry_id": "occultism:getting_started/intro"
       },
-      "description": "",
-      "display_mode": "node",
       "icon": {
-        "height": 16,
-        "texture": "occultism:textures/gui/book/pentacle.png",
-        "width": 16
+        "item": "occultism:pentacle"
       },
-      "max_scroll_x": 512,
-      "max_scroll_y": 512,
       "name": "book.occultism.dictionary_of_spirits.pentacles.name",
       "show_category_button": true,
-      "sort_number": 4,
+      "sort_number": 9,
       "entries": [
         {
           "id": "pentacle_overview",
@@ -3105,23 +3230,17 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/pentacle_overview"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.paraphernalia.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:skeleton_skull"
+            "item": "minecraft:skeleton_skull"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.paraphernalia.name",
-          "parents": [
-            {
-              "entry": "occultism:pentacles/pentacle_overview",
-              "line_reversed": true
-            }
-          ],
+          "parents": [],
           "sort_number": 1,
-          "x": -11,
-          "y": -1,
+          "x": -8,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -3339,22 +3458,17 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/white_chalk"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.summon_foliot.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_summon"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.summon_foliot.name",
-          "parents": [
-            {
-              "entry": "occultism:pentacles/didactics"
-            }
-          ],
+          "parents": [],
           "sort_number": 4,
-          "x": -5,
-          "y": -4,
+          "x": -6,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -3536,22 +3650,17 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/yellow_chalk"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.possess_foliot.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_possess"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.possess_foliot.name",
-          "parents": [
-            {
-              "entry": "occultism:pentacles/yellow_chalk"
-            }
-          ],
+          "parents": [],
           "sort_number": 7,
-          "x": -5,
-          "y": -2,
+          "x": -4,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -3668,22 +3777,17 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/purple_chalk"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.craft_foliot.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_craft"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.craft_foliot.name",
-          "parents": [
-            {
-              "entry": "occultism:pentacles/purple_chalk"
-            }
-          ],
+          "parents": [],
           "sort_number": 9,
-          "x": -5,
-          "y": 0,
+          "x": -6,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -3971,31 +4075,24 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:and",
-            "children": [
-              {
-                "type": "modonomicon:entry_read",
-                "entry_id": "occultism:pentacles/light_gray_chalk"
-              },
-              {
-                "type": "modonomicon:entry_read",
-                "entry_id": "occultism:pentacles/lime_chalk"
-              }
-            ]
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.summon_djinni.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_summon"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.summon_djinni.name",
           "parents": [
             {
-              "entry": "occultism:pentacles/summon_foliot"
+              "draw_arrow": true,
+              "entry": "occultism:pentacles/summon_foliot",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 13,
-          "x": -2,
-          "y": -4,
+          "x": -4,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -4113,31 +4210,24 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:and",
-            "children": [
-              {
-                "type": "modonomicon:entry_read",
-                "entry_id": "occultism:pentacles/light_gray_chalk"
-              },
-              {
-                "type": "modonomicon:entry_read",
-                "entry_id": "occultism:pentacles/lime_chalk"
-              }
-            ]
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.possess_djinni.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_possess"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.possess_djinni.name",
           "parents": [
             {
-              "entry": "occultism:pentacles/possess_foliot"
+              "draw_arrow": true,
+              "entry": "occultism:pentacles/possess_foliot",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 15,
           "x": -2,
-          "y": -2,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -4278,31 +4368,24 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:and",
-            "children": [
-              {
-                "type": "modonomicon:entry_read",
-                "entry_id": "occultism:pentacles/light_gray_chalk"
-              },
-              {
-                "type": "modonomicon:entry_read",
-                "entry_id": "occultism:pentacles/lime_chalk"
-              }
-            ]
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.craft_djinni.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_craft"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.craft_djinni.name",
           "parents": [
             {
-              "entry": "occultism:pentacles/craft_foliot"
+              "draw_arrow": true,
+              "entry": "occultism:pentacles/craft_foliot",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 17,
-          "x": -2,
-          "y": 0,
+          "x": -4,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -4848,22 +4931,17 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/red_chalk"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.summon_afrit.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_summon"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.summon_afrit.name",
-          "parents": [
-            {
-              "entry": "occultism:pentacles/summon_unbound_afrit"
-            }
-          ],
+          "parents": [],
           "sort_number": 24,
-          "x": 4,
-          "y": -4,
+          "x": 0,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -4915,22 +4993,24 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/red_chalk"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.possess_afrit.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_possess"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.possess_afrit.name",
           "parents": [
             {
-              "entry": "occultism:pentacles/possess_unbound_afrit"
+              "draw_arrow": true,
+              "entry": "occultism:pentacles/possess_djinni",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 25,
-          "x": 4,
-          "y": -2,
+          "x": 0,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -4982,22 +5062,24 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/red_chalk"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.craft_afrit.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_craft"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.craft_afrit.name",
           "parents": [
             {
-              "entry": "occultism:pentacles/craft_djinni"
+              "draw_arrow": true,
+              "entry": "occultism:pentacles/craft_djinni",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 26,
-          "x": 4,
-          "y": 0,
+          "x": -2,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -5270,22 +5352,24 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/blue_chalk"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.summon_marid.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_summon"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.summon_marid.name",
           "parents": [
             {
-              "entry": "occultism:pentacles/summon_unbound_marid"
+              "draw_arrow": true,
+              "entry": "occultism:pentacles/summon_afrit",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 30,
-          "x": 10,
-          "y": -4,
+          "x": 2,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -5548,22 +5632,24 @@
           },
           "category": "occultism:pentacles",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/blue_chalk"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.pentacles.craft_marid.description",
+          "description": "",
           "icon": {
-            "id": "occultism:pentacle_craft"
+            "item": "occultism:pentacle"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.craft_marid.name",
           "parents": [
             {
-              "entry": "occultism:pentacles/craft_afrit"
+              "draw_arrow": true,
+              "entry": "occultism:pentacles/craft_afrit",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 34,
-          "x": 10,
-          "y": 0,
+          "x": 0,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -5852,19 +5938,11 @@
       "background_parallax_layers": [],
       "background_texture_zoom_multiplier": 1.0,
       "background_width": 512,
-      "condition": {
-        "type": "modonomicon:entry_read",
-        "entry_id": "occultism:pentacles/summon_foliot"
-      },
-      "description": "",
-      "display_mode": "node",
       "icon": {
         "height": 16,
         "texture": "occultism:textures/gui/book/summoning.png",
         "width": 16
       },
-      "max_scroll_x": 512,
-      "max_scroll_y": 512,
       "name": "book.occultism.dictionary_of_spirits.summoning_rituals.name",
       "show_category_button": true,
       "sort_number": 5,
@@ -5879,15 +5957,18 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.overview.description",
-          "icon": "occultism:textures/gui/book/summoning.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/summoning.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.overview.name",
           "sort_number": 0,
-          "x": -7,
-          "y": -3,
+          "x": -6,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -5913,22 +5994,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_crusher_t1.description",
+          "description": "",
           "icon": {
-            "id": "occultism:copper_dust"
+            "item": "occultism:copper_dust"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_crusher_t1.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 2,
-          "x": -4,
-          "y": -1,
+          "x": -2,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -6002,22 +6085,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_crusher_t2.description",
+          "description": "",
           "icon": {
-            "id": "occultism:iron_dust"
+            "item": "occultism:iron_dust"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_crusher_t2.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/summon_crusher_t1"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/summon_crusher_t1",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 3,
-          "x": -4,
-          "y": 1,
+          "x": -2,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -6067,22 +6152,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_afrit"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_crusher_t3.description",
+          "description": "",
           "icon": {
-            "id": "occultism:gold_dust"
+            "item": "occultism:silver_dust"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_crusher_t3.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/summon_crusher_t2"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/summon_crusher_t2",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 4,
-          "x": -4,
-          "y": 3,
+          "x": -2,
+          "y": 4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -6132,22 +6219,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_marid"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_crusher_t4.description",
+          "description": "",
           "icon": {
-            "id": "occultism:iesnium_dust"
+            "item": "occultism:gold_dust"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_crusher_t4.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/summon_crusher_t3"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/summon_crusher_t3",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 5,
-          "x": -4,
-          "y": 5,
+          "x": -2,
+          "y": 6,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -6765,22 +6854,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_lumberjack.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:iron_axe"
+            "item": "minecraft:iron_axe"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_lumberjack.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 14,
           "x": -2,
-          "y": -5,
+          "y": -4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -6931,22 +7022,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_transport_items.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:chest_minecart"
+            "item": "minecraft:minecart"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_transport_items.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 16,
           "x": 0,
-          "y": -5,
+          "y": -4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -7032,22 +7125,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_cleaner.description",
+          "description": "",
           "icon": {
-            "id": "occultism:brush"
+            "item": "occultism:brush"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_cleaner.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/summon_transport_items",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 18,
-          "x": 2,
-          "y": -5,
+          "x": 0,
+          "y": -6,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -7121,20 +7216,26 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.trade_spirits.description",
-          "icon": "occultism:textures/gui/book/cash.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/cash.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.trade_spirits.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 20,
-          "x": 3,
-          "y": -1,
+          "x": 0,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -7172,23 +7273,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_otherworld_sapling_trader.description",
+          "description": "",
           "icon": {
-            "id": "occultism:otherworld_sapling"
+            "item": "occultism:otherworld_sapling"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_otherworld_sapling_trader.name",
           "parents": [
             {
+              "draw_arrow": true,
               "entry": "occultism:summoning_rituals/trade_spirits",
-              "line_reversed": true
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 21,
-          "x": 2,
-          "y": 1,
+          "x": 0,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -7238,23 +7340,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_otherstone_trader.description",
+          "description": "",
           "icon": {
-            "id": "occultism:otherstone"
+            "item": "occultism:otherstone"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_otherstone_trader.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/trade_spirits",
-              "line_reversed": true
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/summon_otherworld_sapling_trader",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 22,
-          "x": 4,
-          "y": 1,
+          "x": 0,
+          "y": 4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -7423,22 +7526,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.weather_magic.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:wheat"
+            "item": "minecraft:wheat"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.weather_magic.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 26,
           "x": 4,
-          "y": -5,
+          "y": -4,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -7502,22 +7607,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.time_magic.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:clock"
+            "item": "minecraft:clock"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.time_magic.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/weather_magic",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 27,
-          "x": 6,
-          "y": -5,
+          "x": 4,
+          "y": -6,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -7567,22 +7674,24 @@
           },
           "category": "occultism:summoning_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_unbound_afrit"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.summoning_rituals.afrit_essence.description",
+          "description": "",
           "icon": {
-            "id": "occultism:afrit_essence"
+            "item": "occultism:afrit_essence"
           },
           "name": "book.occultism.dictionary_of_spirits.summoning_rituals.afrit_essence.name",
           "parents": [
             {
-              "entry": "occultism:summoning_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 28,
-          "x": 6,
-          "y": -1,
+          "x": 4,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -7672,19 +7781,11 @@
       "background_parallax_layers": [],
       "background_texture_zoom_multiplier": 1.0,
       "background_width": 512,
-      "condition": {
-        "type": "modonomicon:entry_read",
-        "entry_id": "occultism:pentacles/possess_foliot"
-      },
-      "description": "",
-      "display_mode": "node",
       "icon": {
         "height": 16,
         "texture": "occultism:textures/gui/book/possession.png",
         "width": 16
       },
-      "max_scroll_x": 512,
-      "max_scroll_y": 512,
       "name": "book.occultism.dictionary_of_spirits.possession_rituals.name",
       "show_category_button": true,
       "sort_number": 6,
@@ -7699,15 +7800,18 @@
           },
           "category": "occultism:possession_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.possession_rituals.overview.description",
-          "icon": "occultism:textures/gui/book/possession.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/possession.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.possession_rituals.overview.name",
           "sort_number": 0,
           "x": -8,
-          "y": -1,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -7733,22 +7837,24 @@
           },
           "category": "occultism:possession_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.possession_rituals.possess_endermite.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:end_stone"
+            "item": "minecraft:end_stone"
           },
           "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_endermite.name",
           "parents": [
             {
-              "entry": "occultism:possession_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 2,
           "x": -6,
-          "y": -3,
+          "y": -1,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -7799,22 +7905,24 @@
           },
           "category": "occultism:possession_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.possession_rituals.possess_phantom.description",
+          "description": "",
           "icon": {
             "id": "occultism:phantom_membrane"
           },
           "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_phantom.name",
           "parents": [
             {
-              "entry": "occultism:possession_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 3,
-          "x": -5,
-          "y": -5,
+          "x": 0,
+          "y": -1,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -7866,22 +7974,24 @@
           },
           "category": "occultism:possession_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.possession_rituals.possess_skeleton.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:skeleton_skull"
+            "item": "minecraft:skeleton_skull"
           },
           "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_skeleton.name",
           "parents": [
             {
-              "entry": "occultism:possession_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 4,
           "x": -4,
-          "y": -3,
+          "y": 1,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -8000,22 +8110,24 @@
           },
           "category": "occultism:possession_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.possession_rituals.possess_enderman.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:ender_pearl"
+            "item": "minecraft:ender_pearl"
           },
           "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_enderman.name",
           "parents": [
             {
-              "entry": "occultism:possession_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 6,
-          "x": -2,
-          "y": -3,
+          "x": -4,
+          "y": -1,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -8132,22 +8244,24 @@
           },
           "category": "occultism:possession_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.possession_rituals.possess_ghast.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:ghast_tear"
+            "item": "minecraft:ghast_tear"
           },
           "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_ghast.name",
           "parents": [
             {
-              "entry": "occultism:possession_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 8,
-          "x": 0,
-          "y": -3,
+          "x": -6,
+          "y": 1,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -8199,22 +8313,24 @@
           },
           "category": "occultism:possession_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.possession_rituals.possess_weak_shulker.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:chorus_fruit"
+            "item": "minecraft:chorus_fruit"
           },
           "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_weak_shulker.name",
           "parents": [
             {
-              "entry": "occultism:possession_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 9,
-          "x": 1,
-          "y": -5,
+          "x": 0,
+          "y": 1,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -8478,22 +8594,24 @@
           },
           "category": "occultism:possession_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_afrit"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.possession_rituals.possess_elder_guardian.description",
+          "description": "",
           "icon": {
             "id": "occultism:nautilus_shell"
           },
           "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_elder_guardian.name",
           "parents": [
             {
-              "entry": "occultism:possession_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 14,
-          "x": 5,
-          "y": -5,
+          "x": 2,
+          "y": -1,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -8545,22 +8663,24 @@
           },
           "category": "occultism:possession_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_afrit"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.possession_rituals.possess_hoglin.description",
+          "description": "",
           "icon": {
             "id": "minecraft:porkchop"
           },
           "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_hoglin.name",
           "parents": [
             {
-              "entry": "occultism:possession_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 15,
-          "x": 8,
-          "y": -3,
+          "x": 4,
+          "y": 1,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -8612,22 +8732,24 @@
           },
           "category": "occultism:possession_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_afrit"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.possession_rituals.possess_shulker.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:shulker_shell"
+            "item": "minecraft:shulker_shell"
           },
           "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_shulker.name",
           "parents": [
             {
-              "entry": "occultism:possession_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 16,
-          "x": 7,
-          "y": -5,
+          "x": 2,
+          "y": 1,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -9469,8 +9591,8 @@
             }
           ],
           "sort_number": 13,
-          "x": 6,
-          "y": -3,
+          "x": 4,
+          "y": -1,
           "pages": [
             {
               "id": "entity",
@@ -9512,22 +9634,14 @@
       "background_parallax_layers": [],
       "background_texture_zoom_multiplier": 1.0,
       "background_width": 512,
-      "condition": {
-        "type": "modonomicon:entry_read",
-        "entry_id": "occultism:pentacles/possess_foliot"
-      },
-      "description": "",
-      "display_mode": "node",
       "icon": {
         "height": 16,
-        "texture": "occultism:textures/gui/book/familiar.png",
+        "texture": "occultism:textures/gui/book/parrot.png",
         "width": 16
       },
-      "max_scroll_x": 512,
-      "max_scroll_y": 512,
       "name": "book.occultism.dictionary_of_spirits.familiar_rituals.name",
       "show_category_button": true,
-      "sort_number": 7,
+      "sort_number": 8,
       "entries": [
         {
           "id": "overview",
@@ -9539,11 +9653,14 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.familiar_rituals.overview.description",
-          "icon": "occultism:textures/gui/book/familiar.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/parrot.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.overview.name",
           "sort_number": 0,
           "x": -8,
@@ -9602,12 +9719,15 @@
           },
           "description": "book.occultism.dictionary_of_spirits.familiar_rituals.resurrection.description",
           "icon": {
-            "id": "occultism:soul_shard"
+            "item": "occultism:soul_shard"
           },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.resurrection.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 2,
@@ -9791,20 +9911,26 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_parrot.description",
-          "icon": "occultism:textures/gui/book/parrot.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/parrot.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_parrot.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 20,
-          "x": -6,
-          "y": -2,
+          "x": 1,
+          "y": -4,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -9867,20 +9993,26 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/summon_djinni"
+            "type": "modonomicon:true"
           },
           "description": "book.occultism.dictionary_of_spirits.familiar_rituals.demonic_partner.description",
-          "icon": "occultism:textures/gui/book/demonic_partner.png",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/demonic_partner.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.demonic_partner.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 22,
-          "x": 5,
-          "y": 0,
+          "x": 2,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -10092,15 +10224,21 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_greedy.description",
-          "icon": "occultism:textures/gui/book/familiar_greedy.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_greedy.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_greedy.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 15,
@@ -10153,20 +10291,26 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_cthulhu.description",
-          "icon": "occultism:textures/gui/book/familiar_cthulhu.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_cthulhu.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_cthulhu.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 10,
-          "x": -2,
-          "y": 2,
+          "x": -1,
+          "y": 4,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -10216,20 +10360,26 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_blacksmith.description",
-          "icon": "occultism:textures/gui/book/familiar_blacksmith.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_blacksmith.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_blacksmith.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 8,
-          "x": -2,
-          "y": -2,
+          "x": -3,
+          "y": 4,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -10289,20 +10439,26 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_dragon.description",
-          "icon": "occultism:textures/gui/book/familiar_dragon.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_dragon.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_dragon.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 13,
-          "x": 0,
-          "y": 2,
+          "x": -6,
+          "y": -2,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -10352,20 +10508,26 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_fairy.description",
-          "icon": "occultism:textures/gui/book/familiar_fairy.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_fairy.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_fairy.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 14,
           "x": -5,
-          "y": 4,
+          "y": -4,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -10415,20 +10577,26 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:familiar_rituals/familiar_chimera"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_shub_niggurath.description",
-          "icon": "occultism:textures/gui/book/familiar_shub_niggurath.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_shub_niggurath.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_shub_niggurath.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/familiar_chimera"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 21,
-          "x": 0,
-          "y": -4,
+          "x": 2,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -10478,15 +10646,21 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_beholder.description",
-          "icon": "occultism:textures/gui/book/familiar_beholder.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_beholder.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_beholder.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 7,
@@ -10541,20 +10715,26 @@
           },
           "category": "occultism:familiar_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/possess_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_chimera.description",
-          "icon": "occultism:textures/gui/book/familiar_chimera.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_chimera.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_chimera.name",
           "parents": [
             {
-              "entry": "occultism:familiar_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 9,
-          "x": 0,
-          "y": -2,
+          "x": -2,
+          "y": 2,
           "pages": [
             {
               "type": "modonomicon:entity",
@@ -10615,22 +10795,14 @@
       "background_parallax_layers": [],
       "background_texture_zoom_multiplier": 1.0,
       "background_width": 512,
-      "condition": {
-        "type": "modonomicon:entry_read",
-        "entry_id": "occultism:pentacles/craft_foliot"
-      },
-      "description": "",
-      "display_mode": "node",
       "icon": {
         "height": 16,
         "texture": "occultism:textures/gui/book/infusion.png",
         "width": 16
       },
-      "max_scroll_x": 512,
-      "max_scroll_y": 512,
       "name": "book.occultism.dictionary_of_spirits.crafting_rituals.name",
       "show_category_button": true,
-      "sort_number": 8,
+      "sort_number": 7,
       "entries": [
         {
           "id": "overview",
@@ -10642,15 +10814,18 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.overview.description",
-          "icon": "occultism:textures/gui/book/infusion.png",
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/infusion.png",
+            "width": 16
+          },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.overview.name",
           "sort_number": 0,
-          "x": -10,
-          "y": 0,
+          "x": -8,
+          "y": -1,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -10676,22 +10851,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_infused_pickaxe.description",
+          "description": "",
           "icon": {
-            "id": "occultism:infused_pickaxe"
+            "item": "occultism:infused_pickaxe"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_infused_pickaxe.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 2,
-          "x": -8,
-          "y": -4,
+          "x": -6,
+          "y": -3,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -10729,22 +10906,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_otherworld_goggles.description",
+          "description": "",
           "icon": {
-            "id": "occultism:otherworld_goggles"
+            "item": "occultism:otherworld_goggles"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_otherworld_goggles.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 3,
           "x": -6,
-          "y": -2,
+          "y": 1,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -10855,22 +11034,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.description",
+          "description": "",
           "icon": {
-            "id": "occultism:dimensional_mineshaft"
+            "item": "occultism:dimensional_mineshaft"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_infused_pickaxe"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_infused_pickaxe",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 4,
-          "x": -8,
-          "y": -6,
+          "x": -6,
+          "y": -5,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -10968,23 +11149,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_foliot_miner.description",
+          "description": "",
           "icon": {
-            "id": "occultism:miner_foliot_unspecialized"
+            "item": "occultism:miner_foliot_unspecialized"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_foliot_miner.name",
           "parents": [
             {
+              "draw_arrow": true,
               "entry": "occultism:crafting_rituals/craft_dimensional_mineshaft",
-              "line_reversed": true
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 5,
-          "x": -6,
-          "y": -8,
+          "x": -4,
+          "y": -5,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -11046,22 +11228,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_djinni_miner.description",
+          "description": "",
           "icon": {
-            "id": "occultism:miner_djinni_ores"
+            "item": "occultism:miner_djinni_ores"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_djinni_miner.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_foliot_miner"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_foliot_miner",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 6,
-          "x": -4,
-          "y": -8,
+          "x": -2,
+          "y": -5,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -11099,22 +11283,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_afrit"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_afrit_miner.description",
+          "description": "",
           "icon": {
-            "id": "occultism:miner_afrit_deeps"
+            "item": "occultism:miner_afrit_deeps"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_afrit_miner.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_djinni_miner"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_djinni_miner",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 7,
-          "x": -2,
-          "y": -8,
+          "x": 0,
+          "y": -5,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -11152,22 +11338,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_marid"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_marid_miner.description",
+          "description": "",
           "icon": {
-            "id": "occultism:miner_marid_master"
+            "item": "occultism:miner_marid_master"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_marid_miner.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_afrit_miner"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_afrit_miner",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 8,
-          "x": 0,
-          "y": -8,
+          "x": 2,
+          "y": -5,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -11460,22 +11648,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_storage_system.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:chest"
+            "item": "minecraft:chest"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_storage_system.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/overview"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 12,
-          "x": -8,
-          "y": 2,
+          "x": -4,
+          "y": 1,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -11514,22 +11704,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_matrix.description",
+          "description": "",
           "icon": {
-            "id": "occultism:dimensional_matrix"
+            "item": "occultism:dimensional_matrix"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_matrix.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_storage_system"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_storage_system",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 13,
-          "x": -8,
-          "y": 4,
+          "x": -2,
+          "y": 1,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -11567,23 +11759,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_storage_controller_base.description",
+          "description": "",
           "icon": {
-            "id": "occultism:storage_controller_base"
+            "item": "occultism:storage_controller_base"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_storage_controller_base.name",
           "parents": [
             {
+              "draw_arrow": true,
               "entry": "occultism:crafting_rituals/craft_dimensional_matrix",
-              "line_reversed": true
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 14,
-          "x": -6,
-          "y": 8,
+          "x": -2,
+          "y": 3,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -11645,22 +11838,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_stabilizer_tier1.description",
+          "description": "",
           "icon": {
-            "id": "occultism:storage_stabilizer_tier1"
+            "item": "occultism:storage_stabilizer_tier1"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_stabilizer_tier1.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_storage_controller_base"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_storage_controller_base",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 15,
           "x": -2,
-          "y": 8,
+          "y": 5,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -11710,22 +11905,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_stabilizer_tier2.description",
+          "description": "",
           "icon": {
-            "id": "occultism:storage_stabilizer_tier2"
+            "item": "occultism:storage_stabilizer_tier2"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_stabilizer_tier2.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_stabilizer_tier1"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_stabilizer_tier1",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 16,
           "x": 0,
-          "y": 8,
+          "y": 5,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -11775,22 +11972,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_afrit"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_stabilizer_tier3.description",
+          "description": "",
           "icon": {
-            "id": "occultism:storage_stabilizer_tier3"
+            "item": "occultism:storage_stabilizer_tier3"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_stabilizer_tier3.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_stabilizer_tier2"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_stabilizer_tier2",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 17,
           "x": 2,
-          "y": 8,
+          "y": 5,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -11840,22 +12039,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_marid"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_stabilizer_tier4.description",
+          "description": "",
           "icon": {
-            "id": "occultism:storage_stabilizer_tier4"
+            "item": "occultism:storage_stabilizer_tier4"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_stabilizer_tier4.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_stabilizer_tier3"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_stabilizer_tier3",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 18,
           "x": 4,
-          "y": 8,
+          "y": 5,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -11970,23 +12171,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_stable_wormhole.description",
+          "description": "",
           "icon": {
-            "id": "occultism:stable_wormhole"
+            "item": "occultism:stable_wormhole"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_stable_wormhole.name",
           "parents": [
             {
+              "draw_arrow": true,
               "entry": "occultism:crafting_rituals/craft_storage_controller_base",
-              "line_reversed": true
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 20,
-          "x": -6,
-          "y": 6,
+          "x": 0,
+          "y": 3,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -12036,22 +12238,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_storage_remote.description",
+          "description": "",
           "icon": {
-            "id": "occultism:storage_remote"
+            "item": "occultism:storage_remote"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_storage_remote.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_storage_controller_base"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_stable_wormhole",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 21,
-          "x": -4,
-          "y": 6,
+          "x": 2,
+          "y": 3,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -12154,22 +12358,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_foliot"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_satchel.description",
+          "description": "",
           "icon": {
-            "id": "occultism:satchel"
+            "item": "occultism:satchel"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_satchel.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_storage_system"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 23,
-          "x": -6,
-          "y": 2,
+          "x": 1,
+          "y": 1,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -12551,22 +12757,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_soul_gem.description",
+          "description": "",
           "icon": {
-            "id": "occultism:soul_gem"
+            "item": "occultism:soul_gem"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_soul_gem.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/fragile_soul_gem"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 28,
-          "x": 8,
-          "y": -6,
+          "x": -4,
+          "y": -3,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -12616,22 +12824,24 @@
           },
           "category": "occultism:crafting_rituals",
           "condition": {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:pentacles/craft_djinni"
+            "type": "modonomicon:true"
           },
-          "description": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_familiar_ring.description",
+          "description": "",
           "icon": {
-            "id": "occultism:familiar_ring"
+            "item": "occultism:familiar_ring"
           },
           "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_familiar_ring.name",
           "parents": [
             {
-              "entry": "occultism:crafting_rituals/craft_soul_gem"
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/craft_soul_gem",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 29,
-          "x": 6,
-          "y": -6,
+          "x": -2,
+          "y": -3,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -13825,32 +14035,15 @@
       "background_texture_zoom_multiplier": 1.0,
       "background_width": 512,
       "condition": {
-        "type": "modonomicon:or",
-        "children": [
-          {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:crafting_rituals/craft_dimensional_matrix"
-          },
-          {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:getting_started/storage"
-          },
-          {
-            "type": "modonomicon:entry_read",
-            "entry_id": "occultism:storage/overview"
-          }
-        ]
+        "type": "modonomicon:entry_read",
+        "entry_id": "occultism:getting_started/intro"
       },
-      "description": "",
-      "display_mode": "node",
       "icon": {
-        "id": "minecraft:chest"
+        "item": "minecraft:chest"
       },
-      "max_scroll_x": 512,
-      "max_scroll_y": 512,
       "name": "book.occultism.dictionary_of_spirits.storage.name",
       "show_category_button": true,
-      "sort_number": 9,
+      "sort_number": 3,
       "entries": [
         {
           "id": "overview",
@@ -13865,14 +14058,14 @@
             "type": "modonomicon:entry_read",
             "entry_id": "occultism:pentacles/craft_djinni"
           },
-          "description": "book.occultism.dictionary_of_spirits.storage.overview.description",
+          "description": "",
           "icon": {
-            "id": "minecraft:chest"
+            "item": "minecraft:chest"
           },
           "name": "book.occultism.dictionary_of_spirits.storage.overview.name",
           "sort_number": 0,
-          "x": -4,
-          "y": 1,
+          "x": -8,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:text",
@@ -13913,19 +14106,22 @@
             "type": "modonomicon:entry_read",
             "entry_id": "occultism:pentacles/craft_djinni"
           },
-          "description": "book.occultism.dictionary_of_spirits.storage.storage_controller.description",
+          "description": "",
           "icon": {
-            "id": "occultism:storage_controller"
+            "item": "occultism:storage_controller"
           },
           "name": "book.occultism.dictionary_of_spirits.storage.storage_controller.name",
           "parents": [
             {
-              "entry": "occultism:storage/overview"
+              "draw_arrow": true,
+              "entry": "occultism:storage/overview",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 2,
-          "x": -2,
-          "y": 1,
+          "x": -6,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:spotlight",
@@ -14304,19 +14500,22 @@
             "type": "modonomicon:entry_read",
             "entry_id": "occultism:storage/storage_controller"
           },
-          "description": "book.occultism.dictionary_of_spirits.storage.storage_stabilizer.description",
+          "description": "",
           "icon": {
-            "id": "occultism:storage_stabilizer_tier0"
+            "item": "occultism:storage_controller"
           },
           "name": "book.occultism.dictionary_of_spirits.storage.storage_stabilizer.name",
           "parents": [
             {
-              "entry": "occultism:storage/storage_controller"
+              "draw_arrow": true,
+              "entry": "occultism:storage/storage_controller",
+              "line_enabled": true,
+              "line_reversed": false
             }
           ],
           "sort_number": 8,
-          "x": 2,
-          "y": 1,
+          "x": -2,
+          "y": 0,
           "pages": [
             {
               "type": "modonomicon:spotlight",

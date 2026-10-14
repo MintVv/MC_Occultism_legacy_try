@@ -550,7 +550,13 @@ class FairyPortContractTest {
 
     private static String getString(JsonObject object, String key) {
         JsonElement value = object == null ? null : object.get(key);
-        return value == null || value.isJsonNull() ? null : value.getAsString();
+        if (value == null || value.isJsonNull()) {
+            return null;
+        }
+        if (value.isJsonObject() && value.getAsJsonObject().has("texture")) {
+            return value.getAsJsonObject().get("texture").getAsString();
+        }
+        return value.getAsString();
     }
 
     private static String langValue(String contents, String key) {

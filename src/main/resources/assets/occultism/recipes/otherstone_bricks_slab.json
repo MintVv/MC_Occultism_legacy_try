@@ -1,1 +1,0 @@
-{ "type": "minecraft:crafting_shaped", "group": "occultism:otherstone", "pattern": [ "OOO" ], "key": { "O": { "item": "occultism:otherstone_bricks" } }, "result": { "item": "occultism:otherstone_bricks_slab", "count": 6, "data": 0 } }

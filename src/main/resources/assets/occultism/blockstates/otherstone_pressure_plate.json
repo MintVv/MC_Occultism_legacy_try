@@ -1,1 +1,0 @@
-{ "variants": { "powered=false": { "model": "occultism:otherstone_pressure_plate_up" }, "powered=true": { "model": "occultism:otherstone_pressure_plate_down" } } }

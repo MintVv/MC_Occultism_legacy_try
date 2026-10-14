@@ -1,6 +1,7 @@
 package com.occultism.occultism.resource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -22,6 +23,7 @@ import com.occultism.occultism.spirit.SpiritTier;
 
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.Bootstrap;
+import net.minecraft.world.World;
 
 /** Contract coverage for dedicated high-tier job spirits in the 1.12 port. */
 class HighTierJobSpiritPortContractTest {
@@ -45,6 +47,14 @@ class HighTierJobSpiritPortContractTest {
         assertEquals(SpiritTier.DJINNI, djinni.getTier());
         assertEquals(SpiritTier.AFRIT, afrit.getTier());
         assertEquals(SpiritTier.MARID, marid.getTier());
+    }
+
+    @Test
+    void forgeRegisteredJobEntitiesExposeTheRequiredWorldConstructor() {
+        assertDoesNotThrow(() -> EntityFoliotJob.class.getConstructor(World.class));
+        assertDoesNotThrow(() -> EntityDjinniJob.class.getConstructor(World.class));
+        assertDoesNotThrow(() -> EntityAfritJob.class.getConstructor(World.class));
+        assertDoesNotThrow(() -> EntityMaridJob.class.getConstructor(World.class));
     }
 
     @Test

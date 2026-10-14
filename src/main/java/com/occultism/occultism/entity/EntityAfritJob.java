@@ -9,6 +9,11 @@ import net.minecraft.world.World;
 /** Dedicated Afrit job spirit. */
 public class EntityAfritJob extends EntityFoliotJob {
 
+    /** Forge entity registration requires a public constructor accepting only the world. */
+    public EntityAfritJob(World worldIn) {
+        this(worldIn, SpiritJobType.CRUSHER);
+    }
+
     public EntityAfritJob(World worldIn, SpiritJobType jobType) {
         super(worldIn, jobType, SpiritTier.AFRIT);
     }

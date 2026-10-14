@@ -10,11 +10,6 @@ import com.occultism.occultism.block.BlockGoldenSacrificialBowl;
 import com.occultism.occultism.block.BlockIesniumAnvil;
 import com.occultism.occultism.block.BlockLightedAir;
 import com.occultism.occultism.block.BlockModelOnly;
-import com.occultism.occultism.block.BlockOccultismDoubleSlab;
-import com.occultism.occultism.block.BlockOccultismHalfSlab;
-import com.occultism.occultism.block.BlockOccultismSlab;
-import com.occultism.occultism.block.BlockOccultismStoneButton;
-import com.occultism.occultism.block.BlockOccultismStonePressurePlate;
 import com.occultism.occultism.block.BlockOtherworldLeaves;
 import com.occultism.occultism.block.BlockOtherworldLeavesNatural;
 import com.occultism.occultism.block.BlockOtherworldLog;
@@ -23,14 +18,6 @@ import com.occultism.occultism.block.BlockOtherworldStrippedLogNatural;
 import com.occultism.occultism.block.BlockOtherworldOreNatural;
 import com.occultism.occultism.block.BlockOtherflowerNatural;
 import com.occultism.occultism.block.BlockOtherglassNatural;
-import com.occultism.occultism.block.BlockOtherplanksButton;
-import com.occultism.occultism.block.BlockOtherplanksDoubleSlab;
-import com.occultism.occultism.block.BlockOtherplanksDoor;
-import com.occultism.occultism.block.BlockOtherplanksHalfSlab;
-import com.occultism.occultism.block.BlockOtherplanksPressurePlate;
-import com.occultism.occultism.block.BlockOtherplanksSlab;
-import com.occultism.occultism.block.BlockOtherplanksStairs;
-import com.occultism.occultism.block.BlockOtherplanksTrapDoor;
 import com.occultism.occultism.block.BlockPentacleRequirement;
 import com.occultism.occultism.block.BlockOtherworldSapling;
 import com.occultism.occultism.block.BlockOtherworldSaplingNatural;
@@ -45,18 +32,11 @@ import com.occultism.occultism.block.BlockStorageStabilizer;
 import com.occultism.occultism.block.BlockTranslucentModel;
 import com.occultism.occultism.block.OtherworldBlockTier;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFence;
-import net.minecraft.block.BlockFenceGate;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockOre;
-import net.minecraft.block.BlockWall;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemDoor;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemSlab;
 import com.occultism.occultism.item.ItemBlockStableWormhole;
 import com.occultism.occultism.item.ItemBlockStorageController;
 import net.minecraft.util.BlockRenderLayer;
@@ -80,70 +60,6 @@ public final class ModBlocks {
             0);
     public static final Block OTHERSTONE_BRICKS = block("otherstone_bricks", new Block(Material.ROCK), 1.5F, 30.0F, 0);
     public static final Block OTHERROCK_BRICKS = block("otherrock_bricks", new Block(Material.ROCK), 1.5F, 30.0F, 0);
-    public static final Block CHISELED_OTHERSTONE_BRICKS = block("chiseled_otherstone_bricks", new Block(Material.ROCK),
-            1.5F, 30.0F, 0);
-    public static final Block CHISELED_OTHERROCK_BRICKS = block("chiseled_otherrock_bricks", new Block(Material.ROCK),
-            1.5F, 30.0F, 0);
-    public static final Block CRACKED_OTHERSTONE_BRICKS = block("cracked_otherstone_bricks", new Block(Material.ROCK),
-            1.5F, 30.0F, 0);
-    public static final Block CRACKED_OTHERROCK_BRICKS = block("cracked_otherrock_bricks", new Block(Material.ROCK),
-            1.5F, 30.0F, 0);
-    public static final Block OTHERSTONE_STAIRS = block("otherstone_stairs",
-            new BlockOtherplanksStairs(OTHERSTONE.getDefaultState()), 1.5F, 30.0F, 0);
-    public static final Block OTHERROCK_STAIRS = block("otherrock_stairs",
-            new BlockOtherplanksStairs(OTHERROCK.getDefaultState()), 1.5F, 30.0F, 0);
-    public static final Block POLISHED_OTHERSTONE_STAIRS = block("polished_otherstone_stairs",
-            new BlockOtherplanksStairs(POLISHED_OTHERSTONE.getDefaultState()), 1.5F, 30.0F, 0);
-    public static final Block POLISHED_OTHERROCK_STAIRS = block("polished_otherrock_stairs",
-            new BlockOtherplanksStairs(POLISHED_OTHERROCK.getDefaultState()), 1.5F, 30.0F, 0);
-    public static final Block OTHERSTONE_BRICKS_STAIRS = block("otherstone_bricks_stairs",
-            new BlockOtherplanksStairs(OTHERSTONE_BRICKS.getDefaultState()), 1.5F, 30.0F, 0);
-    public static final Block OTHERROCK_BRICKS_STAIRS = block("otherrock_bricks_stairs",
-            new BlockOtherplanksStairs(OTHERROCK_BRICKS.getDefaultState()), 1.5F, 30.0F, 0);
-    public static final BlockOccultismSlab OTHERSTONE_SLAB = (BlockOccultismSlab) block("otherstone_slab",
-            new BlockOccultismHalfSlab("otherstone_slab"), 1.5F, 30.0F, 0);
-    public static final BlockOccultismSlab OTHERSTONE_DOUBLE_SLAB = (BlockOccultismSlab) block("otherstone_double_slab",
-            new BlockOccultismDoubleSlab("otherstone_slab"), 1.5F, 30.0F, 0);
-    public static final BlockOccultismSlab OTHERROCK_SLAB = (BlockOccultismSlab) block("otherrock_slab",
-            new BlockOccultismHalfSlab("otherrock_slab"), 1.5F, 30.0F, 0);
-    public static final BlockOccultismSlab OTHERROCK_DOUBLE_SLAB = (BlockOccultismSlab) block("otherrock_double_slab",
-            new BlockOccultismDoubleSlab("otherrock_slab"), 1.5F, 30.0F, 0);
-    public static final BlockOccultismSlab POLISHED_OTHERSTONE_SLAB = (BlockOccultismSlab) block(
-            "polished_otherstone_slab", new BlockOccultismHalfSlab("polished_otherstone_slab"), 1.5F, 30.0F, 0);
-    public static final BlockOccultismSlab POLISHED_OTHERSTONE_DOUBLE_SLAB = (BlockOccultismSlab) block(
-            "polished_otherstone_double_slab", new BlockOccultismDoubleSlab("polished_otherstone_slab"), 1.5F, 30.0F,
-            0);
-    public static final BlockOccultismSlab POLISHED_OTHERROCK_SLAB = (BlockOccultismSlab) block(
-            "polished_otherrock_slab", new BlockOccultismHalfSlab("polished_otherrock_slab"), 1.5F, 30.0F, 0);
-    public static final BlockOccultismSlab POLISHED_OTHERROCK_DOUBLE_SLAB = (BlockOccultismSlab) block(
-            "polished_otherrock_double_slab", new BlockOccultismDoubleSlab("polished_otherrock_slab"), 1.5F, 30.0F,
-            0);
-    public static final BlockOccultismSlab OTHERSTONE_BRICKS_SLAB = (BlockOccultismSlab) block(
-            "otherstone_bricks_slab", new BlockOccultismHalfSlab("otherstone_bricks_slab"), 1.5F, 30.0F, 0);
-    public static final BlockOccultismSlab OTHERSTONE_BRICKS_DOUBLE_SLAB = (BlockOccultismSlab) block(
-            "otherstone_bricks_double_slab", new BlockOccultismDoubleSlab("otherstone_bricks_slab"), 1.5F, 30.0F, 0);
-    public static final BlockOccultismSlab OTHERROCK_BRICKS_SLAB = (BlockOccultismSlab) block(
-            "otherrock_bricks_slab", new BlockOccultismHalfSlab("otherrock_bricks_slab"), 1.5F, 30.0F, 0);
-    public static final BlockOccultismSlab OTHERROCK_BRICKS_DOUBLE_SLAB = (BlockOccultismSlab) block(
-            "otherrock_bricks_double_slab", new BlockOccultismDoubleSlab("otherrock_bricks_slab"), 1.5F, 30.0F, 0);
-    public static final Block OTHERSTONE_WALL = block("otherstone_wall", new BlockWall(OTHERSTONE), 1.5F, 30.0F, 0);
-    public static final Block OTHERROCK_WALL = block("otherrock_wall", new BlockWall(OTHERROCK), 1.5F, 30.0F, 0);
-    public static final Block POLISHED_OTHERSTONE_WALL = block("polished_otherstone_wall",
-            new BlockWall(POLISHED_OTHERSTONE), 1.5F, 30.0F, 0);
-    public static final Block POLISHED_OTHERROCK_WALL = block("polished_otherrock_wall",
-            new BlockWall(POLISHED_OTHERROCK), 1.5F, 30.0F, 0);
-    public static final Block OTHERSTONE_BRICKS_WALL = block("otherstone_bricks_wall",
-            new BlockWall(OTHERSTONE_BRICKS), 1.5F, 30.0F, 0);
-    public static final Block OTHERROCK_BRICKS_WALL = block("otherrock_bricks_wall", new BlockWall(OTHERROCK_BRICKS),
-            1.5F, 30.0F, 0);
-    public static final Block OTHERSTONE_BUTTON = block("otherstone_button", new BlockOccultismStoneButton(), 0.5F,
-            0.5F, -1);
-    public static final Block OTHERROCK_BUTTON = block("otherrock_button", new BlockOccultismStoneButton(), 0.5F, 0.5F,
-            -1);
-    public static final Block OTHERSTONE_PRESSURE_PLATE = block("otherstone_pressure_plate",
-            new BlockOccultismStonePressurePlate(), 0.5F, 0.5F, -1);
-    public static final Block OTHERROCK_PRESSURE_PLATE = block("otherrock_pressure_plate",
-            new BlockOccultismStonePressurePlate(), 0.5F, 0.5F, -1);
     public static final Block OTHERWORLD_LOG = block("otherworld_log", new BlockOtherworldLog(), 2.0F, 5.0F, 0);
     public static final Block OTHERWORLD_LOG_NATURAL = block("otherworld_log_natural",
             new BlockOtherworldLogNatural(), 2.0F, 5.0F, 0);
@@ -155,24 +71,6 @@ public final class ModBlocks {
     public static final Block STRIPPED_OTHERWORLD_WOOD = block("stripped_otherworld_wood", new BlockOtherworldLog(), 2.0F,
             5.0F, 0);
     public static final Block OTHERPLANKS = block("otherplanks", new Block(Material.WOOD), 2.0F, 5.0F, 0);
-    public static final BlockOtherplanksSlab OTHERPLANKS_SLAB = (BlockOtherplanksSlab) block("otherplanks_slab",
-            new BlockOtherplanksHalfSlab(), 2.0F, 5.0F, 0);
-    public static final BlockOtherplanksSlab OTHERPLANKS_DOUBLE_SLAB = (BlockOtherplanksSlab) block(
-            "otherplanks_double_slab", new BlockOtherplanksDoubleSlab(), 2.0F, 5.0F, 0);
-    public static final Block OTHERPLANKS_STAIRS = block("otherplanks_stairs",
-            new BlockOtherplanksStairs(OTHERPLANKS.getDefaultState()), 2.0F, 5.0F, 0);
-    public static final Block OTHERPLANKS_BUTTON = block("otherplanks_button", new BlockOtherplanksButton(), 0.5F,
-            0.5F, -1);
-    public static final Block OTHERPLANKS_PRESSURE_PLATE = block("otherplanks_pressure_plate",
-            new BlockOtherplanksPressurePlate(), 0.5F, 0.5F, -1);
-    public static final Block OTHERPLANKS_FENCE = block("otherplanks_fence",
-            new BlockFence(Material.WOOD, MapColor.WOOD), 2.0F, 5.0F, 0);
-    public static final Block OTHERPLANKS_FENCE_GATE = block("otherplanks_fence_gate",
-            new BlockFenceGate(BlockPlanks.EnumType.OAK), 2.0F, 5.0F, 0);
-    public static final Block OTHERPLANKS_DOOR = block("otherplanks_door", new BlockOtherplanksDoor(), 3.0F, 5.0F, 0);
-    public static final ItemDoor OTHERPLANKS_DOOR_ITEM = doorItem(OTHERPLANKS_DOOR);
-    public static final Block OTHERPLANKS_TRAPDOOR = block("otherplanks_trapdoor", new BlockOtherplanksTrapDoor(), 3.0F,
-            5.0F, 0);
     public static final Block OTHERWORLD_SAPLING = block("otherworld_sapling", new BlockOtherworldSapling(), 0.0F, 0.0F, -1);
     public static final Block OTHERWORLD_SAPLING_NATURAL = block("otherworld_sapling_natural", new BlockOtherworldSaplingNatural(),
             0.0F, 0.0F, -1);
@@ -331,38 +229,6 @@ public final class ModBlocks {
             POLISHED_OTHERROCK,
             OTHERSTONE_BRICKS,
             OTHERROCK_BRICKS,
-            CHISELED_OTHERSTONE_BRICKS,
-            CHISELED_OTHERROCK_BRICKS,
-            CRACKED_OTHERSTONE_BRICKS,
-            CRACKED_OTHERROCK_BRICKS,
-            OTHERSTONE_STAIRS,
-            OTHERROCK_STAIRS,
-            POLISHED_OTHERSTONE_STAIRS,
-            POLISHED_OTHERROCK_STAIRS,
-            OTHERSTONE_BRICKS_STAIRS,
-            OTHERROCK_BRICKS_STAIRS,
-            OTHERSTONE_SLAB,
-            OTHERSTONE_DOUBLE_SLAB,
-            OTHERROCK_SLAB,
-            OTHERROCK_DOUBLE_SLAB,
-            POLISHED_OTHERSTONE_SLAB,
-            POLISHED_OTHERSTONE_DOUBLE_SLAB,
-            POLISHED_OTHERROCK_SLAB,
-            POLISHED_OTHERROCK_DOUBLE_SLAB,
-            OTHERSTONE_BRICKS_SLAB,
-            OTHERSTONE_BRICKS_DOUBLE_SLAB,
-            OTHERROCK_BRICKS_SLAB,
-            OTHERROCK_BRICKS_DOUBLE_SLAB,
-            OTHERSTONE_WALL,
-            OTHERROCK_WALL,
-            POLISHED_OTHERSTONE_WALL,
-            POLISHED_OTHERROCK_WALL,
-            OTHERSTONE_BRICKS_WALL,
-            OTHERROCK_BRICKS_WALL,
-            OTHERSTONE_BUTTON,
-            OTHERROCK_BUTTON,
-            OTHERSTONE_PRESSURE_PLATE,
-            OTHERROCK_PRESSURE_PLATE,
             OTHERWORLD_LOG,
             OTHERWORLD_LOG_NATURAL,
             OTHERWORLD_WOOD,
@@ -370,15 +236,6 @@ public final class ModBlocks {
             STRIPPED_OTHERWORLD_LOG,
             STRIPPED_OTHERWORLD_WOOD,
             OTHERPLANKS,
-            OTHERPLANKS_SLAB,
-            OTHERPLANKS_DOUBLE_SLAB,
-            OTHERPLANKS_STAIRS,
-            OTHERPLANKS_BUTTON,
-            OTHERPLANKS_PRESSURE_PLATE,
-            OTHERPLANKS_FENCE,
-            OTHERPLANKS_FENCE_GATE,
-            OTHERPLANKS_DOOR,
-            OTHERPLANKS_TRAPDOOR,
             OTHERWORLD_SAPLING,
             OTHERWORLD_SAPLING_NATURAL,
             OTHERWORLD_LEAVES,
@@ -475,55 +332,6 @@ public final class ModBlocks {
             if (skipItemBlock(block)) {
                 continue;
             }
-            if (block == OTHERPLANKS_DOOR) {
-                event.getRegistry().register(OTHERPLANKS_DOOR_ITEM);
-                continue;
-            }
-            if (block == OTHERPLANKS_SLAB) {
-                event.getRegistry().register(new ItemSlab(block, OTHERPLANKS_SLAB, OTHERPLANKS_DOUBLE_SLAB)
-                        .setRegistryName(block.getRegistryName())
-                        .setTranslationKey(block.getTranslationKey()));
-                continue;
-            }
-            if (block == OTHERSTONE_SLAB) {
-                event.getRegistry().register(new ItemSlab(block, OTHERSTONE_SLAB, OTHERSTONE_DOUBLE_SLAB)
-                        .setRegistryName(block.getRegistryName())
-                        .setTranslationKey(block.getTranslationKey()));
-                continue;
-            }
-            if (block == OTHERROCK_SLAB) {
-                event.getRegistry().register(new ItemSlab(block, OTHERROCK_SLAB, OTHERROCK_DOUBLE_SLAB)
-                        .setRegistryName(block.getRegistryName())
-                        .setTranslationKey(block.getTranslationKey()));
-                continue;
-            }
-            if (block == POLISHED_OTHERSTONE_SLAB) {
-                event.getRegistry().register(new ItemSlab(block, POLISHED_OTHERSTONE_SLAB,
-                        POLISHED_OTHERSTONE_DOUBLE_SLAB)
-                        .setRegistryName(block.getRegistryName())
-                        .setTranslationKey(block.getTranslationKey()));
-                continue;
-            }
-            if (block == POLISHED_OTHERROCK_SLAB) {
-                event.getRegistry().register(new ItemSlab(block, POLISHED_OTHERROCK_SLAB,
-                        POLISHED_OTHERROCK_DOUBLE_SLAB)
-                        .setRegistryName(block.getRegistryName())
-                        .setTranslationKey(block.getTranslationKey()));
-                continue;
-            }
-            if (block == OTHERSTONE_BRICKS_SLAB) {
-                event.getRegistry().register(new ItemSlab(block, OTHERSTONE_BRICKS_SLAB,
-                        OTHERSTONE_BRICKS_DOUBLE_SLAB)
-                        .setRegistryName(block.getRegistryName())
-                        .setTranslationKey(block.getTranslationKey()));
-                continue;
-            }
-            if (block == OTHERROCK_BRICKS_SLAB) {
-                event.getRegistry().register(new ItemSlab(block, OTHERROCK_BRICKS_SLAB, OTHERROCK_BRICKS_DOUBLE_SLAB)
-                        .setRegistryName(block.getRegistryName())
-                        .setTranslationKey(block.getTranslationKey()));
-                continue;
-            }
             if (block instanceof BlockStorageController) {
                 event.getRegistry().register(new ItemBlockStorageController(block)
                         .setRegistryName(block.getRegistryName())
@@ -566,46 +374,20 @@ public final class ModBlocks {
         if (block == OTHERWORLD_WOOD || block == STRIPPED_OTHERWORLD_WOOD || block == OTHERPLANKS) {
             Blocks.FIRE.setFireInfo(block, 5, 20);
         }
-        if (block == OTHERPLANKS_SLAB || block == OTHERPLANKS_DOUBLE_SLAB || block == OTHERPLANKS_STAIRS
-                || block == OTHERPLANKS_FENCE || block == OTHERPLANKS_FENCE_GATE || block == OTHERPLANKS_DOOR
-                || block == OTHERPLANKS_TRAPDOOR) {
-            Blocks.FIRE.setFireInfo(block, 5, 20);
-        }
         return block;
-    }
-
-    private static ItemDoor doorItem(Block block) {
-        ItemDoor item = new ItemDoor(block);
-        item.setRegistryName(block.getRegistryName());
-        item.setTranslationKey(block.getTranslationKey());
-        item.setCreativeTab(ModCreativeTabs.OCCULTISM);
-        return item;
     }
 
     private static boolean skipItemBlock(Block block) {
         return block instanceof BlockChalkGlyph
                 || block == DATURA_CROP
                 || block == LIGHTED_AIR
-                || block == OTHERPLANKS_DOUBLE_SLAB
-                || block == OTHERSTONE_DOUBLE_SLAB
-                || block == OTHERROCK_DOUBLE_SLAB
-                || block == POLISHED_OTHERSTONE_DOUBLE_SLAB
-                || block == POLISHED_OTHERROCK_DOUBLE_SLAB
-                || block == OTHERSTONE_BRICKS_DOUBLE_SLAB
-                || block == OTHERROCK_BRICKS_DOUBLE_SLAB
                 || block == OTHERSTONE_NATURAL
                 || block == OTHERROCK_NATURAL
                 || block == OTHERWORLD_LOG_NATURAL
                 || block == STRIPPED_OTHERWORLD_LOG_NATURAL
                 || block == OTHERWORLD_LEAVES_NATURAL
                 || block == OTHERFLOWER_NATURAL
-                || block == IESNIUM_ORE_NATURAL
-                || block == OTHERSTONE_WALL
-                || block == OTHERROCK_WALL
-                || block == POLISHED_OTHERSTONE_WALL
-                || block == POLISHED_OTHERROCK_WALL
-                || block == OTHERSTONE_BRICKS_WALL
-                || block == OTHERROCK_BRICKS_WALL;
+                || block == IESNIUM_ORE_NATURAL;
     }
 
     private static BlockChalkGlyph glyph(String name, int color) {

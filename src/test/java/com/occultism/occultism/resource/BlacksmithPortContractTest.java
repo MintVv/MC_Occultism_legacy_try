@@ -452,7 +452,14 @@ class BlacksmithPortContractTest {
     }
 
     private static String getString(JsonObject object, String key) {
-        return object != null && object.has(key) ? object.get(key).getAsString() : "";
+        if (object == null || !object.has(key)) {
+            return "";
+        }
+        JsonElement value = object.get(key);
+        if (value.isJsonObject() && value.getAsJsonObject().has("texture")) {
+            return value.getAsJsonObject().get("texture").getAsString();
+        }
+        return value.getAsString();
     }
 
     private static String section(String source, String start, String end) {

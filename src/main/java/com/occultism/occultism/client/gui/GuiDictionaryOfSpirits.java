@@ -89,6 +89,7 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
     private static final int CRAFTING_PREVIEW_SPACING = 6;
     private static final int PENTACLE_PREVIEW_MAX_HEIGHT = 82;
     private static final int PENTACLE_PREVIEW_SPACING = 6;
+    private static final int RITUAL_DUMMY_OFFSET = 10;
     private static final int ID_PREVIOUS = 1;
     private static final int ID_NEXT = 2;
     private static final int ID_CONTENTS = 3;
@@ -328,6 +329,14 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
     }
 
     @Override
+    protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
+        if (mouseButton == 0 && this.isEntryPage() && this.handleRitualPentacleClick(mouseX, mouseY)) {
+            return;
+        }
+        super.mouseClicked(mouseX, mouseY, mouseButton);
+    }
+
+    @Override
     protected void keyTyped(char typedChar, int keyCode) throws IOException {
         if (keyCode == Keyboard.KEY_LEFT) {
             this.handlePrevious();
@@ -468,6 +477,8 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
             this.drawImagePage(page, leftPageX, pageY, BOOK_PAGE_WIDTH, pageBottom);
         } else if (page.hasSpotlight()) {
             this.drawSpotlightPage(page, leftPageX, pageY, BOOK_PAGE_WIDTH, pageBottom);
+        } else if (page.hasReference() && page.reference.hasRitualPreview()) {
+            this.drawRitualReference(page.reference, leftPageX, pageY, BOOK_PAGE_WIDTH, pageBottom);
         } else if (page.hasReference()) {
             this.drawReferencePage(page, leftPageX, pageY, BOOK_PAGE_WIDTH, pageBottom);
         } else {
@@ -701,6 +712,208 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
             bodyY = this.drawCraftingPreview(reference.craftingPreview, x, bodyY, width, bottom);
         }
         this.drawWrappedInBounds(this.getCurrentPageBody(page), x, bodyY, width, bottom, TEXT);
+    }
+
+    private void drawRitualReference(GuideReference reference, int x, int y, int width, int bottom) {
+        RitualDefinition ritual = reference.ritualPreview;
+        if (ritual == null) {
+            return;
+        }
+
+        // Keep this layout aligned with the upstream BookRitualRecipePageRenderer. The 1.12
+        // dictionary has no Modonomicon runtime, but the vanilla item renderer can reproduce
+        // the same recipe presentation and coordinates.
+        int recipeX = x;
+        int recipeY = y + 10;
+        PentacleDefinition pentacle = findPentacle(removeNamespace(ritual.getPentacleId()));
+        String pentacleName = getRitualPentacleName(ritual.getPentacleId(), pentacle);
+
+        RenderHelper.enableGUIStandardItemLighting();
+        int ritualCenterX = recipeX + 30;
+        int ritualCenterY = recipeY + 70;
+        int sacrificialCircleRadius = 30;
+        int bowlPaddingVertical = 20;
+        int bowlPaddingHorizontal = 15;
+        int[][] bowlPositions = {
+                {ritualCenterX, ritualCenterY - sacrificialCircleRadius},
+                {ritualCenterX + sacrificialCircleRadius, ritualCenterY},
+                {ritualCenterX, ritualCenterY + sacrificialCircleRadius},
+                {ritualCenterX - sacrificialCircleRadius, ritualCenterY},
+                {ritualCenterX + bowlPaddingHorizontal, ritualCenterY - sacrificialCircleRadius},
+                {ritualCenterX + sacrificialCircleRadius, ritualCenterY - bowlPaddingVertical},
+                {ritualCenterX - bowlPaddingHorizontal, ritualCenterY + sacrificialCircleRadius},
+                {ritualCenterX - sacrificialCircleRadius, ritualCenterY + bowlPaddingVertical},
+                {ritualCenterX - bowlPaddingHorizontal, ritualCenterY - sacrificialCircleRadius},
+                {ritualCenterX + sacrificialCircleRadius, ritualCenterY + bowlPaddingVertical},
+                {ritualCenterX + bowlPaddingHorizontal, ritualCenterY + sacrificialCircleRadius},
+                {ritualCenterX - sacrificialCircleRadius, ritualCenterY - bowlPaddingVertical}
+        };
+
+        List<RitualIngredient> ingredients = ritual.getAdditionalIngredients();
+        for (int i = 0; i < ingredients.size() && i < bowlPositions.length; i++) {
+            int[] position = bowlPositions[i];
+            this.renderRitualItem(new ItemStack(ModBlocks.SACRIFICIAL_BOWL), position[0], position[1]);
+            this.renderRitualItem(ingredients.get(i).createDisplayStack(), position[0], position[1] - 5);
+        }
+
+        this.renderRitualItem(new ItemStack(ModBlocks.GOLDEN_SACRIFICIAL_BOWL),
+                recipeX + 85, recipeY + 110);
+        this.renderRitualItem(ritual.getResult().createStack(),
+                recipeX + 85, recipeY + 105);
+        this.renderRitualItem(ritual.getRitualDummy().createStack(),
+                recipeX - 10, recipeY - 5);
+
+        if (!pentacleName.isEmpty()) {
+            this.drawScaledStringNoShadow(pentacleName, recipeX + RITUAL_DUMMY_OFFSET, recipeY - 1,
+                    0x3366CC, Math.max(1, width - RITUAL_DUMMY_OFFSET - 10));
+        }
+
+        if (ritual.requiresItemUse()) {
+            this.renderRitualItem(ritual.getItemToUse().createDisplayStack(),
+                    recipeX + 50, recipeY + 21);
+        }
+
+        this.renderRitualItem(new ItemStack(ModBlocks.GOLDEN_SACRIFICIAL_BOWL),
+                recipeX + 30, recipeY + 70);
+        this.renderRitualItem(ritual.getActivationIngredient().createDisplayStack(),
+                recipeX + 30, recipeY + 65);
+
+        RenderHelper.disableStandardItemLighting();
+        GlStateManager.disableLighting();
+        GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
+
+        if (ritual.requiresSacrifice()) {
+            this.drawScaledStringNoShadow(I18n.format(
+                    "gui.occultism.dictionary.reference.sacrifice",
+                    ritual.getSacrifice().getDisplayName()),
+                    recipeX - 15, recipeY + 15, TEXT, width);
+        }
+        if (ritual.requiresItemUse()) {
+            this.drawScaledStringNoShadow(I18n.format(
+                    "gui.occultism.dictionary.reference.item_to_use",
+                    ritual.getItemToUse().createDisplayStack().getDisplayName()),
+                    recipeX - 15, recipeY + 25, MUTED, width);
+        }
+        if (ritual.summonsEntity()) {
+            this.drawScaledStringNoShadow(I18n.format(
+                    "gui.occultism.dictionary.reference.entity",
+                    ritual.getEntityToSummon().getDisplayId()),
+                    recipeX - 15, recipeY + 120, TEXT, width);
+        }
+        if (ritual.hasSpiritJobType()) {
+            this.drawScaledStringNoShadow(I18n.format(
+                    "gui.occultism.dictionary.reference.job",
+                    getJobDisplayName(ritual.getSpiritJobType())),
+                    recipeX - 15, recipeY + 130, 0x3366CC, width);
+        }
+    }
+
+    private boolean handleRitualPentacleClick(int mouseX, int mouseY) {
+        GuidePage page = this.getCurrentEntries()[this.entryIndex].pages[this.pageIndex];
+        if (!page.hasReference() || !page.reference.hasRitualPreview()) {
+            return false;
+        }
+
+        RitualDefinition ritual = page.reference.ritualPreview;
+        String pentacleName = getRitualPentacleName(ritual.getPentacleId(),
+                findPentacle(removeNamespace(ritual.getPentacleId())));
+        if (pentacleName.isEmpty()) {
+            return false;
+        }
+
+        int left = (this.width - PANEL_WIDTH) / 2;
+        int top = (this.height - PANEL_HEIGHT) / 2;
+        int bookLeft = left + (PANEL_WIDTH - BOOK_WIDTH) / 2;
+        int bookTop = top + 8;
+        int recipeX = bookLeft + BOOK_LEFT_PAGE_X;
+        int recipeY = bookTop + BOOK_PAGE_TOP + 10;
+        int titleX = recipeX + RITUAL_DUMMY_OFFSET;
+        int titleY = recipeY - 1;
+        int titleWidth = this.getScaledTextWidth(pentacleName,
+                Math.max(1, BOOK_PAGE_WIDTH - RITUAL_DUMMY_OFFSET - 10));
+        return mouseX >= titleX && mouseX < titleX + titleWidth
+                && mouseY >= titleY && mouseY < titleY + this.fontRenderer.FONT_HEIGHT
+                && this.openPentacleEntry(removeNamespace(ritual.getPentacleId()));
+    }
+
+    private boolean openPentacleEntry(String pentacleId) {
+        for (int category = 0; category < CATEGORIES.length; category++) {
+            if (!"pentacles".equals(CATEGORIES[category].id)) {
+                continue;
+            }
+            GuideEntry[] entries = CATEGORIES[category].entries;
+            for (int entry = 0; entry < entries.length; entry++) {
+                GuideEntry guideEntry = entries[entry];
+                if (pentacleId.equals(guideEntry.id) || pentacleId.equals(removeNamespace(guideEntry.fullId))) {
+                    this.categoryIndex = category;
+                    this.entryIndex = entry;
+                    this.pageIndex = 0;
+                    this.bodyScroll = 0;
+                    this.nodeScrollY = 0;
+                    this.initGui();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private int getScaledTextWidth(String text, int maxWidth) {
+        int textWidth = this.fontRenderer.getStringWidth(text);
+        float scale = Math.min(1.0F, (float) maxWidth / Math.max(1, textWidth));
+        return Math.max(1, (int) (textWidth * scale));
+    }
+
+    private static String getRitualPentacleName(String pentacleId, PentacleDefinition pentacle) {
+        String path = removeNamespace(pentacleId);
+        String multiblockKey = "multiblock." + Tags.MOD_ID + "." + path;
+        if (I18n.hasKey(multiblockKey)) {
+            return I18n.format(multiblockKey);
+        }
+
+        String bookKey = "book." + Tags.MOD_ID + ".dictionary_of_spirits.pentacles." + path + ".name";
+        if (I18n.hasKey(bookKey)) {
+            return I18n.format(bookKey);
+        }
+
+        return pentacle == null ? path : pentacle.getDisplayName();
+    }
+
+    private void renderRitualItem(ItemStack stack, int x, int y) {
+        if (stack.isEmpty()) {
+            return;
+        }
+        this.mc.getRenderItem().renderItemAndEffectIntoGUI(stack, x, y);
+        this.mc.getRenderItem().renderItemOverlays(this.fontRenderer, stack, x, y);
+        this.captureHoveredStack(stack, x, y, 16, 16);
+    }
+
+    private void drawCenteredFitting(String text, int centerX, int y, int maxWidth, int color) {
+        if (text == null || text.isEmpty() || maxWidth <= 0) {
+            return;
+        }
+        float scale = Math.min(1.0F, (float) maxWidth / Math.max(1, this.fontRenderer.getStringWidth(text)));
+        GlStateManager.pushMatrix();
+        GlStateManager.translate(centerX, y, 0.0F);
+        GlStateManager.scale(scale, scale, 1.0F);
+        this.drawCenteredString(this.fontRenderer, text, 0, 0, color);
+        GlStateManager.popMatrix();
+    }
+
+    private void drawScaledStringNoShadow(String text, int x, int y, int color, int maxWidth) {
+        if (text == null || text.isEmpty() || maxWidth <= 0) {
+            return;
+        }
+        int textWidth = this.fontRenderer.getStringWidth(text);
+        float scale = Math.min(1.0F, (float) maxWidth / Math.max(1, textWidth));
+        GlStateManager.pushMatrix();
+        if (scale < 1.0F) {
+            GlStateManager.translate(x - x * scale, y - y * scale, 0.0F);
+            GlStateManager.scale(scale, scale, scale);
+        }
+        this.fontRenderer.drawString(text, x, y + (int) (this.fontRenderer.FONT_HEIGHT * (1.0F - scale)),
+                color);
+        GlStateManager.popMatrix();
     }
 
     private int drawCraftingPreview(CraftingGridPreview preview, int x, int y, int width, int bottom) {
@@ -1082,6 +1295,9 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
         }
         int visibleLines = (BOOK_PAGE_BOTTOM - BOOK_PAGE_TOP) / (this.fontRenderer.FONT_HEIGHT + 2);
         GuidePage page = this.getCurrentEntries()[this.entryIndex].pages[this.pageIndex];
+        if (page.hasReference() && page.reference.hasRitualPreview()) {
+            return 0;
+        }
         List<String> lines = this.getWrappedLines(this.getCurrentPageBody(page), BODY_WIDTH);
         if (page.hasImages()) {
             int bodyHeight = BOOK_PAGE_BOTTOM - BOOK_PAGE_TOP;
@@ -1363,16 +1579,18 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
         private final List<ItemStack> previewStacks;
         private final PentacleDefinition pentaclePreview;
         private final CraftingGridPreview craftingPreview;
+        private final RitualDefinition ritualPreview;
 
         private GuideReference(String labelKey, String id, List<GuideReferenceLine> lines,
                 List<ItemStack> previewStacks, PentacleDefinition pentaclePreview,
-                CraftingGridPreview craftingPreview) {
+                CraftingGridPreview craftingPreview, RitualDefinition ritualPreview) {
             this.labelKey = labelKey;
             this.id = id;
             this.lines = lines;
             this.previewStacks = previewStacks;
             this.pentaclePreview = pentaclePreview;
             this.craftingPreview = craftingPreview;
+            this.ritualPreview = ritualPreview;
         }
 
         private boolean hasPentaclePreview() {
@@ -1381,6 +1599,10 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
 
         private boolean hasCraftingPreview() {
             return this.craftingPreview != null;
+        }
+
+        private boolean hasRitualPreview() {
+            return this.ritualPreview != null;
         }
 
         private String getBody() {
@@ -1702,7 +1924,7 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
         List<ItemStack> stacks = new ArrayList<>();
         if (ritual == null) {
             lines.add(line("gui.occultism.dictionary.reference.unresolved", id));
-            return reference("gui.occultism.dictionary.reference.ritual", id, lines, stacks);
+            return reference("gui.occultism.dictionary.reference.ritual", id, lines, stacks, ritual);
         }
 
         lines.add(line("gui.occultism.dictionary.reference.ritual_type", ritual.getRitualType()));
@@ -1736,7 +1958,7 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
         }
         addStack(stacks, ritual.getResult().createStack());
         addStack(stacks, ritual.getRitualDummy().createStack());
-        return reference("gui.occultism.dictionary.reference.ritual", id, lines, stacks);
+        return reference("gui.occultism.dictionary.reference.ritual", id, lines, stacks, ritual);
     }
 
     private static GuideReference createSpiritFireReference(String id) {
@@ -1976,17 +2198,22 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
 
     private static GuideReference reference(String labelKey, String id, List<GuideReferenceLine> lines,
             List<ItemStack> stacks) {
-        return new GuideReference(labelKey, id, lines, stacks, null, null);
+        return new GuideReference(labelKey, id, lines, stacks, null, null, null);
     }
 
     private static GuideReference reference(String labelKey, String id, List<GuideReferenceLine> lines,
             List<ItemStack> stacks, PentacleDefinition pentaclePreview) {
-        return new GuideReference(labelKey, id, lines, stacks, pentaclePreview, null);
+        return new GuideReference(labelKey, id, lines, stacks, pentaclePreview, null, null);
     }
 
     private static GuideReference referenceWithCrafting(String labelKey, String id, List<GuideReferenceLine> lines,
             List<ItemStack> stacks, CraftingGridPreview craftingPreview) {
-        return new GuideReference(labelKey, id, lines, stacks, null, craftingPreview);
+        return new GuideReference(labelKey, id, lines, stacks, null, craftingPreview, null);
+    }
+
+    private static GuideReference reference(String labelKey, String id, List<GuideReferenceLine> lines,
+            List<ItemStack> stacks, RitualDefinition ritualPreview) {
+        return new GuideReference(labelKey, id, lines, stacks, null, null, ritualPreview);
     }
 
     private static GuideReferenceLine line(String labelKey) {

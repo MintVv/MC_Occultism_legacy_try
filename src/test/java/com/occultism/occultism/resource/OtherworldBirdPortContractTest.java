@@ -38,7 +38,7 @@ class OtherworldBirdPortContractTest {
         for (JsonElement ingredient : wild.getAsJsonArray("ingredients")) {
             wildIngredients.add(ingredient.getAsString());
         }
-        assertTrue(wildIngredients.contains("minecraft:cobweb"));
+        assertTrue(wildIngredients.contains("minecraft:web"));
         assertTrue(wildIngredients.contains("#minecraft:leaves"));
         assertEquals("occultism:ritual_dummy/summon_wild_otherworld_bird",
                 wild.getAsJsonObject("ritual_dummy").get("id").getAsString());

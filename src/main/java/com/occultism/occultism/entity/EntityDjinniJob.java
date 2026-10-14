@@ -9,6 +9,11 @@ import net.minecraft.world.World;
 /** Dedicated Djinni job spirit, including the enlarged tier-2 crusher body. */
 public class EntityDjinniJob extends EntityFoliotJob {
 
+    /** Forge entity registration requires a public constructor accepting only the world. */
+    public EntityDjinniJob(World worldIn) {
+        this(worldIn, SpiritJobType.CRUSHER);
+    }
+
     public EntityDjinniJob(World worldIn, SpiritJobType jobType) {
         super(worldIn, jobType, SpiritTier.DJINNI);
         this.updateEntitySizeForJob();

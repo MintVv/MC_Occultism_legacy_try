@@ -18,10 +18,9 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
+UPSTREAM_ROOT = ROOT / "_reference" / "occultism-upstream"
 UPSTREAM_BOOK = (
-    ROOT
-    / "_reference"
-    / "occultism-26.1.2"
+    UPSTREAM_ROOT
     / "src"
     / "generated"
     / "resources"
@@ -32,6 +31,14 @@ UPSTREAM_BOOK = (
     / "dictionary_of_spirits"
 )
 UPSTREAM_ASSETS = (
+    UPSTREAM_ROOT
+    / "src"
+    / "main"
+    / "resources"
+    / "assets"
+    / "occultism"
+)
+COMPATIBILITY_ASSETS = (
     ROOT
     / "_reference"
     / "occultism-26.1.2"
@@ -100,9 +107,7 @@ ENTRY_KEYS = (
 
 COMPAT_PAGE_KEYS = ("id", "type", "title", "text", "detail", "sort_number")
 UPSTREAM_LANG = (
-    ROOT
-    / "_reference"
-    / "occultism-26.1.2"
+    UPSTREAM_ROOT
     / "src"
     / "generated"
     / "resources"
@@ -196,20 +201,28 @@ def local_entry_path(category_id: str, entry_id: str) -> Path:
     return LOCAL_ENTRIES / category_id / f"{entry_id}.json"
 
 
-def load_entry(category_id: str, entry_id: str) -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
+def load_entry(
+    category_id: str,
+    entry_id: str,
+    compatibility_entry: dict[str, Any] | None = None,
+) -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
     upstream_file = entry_path(category_id, entry_id)
     local_file = local_entry_path(category_id, entry_id)
-    if not upstream_file.is_file() and not local_file.is_file():
+    if not upstream_file.is_file() and not local_file.is_file() and compatibility_entry is None:
         raise FileNotFoundError(
             f"Missing both upstream and local dictionary entry for {category_id}/{entry_id}"
         )
 
     merged: dict[str, Any] = {}
     embedded_pages: dict[str, dict[str, Any]] = {}
-    for source_file in (upstream_file, local_file):
-        if not source_file.is_file():
-            continue
-        source = read_json(source_file)
+    sources: list[dict[str, Any]] = []
+    if compatibility_entry is not None:
+        sources.append(compatibility_entry)
+    if upstream_file.is_file():
+        sources.append(read_json(upstream_file))
+    if local_file.is_file():
+        sources.append(read_json(local_file))
+    for source in sources:
         merged.update(source)
         for page in source.get("pages", []):
             page_id = page.get("id")
@@ -338,8 +351,13 @@ def copy_book_textures(refs: set[str]) -> list[str]:
     LOCAL_BOOK_TEXTURES.mkdir(parents=True, exist_ok=True)
     copied: list[str] = []
     for ref in sorted(refs):
-        source = UPSTREAM_ASSETS / "textures" / "gui" / "book" / ref
         target = LOCAL_BOOK_TEXTURES / ref
+        if target.is_file():
+            copied.append(ref)
+            continue
+        source = UPSTREAM_ASSETS / "textures" / "gui" / "book" / ref
+        if not source.is_file():
+            source = COMPATIBILITY_ASSETS / "textures" / "gui" / "book" / ref
         if not source.is_file():
             raise FileNotFoundError(f"Missing upstream book texture {source}")
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -362,6 +380,7 @@ def main() -> None:
     texture_refs: set[str] = set()
     lang_refs: set[str] = set()
     rebuilt_categories: list[dict[str, Any]] = []
+    compatibility_overlay_count = 0
 
     for current_category in current["categories"]:
         category_id = current_category["id"]
@@ -372,7 +391,10 @@ def main() -> None:
 
         for current_entry in current_category["entries"]:
             entry_id = current_entry["id"]
-            entry_source, embedded_pages = load_entry(category_id, entry_id)
+            if (not entry_path(category_id, entry_id).is_file()
+                    and not local_entry_path(category_id, entry_id).is_file()):
+                compatibility_overlay_count += 1
+            entry_source, embedded_pages = load_entry(category_id, entry_id, current_entry)
             rebuilt_entry = select_keys(entry_source, ENTRY_KEYS)
             rebuilt_entry["id"] = entry_id
             rebuilt_entry["pages"] = []
@@ -409,8 +431,13 @@ def main() -> None:
         collect_book_lang_keys(rebuilt_category, lang_refs)
 
     rebuilt = {
-        "source": current.get("source", "occultism-26.1.2 generated Modonomicon dictionary_of_spirits"),
-        "policy": current.get("policy", ""),
+        "source": "occultism-upstream generated Modonomicon dictionary_of_spirits"
+        " + local 1.12 compatibility overlays",
+        "policy": (
+            "The upstream generated Modonomicon book is authoritative. "
+            "Local compatibility overlays are retained only for 1.12 content "
+            "that has no entry in the pinned upstream snapshot."
+        ),
         "categories": rebuilt_categories,
     }
     rebuilt = sanitize_entry_references(rebuilt, selected_entry_ids)
@@ -419,6 +446,7 @@ def main() -> None:
     LOCAL_INDEX.write_text(json.dumps(rebuilt, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {LOCAL_INDEX}")
     print(f"Copied/verified {len(copied)} occultism book PNG resource(s)")
+    print(f"Retained {compatibility_overlay_count} local 1.12 compatibility overlay entry/entries")
     for ref in copied:
         print(f" - {ref}")
     missing_lang = sorted(lang_refs - known_lang_keys)

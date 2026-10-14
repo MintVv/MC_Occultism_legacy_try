@@ -60,6 +60,11 @@ public class BlockGoldenSacrificialBowl extends Block {
                 ITextComponent ritualName = activeRitual == null
                         ? new TextComponentString(bowl.getActiveRitualId())
                         : activeRitual.createNameComponent();
+                if (bowl.isWaitingForSacrifice() && activeRitual != null) {
+                    playerIn.sendStatusMessage(new TextComponentTranslation("occultism.ritual.missing_sacrifice",
+                            ritualName, activeRitual.getSacrifice().getTag()), false);
+                    return true;
+                }
                 if (bowl.isWaitingForItemUse() && activeRitual != null) {
                     ItemStack itemToUse = activeRitual.getItemToUse().createDisplayStack();
                     playerIn.sendStatusMessage(new TextComponentTranslation("occultism.ritual.waiting_item_use",
@@ -103,21 +108,10 @@ public class BlockGoldenSacrificialBowl extends Block {
                 return true;
             }
 
-            if (ritual.requiresSacrifice() && !bowl.hasMatchingSacrifice(worldIn, pos, ritual)) {
-                playerIn.sendStatusMessage(new TextComponentTranslation("occultism.ritual.missing_sacrifice",
-                        ritual.createNameComponent(), ritual.getSacrifice().getTag()), false);
-                return true;
-            }
-
             ItemStack activationStack = heldStack.copy();
             activationStack.setCount(1);
             if (!playerIn.capabilities.isCreativeMode) {
                 heldStack.shrink(1);
-            }
-            if (!bowl.consumeSacrifice(worldIn, pos, ritual)) {
-                playerIn.sendStatusMessage(new TextComponentTranslation("occultism.ritual.missing_sacrifice",
-                        ritual.createNameComponent(), ritual.getSacrifice().getTag()), false);
-                return true;
             }
             bowl.startRitual(ritual, activationStack, this.ritualDurationDivisor, playerIn);
             playerIn.sendStatusMessage(

@@ -30,8 +30,6 @@ public final class ModRecipes {
         GameRegistry.addSmelting(ModBlocks.OTHERROCK, new ItemStack(ModBlocks.POLISHED_OTHERROCK), 0.5F);
         GameRegistry.addSmelting(ModBlocks.POLISHED_OTHERSTONE, new ItemStack(ModItems.BURNT_OTHERSTONE), 0.15F);
         GameRegistry.addSmelting(ModBlocks.POLISHED_OTHERROCK, new ItemStack(ModItems.BURNT_OTHERROCK), 0.15F);
-        GameRegistry.addSmelting(ModBlocks.OTHERSTONE_BRICKS, new ItemStack(ModBlocks.CRACKED_OTHERSTONE_BRICKS), 0.3F);
-        GameRegistry.addSmelting(ModBlocks.OTHERROCK_BRICKS, new ItemStack(ModBlocks.CRACKED_OTHERROCK_BRICKS), 0.3F);
 
         PotionHelper.addMix(PotionTypes.AWKWARD, ModItems.OTHERWORLD_ESSENCE, ModPotions.THIRD_EYE_POTION);
         PotionHelper.addMix(ModPotions.THIRD_EYE_POTION, Items.REDSTONE, ModPotions.LONG_THIRD_EYE_POTION);

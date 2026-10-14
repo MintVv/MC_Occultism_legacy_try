@@ -13,13 +13,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Stream;
 
 import javax.imageio.ImageIO;
 
@@ -34,47 +30,6 @@ class PortedResourceContractTest {
     private static final Path ASSET_ROOT = Paths.get("src", "main", "resources", "assets", "occultism");
     private static final Path REGISTRY_ROOT = Paths.get("src", "main", "java", "com", "occultism", "occultism",
             "registry");
-    private static final Set<String> SLAB_ITEMS = Collections.unmodifiableSet(new HashSet<>(Arrays.asList(
-            "occultism:otherplanks_slab",
-            "occultism:otherstone_slab",
-            "occultism:otherrock_slab",
-            "occultism:polished_otherstone_slab",
-            "occultism:polished_otherrock_slab",
-            "occultism:otherstone_bricks_slab",
-            "occultism:otherrock_bricks_slab")));
-
-    @Test
-    void everySlabItemReferenceDeclaresItsMetadata() throws IOException {
-        Path recipeRoot = ASSET_ROOT.resolve("recipes");
-        try (Stream<Path> files = Files.list(recipeRoot)) {
-            files.filter(path -> path.getFileName().toString().endsWith(".json"))
-                    .forEach(path -> assertSlabReferencesHaveData(readJsonUnchecked(path), path));
-        }
-    }
-
-    @Test
-    void otherplanksFenceGateCoversEveryBlockState() throws IOException {
-        JsonObject root = readJson(ASSET_ROOT.resolve("blockstates").resolve("otherplanks_fence_gate.json"));
-        JsonObject variants = root.getAsJsonObject("variants");
-        assertEquals(32, variants.size(), "Fence gate must cover facing/in_wall/open/powered combinations");
-
-        Set<String> actual = new HashSet<>();
-        for (Map.Entry<String, JsonElement> entry : variants.entrySet()) {
-            actual.add(normalizeVariant(entry.getKey()));
-        }
-        for (String facing : Arrays.asList("north", "south", "east", "west")) {
-            for (boolean inWall : Arrays.asList(false, true)) {
-                for (boolean open : Arrays.asList(false, true)) {
-                    for (boolean powered : Arrays.asList(false, true)) {
-                        String expected = "facing=" + facing + ",in_wall=" + inWall + ",open=" + open
-                                + ",powered=" + powered;
-                        assertTrue(actual.contains(normalizeVariant(expected)), "Missing fence gate variant " + expected);
-                    }
-                }
-            }
-        }
-    }
-
     @Test
     void dictionaryDetailsUseResolvableLocalSyntax() throws IOException {
         JsonObject root = readJson(ASSET_ROOT.resolve("dictionary").resolve("modonomicon_index.json"));
@@ -91,20 +46,51 @@ class PortedResourceContractTest {
     }
 
     @Test
-    void doorWoodUsesTheRegisteredItemDoor() throws IOException {
+    void otherplanksDoorIsNotPorted() throws IOException {
         String blocks = readUtf8(REGISTRY_ROOT.resolve("ModBlocks.java"));
         String oreDictionary = readUtf8(REGISTRY_ROOT.resolve("ModOreDictionary.java"));
 
-        assertTrue(blocks.contains("public static final ItemDoor OTHERPLANKS_DOOR_ITEM"),
-                "The otherplanks door item must retain its ItemDoor type");
-        assertTrue(blocks.contains("event.getRegistry().register(OTHERPLANKS_DOOR_ITEM);"),
-                "The retained ItemDoor instance must be the registered item");
-        assertTrue(oreDictionary.contains(
-                "OreDictionary.registerOre(\"doorWood\", ModBlocks.OTHERPLANKS_DOOR_ITEM);"),
-                "doorWood must register the actual ItemDoor rather than the BlockDoor");
-        assertFalse(oreDictionary.contains(
-                "OreDictionary.registerOre(\"doorWood\", ModBlocks.OTHERPLANKS_DOOR);"),
-                "Registering a BlockDoor produces a missing-item stack in 1.12");
+        assertFalse(blocks.contains("OTHERPLANKS_DOOR"),
+                "The decorative otherplanks door must not be registered");
+        assertFalse(oreDictionary.contains("OreDictionary.registerOre(\"doorWood\""),
+                "The removed door must not remain in the OreDictionary");
+        assertFalse(Files.exists(ASSET_ROOT.resolve("blockstates").resolve("otherplanks_door.json")));
+        assertFalse(Files.exists(ASSET_ROOT.resolve("recipes").resolve("otherplanks_door.json")));
+    }
+
+    @Test
+    void decorativeOtherworldBlocksAreNotPorted() throws IOException {
+        String blocks = readUtf8(REGISTRY_ROOT.resolve("ModBlocks.java"));
+        String oreDictionary = readUtf8(REGISTRY_ROOT.resolve("ModOreDictionary.java"));
+        String[] decorativeIds = {
+                "otherstone_stairs", "otherrock_stairs", "polished_otherstone_stairs",
+                "polished_otherrock_stairs", "otherstone_bricks_stairs", "otherrock_bricks_stairs",
+                "otherstone_slab", "otherrock_slab", "polished_otherstone_slab", "polished_otherrock_slab",
+                "otherstone_bricks_slab", "otherrock_bricks_slab", "otherstone_wall", "otherrock_wall",
+                "polished_otherstone_wall", "polished_otherrock_wall", "otherstone_bricks_wall",
+                "otherrock_bricks_wall", "otherstone_button", "otherrock_button",
+                "otherstone_pressure_plate", "otherrock_pressure_plate", "otherplanks_slab",
+                "otherplanks_stairs", "otherplanks_button", "otherplanks_pressure_plate",
+                "otherplanks_fence", "otherplanks_fence_gate", "otherplanks_trapdoor",
+                "chiseled_otherstone_bricks", "chiseled_otherrock_bricks",
+                "cracked_otherstone_bricks", "cracked_otherrock_bricks"
+        };
+        for (String id : decorativeIds) {
+            assertFalse(blocks.contains("\"" + id + "\""),
+                    "Decorative block must not be registered: " + id);
+            assertFalse(Files.exists(ASSET_ROOT.resolve("blockstates").resolve(id + ".json")));
+            assertFalse(Files.exists(ASSET_ROOT.resolve("models").resolve("item").resolve(id + ".json")));
+            assertFalse(Files.exists(ASSET_ROOT.resolve("recipes").resolve(id + ".json")));
+        }
+        assertFalse(oreDictionary.contains("stairOtherstone"));
+        assertFalse(oreDictionary.contains("slabOtherstone"));
+        assertFalse(oreDictionary.contains("buttonOtherstone"));
+        assertFalse(oreDictionary.contains("plateOtherstone"));
+        assertFalse(oreDictionary.contains("slabWood"));
+        assertFalse(oreDictionary.contains("stairWood"));
+        assertFalse(oreDictionary.contains("fenceWood"));
+        assertFalse(oreDictionary.contains("fenceGateWood"));
+        assertFalse(oreDictionary.contains("trapdoorWood"));
     }
 
     @Test
@@ -166,33 +152,6 @@ class PortedResourceContractTest {
         assertTrue(wormhole.contains("controller.getCapability(capability, facing)"));
         assertTrue(wormhole.contains("if (tile instanceof TileEntityStorageController)"));
         assertTrue(wormhole.contains("this.clearLinkedController()"));
-    }
-
-    private static void assertSlabReferencesHaveData(JsonElement element, Path recipe) {
-        if (element.isJsonArray()) {
-            for (JsonElement child : element.getAsJsonArray()) {
-                assertSlabReferencesHaveData(child, recipe);
-            }
-            return;
-        }
-        if (!element.isJsonObject()) {
-            return;
-        }
-
-        JsonObject object = element.getAsJsonObject();
-        if (object.has("item") && object.get("item").isJsonPrimitive()
-                && SLAB_ITEMS.contains(object.get("item").getAsString())) {
-            assertTrue(object.has("data"), "Slab item reference is missing data in " + recipe);
-        }
-        for (Map.Entry<String, JsonElement> entry : object.entrySet()) {
-            assertSlabReferencesHaveData(entry.getValue(), recipe);
-        }
-    }
-
-    private static String normalizeVariant(String variant) {
-        List<String> properties = new ArrayList<>(Arrays.asList(variant.split(",")));
-        Collections.sort(properties);
-        return String.join(",", properties);
     }
 
     private static void collectStrings(JsonElement element, List<String> strings) {

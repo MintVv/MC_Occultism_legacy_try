@@ -9,6 +9,11 @@ import net.minecraft.world.World;
 /** Dedicated Marid job spirit. */
 public class EntityMaridJob extends EntityFoliotJob {
 
+    /** Forge entity registration requires a public constructor accepting only the world. */
+    public EntityMaridJob(World worldIn) {
+        this(worldIn, SpiritJobType.CRUSHER);
+    }
+
     public EntityMaridJob(World worldIn, SpiritJobType jobType) {
         super(worldIn, jobType, SpiritTier.MARID);
     }

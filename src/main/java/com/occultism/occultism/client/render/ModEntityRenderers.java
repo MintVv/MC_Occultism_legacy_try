@@ -116,42 +116,48 @@ public final class ModEntityRenderers {
                 new IRenderFactory<EntityDjinni>() {
                     @Override
                     public Render<? super EntityDjinni> createRenderFor(RenderManager manager) {
-                        return new RenderBoundSpirit(manager);
+                        return new RenderHighTierBoundSpirit<EntityDjinni>(manager,
+                                com.occultism.occultism.spirit.SpiritTier.DJINNI);
                     }
                 });
         RenderingRegistry.registerEntityRenderingHandler(EntityAfrit.class,
                 new IRenderFactory<EntityAfrit>() {
                     @Override
                     public Render<? super EntityAfrit> createRenderFor(RenderManager manager) {
-                        return new RenderBoundSpirit(manager);
+                        return new RenderHighTierBoundSpirit<EntityAfrit>(manager,
+                                com.occultism.occultism.spirit.SpiritTier.AFRIT);
                     }
                 });
         RenderingRegistry.registerEntityRenderingHandler(EntityMarid.class,
                 new IRenderFactory<EntityMarid>() {
                     @Override
                     public Render<? super EntityMarid> createRenderFor(RenderManager manager) {
-                        return new RenderBoundSpirit(manager);
+                        return new RenderHighTierBoundSpirit<EntityMarid>(manager,
+                                com.occultism.occultism.spirit.SpiritTier.MARID);
                     }
                 });
         RenderingRegistry.registerEntityRenderingHandler(EntityDjinniJob.class,
                 new IRenderFactory<EntityDjinniJob>() {
                     @Override
                     public Render<? super EntityDjinniJob> createRenderFor(RenderManager manager) {
-                        return new RenderFoliotJob(manager);
+                        return new RenderHighTierJob<EntityDjinniJob>(manager,
+                                com.occultism.occultism.spirit.SpiritTier.DJINNI);
                     }
                 });
         RenderingRegistry.registerEntityRenderingHandler(EntityAfritJob.class,
                 new IRenderFactory<EntityAfritJob>() {
                     @Override
                     public Render<? super EntityAfritJob> createRenderFor(RenderManager manager) {
-                        return new RenderFoliotJob(manager);
+                        return new RenderHighTierJob<EntityAfritJob>(manager,
+                                com.occultism.occultism.spirit.SpiritTier.AFRIT);
                     }
                 });
         RenderingRegistry.registerEntityRenderingHandler(EntityMaridJob.class,
                 new IRenderFactory<EntityMaridJob>() {
                     @Override
                     public Render<? super EntityMaridJob> createRenderFor(RenderManager manager) {
-                        return new RenderFoliotJob(manager);
+                        return new RenderHighTierJob<EntityMaridJob>(manager,
+                                com.occultism.occultism.spirit.SpiritTier.MARID);
                     }
                 });
         RenderingRegistry.registerEntityRenderingHandler(EntityAfritWild.class,

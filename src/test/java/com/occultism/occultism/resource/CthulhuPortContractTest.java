@@ -229,7 +229,7 @@ class CthulhuPortContractTest {
         JsonObject entry = findObject(category.getAsJsonArray("entries"), "id", "familiar_cthulhu");
         assertNotNull(entry, "Missing familiar_cthulhu dictionary entry");
 
-        assertEquals("occultism:textures/gui/book/familiar_cthulhu.png", entry.get("icon").getAsString(),
+        assertEquals("occultism:textures/gui/book/familiar_cthulhu.png", getString(entry, "icon"),
                 "The dictionary icon must resolve the migrated Cthulhu book image");
         assertTrue(Files.isRegularFile(ASSET_ROOT.resolve("textures").resolve("gui").resolve("book")
                 .resolve("familiar_cthulhu.png")), "The dictionary Cthulhu icon is missing");
@@ -300,7 +300,14 @@ class CthulhuPortContractTest {
     }
 
     private static String getString(JsonObject object, String key) {
-        return object != null && object.has(key) ? object.get(key).getAsString() : "";
+        if (object == null || !object.has(key)) {
+            return "";
+        }
+        JsonElement value = object.get(key);
+        if (value.isJsonObject() && value.getAsJsonObject().has("texture")) {
+            return value.getAsJsonObject().get("texture").getAsString();
+        }
+        return value.getAsString();
     }
 
     private static String section(String source, String start, String end) {

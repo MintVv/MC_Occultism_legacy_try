@@ -1,7 +1,11 @@
 # Occultism 1.12.2 移植进度报告
 
-> 快照日期：2026-08-23（Asia/Shanghai）；上一快照 2026-08-22
-> **本轮修正与新增见 `PORTING_STATUS_SUMMARY.md`**。要点：（1）全量测试基线更新为 **57 个测试类、341 项、0 失败/错误**；新增通用高阶灵体主库存、容器入口与 Bound Spirit NBT 契约。（2）Wild Hunt 主从关系已补 NBT 持久化与已加载实体延迟重连，但真实区块卸载/重载仍未回归。（3）下文 P1 中 6 条 `*_prototype` 仪式的描述**准确、勿删**——本轮曾误判为死数据并删除，已回滚；注意仪式 JSON 的法阵字段名是 `pentacle_id` 而非 `pentacle`。（4）新增仪式名称本地化（170×2 个 `.name` 键）与 Nautilus armor missing-mapping 处理器。
+> 快照日期：2026-08-31（Asia/Shanghai）；上一快照 2026-08-23
+> **本轮修正与新增见 `PORTING_STATUS_SUMMARY.md`**。要点：（1）全量测试基线更新为 **58 个测试类、345 项、0 失败/错误**；新增高阶灵体模型/renderer 契约。（2）修复 `EntityDjinniJob`、`EntityAfritJob`、`EntityMaridJob` 注册时缺少公开 `World` 构造器的问题。（3）修正 Otherworld Bird 野性仪式中的 1.12 物品 ID：`minecraft:cobweb` → `minecraft:web`。（4）`runClient` 已完成当前源码客户端加载烟测，仪式数据和 9 个 Mod 均成功加载。
+> 2026-10-13 增补：仪式辞典页已接入按上游 `BookRitualRecipePageRenderer` 重建的专用布局；同时按维护者要求移除异界木板门、墙、按钮、台阶、楼梯、栅栏、压力板及镂空/裂纹装饰砖等装饰类方块与残留资源。`compileJava`、全量测试、资源审计和客户端加载烟测均通过。
+> 2026-10-13 追加：仪式页法阵标题采用上游本地化键并可点击跳转至法阵条目；12 个祭祀碗、中心金碗、启动物、产物、献祭/召唤/职业文本保持上游 renderer 坐标。
+> 2026-10-13 追加：仪式运行视觉按上游状态补齐灰色等待粒子、紫色运行粒子、等待献祭状态、祭祀碗内物品浮空旋转和完成时中心烟雾；未新增上游不存在的法阵光束。
+> 2026-10-13 追加：进一步按上游粒子时序收敛：等待粒子改为独立 1.12 `Particle` 的上升/渐隐/灰度实现，运行粒子改为服务端 `1/16` 随机 `PORTAL`，删除客户端重复粒子与自创材料碗 marker；所有金碗变体和浮空物品放入时相位统一。
 > 目标环境：Minecraft 1.12.2 / Forge 14.23.5.2847  
 > 代码参考上游：`_reference/occultism-upstream`，分支 `version/1.20.1`，提交 `84b8ad4c14debb3c28247964edd55c076cd010c2`，`gradle.properties` 标记 Occultism `1.81.4`  
 > 手册基础索引来源：本地索引头部标记为 `occultism-26.1.2 generated Modonomicon dictionary_of_spirits`，与代码参考快照不是同一基线；功能语义仍以 1.81.4 为准，26.1.2 仅用于资源结构和明显错误修正
@@ -17,7 +21,7 @@
 - Wild Hunt 已从单只原版凋灵骷髅替代升级为专属双实体、3 首领/每首领 3-8 随从、护盾/友军免疫、专用法阵/仪式/掉落和隐藏进度的静态闭环；本轮新增首领/随从 UUID NBT 持久化及仅对已加载实体的延迟重连，献祭模型仍不等价，真实世界群战和区块重载仍未回归。
 - 固定 1.81.4 上游的 10 类专用附身实体现已全部接入本地注册：Endermite、Skeleton、Enderman、Ghast、Weak Shulker、Shulker、Elder Guardian、Phantom 为原版基类兼容实现，Hoglin 与 Warden 为专用 1.12 兼容实体，并分别接入仪式、loot table、模型和 renderer。Hoglin 已补经典红/棕蘑菇回避替代和下界外 300 tick 后转化原版僵尸猪人，但仍缺现代 Brain、真正 Zoglin 属性、下界生物群系规则和诡异菌身份；Warden 已补有界的玩家扫描、4-24 格魔法脉冲、60 tick 冷却、6 tick 同步状态、Weakness 和周期失明场，但仍缺现代 Brain、真实振动事件、钻地、Darkness 和真正音波等价行为；上述批次尚未进入真实世界击杀或执行仪式。
 - 高版本专属实体、完整高阶灵体 AI/模型、部分 owner/link 行为、原版 Curios API 兼容、真实世界中的碎片交付/复活回归和现代集成仍以简化实现、原版实体替代、未验证或未移植状态存在；Familiar Ring 已改用原生 1.12 玩家单槽 capability。
-- 当前快照已通过 **57 个测试类、341 项 JUnit**，0 失败/错误；并通过主工程重新编译。静态资源校验和本轮打包结果均已通过。本轮补齐 `FamiliarTrigger` 全部 26 类事件：稀有变体、Cthulhu sad、Devil fire、Blacksmith upgrade、Greedy pickup、Dragon ride、Chimera ride、Goat detach、Shub summon/friends/spawn、Beholder ray/eat、Beaver woodchop 和 PARTY，并新增 15 个隐藏 advancement（Dragon PET/FETCH 仍共用一个既有文件）。同时补入 Storage Controller 自代理语义（控制器按上游实现 `IStorageControllerProxy`，返回自身和全局位置），远程访问器上游兼容的嵌套 `linkedStorageController` 引用和 loaded-only 解析，以及 `GlobalBlockPos` 对上游 `pos` packed-long + `dimension` resource-id NBT 的双向兼容和未知维度拒绝；此前的合成矩阵/order slot 持久化、容器级瞬时 recipe lock、linked machine/order 最小路由、机器订单请求包、控制器级 `MessageUpdateStacks` 快照缓存及失效也已保留。Familiar settings 已覆盖 17 类（含 Otherworld Bird），客户端按键为 18 个并有双语状态文案。新增 Soul Shard `getNBTShareTag`，客户端只同步实体 `id`，服务端完整实体 NBT、legacy 字段和副本隔离均有契约覆盖。通用高阶灵体新增 1 槽主库存、ITEM_HANDLER capability、NBT 同步/往返和独立服务端容器/GUI，并由 Bound Spirit 契约测试覆盖。此前终端合成（3x3 矩阵、服务端配方匹配、结果槽安全返还、存储补料、剩余物处理、批量合成、配方消息边界校验）、Machine Manager 同维度导航/严格端点/有界订单重试、Familiar Ring 客户端 foil/类型本地化/运输边界、Djinni 机器操作员、虚拟存储聚合/提取映射、有界栈同步、有原生 Familiar Ring capability/网络、`familiarType` loot 转换、跨维度存储 GUI 与稳定虫洞 capability 代理、Storage Controller 动态容量/超大堆叠/黑名单/搜索/排序/设置同步/GUI、Hoglin/Warden、`summon_wild_parrot`、`summon_wild_afrit` 均保留在无过滤全量测试中。客户端主菜单、JEI/仪式加载烟测早于专用附身实体批次，因此不能把该旧烟测当成新实体/renderer 已运行加载的证据；完整玩法回归和专用服务器验证仍未完成。
+- 当前快照已通过 **57 个测试类、342 项 JUnit**，0 失败/错误；并通过主工程重新编译。静态资源校验和本轮打包结果均已通过。本轮补齐 `FamiliarTrigger` 全部 26 类事件：稀有变体、Cthulhu sad、Devil fire、Blacksmith upgrade、Greedy pickup、Dragon ride、Chimera ride、Goat detach、Shub summon/friends/spawn、Beholder ray/eat、Beaver woodchop 和 PARTY，并新增 15 个隐藏 advancement（Dragon PET/FETCH 仍共用一个既有文件）。同时补入 Storage Controller 自代理语义（控制器按上游实现 `IStorageControllerProxy`，返回自身和全局位置），远程访问器上游兼容的嵌套 `linkedStorageController` 引用和 loaded-only 解析，以及 `GlobalBlockPos` 对上游 `pos` packed-long + `dimension` resource-id NBT 的双向兼容和未知维度拒绝；此前的合成矩阵/order slot 持久化、容器级瞬时 recipe lock、linked machine/order 最小路由、机器订单请求包、控制器级 `MessageUpdateStacks` 快照缓存及失效也已保留。Familiar settings 已覆盖 17 类（含 Otherworld Bird），客户端按键为 18 个并有双语状态文案。新增 Soul Shard `getNBTShareTag`，客户端只同步实体 `id`，服务端完整实体 NBT、legacy 字段和副本隔离均有契约覆盖。通用高阶灵体新增 1 槽主库存、ITEM_HANDLER capability、NBT 同步/往返和独立服务端容器/GUI，并由 Bound Spirit 契约测试覆盖。此前终端合成（3x3 矩阵、服务端配方匹配、结果槽安全返还、存储补料、剩余物处理、批量合成、配方消息边界校验）、Machine Manager 同维度导航/严格端点/有界订单重试、Familiar Ring 客户端 foil/类型本地化/运输边界、Djinni 机器操作员、虚拟存储聚合/提取映射、有界栈同步、有原生 Familiar Ring capability/网络、`familiarType` loot 转换、跨维度存储 GUI 与稳定虫洞 capability 代理、Storage Controller 动态容量/超大堆叠/黑名单/搜索/排序/设置同步/GUI、Hoglin/Warden、`summon_wild_parrot`、`summon_wild_afrit` 均保留在无过滤全量测试中。客户端主菜单、JEI/仪式加载烟测早于专用附身实体批次，因此不能把该旧烟测当成新实体/renderer 已运行加载的证据；完整玩法回归和专用服务器验证仍未完成。
 - 不建议给出单一完成百分比。参考上游和 1.12 的技术边界差异很大，Java 文件数、资源数以及 ritual dummy 数量都不能直接换算为功能完成率。
 
 如必须用于项目管理，可采用三个彼此独立的粗略区间：
@@ -291,7 +295,7 @@
 | Dictionary of Spirits | 部分至大部分完成 | 使用自研 1.12 GUI 读取迁移后的 Modonomicon 索引：9 类、203 条目、717 页；支持文本、配方、实体、图片和法阵预览等页面；新增 Wild Greater Spirit 三页和 Possessed Warden 三页，并把 Wither Skull 指向 canonical Wild Hunt，同时保留 Familiar 复活解锁修正 | 不是完整 Modonomicon 运行时；缺少完整的条件解锁、进度、搜索和书签能力；当前客户端烟测未人工逐页打开验证 |
 | JEI / CraftTweaker | 基本完成 | JEI 覆盖仪式、Spirit Fire、职业加工和矿井；CraftTweaker 提供仪式、Spirit Fire、职业及矿井增删接口 | 未做脚本级自动回归；上游 EMI、Almost Unified、Theurgy 等现代集成未移植 |
 | 配置、进度与数据驱动扩展 | 部分完成 | 新增标准 1.12 Forge `ModConfig`；Blacksmith 三项、Storage Controller 基础/Tier 1-4 容量、1024 堆叠和物品上限覆盖参数可配置；新增通用 `occultism:ritual` advancement trigger，并接入 Wild Hunt、Wild Afrit 与 4 条 Possessed 隐藏进度和本地辞典 entry override/fallback；普通配置实体、职业灵体、通用高阶灵体和 Wild Hunt 均共享 Forge spawn hook，并按上游在 `world.spawnEntity` 前发送原版 `SUMMONED_ENTITY` | 尚未形成对应上游 Client/Common/Server 的完整配置体系，矿工/仪式/灵体配置及其他自定义 trigger 未系统移植，固定上游 `DRAGON_RIDE` 本身也没有可达触发路径；数据包/标签能力受 1.12 限制 |
-| 自动化测试与发布 | 部分完成 | Gradle 已启用 JUnit；当前全量结果为 57 个测试类、341 项全部通过；新增通用高阶灵体主库存/容器/NBT 契约、Wild Hunt 主从 UUID 持久化、Soul Shard share-tag，以及此前 Storage Controller 自代理、矩阵持久化、recipe lock、linked machine/order、Storage Proxy API、FamiliarTrigger 全 26 类成功条件和 Familiar Ring 边界契约 | 测试仍以无世界实体、资源和源码契约为主，尚无 Wild Hunt/附身实体实际战斗、工人 AI、世界拾取/升级、真实死亡/复活、完整存档、满库存或跨维度集成测试；JDK 路径硬编码且根目录无有效 Git，专服及发布元数据/CI 未完成 |
+| 自动化测试与发布 | 部分完成 | Gradle 已启用 JUnit；当前全量结果为 57 个测试类、342 项全部通过；新增通用高阶灵体主库存/容器/NBT 契约、Wild Hunt 主从 UUID 持久化、Soul Shard share-tag，以及此前 Storage Controller 自代理、矩阵持久化、recipe lock、linked machine/order、Storage Proxy API、FamiliarTrigger 全 26 类成功条件和 Familiar Ring 边界契约 | 测试仍以无世界实体、资源和源码契约为主，尚无 Wild Hunt/附身实体实际战斗、工人 AI、世界拾取/升级、真实死亡/复活、完整存档、满库存或跨维度集成测试；JDK 路径硬编码且根目录无有效 Git，专服及发布元数据/CI 未完成 |
 
 > 本轮矩阵中的 Familiar Ring 缺口已细化：客户端 foil、`familiarType` 服务端转换、类型 tooltip 本地化、非 `IFamiliar` 运输实体的装备边界和升级 Beholder 的装备戒指失明免疫已完成；剩余的是部分事件统一接入及真实世界回归。
 >
@@ -312,9 +316,9 @@
 | 仪式定义 | 170 | 参考目录中 66 个 ritual JSON | 本地数据包含额外移植、替代、repair/misc 和 prototype 条目；Familiar 直接仪式为 `16/16`，另有 Otherworld Bird、Djinni 机器操作员、Warden 1.12 兼容仪式、`summon_wild_parrot` 和 `summon_wild_afrit` |
 | 普通合成 JSON | 108 | 参考目录主要为仪式 JSON | 另有烧炼和药水配方在 Java 中注册 |
 | 手册 | 9 类 / 203 条目 / 717 页 | Modonomicon 数据 | 新增 Wild Greater Spirit 三页和 Possessed Warden 三页，Wither Skull 引用 canonical 仪式；本地 override 保留 Familiar 复活条件 |
-| 本地化 | 英中各 2,687 个唯一键 | 不直接可比 | 两种语言键集合完全一致，无重复键；新增 Familiar settings 切换提示、18 个客户端按键标签和 Storage Controller 搜索/排序控件键 |
+| 本地化 | 英中各 2,939 个唯一键 | 不直接可比 | 两种语言键集合完全一致，无重复键；新增仪式名称、Familiar settings 切换提示、18 个客户端按键标签和 Storage Controller 搜索/排序控件键 |
 
-补充：普通 108 条配方均能作为 JSON 解析；新增语义校验已覆盖本地 slab metadata、fence gate 完整状态和已知手册引用问题，但仍不能替代 Forge 对全部配方的运行期解析。上游参考资源有 10 种 locale，本地仅保留英文和简体中文。
+补充：普通 108 条配方均能作为 JSON 解析；新增语义校验已覆盖装饰类方块退役契约、已知手册引用问题和存储/实体资源边界，但仍不能替代 Forge 对全部配方的运行期解析。上游参考资源有 10 种 locale，本地仅保留英文和简体中文。
 
 ## 已验证结果
 
@@ -329,7 +333,7 @@
 powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\verify_assets.ps1
 ```
 
-结果：`compileJava` 和无过滤全量 `test` 均成功，当前汇总为 57 个测试类共 341 项全部通过；本轮 `build` 与资源校验脚本也通过。本轮机器可用内存不足以启动默认 `-Xmx3G`，因此 Gradle 使用低内存配置 `-Dorg.gradle.jvmargs=-Xmx768m -XX:+UseSerialGC` 完成验证。最终生成：
+结果：`compileJava` 和无过滤全量 `test` 均成功，当前汇总为 57 个测试类共 342 项全部通过；本轮 `build` 与资源校验脚本也通过。本轮机器可用内存不足以启动默认 `-Xmx3G`，因此 Gradle 使用低内存配置 `-Dorg.gradle.jvmargs=-Xmx768m -XX:+UseSerialGC` 完成验证。最终生成：
 
 - `build/libs/occultism-1.0.0.jar`：3,134,978 B
 - `build/libs/occultism-1.0.0-dev.jar`：3,097,773 B
@@ -338,7 +342,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\verify_assets.ps1
 `compileTestJava` 与 `test` 均在最终全量命令中实际执行，并重新生成完整 JUnit XML。结果为：
 
 - `RitualDataContractTest`：4 个测试，0 失败、0 错误；覆盖仪式 ID 唯一性、1.12 实体标签映射、职业 ID 和灵体阶级 ID。
-- `PortedResourceContractTest`：8 个测试，0 失败、0 错误；覆盖 slab metadata、fence gate 的 32 个状态、手册已知坏引用、真实 `ItemDoor` 注册、动画元数据、跨维度 remote/wormhole GUI world 解析、remote container 距离门控和稳定虫洞 `ITEM_HANDLER` 代理。
+- `PortedResourceContractTest`：7 个测试，0 失败、0 错误；覆盖装饰类方块/异界木板门退役、手册已知坏引用、动画元数据、跨维度 remote/wormhole GUI world 解析、remote container 距离门控和稳定虫洞 `ITEM_HANDLER` 代理。
 - `StorageControllerContractTest`：20 个测试，0 失败、0 错误；覆盖基础 128 槽、tier0-5/dark 容量映射、旧 byte/int Slot、动态扩缩容、1024 超大堆叠、override 开关、`RealSize` byte 溢出恢复、黑名单、动态容器边界、虚拟条目聚合/物理槽映射/跨槽模拟与真实提取、数量/名称/模组排序、设置 NBT 往返、隐藏槽位保护、矩阵恢复、异常矩阵 NBT、便携空物理库存、order slot 往返、快照缓存复用/内容失效/容量失效和返回列表防篡改。
 - `CthulhuPortContractTest`：7 个测试，0 失败、0 错误；覆盖精确仪式、任意生鱼 wildcard、注册顺序、模型/纹理哈希、辞典三页、熟魔戒 owner 校验，以及坐姿/水域/跟随/照明状态转换。
 - `BlacksmithPortContractTest`：12 个测试，0 失败、0 错误；覆盖精确仪式、append-only 注册、模型/纹理、dummy 父级、辞典四页、戒指 owner 校验、配置默认值、真实实体构造/属性、喂铁/NBT/返还、升级目标筛选和石头拾取修理契约。
@@ -374,7 +378,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\verify_assets.ps1
 - `WildHuntPortContractTest`：11 个测试，0 失败、0 错误；新增首领/随从 UUID NBT 往返、仅对已加载实体延迟重连和关系清理契约。
 - `SoulShardShareTagPortContractTest`：3 个测试，0 失败、0 错误；覆盖 canonical/legacy 实体快照仅同步 `id`、服务端 NBT 不变、副本隔离和空 shard。
 
-总计 57 个测试类、341 个测试，0 失败、0 错误、0 跳过；57 份 JUnit XML 已由本次无过滤 `test` 任务生成。新增通用高阶灵体主库存/容器/NBT 契约、Wild Hunt 主从 UUID NBT round-trip/已加载实体重连、Soul Shard share-tag 过滤，以及 Storage Controller 自代理、矩阵持久化、recipe lock、linked machine/order、Storage Proxy API、机器订单包、控制器快照缓存失效、FamiliarTrigger 全 26 类成功条件、Beholder 戒中免疫，并保留 StorageCrafting、MessageSetRecipe、Machine Manager 导航/严格端点/订单重试和 Familiar Ring foil/type/运输边界契约。
+总计 57 个测试类、342 个测试，0 失败、0 错误、0 跳过；57 份 JUnit XML 已由本次无过滤 `test` 任务生成。新增通用高阶灵体主库存/容器/NBT 契约、Wild Hunt 主从 UUID NBT round-trip/已加载实体重连、Soul Shard share-tag 过滤，以及 Storage Controller 自代理、矩阵持久化、recipe lock、linked machine/order、Storage Proxy API、机器订单包、控制器快照缓存失效、FamiliarTrigger 全 26 类成功条件、Beholder 戒中免疫，并保留 StorageCrafting、MessageSetRecipe、Machine Manager 导航/严格端点/订单重试和 Familiar Ring foil/type/运输边界契约。
 
 ### 静态资源
 
@@ -403,6 +407,14 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\verify_assets.ps1
 
 专用服务器仍只验证到 EULA 检查，没有完成接受 EULA 后的 FML 启动、玩家进入和正常关服。
 
+### 2026-08-31：`runClient` 启动回归与注册错误修复
+
+- 历史崩溃报告 `run/crash-reports/crash-2026-08-30_22.21.10-client.txt` 的根因是 Forge 在注册 `occultism:djinni_job` 时找不到 `EntityDjinniJob(World)`。同样的构造器缺口也存在于已注册的 `EntityAfritJob` 和 `EntityMaridJob`。
+- 三个专用职业实体现在都提供公开的 `World` 构造器，默认职业使用现有的 `CRUSHER`；带 `SpiritJobType` 的构造器和 `EntityFoliotJob.createForTier(...)` 路径保持不变。新增测试固定四个已注册职业实体的 Forge 构造器契约。
+- Otherworld Bird 野性仪式原本引用高版本物品 ID `minecraft:cobweb`，1.12 资源注册名为 `minecraft:web`；仪式 JSON 和对应契约测试已同步修正。
+- 2026-08-31 运行当前源码的 `runClient`：日志记录 `Loaded 170 Occultism ritual recipes from JSON.` 和 `Forge Mod Loader has successfully loaded 9 mods`，没有新的 Occultism 异常或崩溃报告。测试进程在完成加载烟测后由维护脚本主动停止，因此 Gradle 最终显示退出码 `-1`，这不是客户端加载失败。
+- 日志中的 Maven 路径格式、开发环境签名、Forge 版本检查、空 `lastServer` 和离线 Realms 授权提示均为非致命开发环境警告，未作为本次 P0 问题处理。
+
 ## 本轮关闭的阻断项
 
 - Dictionary 的调试铺阵现在只允许服务端创造模式、至少 2 级命令权限的玩家使用；普通玩家仍可只读识别法阵。
@@ -410,7 +422,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\verify_assets.ps1
 - 7 个 slab 配方结果与 2 个 chiseled 配方输入已补 `data: 0`；fence gate 已补齐包含 `powered` 的 32 个 blockstate 组合。
 - 1.12 的 `ResourceLocation` 不能可靠使用单字符 `c:` namespace；村民标签已由 `c:villagers` 改为 `occultism:villagers -> minecraft:villager`，并由契约测试固定。
 - 已修复 6 个 Spotlight、4 个 book-binding 配方引用、悬空 parent/condition，以及无法解析的 `storage_stabilizer_demo` 页面。
-- `repair_icon.png.mcmeta` 已补齐，`doorWood` 已改为注册真实 `ItemDoor`；两项都有契约测试，最终客户端日志不再出现对应警告。
+- `repair_icon.png.mcmeta` 已补齐；异界木板门按装饰内容范围约束已从 1.12 注册表、OreDictionary、配方、模型、方块状态和语言资源中移除，异界木板活板门仍保留。
 - Cthulhu 的实体/渲染/仪式/辞典/熟魔戒链路已闭合；二次代码复核发现的坐姿 AI、水方块传送判定、navigator 切换时机、共享光源误删和跟随节拍偏差也已修正并加入契约测试。
 - Blacksmith 的实体/渲染/仪式/辞典/熟魔戒链路已闭合；喂铁、同步层数、死亡返还、同主人筛选、400 tick 冷却、Cthulhu/Guardian/Mummy 升级和石头修理都有对应实现与契约测试。
 - Guardian 的一次性 `+1` 生命和 Mummy 的固定 UUID 永久 `+3` 攻击已按 1.81.4 接入；满生命拒绝、重复调用幂等、无世界恢复模拟、手套显示和双语提示均有回归测试。
@@ -466,7 +478,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\verify_assets.ps1
 
 ### P1：测试缺口
 
-- 现有 **341 个测试**主要覆盖仪式、资源、源码契约、无世界实体行为、Forge loot table 反序列化和原版实体完整 NBT；测试已在 Minecraft Bootstrap 后构造两类 Wild Hunt、十类 Possessed、AfritWild 与 Otherworld Bird 的静态/构造契约，并验证 Bound Spirit 主库存 capability/NBT/GUI、Wild Hunt 主从 UUID NBT round-trip/已加载实体重连、Soul Shard share-tag 只同步实体 ID、FamiliarTrigger 全 26 类成功条件、Beholder 装备戒指免疫、settings/effects/Ring capability、客户端按键入口、Storage Controller 自代理/动态容量/矩阵持久化/recipe lock/linked machine/order、控制器快照缓存复用与失效、Storage Proxy API/loaded-only capability、远程访问器嵌套/旧引用解析、GlobalBlockPos 上游/旧版 NBT schema 和未知维度拒绝、虚拟聚合/跨槽提取/NBT/黑名单/快照搜索排序、设置网络/GUI、有界压缩栈同步、跨维度存储 GUI 解析、Djinni 机器操作员 NBT/handler/DepositOrder/订单包路由和 AfritWild Demon’s Dream 白名单，但仍不创建真实游戏世界或执行 Forge 游戏循环。
+- 现有 **342 个测试**主要覆盖仪式、资源、源码契约、无世界实体行为、Forge loot table 反序列化和原版实体完整 NBT；测试已在 Minecraft Bootstrap 后构造两类 Wild Hunt、十类 Possessed、AfritWild 与 Otherworld Bird 的静态/构造契约，并验证 Bound Spirit 主库存 capability/NBT/GUI、Wild Hunt 主从 UUID NBT round-trip/已加载实体重连、Soul Shard share-tag 只同步实体 ID、FamiliarTrigger 全 26 类成功条件、Beholder 装备戒指免疫、settings/effects/Ring capability、客户端按键入口、Storage Controller 自代理/动态容量/矩阵持久化/recipe lock/linked machine/order、控制器快照缓存复用与失效、Storage Proxy API/loaded-only capability、远程访问器嵌套/旧引用解析、GlobalBlockPos 上游/旧版 NBT schema 和未知维度拒绝、虚拟聚合/跨槽提取/NBT/黑名单/快照搜索排序、设置网络/GUI、有界压缩栈同步、跨维度存储 GUI 解析、Djinni 机器操作员 NBT/handler/DepositOrder/订单包路由和 AfritWild Demon’s Dream 白名单，但仍不创建真实游戏世界或执行 Forge 游戏循环。
 - 没有带真实 `World`、模组注册恢复、死亡/复活及戒指捕获/释放流程的完整集成 NBT 往返，也没有实际 ItemStack 交互、机器库存、矿井、战场或工人 AI 自动化测试；机器操作员虽已有同维度 PathNavigate、状态机、严格端点和订单重试契约，但仍未做真实世界导航/机器吞吐回归。
 - 没有覆盖真实 stabilizer 放置/拆除、库存满载、区块卸载、跨维度和存档重载的集成回归。
 

@@ -297,7 +297,13 @@ class BeholderPortContractTest {
 
     private static String string(JsonObject object, String key) {
         JsonElement element = object == null ? null : object.get(key);
-        return element == null || element.isJsonNull() ? null : element.getAsString();
+        if (element == null || element.isJsonNull()) {
+            return null;
+        }
+        if (element.isJsonObject() && element.getAsJsonObject().has("texture")) {
+            return element.getAsJsonObject().get("texture").getAsString();
+        }
+        return element.getAsString();
     }
 
     private static String section(String source, String start, String end) {

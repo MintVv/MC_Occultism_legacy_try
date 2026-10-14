@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "half=bottom,variant=default": { "model": "occultism:otherstone_slab" },
-    "half=top,variant=default": { "model": "occultism:otherstone_slab_top" }
-  }
-}
