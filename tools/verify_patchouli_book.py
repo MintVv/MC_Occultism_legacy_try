@@ -14,7 +14,9 @@ Checks:
      and the job / tier / sacrifice labels its page renders actually resolve;
   4. every `multiblock_id` is a pentacle registered by PentacleDetector;
   5. every entity/item referenced resolves to a registered id;
-  6. `en_us` and `zh_cn` language key sets are identical.
+  6. `en_us` and `zh_cn` language key sets are identical;
+  7. every page carries the fields its type reads - Patchouli renders a page
+     with a missing required field as an error page rather than failing a build.
 
 Exit code 1 lists failures. Nothing here is a substitute for opening the book
 in game; it only rules out the mechanical mistakes.
@@ -44,6 +46,28 @@ BUILTIN_PAGES = {
 CUSTOM_PAGES = {"occultism:ritual", "occultism:spirit_fire", "occultism:spirit_trade"}
 
 RAW_KEY = re.compile(r"^(book\.|item\.|tile\.|multiblock\.|entity\.|gui\.)")
+
+# Fields each page type reads from its json. Patchouli fills these in by name, so a
+# missing one shows up as an error page in game and nowhere in the build. An empty
+# `text` is legal (an item-only page); a missing pointer field is not.
+POINTER_FIELDS = {"entity", "item", "recipe", "multiblock_id", "images", "ritual",
+                  "output", "url", "entries", "template"}
+REQUIRED_FIELDS = {
+    "text": ("text",),
+    "crafting": ("recipe", "text"),
+    "smelting": ("recipe", "text"),
+    "spotlight": ("item", "text"),
+    "entity": ("entity", "text"),
+    "multiblock": ("multiblock_id", "name", "text"),
+    "image": ("images",),
+    "link": ("url", "link_text"),
+    "relations": ("entries",),
+    "quest": ("text",),
+    "template": ("template",),
+    "occultism:ritual": ("ritual",),
+    "occultism:spirit_fire": ("output",),
+    "occultism:spirit_trade": ("recipe",),
+}
 
 
 def read_lang(locale):
@@ -111,6 +135,18 @@ def main():
                 multiblock_refs.add(page.get("multiblock_id"))
             elif kind == "entity":
                 entity_refs.add(page.get("entity"))
+
+    # -- 7: required fields per page type ----------------------------------
+    for path in book_files:
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        rel = path.relative_to(BOOK).as_posix()
+        for index, page in enumerate(doc.get("pages", [])):
+            kind = page.get("type")
+            for field in REQUIRED_FIELDS.get(kind, ()):
+                if field not in page:
+                    failures.append(f"{rel} page {index} ({kind}): missing required field {field!r}")
+                elif field in POINTER_FIELDS and not page.get(field):
+                    failures.append(f"{rel} page {index} ({kind}): empty required field {field!r}")
 
     # -- 3: ritual coverage -------------------------------------------------
     ritual_ids = {r["id"] for r in rituals}
