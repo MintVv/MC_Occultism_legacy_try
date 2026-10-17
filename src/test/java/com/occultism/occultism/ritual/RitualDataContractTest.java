@@ -137,6 +137,22 @@ class RitualDataContractTest {
         assertEquals("blockCopper", RitualRecipeManager.toOreDictionaryName("#c:storage_blocks/copper"));
     }
 
+    @Test
+    void everyRitualStatesItsDurationInsteadOfInheritingTheDefault() throws IOException {
+        // The loader falls back to a 30 second default when a ritual omits both keys, so an
+        // unfinished entry looks exactly like a deliberate one. Two familiars were silently
+        // running on that default.
+        Set<String> implicit = new java.util.LinkedHashSet<>();
+        for (JsonElement element : loadRituals()) {
+            JsonObject ritual = element.getAsJsonObject();
+            if (!ritual.has("duration_ticks") && !ritual.has("duration")) {
+                implicit.add(ritual.get("id").getAsString());
+            }
+        }
+        assertTrue(implicit.isEmpty(), "Rituals relying on the implicit 30s duration: " + implicit);
+    }
+
+
     private static JsonArray loadRituals() throws IOException {
         InputStream stream = RitualDataContractTest.class.getResourceAsStream(RITUAL_RESOURCE);
         assertNotNull(stream, "Missing ritual resource " + RITUAL_RESOURCE);

@@ -1145,7 +1145,8 @@
     },
     "ritual_dummy": {
       "id": "occultism:ritual_dummy/familiar_deer"
-    }
+    },
+    "duration_ticks": 600
   },
   {
     "id": "familiar_beaver",
@@ -1170,7 +1171,8 @@
     },
     "ritual_dummy": {
       "id": "occultism:ritual_dummy/familiar_beaver"
-    }
+    },
+    "duration_ticks": 600
   },
   {
     "id": "familiar_mummy",
