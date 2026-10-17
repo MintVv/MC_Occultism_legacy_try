@@ -1,0 +1,35 @@
+{
+  "name": "完美阵基粉笔",
+  "icon": "occultism:chalk_black",
+  "category": "pentacles",
+  "sortnum": 27,
+  "pages": [
+    {
+      "type": "text",
+      "title": "强大",
+      "text": "黑色粉笔的构成既坚如磐石又超乎自然。$(br)将凋灵精华与下界合金熔铸，最终造就了这个无比珍贵的工具。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_black",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "作为任何五芒星阵的阵基都堪称完美，这种黑色粉笔的效力足以取代其他所有“无色”粉笔。$(br2)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_witherite_dust",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_black",
+      "anchor": "recipe"
+    }
+  ]
+}

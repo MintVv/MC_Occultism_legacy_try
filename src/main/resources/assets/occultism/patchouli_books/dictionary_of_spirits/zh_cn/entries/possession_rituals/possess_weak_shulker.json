@@ -1,0 +1,30 @@
+{
+  "name": "被附身的孱弱潜影贝",
+  "icon": "minecraft:chorus_fruit",
+  "category": "possession_rituals",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_weak_shulker",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：1-3x$(item)chorus fruit$()$(br)并有10%%概率掉落一个$(item)shulker shell$()；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_weak_shulker",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)潜影贝$()将借由$(#ad03fc)史莱姆类生物$()的生命能量生成，然后立刻被召唤出的$(#ad03fc)巨灵$()附身。$(#ad03fc)被附身的孱弱潜影贝$()被击杀后至少会掉落一个$(item)chorus fruit$()，还有概率掉落$(item)shulker shell$()。Minecraft 1.12 不含现代版本的受弹增殖机制。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

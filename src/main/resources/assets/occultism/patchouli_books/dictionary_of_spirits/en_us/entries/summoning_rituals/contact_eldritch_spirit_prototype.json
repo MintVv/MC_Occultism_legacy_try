@@ -1,0 +1,19 @@
+{
+  "name": "Contact Eldritch Spirit Prototype",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "contact_eldritch_spirit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This ritual has no upstream counterpart. It is kept as a local bridging ritual so the $(#ad03fc)Ronaza's Contact$() pentacle stays reachable and useful. Completing it produces a $(item)Taboo Book$() instead of contacting an eldritch spirit.",
+      "anchor": "description"
+    }
+  ]
+}

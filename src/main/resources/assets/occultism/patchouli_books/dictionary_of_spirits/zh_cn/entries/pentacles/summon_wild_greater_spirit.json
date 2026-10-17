@@ -1,0 +1,28 @@
+{
+  "name": "奥索林的无缚呼唤",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "pentacles",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "text",
+      "title": "奥索林的无缚呼唤",
+      "text": "$(bold)目的$()：召唤一个未受束缚的$(#AA00AA)高等魔灵$()$(br2)$(bold)奥索林的无缚呼唤$()以$(#AA00AA)阿布拉斯的开放召唤$()为基础，但没有任何稳定用仪式器具。这道法阵完全无法保护召唤者，却会对$(#AA00AA)高等魔灵$()发出不可抗拒的呼唤。",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_wild_greater_spirit",
+      "name": "奥索林的无缚呼唤",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:possession_rituals/wither_skull)凋灵骷髅头颅$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

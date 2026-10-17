@@ -26,14 +26,20 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 public final class RitualRecipeManager {
 
     private static final String RITUAL_RESOURCE = "assets/" + Tags.MOD_ID + "/rituals/rituals.json";
-    private static List<RitualDefinition> definitions = Collections.emptyList();
+    // Null means not bootstrapped; an empty list is a valid, already-loaded registry.
+    private static List<RitualDefinition> definitions;
 
     private RitualRecipeManager() {
     }
 
-    public static void load() {
+    /** Explicitly reload bundled recipes, replacing any script changes. Ordinary startup uses getDefinitions(). */
+    public static synchronized void load() {
+        load(RitualRecipeManager.class.getClassLoader().getResourceAsStream(RITUAL_RESOURCE));
+    }
+
+    static synchronized void load(InputStream source) {
         List<RitualDefinition> loadedDefinitions = new ArrayList<>();
-        try (InputStream stream = RitualRecipeManager.class.getClassLoader().getResourceAsStream(RITUAL_RESOURCE)) {
+        try (InputStream stream = source) {
             if (stream == null) {
                 Occultism.LOGGER.error("Occultism ritual data not found: {}", RITUAL_RESOURCE);
                 definitions = Collections.emptyList();
@@ -54,8 +60,8 @@ public final class RitualRecipeManager {
         }
     }
 
-    public static List<RitualDefinition> getDefinitions() {
-        if (definitions.isEmpty()) {
+    public static synchronized List<RitualDefinition> getDefinitions() {
+        if (definitions == null) {
             load();
         }
         return definitions;
@@ -81,6 +87,12 @@ public final class RitualRecipeManager {
         mutable.removeIf(predicate);
         definitions = Collections.unmodifiableList(mutable);
         return originalSize - mutable.size();
+    }
+
+    public static synchronized int removeAll() {
+        int removed = getDefinitions().size();
+        definitions = Collections.emptyList();
+        return removed;
     }
 
     public static RitualDefinition findMatching(List<PentacleMatch> pentacles, ItemStack stack) {
@@ -266,7 +278,8 @@ public final class RitualRecipeManager {
         return metadata < 0 ? new ItemStack(item, count) : new ItemStack(item, count, metadata);
     }
 
-    private static String toOreDictionaryName(String tagId) {
+    // Package-private so the contract test can pin the tag -> ore dictionary mapping.
+    static String toOreDictionaryName(String tagId) {
         String path = tagId.substring(1);
         if ("minecraft:soul_fire_base_blocks".equals(path)) {
             return "soulFireBaseBlock";
@@ -310,6 +323,11 @@ public final class RitualRecipeManager {
         }
         String[] parts = path.split("/");
         if (parts.length == 1) {
+            // Upstream names this tag after the plural block id; the 1.12 ore
+            // dictionary entry registered by ModOreDictionary is "blockGlass".
+            if ("glass_blocks".equals(parts[0])) {
+                return "blockGlass";
+            }
             return parts[0];
         }
 
@@ -320,7 +338,24 @@ public final class RitualRecipeManager {
         } else if (kind.endsWith("s") && kind.length() > 1) {
             kind = kind.substring(0, kind.length() - 1);
         }
-        return kind + Character.toUpperCase(material.charAt(0)) + material.substring(1);
+        return kind + toPascalCase(material);
+    }
+
+    /**
+     * Upstream tags are snake_case ("end_stone"), while the 1.12 ore dictionary
+     * entries this mod registers are PascalCase ("dustEndStone"). Joining the
+     * segments without this conversion silently produced unregistered names such
+     * as "dustEnd_stone", which made the ritual impossible to complete.
+     */
+    private static String toPascalCase(String value) {
+        StringBuilder result = new StringBuilder(value.length());
+        for (String part : value.split("_")) {
+            if (part.isEmpty()) {
+                continue;
+            }
+            result.append(Character.toUpperCase(part.charAt(0))).append(part.substring(1));
+        }
+        return result.toString();
     }
 
     private static String cleanId(String id) {

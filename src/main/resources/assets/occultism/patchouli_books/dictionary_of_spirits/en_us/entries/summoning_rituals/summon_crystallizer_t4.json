@@ -1,0 +1,35 @@
+{
+  "name": "Summon Marid Crystallizer",
+  "icon": "minecraft:emerald",
+  "category": "summoning_rituals",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Marid Crystallizer",
+      "text": "The marid crystallizer is extremely fast and efficient at multiplying gem ore output.$(br2)In this 1.12 port it can transform the local Amethyst Block into Budding Amethyst. Crying Obsidian has no 1.12 item equivalent and is not $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Marid Crystallizer",
+      "text": "fabricated as a substitute.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_marid_crystallizer",
+      "anchor": "ritual"
+    }
+  ]
+}

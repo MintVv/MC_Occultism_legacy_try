@@ -1,0 +1,41 @@
+{
+  "name": "The Cruelty Chalk",
+  "icon": "occultism:chalk_brown",
+  "category": "pentacles",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Very Evil",
+      "text": "The brown chalk is made with the essence of cruelty, and obtaining it certainly lives up$(br) to its name. Do the ends justify the means? Does morality truly exist? What is your morality?$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_brown",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This chalk is known to be part of an \"Alignment Test.\" Anyone who possesses it is$(br) automatically classified as \"Evil.\" What kind of spirits will these glyphs attract?$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:cruelty_essence",
+      "text": "",
+      "anchor": "essence"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "To obtain the $(item)Cruelty Essence$() for $(item)Brown Chalk$() you need to$(br) $(l:possession_rituals/possess_goat)summon and kill a Mercy Goat$(/l)$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_brown",
+      "anchor": "recipe"
+    }
+  ]
+}

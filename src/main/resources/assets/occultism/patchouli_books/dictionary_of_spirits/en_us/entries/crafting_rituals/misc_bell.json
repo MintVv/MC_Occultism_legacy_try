@@ -1,0 +1,19 @@
+{
+  "name": "Craft Bell",
+  "icon": "occultism:bell",
+  "category": "crafting_rituals",
+  "sortnum": 54,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_bell",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Produces a bell block. In 1.12 it does not summon raids; it is a decorative building result.",
+      "anchor": "description"
+    }
+  ]
+}

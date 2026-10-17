@@ -1,0 +1,25 @@
+{
+  "name": "Magic Lamps",
+  "icon": "occultism:magic_lamp_empty",
+  "category": "getting_started",
+  "sortnum": 25,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:magic_lamp_empty",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "Magic Lamps",
+      "text": "Magic Lamps can be used to keep spirits safe from $(#ad03fc)Essence Decay$() (if the spirit has decay), while still having access to some of their powers. Right-Click on one of your workers to store and transport it as desired.$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:magic_lamp_empty",
+      "text": "",
+      "anchor": "crafting"
+    }
+  ]
+}

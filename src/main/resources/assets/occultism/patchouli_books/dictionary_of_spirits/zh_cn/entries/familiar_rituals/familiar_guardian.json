@@ -1,0 +1,30 @@
+{
+  "name": "守卫使魔",
+  "icon": "occultism:textures/gui/book/familiar_guardian.png",
+  "category": "familiar_rituals",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:guardian_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)存活时阻止玩家死亡$()、$(#ad03fc)吸收$()、$(#ad03fc)生命恢复$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_guardian",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "只要守卫使魔还活着，它就会$(bold)阻止主人死亡$()。守卫使魔死亡后，玩家便不再受保护。它同时为主人提供吸收与生命恢复。",
+      "anchor": "description"
+    }
+  ]
+}

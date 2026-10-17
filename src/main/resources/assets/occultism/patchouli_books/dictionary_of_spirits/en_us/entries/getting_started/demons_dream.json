@@ -1,0 +1,98 @@
+{
+  "name": "Lifting the Veil",
+  "icon": "occultism:datura",
+  "category": "getting_started",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Otherworld",
+      "text": "Hidden from mere human eyes exists another plane of existence, another *dimension* if you will, the $(#ad03fc)Otherworld$().$(br)This world is populated with entities often referred to as $(#ad03fc)Demons$().$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "These Demons possess a wide variety of powers and useful skills, and for centuries magicians have sought to summon them for their own gain.$(br)The first step on the journey to successfully summoning such an Entity is to learn how to interact with $()",
+      "anchor": "intro2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "the Otherworld.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:datura",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Demon's Dream is a herb that gives humans the $(#ad03fc)Third Eye$(),$(br)allowing them to see where the $(#ad03fc)Otherworld$() intersects with our own.$(br)Seeds can be found $(bold)by breaking grass$().$(br)$(bold)Consuming$() the grown fruit activates the ability $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "*with a certain chance*.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "An additional side effect of Demon's Dream, is $(bold)the ability to interact with $(#ad03fc)Otherworld$() materials$().$(br)This is unique to Demon's Dream, other ways to obtain $(#ad03fc)Third Eye$() do not yield this ability.$(br)While under the effect of Demon's $()",
+      "anchor": "harvest_effect"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Dream you are able to $(bold)harvest$() Otherstone as well as Otherworld trees.$(br)"
+    },
+    {
+      "type": "image",
+      "images": [
+        "occultism:textures/gui/book/datura_effect.png"
+      ],
+      "border": true,
+      "anchor": "datura_screenshot"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Hint$(): The otherworld materials you obtain by harvesting under the effects of$(#ad03fc)Third Eye$() $(bold)can be obtained more easily using $(item)Spiritfire$()$(). Proceed with the next entry in this book to learn more about spirit fire.$(br)",
+      "anchor": "note_on_spirit_fire"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:demons_dream_essence",
+      "text": "",
+      "anchor": "spotlight2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Multiple Demon's Dream fruits or seeds can be compressed into an essence that is much more potent. It *guarantees* the $(#ad03fc)Third Eye$() and provides it for a longer amount of time, but comes with a lot of (positive and negative) side effects.$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:demons_dream_essence",
+      "text": "",
+      "anchor": "spotlight3"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The essence can be purified in spirit fire (more on that later!) to obtain a version free from all negative side effects, while retaining the positive.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherworld_essence",
+      "anchor": "recipe_essence_pure"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "Ritual Preparations: Sacrificial Bowls",
+  "icon": "occultism:golden_sacrificial_bowl",
+  "category": "getting_started",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:sacrificial_bowl",
+      "text": "",
+      "anchor": "sacrificial_bowl"
+    },
+    {
+      "type": "text",
+      "title": "Ritual Preparations: Sacrificial Bowls",
+      "text": "These bowls are used to place the items we will sacrifice as part of a ritual and you will need a handful of them.$(br)Note: Their exact placement in the ritual does not matter - just keep them within 8 blocks horizontally of the pentacle $()"
+    },
+    {
+      "type": "text",
+      "title": "Ritual Preparations: Sacrificial Bowls",
+      "text": "center!$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:sacrificial_bowl",
+      "text": "",
+      "anchor": "sacrificial_bowl_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "You can mix a sacrificial bowl with a copper or silver ingot to create variations with the same functionality.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:spirit_fire",
+      "text": "",
+      "anchor": "spirit_bowl"
+    },
+    {
+      "type": "text",
+      "title": "Bowls and Spirit Fire",
+      "text": "If you place a sacrificial bowl above a Spirit Fire or Spirit Campfire,$(br)any item inserted will instantly transform if it has a recipe in the spirit fire.$(br)Also work with copper or silver version of sacrificial bowl.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:golden_sacrificial_bowl",
+      "text": "",
+      "anchor": "golden_sacrificial_bowl"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Once everything has been set up and you are ready to start, this special ritual bowl is used to activate the ritual by $(#ad03fc)right-clicking$() it with the activation item,$(br)usually a $(l:getting_started/books_of_binding)Book of Binding$(/l).$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:golden_sacrificial_bowl",
+      "text": "",
+      "anchor": "golden_sacrificial_bowl_recipe"
+    }
+  ]
+}

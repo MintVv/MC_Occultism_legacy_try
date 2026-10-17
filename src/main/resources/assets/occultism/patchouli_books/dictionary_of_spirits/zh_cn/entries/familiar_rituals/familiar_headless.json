@@ -1,0 +1,30 @@
+{
+  "name": "无头鼠人使魔",
+  "icon": "occultism:textures/gui/book/familiar_headless_ratman.png",
+  "category": "familiar_rituals",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:headless_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)针对被夺头类型的虚弱$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_headless",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "无头鼠人使魔会夺取附近被杀生物的头颅，并记住该种生物。$(br)$(bold)升级效果$()$(br)经铁匠使魔升级后，它会对附近符合该头颅类型的生物施加虚弱。$(br)当生命$(bold)低于 50%$() 时会死亡，但主人可以用 $(item)wheat$()、$(item)stick$()、$(item)hay block$() 和 $(item)pumpkin$() 将它重建。",
+      "anchor": "description"
+    }
+  ]
+}

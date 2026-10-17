@@ -1,0 +1,64 @@
+{
+  "name": "Candles",
+  "icon": "occultism:large_candle",
+  "category": "getting_started",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:large_candle",
+      "text": "",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Candles provide stability to rituals and are an important part of almost all pentacles.$(br)$(bold)Large Candles also act like bookshelves for enchantment purposes.$()$(br2)Candles from Minecraft and other Mods may be used in place of $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Occultism candles.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:tallow",
+      "text": "",
+      "anchor": "tallow"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Key ingredient for large candles. Kill large animals like pigs, cows or sheep with a $(item)Butcher Knife$()$(br)to harvest $(item)Tallow$().$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:butcher_knife",
+      "text": "",
+      "anchor": "cleaver_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:large_candle",
+      "text": "",
+      "anchor": "candle_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "You can use a dye and the $(item)Large Candle$() to mix then in shapeless craft process to get a colored large candle.$(br2)Available in all the 16 minecraft dyes.$(br)",
+      "anchor": "color_candle"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Just like the candles from Minecraft, $(item)Large Candle$() and colored versions can be lit, turning in a great light source.$(br2)In addition, you can use a $(item)torch$(), $(item)soul torch$(), $(item)copper torch$(), $(item)redstone torch$() or $(item)spirit torch$() to change the $()",
+      "anchor": "lit_candle"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "type of fire.$(br2)Also can be waterlogged.$(br)"
+    }
+  ]
+}

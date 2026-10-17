@@ -1,0 +1,29 @@
+{
+  "name": "2阶存储稳定器",
+  "icon": "occultism:storage_stabilizer_tier2",
+  "category": "storage",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_stabilizer_tier2",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这种改良型稳定器中栖息着一只$(#AA00AA)巨灵$()，它通过维系维度矩阵$(br)来保持存储维度的稳定性，从而实现更大容量的物品存储。$(br2)默认情况下，每个2级稳定器可增加$(bold)128$()种物品种类和1024000个物品存储容量。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier2",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier2_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

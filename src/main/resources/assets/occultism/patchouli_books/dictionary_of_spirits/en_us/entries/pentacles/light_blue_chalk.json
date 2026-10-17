@@ -1,0 +1,30 @@
+{
+  "name": "The Glacial Chalk",
+  "icon": "occultism:chalk_light_blue",
+  "category": "pentacles",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Never Melts",
+      "text": "The light blue chalk is made with such icy materials that its glyphs$(br) are inert and impart a natural stability to the pentacles.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_light_blue",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Although it is basically made of ice, the magic present prevents it from melting.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_light_blue",
+      "anchor": "recipe"
+    }
+  ]
+}

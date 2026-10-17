@@ -1,0 +1,30 @@
+{
+  "name": "Summon Afrit Crusher",
+  "icon": "occultism:silver_dust",
+  "category": "summoning_rituals",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Afrit Crusher",
+      "text": "The afrit crusher is faster and more efficient than the djinni crusher.$(br2)It will crush $(bold)one$() ore into $(bold)four$() corresponding dusts.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_afrit_crusher",
+      "anchor": "ritual"
+    }
+  ]
+}

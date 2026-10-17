@@ -1,0 +1,20 @@
+{
+  "name": "阅读本节",
+  "icon": "occultism:brush",
+  "category": "pentacles",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "title": "关于",
+      "text": "本章节为一份循序渐进的学习路线图，跟随已解锁的条目逐步推进。$(br2)$(bold)提示$()：默认情况下，你需要四个19x19的区域来布置所有的五芒星阵。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "种类与等阶",
+      "text": "本章节以表格形式呈现。$(br)每一行对应一种仪式类型。$(br)每一列代表一个等阶。$(br)沿行查看，可直接升级先前绘制的五芒星阵，$(br)新旧版本的五芒星阵运作方式相同。$(br)",
+      "anchor": "table"
+    }
+  ]
+}

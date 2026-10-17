@@ -1,0 +1,19 @@
+{
+  "name": "Summoning Rituals",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Summoning Rituals",
+      "text": "Summon rituals force spirits to enter this world in their chosen shape, leading$(br) to little restrictions on their power. Summoned spirits range from trade spirits$(br) that trade and convert items, to slave-like helpers for manual labour.$()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Summoning Rituals",
+      "text": "$(br)"
+    }
+  ]
+}

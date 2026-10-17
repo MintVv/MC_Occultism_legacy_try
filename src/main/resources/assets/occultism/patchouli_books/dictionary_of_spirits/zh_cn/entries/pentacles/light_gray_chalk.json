@@ -1,0 +1,30 @@
+{
+  "name": "优良阵基粉笔",
+  "icon": "occultism:chalk_light_gray",
+  "category": "pentacles",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "最常用的阵基",
+      "text": "淡灰色粉笔通过矿物化合物强化五芒星阵的阵基。$(br)阵基是重要属性，常被视为“核心”的稳定载体。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_light_gray",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "由于成本相对较低，且具有天然的魔法特性，这种材料成为神秘学研习者最常用的阵基选择，几乎能在所有五芒星阵中替代白色粉笔。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_light_gray",
+      "anchor": "recipe"
+    }
+  ]
+}

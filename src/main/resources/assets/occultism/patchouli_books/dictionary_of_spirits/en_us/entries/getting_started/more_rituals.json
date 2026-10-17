@@ -1,0 +1,14 @@
+{
+  "name": "More Rituals",
+  "icon": "occultism:textures/gui/book/robe.png",
+  "category": "getting_started",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "text",
+      "title": "More Rituals",
+      "text": "Ready for new challenges?",
+      "anchor": "more_rituals/description"
+    }
+  ]
+}

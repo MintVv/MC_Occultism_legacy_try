@@ -1,0 +1,35 @@
+{
+  "name": "Wild Horde Silverfish",
+  "icon": "minecraft:record_13",
+  "category": "possession_rituals",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:wild_horde_silverfish",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): Items related to ruins trials (See next page);$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_silverfish",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Silverfish summoned by this way can drop: $(item)record 13$(), $(item)host armor trim smithing template$(), $(item)raiser armor trim smithing template$(), $(item)shaper armor trim smithing template$(), $(item)wayfinder armor trim smithing template$(), $(item)burn pottery sherd$(), $(item)danger pottery sherd$(), $(item)friend $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "pottery sherd$(), $(item)heart pottery sherd$(), $(item)heartbreak pottery sherd$(), $(item)howl pottery sherd$(), $(item)sheaf pottery sherd$().$(br)"
+    }
+  ]
+}

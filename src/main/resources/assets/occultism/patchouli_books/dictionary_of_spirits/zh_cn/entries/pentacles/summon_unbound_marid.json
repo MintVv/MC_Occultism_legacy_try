@@ -1,0 +1,28 @@
+{
+  "name": "提比拉引召术",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "pentacles",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "text",
+      "title": "提比拉引召术",
+      "text": "$(bold)目的$()：召唤一只$(#AA00AA)未受缚的魔王$()$(br2)$(bold)提比拉引召术$()是$(#FF55FF)阿布拉召唤术$()的改进版本，可以召唤$(#AA00AA)魔王$()，但神秘学者无法对其进行任何控制。由于仪式的不稳定性，通过此法召唤出的$(#AA00AA)魔王$()会变得极具攻击性。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_unbound_marid",
+      "name": "提比拉引召术",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:summoning_rituals/marid_essence)魔王灵髓$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Possessed Bee",
+  "icon": "occultism:cursed_honey",
+  "category": "possession_rituals",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_bee",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): $(item)Cursed Honey$();$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_bee",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual an $(#ad03fc)djinni$() will possess an $(#ad03fc)Bee$(), Be careful,$(br) a bee invoked by this way does not lose its stinger, always poison the target,$(br) attacks faster and can summon other bees when it takes damage.$(br) This is the $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "only known method to obtain $(item)Cursed Honey$(), eating will grants$(br) a short regeneration buff.$(br2) If this bee enters a hive, the djinni will return to $(#ad03fc)The Other Place$().$(br)"
+    }
+  ]
+}

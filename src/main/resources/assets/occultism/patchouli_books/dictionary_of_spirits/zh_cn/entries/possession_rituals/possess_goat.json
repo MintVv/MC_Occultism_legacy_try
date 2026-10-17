@@ -1,0 +1,30 @@
+{
+  "name": "仁慈之山羊",
+  "icon": "occultism:cruelty_essence",
+  "category": "possession_rituals",
+  "sortnum": 17,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:mercy_goat",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：$(item)残暴灵髓$()；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_goat",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)仁慈之山羊$()被召唤出来作为祭品。这是获取$(item)残暴灵髓$()的唯一途径。$(br)请务必慎重考虑你的行为，因为它们将在你的历史上留下永恒的印记。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "神秘学仪式器具",
+  "icon": "minecraft:skull:0",
+  "category": "pentacles",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "title": "仪式器具",
+      "text": "除了符文外，多种神秘学装置也被用于提升五芒星阵实现目标的效果。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:large_candle",
+      "text": "",
+      "anchor": "candle"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "蜡烛能够提升五芒星阵的稳定性，从而减缓所召唤魔灵的灵髓衰退，使魔灵、被附身的物体或存在得以延长存续时间。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "minecraft:skull:0",
+      "text": "",
+      "anchor": "skull"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "头颅能强化五芒星阵的召唤力量，从而得以召来更危险的魔灵。$(br2)通过基础的附身仪式，神秘学者可以轻易获取这些头颅。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:spirit_attuned_crystal",
+      "text": "",
+      "anchor": "crystal"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "水晶能以蜡烛无法企及的效力增强五芒星阵的稳定性，从而可以施行更不稳定的仪式。$(br2)查看下一页的配方。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:spirit_attuned_gem",
+      "anchor": "recipe_gem"
+    },
+    {
+      "type": "spotlight",
+      "item": "minecraft:skull:1",
+      "text": "",
+      "anchor": "wither_skull"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "凋灵头颅比普通头颅更强大，能大幅增强五芒星阵的召唤力量，得以召唤更高阶的魔灵；$(br2)通过荒野仪式，神秘学者可轻易获取这些头颅。$(br)"
+    }
+  ]
+}

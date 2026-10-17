@@ -1,0 +1,24 @@
+{
+  "name": "Surprisingly Substantial Satchel",
+  "icon": "occultism:satchel",
+  "category": "crafting_rituals",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:satchel",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "A $(#AA00AA)Foliot$() is bound to the satchel, tasked with $(bold)slightly$() warping reality. This allows to store more$(br) items in the satchel than its size would indicate, making it a practical travellers companion.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_satchel",
+      "anchor": "ritual"
+    }
+  ]
+}

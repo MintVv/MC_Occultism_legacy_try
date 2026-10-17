@@ -1,0 +1,30 @@
+{
+  "name": "召唤荒野具翼",
+  "icon": "occultism:textures/gui/book/otherworld_bird.png",
+  "category": "summoning_rituals",
+  "sortnum": 39,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:otherworld_bird",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：一只可驯服的具翼。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_wild_otherworld_bird",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "请参阅$(l:familiar_rituals/familiar_otherworld_bird)具翼使魔$(/l)以获取更多信息。$(br)",
+      "anchor": "text2"
+    }
+  ]
+}

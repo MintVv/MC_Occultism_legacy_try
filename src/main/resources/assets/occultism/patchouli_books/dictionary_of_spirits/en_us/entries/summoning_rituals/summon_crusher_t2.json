@@ -1,0 +1,30 @@
+{
+  "name": "Summon Djinni Crusher",
+  "icon": "occultism:iron_dust",
+  "category": "summoning_rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Djinni Crusher",
+      "text": "The djinni crusher is faster, more efficient and proficient than the foliot crusher.$(br)Allowing ice to be crushed without melting.$(br2)It will crush $(bold)one$() ore into $(bold)three$() corresponding dusts.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_crusher",
+      "anchor": "ritual"
+    }
+  ]
+}

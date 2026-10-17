@@ -1,0 +1,35 @@
+{
+  "name": "复活使魔",
+  "icon": "occultism:soul_shard",
+  "category": "familiar_rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:soul_shard",
+      "text": "",
+      "anchor": "soul_shard"
+    },
+    {
+      "type": "text",
+      "title": "灵魂碎片",
+      "text": "如果使魔死亡，它并不仅仅只是回到了异界。由于与召唤者的联结，一小片使魔的灵魂会留在凡间领域。$(br2)碎片能够用于轻易地重新召唤使魔。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "复活",
+      "text": "复活是一个相对而言比较简单的过程。灵魂碎片持续受到$(item)异界精华$()的强化，直到其强度足以允许使魔重塑躯体并返回凡间领域。$(br2)只需种植（一堆）魔鬼之梦果就能获得精华。$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherworld_essence",
+      "anchor": "recipe_essence_pure"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "resurrect_familiar",
+      "anchor": "ritual"
+    }
+  ]
+}

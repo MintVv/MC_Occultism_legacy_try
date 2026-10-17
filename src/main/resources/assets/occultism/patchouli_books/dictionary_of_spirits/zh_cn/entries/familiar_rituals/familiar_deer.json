@@ -1,0 +1,30 @@
+{
+  "name": "鹿使魔",
+  "icon": "occultism:textures/gui/book/familiar_deer.png",
+  "category": "familiar_rituals",
+  "sortnum": 25,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:deer_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)跳跃提升$()、$(#ad03fc)速度$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_deer",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)升级效果$()$(br)经铁匠使魔升级后，它会攻击附近的敌人。",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Deer Familiar",
+  "icon": "occultism:textures/gui/book/familiar_deer.png",
+  "category": "familiar_rituals",
+  "sortnum": 25,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:deer_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Jump Boost$(), $(#ad03fc)Speed$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_deer",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Upgrade Behaviour$()$(br)Upgraded by a blacksmith familiar, it attacks nearby enemies.",
+      "anchor": "description"
+    }
+  ]
+}

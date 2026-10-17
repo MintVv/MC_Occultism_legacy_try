@@ -33,14 +33,8 @@ import org.junit.jupiter.api.Test;
 /**
  * Locks in the ritual name localization contract.
  *
- * <p>Intentional deviation from upstream: upstream 1.20.1 gives every ritual four full-sentence keys
- * ({@code started}/{@code interrupted}/{@code finished}/{@code conditions}, see upstream {@code Ritual.java:135-158}).
- * This port instead keeps generic sentence keys ({@code occultism.ritual.started} and friends) and passes the ritual
- * name as a nested, translatable {@link ITextComponent} argument. The reason is that the 1.12 port emits a richer
- * message set than upstream does - {@code running}, {@code waiting_item_use}, {@code missing_ingredients},
- * {@code missing_sacrifice} and {@code item_used} have no upstream counterpart - so per-ritual full sentences would
- * mean six sentences times 170 rituals. The seven pre-existing upstream-style four-key groups stay in place and are
- * used by the dedicated runtime ritual branches; they are untouched by this contract.</p>
+ * <p>The 1.12 port keeps the upstream four-key per-ritual protocol while retaining
+ * extra local status messages for running, item use, sacrifices, and debug output.</p>
  */
 class RitualNameLocalizationContractTest {
 
@@ -111,16 +105,8 @@ class RitualNameLocalizationContractTest {
     void preExistingUpstreamStyleSentenceKeysAreRetained() throws IOException {
         Map<String, String> english = readLang("en_us.lang");
         Map<String, String> chinese = readLang("zh_cn.lang");
-        List<String> ritualsWithFullSentences = new ArrayList<>();
-        ritualsWithFullSentences.add("summon_demonic_husband");
-        ritualsWithFullSentences.add("summon_demonic_wife");
-        ritualsWithFullSentences.add("summon_wild_hunt");
-        ritualsWithFullSentences.add("summon_wild_afrit");
-        ritualsWithFullSentences.add("familiar_otherworld_bird");
-        ritualsWithFullSentences.add("possess_unbound_otherworld_bird");
-        ritualsWithFullSentences.add("summon_wild_otherworld_bird");
-
-        for (String id : ritualsWithFullSentences) {
+        for (JsonElement element : loadRituals()) {
+            String id = element.getAsJsonObject().get("id").getAsString();
             for (String suffix : new String[] { "started", "interrupted", "finished", "conditions" }) {
                 String key = "ritual.occultism." + id + "." + suffix;
                 assertTrue(english.containsKey(key), "Dropped upstream-style key " + key + " from en_us.lang");
@@ -177,6 +163,24 @@ class RitualNameLocalizationContractTest {
     }
 
     @Test
+    void dynamicDefinitionsHaveTranslatedGenericMessagesForAllFourProtocolStates() throws IOException {
+        RitualDefinition definition = new RitualDefinition("scripted_ritual", "Scripted Ritual", "summon_foliot",
+                "craft", new RitualIngredient("dyeRed", 1), null, 100);
+        ITextComponent[] components = {definition.createStartedComponent(), definition.createInterruptedComponent(),
+                definition.createFinishedComponent(), definition.createConditionsComponent()};
+        String[] states = {"started", "interrupted", "finished", "conditions"};
+        for (int index = 0; index < states.length; index++) {
+            TextComponentTranslation component = (TextComponentTranslation) components[index];
+            assertEquals("occultism.ritual." + states[index], component.getKey());
+            assertEquals("Scripted Ritual", ((ITextComponent) component.getFormatArgs()[0])
+                    .getUnformattedComponentText());
+            for (String locale : new String[] {"en_us.lang", "zh_cn.lang"}) {
+                assertNotNull(readLang(locale).get(component.getKey()), locale + ": " + component.getKey());
+            }
+        }
+    }
+
+    @Test
     void theRitualLoaderDerivesTheNameKeyFromTheRitualId() throws IOException {
         String manager = readUtf8(Paths.get("src", "main", "java", "com", "occultism", "occultism", "ritual",
                 "RitualRecipeManager.java"));
@@ -190,6 +194,8 @@ class RitualNameLocalizationContractTest {
     void chatMessagesPassTheRitualNameAsANestedComponent() throws IOException {
         String bowl = readUtf8(Paths.get("src", "main", "java", "com", "occultism", "occultism", "block",
                 "BlockGoldenSacrificialBowl.java"));
+        String tileEntity = readUtf8(Paths.get("src", "main", "java", "com", "occultism", "occultism", "tileentity",
+                "TileEntitySacrificialBowl.java"));
         String handler = readUtf8(Paths.get("src", "main", "java", "com", "occultism", "occultism", "handler",
                 "PlayerEventHandler.java"));
 
@@ -197,10 +203,14 @@ class RitualNameLocalizationContractTest {
                 "The golden bowl must build the ritual name as a component");
         assertFalse(bowl.contains("\"occultism.ritual.started\", ritual.getDisplayName()"),
                 "The started message must not pass the English literal");
-        assertTrue(bowl.contains("activationMatch.createNameComponent()"),
-                "The missing ingredients message must pass a translatable name");
-        assertTrue(bowl.contains("ritual.createNameComponent()"),
-                "The started and sacrifice messages must pass a translatable name");
+        assertTrue(bowl.contains("activationMatch.createConditionsComponent()"),
+                "The condition failure must use the per-ritual protocol");
+        assertTrue(bowl.contains("ritual.createStartedComponent()"),
+                "The started message must use the per-ritual protocol");
+        assertTrue(tileEntity.contains("definition.createFinishedComponent()"),
+                "The completion message must use the per-ritual protocol");
+        assertTrue(tileEntity.contains("definition.createInterruptedComponent()"),
+                "The interruption message must use the per-ritual protocol");
         assertTrue(handler.contains("ritual.createNameComponent()"),
                 "The item use message must pass a translatable name");
         assertFalse(handler.contains("String ritualName"),

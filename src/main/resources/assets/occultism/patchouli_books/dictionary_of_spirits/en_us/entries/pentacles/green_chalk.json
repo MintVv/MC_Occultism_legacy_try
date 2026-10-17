@@ -1,0 +1,35 @@
+{
+  "name": "The Plant Chalk",
+  "icon": "occultism:chalk_green",
+  "category": "pentacles",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Wildness",
+      "text": "The green chalk uses herbal concentrate to bring the energies of flora into the pentacles.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_green",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This connection with nature makes the green chalk ideal for attracting wild spirits.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_nature_paste",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_green",
+      "anchor": "recipe"
+    }
+  ]
+}

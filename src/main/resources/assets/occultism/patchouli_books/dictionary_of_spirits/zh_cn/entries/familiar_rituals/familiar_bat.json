@@ -1,0 +1,30 @@
+{
+  "name": "蝙蝠使魔",
+  "icon": "occultism:textures/gui/book/bat_familiar.png",
+  "category": "familiar_rituals",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:bat_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)夜视$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_bat",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)升级效果$()$(br)经铁匠使魔升级后，它还会为主人提供生命吸取，在造成伤害时回复生命。",
+      "anchor": "description"
+    }
+  ]
+}

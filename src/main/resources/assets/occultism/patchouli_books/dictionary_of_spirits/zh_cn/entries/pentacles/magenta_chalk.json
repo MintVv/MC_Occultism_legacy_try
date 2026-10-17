@@ -1,0 +1,35 @@
+{
+  "name": "龙之粉笔",
+  "icon": "occultism:chalk_magenta",
+  "category": "pentacles",
+  "sortnum": 35,
+  "pages": [
+    {
+      "type": "text",
+      "title": "末影能量",
+      "text": "龙之伟力尽凝于一笔：此乃紫色粉笔之神迹。$(br)魔灵与龙的关系尚不明确，但必定有所关联。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_magenta",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "啊，末路之地的能量。但究竟是怎样的末路？末路当真存在吗？$(br)在末路处究竟了结了什么？末路本身可会有终结之时？$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dragonyst_dust",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_magenta",
+      "anchor": "recipe"
+    }
+  ]
+}

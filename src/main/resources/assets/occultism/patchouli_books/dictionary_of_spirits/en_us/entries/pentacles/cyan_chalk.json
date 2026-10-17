@@ -1,0 +1,35 @@
+{
+  "name": "The Chalk From Ancients",
+  "icon": "occultism:chalk_cyan",
+  "category": "pentacles",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "text",
+      "title": "In the Past",
+      "text": "Almost lost to time, the cyan chalk brings ancient knowledge, often even forbidden.$(br) But who cares? After all, knowledge is knowledge, and the more, the better, right?$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_cyan",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Despite the complexity of its manufacture, this chalk is dated as one of the oldest,$(br) perhaps even the oldest chalk ever recorded. And even after all this time,$(br) its uses are little known, but you can see just how stable it is.$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_cyan",
+      "anchor": "recipe"
+    }
+  ]
+}

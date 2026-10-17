@@ -1,0 +1,34 @@
+{
+  "name": "Storage Stabilizer Tier 3",
+  "icon": "occultism:storage_stabilizer_tier3",
+  "category": "storage",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_stabilizer_tier3",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This advanced stabilizer is inhabited by a $(#AA00AA)Afrit$() that supports the dimensional matrix$(br) in keeping the storage dimension stable, thus allowing to store more items.$(br2)By default each Tier 3 Stabilizer adds $(bold)256$() item $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "types and 2048000 items storage capacity.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier3",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier3_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

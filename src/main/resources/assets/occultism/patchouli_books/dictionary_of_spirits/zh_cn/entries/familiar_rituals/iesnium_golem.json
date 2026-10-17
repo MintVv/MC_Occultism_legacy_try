@@ -1,0 +1,36 @@
+{
+  "name": "艾瑟金属傀儡",
+  "icon": "occultism:textures/gui/book/iesnium_golem.png",
+  "category": "familiar_rituals",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:iesnium_golem",
+      "text": "",
+      "anchor": "golem"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#AA00AA)不朽的区域守卫者$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_iesnium_golem",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "艾瑟金属傀儡",
+      "text": "艾瑟金属傀儡是普通铁傀儡的直接升级版，这个新版本更加强大且无敌。$(br)只有玩家可以通过潜行状态下攻击来解除它们，解除后会返还对应的$(item)易碎灵魂宝石$()。$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "并不是使魔",
+      "text": "由于相似性，在此书中艾瑟金属傀儡章节是使魔页面的一部分，不过显然这种傀儡并不是使魔，因为它没有主人。$(br2)它们并不能被存储在$(item)使魔之戒$()或$(item)灵魂宝石$()中。然而你还是可以使用像前页所述方法解除它们。$(br)",
+      "anchor": "familiar"
+    }
+  ]
+}

@@ -300,6 +300,23 @@ public final class ModItems {
             item("ritual_dummy/summon_unbound_marid", "ritual_dummy.summon_unbound_marid", 1);
     public static final Item RITUAL_DUMMY_SUMMON_MARID_PROTOTYPE =
             item("ritual_dummy/summon_marid_prototype", "ritual_dummy.summon_marid_prototype", 1);
+    // Local bridging rituals have no upstream counterpart, but still need a dummy so they show up
+    // in JEI, the creative tab and the Dictionary of Spirits instead of being invisible content.
+    public static final Item RITUAL_DUMMY_POSSESS_DJINNI_PROTOTYPE =
+            item("ritual_dummy/possess_djinni_prototype", "ritual_dummy.possess_djinni_prototype", 1);
+    public static final Item RITUAL_DUMMY_POSSESS_UNBOUND_AFRIT_PROTOTYPE =
+            item("ritual_dummy/possess_unbound_afrit_prototype",
+                    "ritual_dummy.possess_unbound_afrit_prototype", 1);
+    public static final Item RITUAL_DUMMY_POSSESS_AFRIT_PROTOTYPE =
+            item("ritual_dummy/possess_afrit_prototype", "ritual_dummy.possess_afrit_prototype", 1);
+    public static final Item RITUAL_DUMMY_CRAFT_AFRIT_PROTOTYPE =
+            item("ritual_dummy/craft_afrit_prototype", "ritual_dummy.craft_afrit_prototype", 1);
+    public static final Item RITUAL_DUMMY_CONTACT_WILD_SPIRIT_PROTOTYPE =
+            item("ritual_dummy/contact_wild_spirit_prototype",
+                    "ritual_dummy.contact_wild_spirit_prototype", 1);
+    public static final Item RITUAL_DUMMY_CONTACT_ELDRITCH_SPIRIT_PROTOTYPE =
+            item("ritual_dummy/contact_eldritch_spirit_prototype",
+                    "ritual_dummy.contact_eldritch_spirit_prototype", 1);
     public static final Item RITUAL_DUMMY_CRAFT_MINER_FOLIOT_UNSPECIALIZED =
             item("ritual_dummy/craft_miner_foliot_unspecialized",
                     "ritual_dummy.craft_miner_foliot_unspecialized", 1);
@@ -740,6 +757,12 @@ public final class ModItems {
             RITUAL_DUMMY_SUMMON_AFRIT_PROTOTYPE,
             RITUAL_DUMMY_SUMMON_UNBOUND_MARID,
             RITUAL_DUMMY_SUMMON_MARID_PROTOTYPE,
+            RITUAL_DUMMY_POSSESS_DJINNI_PROTOTYPE,
+            RITUAL_DUMMY_POSSESS_UNBOUND_AFRIT_PROTOTYPE,
+            RITUAL_DUMMY_POSSESS_AFRIT_PROTOTYPE,
+            RITUAL_DUMMY_CRAFT_AFRIT_PROTOTYPE,
+            RITUAL_DUMMY_CONTACT_WILD_SPIRIT_PROTOTYPE,
+            RITUAL_DUMMY_CONTACT_ELDRITCH_SPIRIT_PROTOTYPE,
             RITUAL_DUMMY_CRAFT_MINER_FOLIOT_UNSPECIALIZED,
             RITUAL_DUMMY_CRAFT_FRAGILE_SOUL_GEM,
             RITUAL_DUMMY_CRAFT_NATURE_PASTE,

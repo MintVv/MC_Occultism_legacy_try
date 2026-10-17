@@ -1,0 +1,30 @@
+{
+  "name": "召唤火灵熔炼者",
+  "icon": "minecraft:gold_ingot",
+  "category": "summoning_rituals",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "text",
+      "title": "火灵熔炼者",
+      "text": "火灵熔炼者更快，只需十分之一时间便可完成处理。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_afrit_smelter",
+      "anchor": "ritual"
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 package com.occultism.occultism.ritual;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -139,25 +138,21 @@ public class RitualDefinition {
     }
 
     public boolean matchesAdditionalIngredients(List<ItemStack> stacks) {
-        List<ItemStack> remainingStacks = new ArrayList<>();
-        for (ItemStack stack : stacks) {
-            remainingStacks.add(stack.copy());
-        }
+        return this.matchesRemainingIngredients(stacks, 0);
+    }
 
-        for (RitualIngredient ingredient : this.additionalIngredients) {
-            boolean found = false;
-            for (ItemStack stack : remainingStacks) {
-                if (ingredient.matches(stack)) {
-                    ingredient.consume(stack);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                return false;
-            }
+    /** Ingredients are consumed in definition order; earlier costs must not be required again on reload. */
+    public boolean matchesRemainingIngredients(List<ItemStack> stacks, int consumedIngredients) {
+        return this.findIngredientAssignment(stacks, consumedIngredients) != null;
+    }
+
+    /** The returned array maps each unconsumed cost, in definition order, to a supplied physical stack. */
+    public int[] findIngredientAssignment(List<ItemStack> stacks, int consumedIngredients) {
+        if (consumedIngredients < 0 || consumedIngredients > this.additionalIngredients.size()) {
+            return null;
         }
-        return true;
+        return RitualIngredientMatcher.assign(
+                this.additionalIngredients.subList(consumedIngredients, this.additionalIngredients.size()), stacks);
     }
 
     public String getId() {
@@ -191,6 +186,29 @@ public class RitualDefinition {
         return this.displayNameKey != null
                 ? new TextComponentTranslation(this.displayNameKey)
                 : new TextComponentString(this.displayName);
+    }
+
+    public ITextComponent createStartedComponent() {
+        return createProtocolComponent("started");
+    }
+
+    public ITextComponent createInterruptedComponent() {
+        return createProtocolComponent("interrupted");
+    }
+
+    public ITextComponent createFinishedComponent() {
+        return createProtocolComponent("finished");
+    }
+
+    public ITextComponent createConditionsComponent() {
+        return createProtocolComponent("conditions");
+    }
+
+    private ITextComponent createProtocolComponent(String suffix) {
+        String key = this.displayNameKey == null
+                ? "occultism.ritual." + suffix
+                : "ritual.occultism." + this.id + "." + suffix;
+        return new TextComponentTranslation(key, this.createNameComponent());
     }
 
     public String getPentacleId() {

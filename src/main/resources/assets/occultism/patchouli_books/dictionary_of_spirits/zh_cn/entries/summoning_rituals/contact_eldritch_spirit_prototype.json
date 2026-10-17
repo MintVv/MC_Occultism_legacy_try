@@ -1,0 +1,19 @@
+{
+  "name": "接触诡奇魔灵（原型）",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "contact_eldritch_spirit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "本仪式在上游没有对应物，属本地新增的桥接仪式，用于让$(#ad03fc)罗纳扎的接触$()法阵保持可达且可用。完成后产出$(item)禁忌之书$()，而不是接触诡奇魔灵。",
+      "anchor": "description"
+    }
+  ]
+}

@@ -48,7 +48,12 @@ public class ItemDictionaryOfSpirits extends Item {
             return new net.minecraft.util.ActionResult<>(EnumActionResult.PASS, stack);
         }
         if (!worldIn.isRemote) {
-            playerIn.openGui(Occultism.INSTANCE, ModGuiHandler.DICTIONARY_OF_SPIRITS, worldIn, 0, 0, 0);
+            if (net.minecraftforge.fml.common.Loader.isModLoaded("patchouli")
+                    && playerIn instanceof EntityPlayerMP) {
+                com.occultism.occultism.compat.patchouli.PatchouliBooks.open((EntityPlayerMP) playerIn);
+            } else {
+                playerIn.openGui(Occultism.INSTANCE, ModGuiHandler.DICTIONARY_OF_SPIRITS, worldIn, 0, 0, 0);
+            }
         }
         return new net.minecraft.util.ActionResult<>(EnumActionResult.SUCCESS, stack);
     }

@@ -1,0 +1,40 @@
+{
+  "name": "Possessed Hoglin",
+  "icon": "minecraft:porkchop",
+  "category": "possession_rituals",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_hoglin",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): 1-3x $(item)porkchop$() and 0-2x $(item)leather$(), with Looting adding 0-1 of each pool;$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_hoglin",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual a dedicated 1.12 $(#ad03fc)Possessed Hoglin$() is summoned from the life energy of a $(#ad03fc)Pig$() and the bound $(#ad03fc)Afrit$(). The compatibility entity has 66 health, 12 attack, fire immunity, melee knockback, classic mushroom avoidance as a warped-fungus $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "surrogate, and a 300-tick outside-Nether conversion to a vanilla Zombie Pigman. Its localized drops are porkchop and leather. Modern Hoglin Brain behavior, true Zoglin attributes, Nether biome rules, warped-fungus identity, and Netherite template $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "loot remain unavailable in 1.12.$(br)"
+    }
+  ]
+}

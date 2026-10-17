@@ -1,0 +1,30 @@
+{
+  "name": "Summon Djinni Smelter",
+  "icon": "minecraft:iron_ingot",
+  "category": "summoning_rituals",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Djinni Smelter",
+      "text": "The djinni smelter is faster, doubling the speed of processing.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_smelter",
+      "anchor": "ritual"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Craft Wild Trim",
+  "icon": "occultism:wild_trim",
+  "category": "crafting_rituals",
+  "sortnum": 57,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_wild_trim",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Produces a wild trim item. 1.12 has no smithing trim system, so it is a collectible rather than a usable template.",
+      "anchor": "description"
+    }
+  ]
+}

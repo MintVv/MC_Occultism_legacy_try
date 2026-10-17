@@ -1,0 +1,19 @@
+{
+  "name": "Grey particles?",
+  "icon": "minecraft:dye:8",
+  "category": "getting_started",
+  "sortnum": 19,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ritual stuck?",
+      "text": "If a ritual appears stuck - no items being consumed - you should see grey particles around the $(item)Golden Sacrificial Bowl$(). If this is the case the ritual requires you to either $(l:rituals/item_use)use a specific item$(/l) or $(l:rituals/sacrifice)sacrifice a specific mob$(/l).$()",
+      "anchor": "text"
+    },
+    {
+      "type": "text",
+      "title": "Ritual stuck?",
+      "text": "$(br2)Find the ritual in the $(thing)Rituals$() category and check for instructions.$(br)"
+    }
+  ]
+}

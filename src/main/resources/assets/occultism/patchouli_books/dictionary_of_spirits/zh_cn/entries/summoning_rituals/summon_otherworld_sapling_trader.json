@@ -1,0 +1,29 @@
+{
+  "name": "召唤异界树苗交易者",
+  "icon": "occultism:otherworld_sapling",
+  "category": "summoning_rituals",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "text",
+      "title": "异界树苗交易者",
+      "text": "由自然的异界树苗长成的异界树只能在$(#AA00AA)第三只眼$()的状态下砍伐。$(br)简单起见，可以在异界树苗交易者处$(br)把自然的异界树苗换成一个稳定品种的树苗。$(br)稳定种长成的异界树可以随时被收获，而且也会掉落稳定种树苗。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:spirit_trade",
+      "recipe": "otherworld_sapling",
+      "anchor": "trade"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "要进行交易，请把供品丢在交易者旁边，$(br)它会拾取供品并掉出交换物。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_sapling_trader",
+      "anchor": "ritual"
+    }
+  ]
+}

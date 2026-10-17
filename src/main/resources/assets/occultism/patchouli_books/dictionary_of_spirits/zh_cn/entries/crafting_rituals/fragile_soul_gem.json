@@ -1,0 +1,30 @@
+{
+  "name": "易碎灵魂宝石",
+  "icon": "occultism:fragile_soul_gem",
+  "category": "crafting_rituals",
+  "sortnum": 27,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:fragile_soul_gem",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "易碎灵魂宝石是由$(#AA00AA)魔精$()灌注而成的鸡蛋。其内蕴藏的魔灵可创造一个小型维度，用于暂时囚禁活物。$(br)但力量过强或体型过大的存在无法被储存。$(br)注意：此物品在运输生物后会自行碎裂。 $(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_fragile_soul_gem",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "手持灵魂宝石$(#55FF55)右击$()捕获实体。$(br)再次$(#55FF55)右击$()释放实体。$(br2)无法捕获Boss。$(br)",
+      "anchor": "use"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "The Meat Chalk",
+  "icon": "occultism:chalk_pink",
+  "category": "pentacles",
+  "sortnum": 22,
+  "pages": [
+    {
+      "type": "text",
+      "title": "It's Alive",
+      "text": "Made from the flesh of a pig possessed by an Afrit, this chalk possesses$(br) both animalistic properties and part of an Afrit's power.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_pink",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Some occultists have reported that the demonic flesh keeps the chalk alive,$(br) resulting in strange movements. However, this has never been officially$(br) documented or proven, remaining merely rumors that may or may not be $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "true.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:demonic_meat",
+      "text": "",
+      "anchor": "meat"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "To obtain the $(item)Demonic Meat$() for $(item)Pink Chalk$() you need to$(br) $(l:possession_rituals/possess_zombie_piglin)summon and kill a Possessed Zombified Piglin$(/l)$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_pink",
+      "anchor": "recipe"
+    }
+  ]
+}

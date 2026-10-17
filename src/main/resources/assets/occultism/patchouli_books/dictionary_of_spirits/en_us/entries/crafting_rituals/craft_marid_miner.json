@@ -1,0 +1,24 @@
+{
+  "name": "Marid Miner",
+  "icon": "occultism:miner_marid_master",
+  "category": "crafting_rituals",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:miner_marid_master",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(#AA00AA)Marid$() miner is the most powerful miner spirit, it has the fasted mining speed and best magic lamp$(br) preservation. Unlike other miner spirits they also can mine the rarest ores, such as $(item)ancient debris$() and $(item)Iesnium Ore$().$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_miner_marid_master",
+      "anchor": "ritual"
+    }
+  ]
+}

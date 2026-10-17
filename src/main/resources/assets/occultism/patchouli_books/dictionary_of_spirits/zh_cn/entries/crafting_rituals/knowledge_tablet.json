@@ -1,0 +1,30 @@
+{
+  "name": "知识石板",
+  "icon": "occultism:knowledge_tablet",
+  "category": "crafting_rituals",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:knowledge_tablet",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "知识石板中灌注着一只$(#AA00AA)魔精$()。该魔灵可容纳大量$(br)经验值。保证安全的同时，还能将XP给予其他玩家。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_knowledge_tablet",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "此物品的用法非常简单：$(br)$(#55FF55)右击$()会储存你所有的经验值。$(br)$(#55FF55)Shift右击$()可取回所有储存的经验值。$(br2)注意：部分情况下，当数值过大时，可能会由于数值近似处理额外损耗少量经验值。$(br)",
+      "anchor": "use"
+    }
+  ]
+}

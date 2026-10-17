@@ -1,0 +1,80 @@
+{
+  "name": "Craft Otherworld Goggles",
+  "icon": "occultism:otherworld_goggles",
+  "category": "crafting_rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:otherworld_goggles",
+      "text": "",
+      "anchor": "goggles_spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(item)Otherworld Goggles$() give the wearer permanent $(#AA00AA)Third Eye$(), allowing to view even blocks hidden from those partaking of $(l:getting_started/demons_dream)Demon's Dream$(/l).$(br2)This elegantly solves the general issue of summoners being in a drugged haze, causing $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "all sorts of havoc.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The Goggles will, however, not give the ability to harvest otherworld materials.$(br) That means when wearing goggles, an $(l:getting_started/infused_pickaxe)Infused Pick$(/l), or even better, an $(l:getting_started/iesnium_pickaxe)Iesnium Pick$(/l) needs to be$(br) used to break blocks in order to obtain their $()",
+      "anchor": "goggles_more"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Otherworld variants.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:lenses",
+      "text": "",
+      "anchor": "lenses_spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Otherworld Goggles make use of a $(#AA00AA)Foliot$() bound into the lenses.$(br) The Foliot shares its ability to view higher planes with the wearer,$(br) thus allowing them to see Otherworld materials.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Crafting Lenses",
+      "text": "Summoning a spirit into the lenses used to craft goggles is one of the$(br) first of the more complex rituals apprentice summoners usually attempt,$(br) showing that their skills are progressing beyond the basics.$(br)",
+      "anchor": "lenses_more"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:lenses",
+      "text": "",
+      "anchor": "lenses_recipe"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_infused_lenses",
+      "anchor": "ritual"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:lens_frame",
+      "text": "",
+      "anchor": "frame_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:lens_frame_otherrock",
+      "text": ""
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:goggles",
+      "text": "",
+      "anchor": "goggles_recipe"
+    }
+  ]
+}

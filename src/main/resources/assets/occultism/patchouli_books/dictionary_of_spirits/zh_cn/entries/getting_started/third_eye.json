@@ -1,0 +1,31 @@
+{
+  "name": "第三只眼",
+  "icon": "occultism:textures/mob_effect/third_eye.png",
+  "category": "getting_started",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "title": "第三只眼",
+      "text": "看到超越物理世界的存在，这种能力被称为$(#ad03fc)第三只眼$()。$(br)人类并没有$(#ad03fc)看穿帷幕$()的能力，不过，在某些物质和装置的帮助下，知识渊博的召唤师可以绕过这个限制。$(br)",
+      "anchor": "about"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "获得这种能力最舒适也最*昂贵*的方法是穿戴灌注了魔灵的目镜，让魔灵把自己的视野*借*给穿戴者。$(br)还有个稍微有点让人反胃，但是$(bold)相当实惠$()的替代方法，那就是食用特定的药草，特别是$(l:getting_started/demons_dream)魔鬼之梦$(/l)。$(br)",
+      "anchor": "how_to_obtain"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:otherworld_goggles",
+      "text": "",
+      "anchor": "otherworld_goggles"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(l:crafting_rituals/craft_otherworld_goggles)这副眼镜$(/l)允许使用者看到更多异界方块，但并不能让使用者获得这些材料。低阶的材料可以通过使用$(l:getting_started/demons_dream)魔鬼之梦$(/l)获取，但更高级的材料需要特殊工具。$(br)"
+    }
+  ]
+}

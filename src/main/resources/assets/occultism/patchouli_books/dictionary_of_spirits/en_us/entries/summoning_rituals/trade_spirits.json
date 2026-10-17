@@ -1,0 +1,25 @@
+{
+  "name": "Trade Spirits",
+  "icon": "occultism:textures/gui/book/cash.png",
+  "category": "summoning_rituals",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Trade Spirits",
+      "text": "Trade spirits pick up appropriate items and throw trade results on the ground.$(br)The spirit is only actively exchanging items if purple particles spawn around it.$(br2)$(bold)If you do not see any particles$(), ensure that you $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Trade Spirits",
+      "text": "gave the proper item and amount.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Most trade spirits experience extreme essence decay and will return to $(#AA00AA)The Other Place$() quickly.$(br)",
+      "anchor": "intro2"
+    }
+  ]
+}

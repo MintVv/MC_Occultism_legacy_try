@@ -1,0 +1,54 @@
+{
+  "name": "蜡烛",
+  "icon": "occultism:large_candle",
+  "category": "getting_started",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:large_candle",
+      "text": "",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "蜡烛可为仪式提供稳定度，是几乎所有五芒星阵的重要组成部分。$(br)$(bold)大号蜡烛可提供等同于书架的附魔等级。$()$(br2)也可用Minecraft原版以及其他模组的蜡烛，来替换神秘学模组的蜡烛。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:tallow",
+      "text": "",
+      "anchor": "tallow"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "制作大号蜡烛的关键材料。使用$(item)屠刀$()$(br)击杀猪、牛或羊这类的大型动物，来获得$(item)油脂$()。$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:butcher_knife",
+      "text": "",
+      "anchor": "cleaver_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:large_candle",
+      "text": "",
+      "anchor": "candle_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "可使用染料与$(item)大号蜡烛$()进行无序合成，来获得染色的大号蜡烛。$(br2)支持Minecraft原版的所有16种颜色。$(br)",
+      "anchor": "color_candle"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "与Minecraft原版的蜡烛类似，$(item)大号蜡烛$()以及其染色变体都可被点燃，从而充当完美的光源。$(br2)此外，还可用$(item)torch$()、$(item)soul torch$()、$(item)redstone torch$()或$(item)spirit torch$()来改变蜡烛的火焰种类。$(br2)这些蜡烛同样也能含水。$(br)",
+      "anchor": "lit_candle"
+    }
+  ]
+}

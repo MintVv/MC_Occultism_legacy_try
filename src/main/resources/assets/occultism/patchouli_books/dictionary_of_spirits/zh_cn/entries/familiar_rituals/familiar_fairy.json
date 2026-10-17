@@ -1,0 +1,30 @@
+{
+  "name": "精灵使魔",
+  "icon": "occultism:textures/gui/book/familiar_fairy.png",
+  "category": "familiar_rituals",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:fairy_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)协助使魔$()，$(#ad03fc)防止使魔死亡$()，$(#ad03fc)吸取敌人生命力$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_fairy",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "描述",
+      "text": "精灵使魔$(bold)可使其他使魔免于死亡$()（具有冷却时间），通过$(bold)增益效果$()帮助其他使魔，并$(bold)吸取敌人的生命力$()来治疗主人和同主人的使魔。$(br2)$(bold)升级效果$()$(br)不可被铁匠升级。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "汞驱物流联动",
+  "icon": "occultism:book_of_calling_foliot_transport_items",
+  "category": "storage",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "title": "汞驱物流联动",
+      "text": "与搬运工魔灵类似，神通术模组的汞驱物流系统经过优化，$(br)可与存储促动器和稳定虫洞配合使用。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "提取物品",
+      "text": "再强调一次，物品提取是影响性能的关键因素。$(br2)为了性能优化，请使用$(item)logistics item extractor$()，$(br)并搭配$(item)召唤之书：魔精搬运工$()来提取所需物品。$(br2)神通术模组的指导书《秘义集成》中有关于神通术汞驱物流系统的章节，$(br)详细说明了如何使用该系统来输入和提取物品。$()",
+      "anchor": "extraction"
+    },
+    {
+      "type": "text",
+      "title": "提取物品",
+      "text": "$(br)"
+    }
+  ]
+}

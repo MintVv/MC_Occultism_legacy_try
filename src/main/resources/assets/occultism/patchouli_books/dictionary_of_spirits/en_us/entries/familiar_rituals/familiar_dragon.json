@@ -1,0 +1,30 @@
+{
+  "name": "Dragon Familiar",
+  "icon": "occultism:textures/gui/book/familiar_dragon.png",
+  "category": "familiar_rituals",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:dragon_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Increased XP$(), Loves Sticks$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_dragon",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "Greedy familiars can ride on dragon familiars, giving the dragon the greedy effects additionally.$(br2)$(bold)Upgrade Behaviour$()$(br)When upgraded by a blacksmith familiar, it will throw swords at nearby enemies.$(br)",
+      "anchor": "description"
+    }
+  ]
+}

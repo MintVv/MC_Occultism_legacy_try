@@ -1,0 +1,33 @@
+{
+  "name": "阿维亚圆环",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "title": "阿维亚圆环",
+      "text": "$(bold)目的$()：召唤一只$(#AA00AA)魔精$()$(br2)大多数人都认为这是最简单的五芒星阵，$(#FF55FF)阿维亚圆环$()易于布置，但只能为召唤者提供最低限度的束缚力和保护。$(br2)通过该五芒星阵进行的仪式只能召唤出最弱的$(#AA00AA)魔精$()。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_foliot",
+      "name": "阿维亚圆环",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:familiar_rituals/resurrection)复活使魔$(/l)$(br)$(li)$(l:summoning_rituals/summon_crusher_t1)魔精碎矿者$(/l)$(br)$(li)$(l:summoning_rituals/summon_smelter_t1)魔精熔炼者$(/l)$(br)$(li)$(l:summoning_rituals/summon_crystallizer_t1)魔精铸晶者$(/l)$(br)$(li)$(l:summoning_rituals/summon_lumberjack)魔精伐木工$(/l)$(br)$(li)$(l:summoning_rituals/summon_farmer)魔精农夫$(/l)$(br)$(li)$(l:summoning_rituals/summon_transport_items)魔精搬运工$(/l)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(br)$(li)$(l:summoning_rituals/summon_cleaner)魔精清洁工$(/l)$(br)$(li)$(l:summoning_rituals/summon_otherstone_trader)异界石交易者$(/l)$(br)$(li)$(l:summoning_rituals/summon_otherrock_trader)异界岩交易者$(/l)$(br)$(li)$(l:summoning_rituals/summon_otherworld_sapling_trader)异界树苗交易者$(/l)$(br)"
+    }
+  ]
+}

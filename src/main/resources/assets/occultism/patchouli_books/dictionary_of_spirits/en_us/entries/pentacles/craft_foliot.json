@@ -1,0 +1,49 @@
+{
+  "name": "Eziveus' Spectral Compulsion",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Eziveus Spectral Compulsion",
+      "text": "$(bold)Purpose:$() Bind $(#AA00AA)Foliot$()$(br2)As a simple binding pentacle, $(bold)Eziveus Spectral Compulsion$() is a common starting point for object$(br) infusion with lower spirits. The enchantment is made permanent by stabilizing candles.$()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Eziveus Spectral Compulsion",
+      "text": "$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:craft_foliot",
+      "name": "Eziveus' Spectral Compulsion",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:pentacles/lime_chalk)Research Fragment Dust$(/l)$(br)$(li)$(l:pentacles/green_chalk)Nature Paste$(/l)$(br)$(li)$(l:crafting_rituals/craft_otherworld_goggles)Infused Lenses$(/l)$(br)$(li)$(l:crafting_rituals/fragile_soul_gem)Fragile Soul Gem$(/l)$(br)$(li)$(l:crafting_rituals/vitality_compass)Vitality Compass$(/l)$(br)$(li)$(l:crafting_rituals/knowledge_tablet)Knowledge Tablet$(/l)$(br)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:crafting_rituals/craft_foliot_miner)Foliot Miner$(/l)$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:crafting_rituals/craft_satchel)Surprisingsly Substantial Satchel$(/l)$(br)$(li)$(l:crafting_rituals/apprentice_ritual_satchel)Apprentice Ritual Satchel$(/l)$(br)$(li)$(l:crafting_rituals/craft_storage_controller_base)Storage Actuator Base$(/l)$(br)$(li)$(l:crafting_rituals/craft_stable_wormhole)Stable Wormhole$(/l)$(br)$(li)$(l:crafting_rituals/craft_stabilizer_tier1)Storage Stabilizer Tier 1$(/l)$()",
+      "anchor": "uses2"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(br)"
+    }
+  ]
+}

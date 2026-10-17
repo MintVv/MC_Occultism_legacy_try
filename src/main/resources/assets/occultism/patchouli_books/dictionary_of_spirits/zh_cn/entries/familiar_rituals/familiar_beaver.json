@@ -1,0 +1,30 @@
+{
+  "name": "河狸使魔",
+  "icon": "occultism:textures/gui/book/familiar_beaver.png",
+  "category": "familiar_rituals",
+  "sortnum": 26,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:beaver_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)加快木头破坏速度$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_beaver",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "河狸使魔会在附近树苗长成大树时将其砍倒，但只能处理小型树。$(br)$(bold)升级效果$()$(br)经铁匠使魔升级后，空手右键它会给予免费的零食。",
+      "anchor": "description"
+    }
+  ]
+}

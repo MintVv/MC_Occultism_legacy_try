@@ -1,0 +1,30 @@
+{
+  "name": "召唤巨灵熔炼者",
+  "icon": "minecraft:iron_ingot",
+  "category": "summoning_rituals",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "text",
+      "title": "巨灵熔炼者",
+      "text": "巨灵熔炼者速度更快，处理速度翻倍。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_smelter",
+      "anchor": "ritual"
+    }
+  ]
+}

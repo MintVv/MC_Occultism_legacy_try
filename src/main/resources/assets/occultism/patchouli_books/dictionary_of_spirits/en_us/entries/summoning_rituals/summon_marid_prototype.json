@@ -1,0 +1,19 @@
+{
+  "name": "Summon Marid Prototype",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_marid_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Summons a bound Marid using the $(#ad03fc)Fatma's Incentivized Attraction$() pentacle. It has no upstream counterpart; it exists so the pentacle stays usable.",
+      "anchor": "description"
+    }
+  ]
+}

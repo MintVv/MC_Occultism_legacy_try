@@ -1,0 +1,34 @@
+{
+  "name": "Weather Magic",
+  "icon": "minecraft:wheat",
+  "category": "summoning_rituals",
+  "sortnum": 26,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Weather Magic",
+      "text": "Summon a Djinni to clear the sky after $(bold)15 seconds$(), or an Afrit to bring rain after $(bold)30 seconds$() or thunder after $(bold)60 seconds$(). Each spirit casts once, then vanishes.$(br2)Weather timers last $(bold)6000 ticks$(). Saving or magic-lamp transport $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Weather Magic",
+      "text": "preserves casting progress; the server can disable each effect."
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_clear_weather",
+      "anchor": "ritual_clear"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_afrit_rain_weather",
+      "anchor": "ritual_rain"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_afrit_thunder_weather",
+      "anchor": "ritual_thunder"
+    }
+  ]
+}

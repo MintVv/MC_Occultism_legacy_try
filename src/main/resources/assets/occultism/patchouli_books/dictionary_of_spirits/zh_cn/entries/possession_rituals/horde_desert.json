@@ -1,0 +1,46 @@
+{
+  "name": "Wild Horde Desert",
+  "icon": "minecraft:gold_ingot",
+  "category": "possession_rituals",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:wild_horde_husk",
+      "text": "",
+      "anchor": "husk"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): Items related to desert trials (See next page);$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_husk",
+      "anchor": "ritual"
+    },
+    {
+      "type": "entity",
+      "entity": "occultism:wild_horde_parched",
+      "text": "",
+      "anchor": "parched"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): Items related to desert trials (See next page);$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_parched",
+      "anchor": "ritual2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Husks and Parcheds summoned by any of this rituals can drop: $(item)gold ingot$(), $(item)archer pottery sherd$(), $(item)miner pottery sherd$(), $(item)prize pottery sherd$(), $(item)skull pottery sherd$(), $(item)arms up pottery sherd$(), $(item)brewer pottery sherd$().$(br)",
+      "anchor": "description"
+    }
+  ]
+}

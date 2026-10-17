@@ -1,0 +1,30 @@
+{
+  "name": "荒野集群溺尸",
+  "icon": "minecraft:egg",
+  "category": "possession_rituals",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:wild_horde_drowned",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：与海洋古迹相关的物品（查看下一页）；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_drowned",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "通过此法召唤的溺尸可掉落：$(item)egg$()、$(item)turtle egg$()、$(item)trident$()、$(item)angler pottery sherd$()、$(item)shelter pottery sherd$()、$(item)snort pottery sherd$()、$(item)blade pottery sherd$()、$(item)explorer pottery sherd$()、$(item)mourner pottery sherd$()、$(item)plenty pottery sherd$()。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

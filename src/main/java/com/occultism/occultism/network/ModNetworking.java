@@ -58,6 +58,8 @@ public final class ModNetworking {
                 id++, Side.SERVER);
         CHANNEL.registerMessage(MessageSetJumps.Handler.class, MessageSetJumps.class,
                 id++, Side.CLIENT);
+        CHANNEL.registerMessage(MessageSetRecipeByID.Handler.class, MessageSetRecipeByID.class,
+                id++, Side.SERVER);
     }
 
     /** Sends a storage-terminal setting update from a client GUI. */
@@ -74,6 +76,14 @@ public final class ModNetworking {
     /** Sends an upstream-format 3x3 recipe template to the open terminal. */
     public static void sendStorageRecipe(NBTTagCompound recipe) {
         CHANNEL.sendToServer(new MessageSetRecipe(recipe));
+    }
+
+    /** Sends only a recipe identity; ingredients are resolved from the server crafting registry. */
+    public static void sendStorageRecipeById(net.minecraft.util.ResourceLocation recipeId) {
+        MessageSetRecipeByID message = new MessageSetRecipeByID(recipeId);
+        if (message.isValid()) {
+            CHANNEL.sendToServer(message);
+        }
     }
 
     /** Sends client-trusted machine faces/name; endpoint coordinates stay server-side. */

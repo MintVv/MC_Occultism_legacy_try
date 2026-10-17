@@ -1,0 +1,30 @@
+{
+  "name": "Possessed Enderman",
+  "icon": "minecraft:ender_pearl",
+  "category": "possession_rituals",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_enderman",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): 1-3x $(item)ender pearl$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_enderman",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual an $(#ad03fc)Enderman$() is spawned using the life energy of a $(#ad03fc)Pig$() and immediately possessed by the summoned $(#ad03fc)Djinni$(). The $(#ad03fc)Possessed Enderman$() will always drop at least one $(item)ender pearl$() when killed.$(br)",
+      "anchor": "description"
+    }
+  ]
+}

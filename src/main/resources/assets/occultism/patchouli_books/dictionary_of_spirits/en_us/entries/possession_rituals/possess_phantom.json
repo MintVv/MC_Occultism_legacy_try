@@ -1,0 +1,35 @@
+{
+  "name": "Possessed Phantom",
+  "icon": "occultism:phantom_membrane",
+  "category": "possession_rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_phantom",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): 1-4x $(item)Phantom Membrane$(), with Looting adding 0-1 item."
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_phantom",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual a $(#ad03fc)Phantom$() is spawned using the life energy of a $(#ad03fc)Flying Passive Mob$() and immediately possessed by the summoned $(#ad03fc)Foliot$(). The $(#ad03fc)Possessed Phantom$() will always drop at least one $(item)Phantom Membrane$() when killed. Using this ritual is easy to trap $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "the phantom and you can has comfy sleep.$(br)"
+    }
+  ]
+}

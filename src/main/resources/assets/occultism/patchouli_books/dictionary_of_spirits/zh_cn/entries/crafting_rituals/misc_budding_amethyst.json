@@ -1,0 +1,19 @@
+{
+  "name": "制造紫水晶母岩",
+  "icon": "occultism:budding_amethyst",
+  "category": "crafting_rituals",
+  "sortnum": 55,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_budding_amethyst",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "产出一个紫水晶母岩方块。1.12 的紫水晶不会生长芽体，因此它仅作为建筑装饰物使用。",
+      "anchor": "description"
+    }
+  ]
+}

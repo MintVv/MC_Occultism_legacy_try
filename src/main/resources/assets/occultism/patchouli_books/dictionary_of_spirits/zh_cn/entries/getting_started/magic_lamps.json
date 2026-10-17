@@ -1,0 +1,25 @@
+{
+  "name": "神灯",
+  "icon": "occultism:magic_lamp_empty",
+  "category": "getting_started",
+  "sortnum": 25,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:magic_lamp_empty",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "神灯",
+      "text": "神灯可以防止$(#ad03fc)灵髓衰退$()（如果有的话），保证其中魔灵的安全，同时仍可以让魔灵保有一些自己的能力。右击你的一个工人即可将其收纳，以便随需存储和运输。$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:magic_lamp_empty",
+      "text": "",
+      "anchor": "crafting"
+    }
+  ]
+}

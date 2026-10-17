@@ -1,0 +1,20 @@
+{
+  "name": "粉笔擦",
+  "icon": "occultism:brush",
+  "category": "getting_started",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "text",
+      "title": "下一步",
+      "text": "粉笔清理起来非常痛苦，你可以用粉笔擦$(#ad03fc)右击$()轻松地擦除粉笔的印迹。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:brush",
+      "text": "",
+      "anchor": "brushRecipe"
+    }
+  ]
+}

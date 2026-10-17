@@ -1,0 +1,39 @@
+{
+  "name": "埃兹维斯的灵体驱策",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "text",
+      "title": "埃兹维斯的灵体驱策",
+      "text": "$(bold)目的$()：束缚$(#AA00AA)魔精$()$(br2)作为一道简单的束缚用五芒星阵，$(bold)埃兹维斯的灵体驱策$()是用于将低级魔灵注入物体的常见入门术法。通过蜡烛的稳定加持，魔咒效果可永久维持。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:craft_foliot",
+      "name": "埃兹维斯的灵体驱策",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:pentacles/lime_chalk)精研碎片粉$(/l)$(br)$(li)$(l:pentacles/green_chalk)自然糨糊$(/l)$(br)$(li)$(l:crafting_rituals/craft_otherworld_goggles)灌注镜片$(/l)$(br)$(li)$(l:crafting_rituals/fragile_soul_gem)易碎灵魂宝石$(/l)$(br)$(li)$(l:crafting_rituals/vitality_compass)生命指南针$(/l)$(br)$(li)$(l:crafting_rituals/knowledge_tablet)知识石板$(/l)$(br)$(li)$(l:crafting_rituals/craft_foliot_miner)魔精矿工$(/l)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:crafting_rituals/craft_satchel)意外结实的挎包$(/l)$(br)$(li)$(l:crafting_rituals/apprentice_ritual_satchel)学徒仪式挎包$(/l)$(br)$(li)$(l:crafting_rituals/craft_storage_controller_base)存储促动器基座$(/l)$(br)$(li)$(l:crafting_rituals/craft_stable_wormhole)稳定虫洞$(/l)$(br)$(li)$(l:crafting_rituals/craft_stabilizer_tier1)存储稳定器（1阶）$(/l)$(br)",
+      "anchor": "uses2"
+    }
+  ]
+}

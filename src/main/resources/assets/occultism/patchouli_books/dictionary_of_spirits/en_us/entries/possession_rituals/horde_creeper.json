@@ -1,0 +1,35 @@
+{
+  "name": "Wild Horde Creeper",
+  "icon": "minecraft:record_cat",
+  "category": "possession_rituals",
+  "sortnum": 22,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:wild_horde_creeper",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): Discs that the normal creeper drops when killed by Skeleton (See next page);$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_creeper",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Creeper summoned in this ritual are CHARGED and will drop 1-3 of these discs: $(item)music disc 13$(), $(item)record cat$(), $(item)music disc blocks$(), $(item)music disc chirp$(), $(item)music disc far$(), $(item)music disc mall$(), $(item)music disc mellohi$(), $(item)music disc stal$(), $(item)music disc strad$(), $(item)music disc ward$(), $(item)$()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "music disc 11$(), $(item)music disc wait$().$(br)"
+    }
+  ]
+}

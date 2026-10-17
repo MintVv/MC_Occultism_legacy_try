@@ -1,0 +1,30 @@
+{
+  "name": "Summon Marid Smelter",
+  "icon": "occultism:iesnium_ingot",
+  "category": "summoning_rituals",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Marid Smelter",
+      "text": "The marid smelter is extremely faster, doing the process in one percent of the time.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_marid_smelter",
+      "anchor": "ritual"
+    }
+  ]
+}

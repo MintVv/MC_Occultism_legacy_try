@@ -1,0 +1,30 @@
+{
+  "name": "Goat of Mercy",
+  "icon": "occultism:cruelty_essence",
+  "category": "possession_rituals",
+  "sortnum": 17,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:mercy_goat",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): $(item)Cruelty Essence$();$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_goat",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual, a $(#ad03fc)Goat of Mercy$() is summoned to be sacrificed. This is the only way to obtain the $(item)Cruelty Essence$().$(br) Be sure of your actions, because they will forever mark your history.$(br)",
+      "anchor": "description"
+    }
+  ]
+}

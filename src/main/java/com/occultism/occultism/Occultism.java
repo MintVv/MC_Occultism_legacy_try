@@ -26,7 +26,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION)
+@Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION,
+        dependencies = "after:patchouli")
 public class Occultism {
 
     public static final Logger LOGGER = LogManager.getLogger(Tags.MOD_NAME);
@@ -63,10 +64,13 @@ public class Occultism {
     public void init(FMLInitializationEvent event) {
         ModOreDictionary.register();
         ModRecipes.register();
-        RitualRecipeManager.load();
+        RitualRecipeManager.getDefinitions();
         ModNetworking.register();
         if (event.getSide().isClient()) {
             com.occultism.occultism.client.ClientFamiliarSettingsHandler.register();
+            if (net.minecraftforge.fml.common.Loader.isModLoaded("patchouli")) {
+                com.occultism.occultism.compat.patchouli.PatchouliClient.register();
+            }
         }
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new ModGuiHandler());
     }

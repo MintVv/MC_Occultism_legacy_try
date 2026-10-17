@@ -1,0 +1,30 @@
+{
+  "name": "冰川粉笔",
+  "icon": "occultism:chalk_light_blue",
+  "category": "pentacles",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "text",
+      "title": "万年不化",
+      "text": "淡蓝色粉笔由极寒材料制成，其刻画的符文具有惰性特质，能为五芒星阵赋予天然的稳定性。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_light_blue",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "尽管主要由冰制成，但其中的魔法力量使其不会融化。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_light_blue",
+      "anchor": "recipe"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "使魔仪式",
+  "icon": "occultism:textures/gui/book/parrot.png",
+  "category": "familiar_rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "使魔仪式",
+      "text": "使魔仪式可以召唤出直接辅助召唤者的魔灵。这些魔灵通常寄宿在动物的身躯中以抵抗灵髓衰退。使魔提供增益，也能主动保护召唤者。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "装备使魔",
+      "text": "拥有进取精神的召唤师发现了一种将使魔束缚于珠宝中的办法：$(l:crafting_rituals/craft_familiar_ring)使魔之戒$(/l)。在本 1.12 移植版中，它用于储存和释放受支持的本地使魔，装备到原生玩家槽后还会应用受支持的效果。$(br)",
+      "anchor": "ring"
+    },
+    {
+      "type": "text",
+      "title": "装备使魔",
+      "text": "当使魔位于$(l:crafting_rituals/craft_familiar_ring)使魔之戒$(/l)中时，它们能被轻松地交易。$(br2)被释放后，魔灵会将释放者认作其新主人。$(br)",
+      "anchor": "trading"
+    }
+  ]
+}

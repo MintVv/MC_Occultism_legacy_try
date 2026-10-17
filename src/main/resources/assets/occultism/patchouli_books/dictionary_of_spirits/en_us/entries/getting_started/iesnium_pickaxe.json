@@ -1,0 +1,25 @@
+{
+  "name": "Iesnium Pickaxe",
+  "icon": "occultism:iesnium_pickaxe",
+  "category": "getting_started",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:iesnium_pickaxe",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Like the $(l:getting_started/infused_pickaxe)Infused Pickaxe$(/l), this pickaxe can be used to mine Tier 2 Otherworld Materials such as $(item)Iesnium Ore$(). As it is made from metal, instead of brittle $(item)Spirit Attuned Gem$(), it is very durable and can be used for a long time.$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:iesnium_pickaxe",
+      "text": "",
+      "anchor": "crafting"
+    }
+  ]
+}

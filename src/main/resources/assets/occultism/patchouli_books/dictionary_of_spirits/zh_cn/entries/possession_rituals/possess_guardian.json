@@ -1,0 +1,35 @@
+{
+  "name": "被附身的守卫者",
+  "icon": "minecraft:prismarine_shard",
+  "category": "possession_rituals",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_guardian",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：所有珊瑚、海晶碎片、海晶砂粒，以及一些海洋植物；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_guardian",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)火灵$()将附身于$(#ad03fc)守卫者$()，$(br)从温水海洋中汲取能量，将珊瑚融入守卫者的内部构造。$(br2) 掉落物：$(br)  + $(item)sea pickle$()或$(item)kelp$()；$(br)  + $(item)prismarine shard$()、$(item)brain coral$()、$(item)bubble coral$()、$(br)  $(item)fire coral$()、$(item)horn coral$()（包括方块和扇状$()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "变种）$(br)  + $(item)prismarine shard$()、$(item)prismarine crystals$()；$(br)"
+    }
+  ]
+}

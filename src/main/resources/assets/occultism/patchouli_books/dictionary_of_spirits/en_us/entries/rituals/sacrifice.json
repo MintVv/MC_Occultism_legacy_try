@@ -1,0 +1,19 @@
+{
+  "name": "Sacrifices",
+  "icon": "minecraft:iron_sword",
+  "category": "rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Sacrifices",
+      "text": "Start the ritual before making an offering. A player must kill the required creature within $(bold)8 blocks$() of the golden bowl; arrows attributed to a player also count. The bowl never kills creatures automatically.$(br2)Only actual $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Sacrifices",
+      "text": "deaths count, not deaths canceled by rescue effects. Human sacrifices accept villagers or players, not witches. See each ritual's Sacrifice requirement for the required creature."
+    }
+  ]
+}

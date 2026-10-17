@@ -1,0 +1,30 @@
+{
+  "name": "Guardian Familiar",
+  "icon": "occultism:textures/gui/book/familiar_guardian.png",
+  "category": "familiar_rituals",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:guardian_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Prevents player death while alive$(), $(#ad03fc)Absorption$(), $(#ad03fc)Regeneration$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_guardian",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The guardian familiar $(bold)prevents its master's death$() as long as it lives. Once the guardian dies, the player is no longer protected. It also grants absorption and regeneration to its owner.",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "被附身的女巫",
+  "icon": "minecraft:experience_bottle",
+  "category": "possession_rituals",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_witch",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：可掉落：$(item)experience bottle$()或其他瓶子（查看下一页）；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_witch",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)女巫$()将借由$(#ad03fc)猫$()死亡时的怒火能量生成。$(#ad03fc)被附身的女巫$()可掉落一个$(item)experience bottle$()、$(item)honey bottle$()、$(item)ominous bottle$()或一个水瓶。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

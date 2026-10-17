@@ -1,0 +1,35 @@
+{
+  "name": "Fairy Familiar",
+  "icon": "occultism:textures/gui/book/familiar_fairy.png",
+  "category": "familiar_rituals",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:fairy_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Assists Familiars$(), $(#ad03fc)Prevents Familiar Deaths$(), $(#ad03fc)Drains Enemy Life Force$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_fairy",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "The Fairy familiar $(bold)keeps other familiars from dying$() (with cooldown), helps other familiars with $(bold)beneficial effects$(), and $(bold)drains the life force of enemies$() to assist its master.$(br2)$(bold)Upgrade Behaviour$()$(br)Cannot be upgraded by the $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "blacksmith familiar.$(br)"
+    }
+  ]
+}

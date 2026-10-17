@@ -1,0 +1,19 @@
+{
+  "name": "召唤魔王（原型）",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_marid_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "使用$(#ad03fc)法特玛的激励吸引$()法阵召唤一只已束缚魔王。它在上游没有对应物，存在的意义是让该法阵保持可用。",
+      "anchor": "description"
+    }
+  ]
+}

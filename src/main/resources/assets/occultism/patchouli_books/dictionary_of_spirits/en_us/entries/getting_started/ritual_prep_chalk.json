@@ -1,0 +1,53 @@
+{
+  "name": "Ritual Preparations: Chalks",
+  "icon": "occultism:chalk_white",
+  "category": "getting_started",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ritual Preparations: Chalks",
+      "text": "To summon spirits from the $(#ad03fc)Other Place$() in *relative* safety,$(br)you need to draw a fitting pentacle using chalk to contain their powers.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_white",
+      "text": "",
+      "anchor": "white_chalk"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "White chalk is used to draw the most basic pentacles, such as for our first ritual.$(br2)More powerful summonings require appropriate more advanced chalk, see Chalks for more information.$(br)"
+    },
+    {
+      "type": "smelting",
+      "recipe": "occultism:polished_otherstone",
+      "text": "",
+      "anchor": "burnt_otherstone_recipe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherworld_ashes",
+      "anchor": "otherworld_ashes_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:chalk_white_impure",
+      "text": "",
+      "anchor": "impure_white_chalk_recipe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_white",
+      "anchor": "white_chalk_recipe"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "Right-click on a block with the chalk to draw a single glyph. For decorative purposes you can repeatedly click a block to cycle through glyphs. The shown glyph does not matter for the ritual, only the color.$(br)",
+      "anchor": "usage"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "仪式准备：粉笔",
+  "icon": "occultism:chalk_white",
+  "category": "getting_started",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "text",
+      "title": "仪式准备：粉笔",
+      "text": "为了将魔灵*相对*安全地从$(#ad03fc)异世界$()召唤过来，你需要用粉笔画出合适的五芒星阵来限制它们的能力。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_white",
+      "text": "",
+      "anchor": "white_chalk"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "白色粉笔用于绘制最基础的五芒星阵，比如我们的第一个仪式。$(br2)更强力的召唤仪式需要合适的进阶粉笔，详见粉笔章节。$(br)"
+    },
+    {
+      "type": "smelting",
+      "recipe": "occultism:polished_otherstone",
+      "text": "",
+      "anchor": "burnt_otherstone_recipe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherworld_ashes",
+      "anchor": "otherworld_ashes_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:chalk_white_impure",
+      "text": "",
+      "anchor": "impure_white_chalk_recipe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_white",
+      "anchor": "white_chalk_recipe"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "用粉笔右击一个方块来画下一个符文。出于装饰目的，你可以重复在一个方块上点击多次，在符文样式之间循环。显示的符文样式并不影响仪式，只有颜色相对重要。$(br)",
+      "anchor": "usage"
+    }
+  ]
+}

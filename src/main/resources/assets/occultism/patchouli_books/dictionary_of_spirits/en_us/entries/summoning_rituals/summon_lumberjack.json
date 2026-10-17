@@ -1,0 +1,42 @@
+{
+  "name": "Summon Foliot Lumberjack",
+  "icon": "minecraft:iron_axe",
+  "category": "summoning_rituals",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Foliot Lumberjack",
+      "text": "The lumberjack will harvest trees in it's working area.$(br) If a deposit location is set it will collect the dropped$(br) items into the specified chest, and re-plant saplings.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Prerequisites",
+      "text": "Summoning the lumberjack requires a $(item)Stable Otherworld Sapling$(). You can obtain it by summoning an $(l:summoning_rituals/summon_otherworld_sapling_trader)Otherworld Sapling Trader$(/l).$(br)",
+      "anchor": "prerequisites"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_lumberjack",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "Use the book of calling to set the work area and deposit location of the lumberjack.$(br2) $(br) See Books of Calling for more information.$(br)",
+      "anchor": "usage"
+    },
+    {
+      "type": "text",
+      "title": "Lazy Lumberjack?",
+      "text": "The spirit might pause for a few minutes after clearing his work area,$(br)   even if trees have regrown since. This is a performance-saving$(br)   measure and not a bug, he will continue on his own.$(br2)  $()",
+      "anchor": "usage2"
+    },
+    {
+      "type": "text",
+      "title": "Lazy Lumberjack?",
+      "text": "$(br)  Set the work area again to make him continue work immediately.$(br)"
+    }
+  ]
+}

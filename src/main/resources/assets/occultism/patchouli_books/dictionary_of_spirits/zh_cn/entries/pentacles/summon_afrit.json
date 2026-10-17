@@ -1,0 +1,28 @@
+{
+  "name": "阿布拉召唤术",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "text",
+      "title": "阿布拉召唤术",
+      "text": "$(bold)目的$()：召唤一只$(#AA00AA)火灵$()$(br2)$(bold)阿布拉召唤术$()是为数不多能够（相对）安全召唤$(#AA00AA)火灵$()的五芒星阵之一。$(br)虽成本较高，需要消耗数颗$(#FF55FF)魔灵同调宝石$()，但唯有借助其中额外的召唤潜能，才能触及此类高级魔灵。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_afrit",
+      "name": "阿布拉召唤术",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:summoning_rituals/summon_crusher_t3)火灵碎矿者$(/l)$(br)$(li)$(l:summoning_rituals/summon_smelter_t3)火灵熔炼者$(/l)$(br)$(li)$(l:summoning_rituals/summon_crystallizer_t3)火灵铸晶者$(/l)$(br)$(li)雷暴$(br)$(li)降雨天气$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

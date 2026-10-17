@@ -1,0 +1,30 @@
+{
+  "name": "召唤魔王碎矿者",
+  "icon": "occultism:gold_dust",
+  "category": "summoning_rituals",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "魔王碎矿者",
+      "text": "魔王碎矿者比火灵速度更快，效率更高，技艺更精湛。$(br)能够在粉碎回响碎片的同时，保留其特性。$(br2)可将$(bold)一份$()矿石粉碎成$(bold)六份$()对应粉末。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_marid_crusher",
+      "anchor": "ritual"
+    }
+  ]
+}

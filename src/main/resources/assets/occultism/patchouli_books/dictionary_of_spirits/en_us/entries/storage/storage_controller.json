@@ -1,0 +1,90 @@
+{
+  "name": "Storage Actuator",
+  "icon": "occultism:storage_controller",
+  "category": "storage",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_controller",
+      "text": "",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Storage Actuator",
+      "text": "The $(item)Dimensional Storage Actuator$() consists of a $(l:crafting_rituals/craft_dimensional_matrix)Dimensional Matrix$(/l) inhabited by a $(#AA00AA)Djinni$() that creates and manages a storage dimension,$(br) and a $(l:crafting_rituals/craft_storage_controller_base)Base$(/l) infused with a $(#AA00AA)Foliot$() that moves items in and out of the storage dimension.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "Place the $(item)Dimensional Storage Actuator$() and $(bold)right-click$() to open it. The terminal includes a $(bold)3x3 crafting grid$(). With JEI installed, recipe transfer fills available costs from your main inventory, then storage. Missing costs stay empty; transferring $()",
+      "anchor": "usage"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "does not craft the result."
+    },
+    {
+      "type": "text",
+      "title": "Safety first!",
+      "text": "Breaking the storage controller will store all contained items in the dropped item, you will not lose anything.$(br) The same applies to breaking or replacing Storage Stabilizers (you will learn about these later).$()",
+      "anchor": "safety"
+    },
+    {
+      "type": "text",
+      "title": "Safety first!",
+      "text": "$(br2) $(br) Like in a shulker box, your items are safe!$(br)"
+    },
+    {
+      "type": "text",
+      "title": "So much storage!",
+      "text": "A fresh controller has $(bold)128 storage slots$(), holding up to $(bold)1024 items per slot$() by default. Stabilizers add slots. One item type may fill several slots; damage and NBT can keep variants separate. Total capacity follows these slot limits, not a separate $()",
+      "anchor": "size"
+    },
+    {
+      "type": "text",
+      "title": "So much storage!",
+      "text": "item-total cap."
+    },
+    {
+      "type": "text",
+      "title": "Unique Items",
+      "text": "Items with unique properties (\"NBT data\"), such as damaged or enchanted equipment will take up$(br) one item type for each variation. For example two wooden swords with two different damage values$(br) take up two item types. Two $()",
+      "anchor": "unique_items"
+    },
+    {
+      "type": "text",
+      "title": "Unique Items",
+      "text": "wooden swords with the same (or no) damage take up one item type.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Configurability",
+      "text": "Change base slots, stabilizer bonuses, per-slot capacity and normal stack-size handling in the storage section of $(bold)config/occultism.cfg$(). These are Forge 1.12 settings, not a per-world TOML file.",
+      "anchor": "config"
+    },
+    {
+      "type": "text",
+      "title": "Interaction with Mods",
+      "text": "For other mods the storage controller behaves like a shulker box, anything that can$(br) interact with vanilla chests and shulker boxes can interact with the storage controller.$(br) Devices that count storage contents may have trouble with the stack $()",
+      "anchor": "mods"
+    },
+    {
+      "type": "text",
+      "title": "Interaction with Mods",
+      "text": "sizes.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dimensional_matrix",
+      "anchor": "matrix_ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_storage_controller_base",
+      "anchor": "base_ritual"
+    }
+  ]
+}

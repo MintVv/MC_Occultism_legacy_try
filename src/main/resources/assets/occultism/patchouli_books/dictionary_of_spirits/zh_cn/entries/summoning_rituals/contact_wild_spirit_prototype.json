@@ -1,0 +1,19 @@
+{
+  "name": "接触荒野魔灵（原型）",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "contact_wild_spirit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "本仪式在上游没有对应物，属本地新增的桥接仪式，用于让$(#ad03fc)奥索林的无束缚呼唤$()法阵保持可达且可用。完成后产出$(item)觉醒羽毛$()，而不是接触荒野魔灵。",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "被附身的末影螨",
+  "icon": "minecraft:end_stone",
+  "category": "possession_rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_endermite",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：1-2x$(item)end stone$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_endermite",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中。一只$(#ad03fc)末影螨$()被诱使生成。石头和泥土代表周遭的环境，然后用扔出的鸡蛋模拟末影珍珠。当末影螨生成时，召唤出的$(#ad03fc)魔精$()会立刻附身，前往$(#ad03fc)末地$()然后返回。$(#ad03fc)被附身的末影螨$()被击杀后至少会掉落一个$(item)end stone$()。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

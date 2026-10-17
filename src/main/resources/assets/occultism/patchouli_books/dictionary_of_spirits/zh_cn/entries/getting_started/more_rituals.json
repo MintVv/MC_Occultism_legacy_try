@@ -1,0 +1,14 @@
+{
+  "name": "更多仪式",
+  "icon": "occultism:textures/gui/book/robe.png",
+  "category": "getting_started",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "text",
+      "title": "更多仪式",
+      "text": "准备好迎接新挑战了吗？",
+      "anchor": "more_rituals/description"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Blacksmith Familiar",
+  "icon": "occultism:textures/gui/book/familiar_blacksmith.png",
+  "category": "familiar_rituals",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:blacksmith_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Repairs Equipment while Mining$(), $(#ad03fc)Upgrades other familiars$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_blacksmith",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "Whenever the player picks up stone, there is a chance for the blacksmith familiar to repair their equipment a little bit.$(br2)$(bold)Upgrade Behaviour$(): $(br)Cannot be upgraded, but upgrades other Familiars.$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Upgrading Familiars",
+      "text": "To upgrade other familiars the blacksmith needs to be given iron ingots or blocks by $(#ad03fc)right-clicking$() it.$(br2)Upgraded familiars provide additional effects.$(br)",
+      "anchor": "description2"
+    }
+  ]
+}

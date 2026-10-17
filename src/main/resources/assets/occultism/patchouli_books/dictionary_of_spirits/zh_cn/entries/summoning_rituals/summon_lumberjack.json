@@ -1,0 +1,37 @@
+{
+  "name": "召唤魔精伐木工",
+  "icon": "minecraft:iron_axe",
+  "category": "summoning_rituals",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "text",
+      "title": "魔精伐木工",
+      "text": "伐木工会砍伐工作区域之内的树木。$(br)如果指定了存放位置，它会将掉落的物品都存放在$(br)指定的箱子中，并且会补种树苗。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "前置条件",
+      "text": "召唤伐木工需要$(item)异界树苗$()。你可以通过召唤一只$(l:summoning_rituals/summon_otherworld_sapling_trader)异界树苗交易者$(/l)来获得它。$(br)",
+      "anchor": "prerequisites"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_lumberjack",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "使用召唤之书来设置伐木工的工作区域和存放位置。$(br2) $(br)更多信息参阅召唤之书。$(br)",
+      "anchor": "usage"
+    },
+    {
+      "type": "text",
+      "title": "伐木工在偷懒？",
+      "text": "在砍伐完工作区域后，魔灵可能会停止工作几分钟，$(br)即使此时已经长出了新的树。这是为了节省性能而设计的机制，$(br)并非Bug，稍后其便会自行继续工作。$(br2)  $(br)再次设置工作区域可令其立刻继续工作。$(br)",
+      "anchor": "usage2"
+    }
+  ]
+}

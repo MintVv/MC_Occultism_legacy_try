@@ -1,0 +1,14 @@
+{
+  "name": "魔法存储",
+  "icon": "occultism:storage_controller",
+  "category": "getting_started",
+  "sortnum": 35,
+  "pages": [
+    {
+      "type": "text",
+      "title": "魔法存储",
+      "text": "想要更更更多的存储空间？近在眼前！",
+      "anchor": "storage/description"
+    }
+  ]
+}

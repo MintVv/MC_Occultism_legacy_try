@@ -1,0 +1,20 @@
+{
+  "name": "Infusion Rituals",
+  "icon": "occultism:textures/gui/book/infusion.png",
+  "category": "getting_started",
+  "sortnum": 39,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Infusion Rituals",
+      "text": "Infusion rituals are all about crafting powerful items, by binding (\"infusing\") spirits into objects.The spirits will provide special functionality to the items.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "More Information",
+      "text": "To find more about Infusing items, see the $(thing)Infusion Rituals$() Category.$(br)",
+      "anchor": "more"
+    }
+  ]
+}

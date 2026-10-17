@@ -1,0 +1,24 @@
+{
+  "name": "维度矩阵",
+  "icon": "occultism:dimensional_matrix",
+  "category": "crafting_rituals",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:dimensional_matrix",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "维度矩阵是通往用于存储的小型维度的入口。$(br)一个束缚于矩阵的$(#AA00AA)巨灵$()保证了维度的稳定。矩阵可以通过存储稳定器中的其他魔灵$(br)拓展存储维度的空间。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dimensional_matrix",
+      "anchor": "ritual"
+    }
+  ]
+}

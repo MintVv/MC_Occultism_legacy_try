@@ -1,0 +1,30 @@
+{
+  "name": "Magic Storage",
+  "icon": "minecraft:chest",
+  "category": "crafting_rituals",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:satchel",
+      "text": "",
+      "anchor": "satchels"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Occultism offers two storage solutions: the first is based on satchels, portable inventories with different functions depending on the type.$(br) Some are already obtainable, while others will require evolve in the mod first.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_controller",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The second option is to follow the entries below that show the rituals related to the Magic Storage system.$(br) For full step-by-step instructions on building the storage system, see the $(thing)Magic Storage$() category.$(br)"
+    }
+  ]
+}

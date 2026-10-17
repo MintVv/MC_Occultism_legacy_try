@@ -1,0 +1,24 @@
+{
+  "name": "魔王矿工",
+  "icon": "occultism:miner_marid_master",
+  "category": "crafting_rituals",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:miner_marid_master",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(#AA00AA)魔王$()矿工是最强大的矿工魔灵，拥有最快的挖掘速度和最轻的神灯损伤。$(br)与其他矿工魔灵不同，它们也可以挖掘那些最稀有的矿石，比如$(item)ancient debris$()和$(item)艾瑟金属矿石$()。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_miner_marid_master",
+      "anchor": "ritual"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Summon Otherworld Sapling Trader",
+  "icon": "occultism:otherworld_sapling",
+  "category": "summoning_rituals",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Otherworld Sapling Trader",
+      "text": "Otherworld Trees grown from natural Otherworld Saplings can only be harvested$(br)when under the effect of $(#AA00AA)Third Eye$(). To make life easier, the Otherworld Sapling Trader$(br)will exchange such natural saplings for a stable variant that can be $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Otherworld Sapling Trader",
+      "text": "harvested$(br)by anyone, and will drop the same stable saplings when harvested.$(br)"
+    },
+    {
+      "type": "occultism:spirit_trade",
+      "recipe": "otherworld_sapling",
+      "anchor": "trade"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "To trade, drop your offered item next to the trader,$(br)he will pick it up and drop the exchanged item.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_sapling_trader",
+      "anchor": "ritual"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "name": "Books of Binding",
+  "icon": "occultism:book_of_binding_bound_foliot",
+  "category": "getting_started",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Books of Binding",
+      "text": "To call forth a spirit, a $(#ad03fc)Book of Binding$() must be used in the ritual.$(br)There is a type of book corresponding to each type (or tier) of spirit.$(br)To identify a spirit to summon, it's name must be written in the $(#ad03fc)Book of Binding$(), resulting in a $(#ad03fc)Bound $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Books of Binding",
+      "text": "Book of Binding$() that can be used in the ritual.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Note:$() *The spirit names are eye candy only*, that means they are not relevant for the recipe. As long as you have the right spirit type in your book of binding it can be used.$(br)",
+      "anchor": "intro2"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:purified_ink",
+      "anchor": "purified_ink_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In order to craft $(#ad03fc)Books of Binding$() to summon spirits, you need purified ink. Simply drop any black dye into $(item)Spiritfire$() to purify it.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:awakened_feather",
+      "anchor": "awakened_feather_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In order to craft $(#ad03fc)Books of Binding$() to summon spirits, you also need awakened feather. Simply drop any feather into $(item)Spiritfire$() to awakened it.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:taboo_book",
+      "anchor": "taboo_book_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Lastly you need taboo book to craft $(#ad03fc)Books of Binding$() to summon spirits. Simply drop a book into $(item)Spiritfire$() to get it.$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:book_of_binding_bound_foliot_from_unbound",
+      "text": "",
+      "anchor": "book_of_binding_bound_foliot_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Add the name of the spirit to summon to your book of binding by crafting it with the Dictionary of Spirits. The Dictionary will not be used up.$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:book_of_binding_bound_djinni_from_unbound",
+      "text": "",
+      "anchor": "book_of_binding_bound_djinni_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:book_of_binding_bound_afrit_from_unbound",
+      "text": "",
+      "anchor": "book_of_binding_bound_afrit_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:book_of_binding_bound_marid_from_unbound",
+      "text": "",
+      "anchor": "book_of_binding_bound_marid_recipe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:book_of_binding_empty",
+      "anchor": "book_of_binding_empty"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Alternatively, you can directly use the Binding Book: Empty instead of the previous three items. There are two ways to obtain this book. Place this book in the center of dyes to get specific book of binding.$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:book_of_binding_empty",
+      "text": "",
+      "anchor": "book_of_binding_empty_recipe"
+    }
+  ]
+}

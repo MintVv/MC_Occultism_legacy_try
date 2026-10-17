@@ -1,0 +1,41 @@
+{
+  "name": "Rituals",
+  "icon": "occultism:textures/gui/book/robe.png",
+  "category": "rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Rituals",
+      "text": "Rituals allow to summon spirits into our plane of existence, or bind them into objects or living beings. Every ritual consists of a $(#ad03fc)Pentacle$(), $(#ad03fc)Ritual Ingredients$() provided via sacrificial bowls, a $(#ad03fc)Starting Item$() and optionally the $(#ad03fc)Sacrifice$() of living $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Rituals",
+      "text": "beings. A purple particle effect will show that the ritual is successful and in progress."
+    },
+    {
+      "type": "text",
+      "title": "Performing a Ritual",
+      "text": "Rituals always follow the same steps:$(br)$(li)Draw the pentacle.$(br)$(li)Place a golden ritual bowl.$(br)$(li)Place sacrificial bowls.$(br)$(li)Put ingredients $()",
+      "anchor": "steps"
+    },
+    {
+      "type": "text",
+      "title": "Performing a Ritual",
+      "text": "in bowls.$(br)$(li)$(#ad03fc)Right-click$()the golden bowl with the activation item.$(br)$(li)*Optional: Perform a sacrifice close to the center of the pentacle.*"
+    },
+    {
+      "type": "text",
+      "title": "Additional Requirements",
+      "text": "Grey particles mean a sacrifice or item use is still required. Keep the pentacle, activation item and every unconsumed ingredient in place, even while waiting. Breaking these conditions interrupts the ritual and returns its activation item; materials $()",
+      "anchor": "additional_requirements"
+    },
+    {
+      "type": "text",
+      "title": "Additional Requirements",
+      "text": "already consumed are not refunded. Purple particles indicate active progress."
+    }
+  ]
+}

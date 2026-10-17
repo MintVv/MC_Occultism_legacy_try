@@ -1,6 +1,7 @@
 package com.occultism.occultism.config;
 
 import com.occultism.occultism.Tags;
+import com.occultism.occultism.spirit.SpiritJobType;
 
 import net.minecraftforge.common.config.Config;
 
@@ -15,7 +16,30 @@ public final class ModConfig {
     @Config.Comment("Storage controller capacity settings.")
     public static final StorageSettings STORAGE = new StorageSettings();
 
+    @Config.Name("rituals")
+    @Config.Comment("Weather and time ritual permissions, matching the upstream server settings.")
+    public static final RitualSettings RITUALS = new RitualSettings();
+
     private ModConfig() {
+    }
+
+    public static final class RitualSettings {
+        public boolean enableClearWeatherRitual = true;
+        public boolean enableRainWeatherRitual = true;
+        public boolean enableThunderWeatherRitual = true;
+        public boolean enableDayTimeRitual = true;
+        public boolean enableNightTimeRitual = true;
+
+        public boolean isEnabled(SpiritJobType type) {
+            switch (type) {
+                case CLEAR_WEATHER: return this.enableClearWeatherRitual;
+                case RAIN_WEATHER: return this.enableRainWeatherRitual;
+                case THUNDER_WEATHER: return this.enableThunderWeatherRitual;
+                case DAY_TIME: return this.enableDayTimeRitual;
+                case NIGHT_TIME: return this.enableNightTimeRitual;
+                default: return false;
+            }
+        }
     }
 
     public static final class SpiritJobSettings {
@@ -122,6 +146,11 @@ public final class ModConfig {
         @Config.Comment("Additional slots provided by a Tier 4 storage stabilizer.")
         @Config.RangeInt(min = 0)
         public int stabilizerTier4Slots = 2048;
+
+        @Config.Name("stabilizerTier5Slots")
+        @Config.Comment("Additional slots provided by a Tier 5 storage stabilizer.")
+        @Config.RangeInt(min = 0)
+        public int stabilizerTier5Slots = 1024;
 
         @Config.Name("controllerStackSize")
         @Config.Comment("Maximum number of items stored in one controller slot.")

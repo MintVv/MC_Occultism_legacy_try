@@ -1,0 +1,30 @@
+{
+  "name": "Summon Djinni Crystallizer",
+  "icon": "occultism:amethyst_dust",
+  "category": "summoning_rituals",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Djinni Crystallizer",
+      "text": "The djinni crystallizer is faster and more efficient, doubling the speed of processing and increasing the output amount from gem ores.$(br2)They also can deconstruct amethyst and quartz blocks.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_crystallizer",
+      "anchor": "ritual"
+    }
+  ]
+}

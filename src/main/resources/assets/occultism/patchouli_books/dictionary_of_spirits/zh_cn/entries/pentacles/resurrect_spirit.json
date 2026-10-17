@@ -1,0 +1,28 @@
+{
+  "name": "苏斯耶的简易圆环",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "text",
+      "title": "苏斯耶的简易圆环",
+      "text": "$(bold)目的$()：复活一只$(#AA00AA)使魔$()$(br2)$(bold)苏斯耶的简易圆环$()是一种简单的五芒星阵，用于恢复被击杀魔灵的实体形态，无需复杂条件即可达成。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:resurrect_spirit",
+      "name": "苏斯耶的简易圆环",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:familiar_rituals/resurrect_allay)净化恼鬼为悦灵$(/l)$(br)$(li)$(l:familiar_rituals/great_resurrection)复活生物$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

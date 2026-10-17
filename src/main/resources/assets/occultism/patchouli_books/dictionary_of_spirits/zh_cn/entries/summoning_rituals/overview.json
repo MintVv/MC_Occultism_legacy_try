@@ -1,0 +1,14 @@
+{
+  "name": "召唤仪式",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "召唤仪式",
+      "text": "召唤仪式迫使魔灵以自主选择的形态降临现世，$(br)因此对其力量几乎不加限制。被召唤的魔灵形态各异：$(br)有些可交易和转化物品，也有的如奴隶般从事体力劳动。$(br)",
+      "anchor": "intro"
+    }
+  ]
+}

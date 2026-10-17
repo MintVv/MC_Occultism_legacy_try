@@ -1,0 +1,19 @@
+{
+  "name": "Wild Horde: Illager",
+  "icon": "minecraft:iron_axe",
+  "category": "possession_rituals",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_horde_illager",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Summons a wild horde of illagers that attacks everything nearby, including the caster. Nothing is left behind but their drops — the soul gem shown on the recipe page is display only.",
+      "anchor": "description"
+    }
+  ]
+}

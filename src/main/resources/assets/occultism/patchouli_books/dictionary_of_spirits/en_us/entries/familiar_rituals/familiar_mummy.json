@@ -1,0 +1,30 @@
+{
+  "name": "Mummy Familiar",
+  "icon": "occultism:textures/gui/book/familiar_mummy.png",
+  "category": "familiar_rituals",
+  "sortnum": 27,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:mummy_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Fights your enemies$(), $(#ad03fc)Dodge Effect$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_mummy",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The Mummy familiar is a martial arts expert and fights to protect its master.$(br)$(bold)Upgrade Behaviour$()$(br)Upgraded by a blacksmith familiar, it deals even more damage.",
+      "anchor": "description"
+    }
+  ]
+}

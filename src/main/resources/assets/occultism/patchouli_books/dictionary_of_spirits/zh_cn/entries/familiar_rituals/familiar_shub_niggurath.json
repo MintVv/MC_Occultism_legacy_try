@@ -1,0 +1,31 @@
+{
+  "name": "莎布·尼古拉丝使魔",
+  "icon": "occultism:textures/gui/book/familiar_shub_niggurath.png",
+  "category": "familiar_rituals",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:shub_niggurath_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)生成小型分身替你战斗$()$(br)"
+    },
+    {
+      "type": "text",
+      "title": "仪式",
+      "text": "$(#ad03fc)莎布·尼古拉丝$()不能被直接召唤。先召唤$(l:familiar_rituals/familiar_chimera)奇美拉使魔$(/l)，给它喂食$(item)golden apple$()以分离$(#ad03fc)山羊$()。将山羊带到$(#ad03fc)森林生物群系$()，再对它使用$(item)任意黑色染料$()、$(item)flint$()和$(item)ender eye$()。固定上游代码允许三种材料以任意顺序使用。$(br)",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "描述",
+      "text": "$(bold)升级效果$()$(br)被铁匠使魔升级后，它会获得警铃。使魔受击时会摇响警铃，并在大范围内$(bold)吸引敌人$()。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

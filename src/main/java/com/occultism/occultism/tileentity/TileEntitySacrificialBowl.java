@@ -5,6 +5,7 @@ import java.util.UUID;
 import com.occultism.occultism.ritual.RitualDefinition;
 import com.occultism.occultism.ritual.RitualEntityToSummon;
 import com.occultism.occultism.ritual.RitualIngredient;
+import com.occultism.occultism.ritual.PentacleDetector;
 import com.occultism.occultism.entity.EntityBoundSpirit;
 import com.occultism.occultism.entity.EntityFoliotJob;
 import com.occultism.occultism.entity.IFamiliar;
@@ -32,6 +33,7 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -41,6 +43,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.event.ForgeEventFactory;
 
 public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
+    public static final int SACRIFICE_DETECTION_RANGE = 8;
 
     private ItemStack stack = ItemStack.EMPTY;
     private String activeRitualId = "";
@@ -50,6 +53,7 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
     private ItemStack ritualResult = ItemStack.EMPTY;
     private boolean itemUseProvided;
     private boolean sacrificeProvided;
+    private long ritualGeneration;
     private UUID castingPlayerId;
     private long lastChangeTime;
     private long lastClientParticleTick = Long.MIN_VALUE;
@@ -145,25 +149,32 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
                 && this.canUseActivationItem(definition, activationStack);
     }
 
-    public boolean hasMatchingSacrifice(net.minecraft.world.World world, net.minecraft.util.math.BlockPos center,
-            RitualDefinition definition) {
-        return this.findSacrifice(world, center, definition) != null;
+    public long getRitualGeneration() {
+        return this.ritualGeneration;
     }
 
-    public boolean consumeSacrifice(net.minecraft.world.World world, net.minecraft.util.math.BlockPos center,
-            RitualDefinition definition) {
-        if (!definition.requiresSacrifice()) {
-            return true;
-        }
-        EntityLivingBase sacrifice = this.findSacrifice(world, center, definition);
-        if (sacrifice == null) {
+    /** Mirrors GoldenSacrificialBowlBlockEntity.onLivingDeath; any player's attributable kill counts. */
+    public boolean canProvideSacrifice(EntityLivingBase sacrifice, DamageSource source, BlockPos deathPosition) {
+        if (sacrifice == null || source == null || deathPosition == null || this.world == null
+                || this.world.isRemote || sacrifice.world != this.world || this.isInvalid()
+                || !(source.getTrueSource() instanceof EntityPlayer)
+                || this.pos.distanceSq(deathPosition) > SACRIFICE_DETECTION_RANGE * SACRIFICE_DETECTION_RANGE
+                || !this.isWaitingForSacrifice()) {
             return false;
         }
-        this.playSacrificeEffects(sacrifice);
-        sacrifice.attackEntityFrom(DamageSource.MAGIC, Float.MAX_VALUE);
-        if (!sacrifice.isDead) {
-            sacrifice.setDead();
+        RitualDefinition definition = com.occultism.occultism.ritual.RitualRegistry.getById(this.activeRitualId);
+        return definition != null && definition.getSacrifice().matches(sacrifice);
+    }
+
+    /** Called only after the death event has settled; never damages or removes the supplied entity. */
+    public boolean provideSacrifice(EntityLivingBase sacrifice, DamageSource source, BlockPos deathPosition,
+            long expectedGeneration) {
+        if (this.ritualGeneration != expectedGeneration || sacrifice == null || sacrifice.getHealth() > 0.0F
+                || !this.canProvideSacrifice(sacrifice, source, deathPosition)) {
+            return false;
         }
+        this.sacrificeProvided = true;
+        this.markDirtyAndSync();
         return true;
     }
 
@@ -180,6 +191,7 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         if (this.isRitualActive()) {
             return;
         }
+        this.ritualGeneration++;
         this.stack = activationStack.copy();
         this.lastChangeTime = this.world == null ? 0L : this.world.getTotalWorldTime();
         this.activeRitualId = definition.getId();
@@ -213,21 +225,15 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         }
 
         RitualDefinition definition = com.occultism.occultism.ritual.RitualRegistry.getById(this.activeRitualId);
-        if (definition == null) {
-            this.stopRitual(false);
+        if (definition == null || !this.isRitualValid(definition)) {
+            this.stopRitual(true);
             return;
         }
         if (definition.requiresSacrifice() && !this.sacrificeProvided) {
-            if (this.hasMatchingSacrifice(this.world, this.pos, definition)
-                    && this.consumeSacrifice(this.world, this.pos, definition)) {
-                this.sacrificeProvided = true;
+            if (this.world.getTotalWorldTime() % 20 == 0) {
                 this.markDirtyAndSync();
-            } else {
-                if (this.world.getTotalWorldTime() % 20 == 0) {
-                    this.markDirtyAndSync();
-                }
-                return;
             }
+            return;
         }
         if (definition.requiresItemUse() && !this.itemUseProvided) {
             if (this.world.getTotalWorldTime() % 20 == 0) {
@@ -249,8 +255,19 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         }
     }
 
+    /** Match upstream Ritual.isValid before waiting, advancing time, or consuming any remaining materials. */
+    private boolean isRitualValid(RitualDefinition definition) {
+        return PentacleDetector.matches(this.world, this.pos,
+                PentacleDetector.getDefinitionById(definition.getPentacleId()))
+                && definition.getActivationIngredient().matches(this.stack)
+                && this.canUseActivationItem(definition, this.stack)
+                && definition.matchesRemainingIngredients(this.getNearbyBowlStacks(this.world, this.pos),
+                        this.consumedAdditionalIngredients);
+    }
+
     private void completeRitual() {
         RitualDefinition definition = com.occultism.occultism.ritual.RitualRegistry.getById(this.activeRitualId);
+        EntityPlayer castingPlayer = this.findCastingPlayer();
         this.triggerRitualAdvancement(definition);
         ItemStack repairResult = this.createRepairResult(definition);
         if (definition != null && this.isResurrectRitual(definition)) {
@@ -273,6 +290,9 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         this.spawnRitualCompletionParticles();
         this.world.playSound(null, this.pos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 0.8F,
                 1.2F);
+        if (definition != null && castingPlayer != null) {
+            castingPlayer.sendStatusMessage(definition.createFinishedComponent(), false);
+        }
         this.stack = ItemStack.EMPTY;
         this.clearRitualState();
         this.markDirtyAndSync();
@@ -347,7 +367,7 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         RitualDefinition definition = com.occultism.occultism.ritual.RitualRegistry.getById(this.activeRitualId);
         if (definition != null && definition.hasSpiritJobType()
                 && definition.getSpiritJobType().isWorldEffectJob()) {
-            return this.applyWorldEffectJob(definition.getSpiritJobType());
+            return this.spawnFoliotJobEntity(definition.getSpiritJobType(), definition);
         }
 
         SpiritJobType jobType = this.getFoliotJobRitualType(definition);
@@ -431,43 +451,6 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         }
     }
 
-    private boolean applyWorldEffectJob(SpiritJobType jobType) {
-        switch (jobType) {
-            case CLEAR_WEATHER:
-                this.world.getWorldInfo().setRaining(false);
-                this.world.getWorldInfo().setThundering(false);
-                this.world.getWorldInfo().setRainTime(12000);
-                this.world.getWorldInfo().setThunderTime(12000);
-                break;
-            case RAIN_WEATHER:
-                this.world.getWorldInfo().setRaining(true);
-                this.world.getWorldInfo().setThundering(false);
-                this.world.getWorldInfo().setRainTime(12000);
-                this.world.getWorldInfo().setThunderTime(12000);
-                break;
-            case THUNDER_WEATHER:
-                this.world.getWorldInfo().setRaining(true);
-                this.world.getWorldInfo().setThundering(true);
-                this.world.getWorldInfo().setRainTime(12000);
-                this.world.getWorldInfo().setThunderTime(12000);
-                break;
-            case DAY_TIME:
-                this.setTimeOfDay(1000L);
-                break;
-            case NIGHT_TIME:
-                this.setTimeOfDay(13000L);
-                break;
-            default:
-                return false;
-        }
-
-        if (this.world instanceof WorldServer) {
-            ((WorldServer) this.world).spawnParticle(EnumParticleTypes.SPELL_WITCH, this.pos.getX() + 0.5D,
-                    this.pos.getY() + 1.0D, this.pos.getZ() + 0.5D, 32, 0.8D, 0.5D, 0.8D, 0.03D);
-        }
-        return true;
-    }
-
     private boolean spawnBoundSpiritEntity(RitualDefinition definition) {
         EntityBoundSpirit spirit = EntityBoundSpirit.createForTier(this.world, definition.getSpiritTier());
         EntityPlayer castingPlayer = this.findCastingPlayer();
@@ -491,20 +474,13 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         return true;
     }
 
-    private void setTimeOfDay(long timeOfDay) {
-        long current = this.world.getWorldTime();
-        long dayStart = current - current % 24000L;
-        long target = dayStart + timeOfDay;
-        if (target <= current) {
-            target += 24000L;
-        }
-        this.world.setWorldTime(target);
-    }
-
     private boolean spawnFoliotJobEntity(SpiritJobType jobType, RitualDefinition definition) {
         com.occultism.occultism.spirit.SpiritTier tier = definition != null && definition.hasSpiritTier()
                 ? definition.getSpiritTier() : com.occultism.occultism.spirit.SpiritTier.FOLIOT;
         EntityFoliotJob spirit = EntityFoliotJob.createForTier(this.world, jobType, tier);
+        if (jobType.isWorldEffectJob()) {
+            spirit.setWorldEffectCaster(this.findCastingPlayer());
+        }
         if (definition != null && definition.hasSpiritMaxAge()) {
             spirit.setSpiritMaxAge(definition.getSpiritMaxAge());
         }
@@ -751,6 +727,8 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
     }
 
     private void stopRitual(boolean dropActivationItem) {
+        RitualDefinition definition = com.occultism.occultism.ritual.RitualRegistry.getById(this.activeRitualId);
+        EntityPlayer castingPlayer = this.findCastingPlayer();
         if (dropActivationItem && !this.stack.isEmpty()) {
             net.minecraft.inventory.InventoryHelper.spawnItemStack(this.world, this.pos.getX() + 0.5D,
                     this.pos.getY() + 0.7D, this.pos.getZ() + 0.5D, this.stack.copy());
@@ -758,6 +736,9 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         this.stack = ItemStack.EMPTY;
         this.clearRitualState();
         this.markDirtyAndSync();
+        if (definition != null && castingPlayer != null) {
+            castingPlayer.sendStatusMessage(definition.createInterruptedComponent(), false);
+        }
     }
 
     private void clearRitualState() {
@@ -782,75 +763,46 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
         return stacks;
     }
 
-    private EntityLivingBase findSacrifice(net.minecraft.world.World world, net.minecraft.util.math.BlockPos center,
-            RitualDefinition definition) {
-        if (world == null || !definition.requiresSacrifice()) {
-            return null;
-        }
-        net.minecraft.util.math.AxisAlignedBB box = new net.minecraft.util.math.AxisAlignedBB(center).grow(8.0D, 4.0D,
-                8.0D);
-        java.util.List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, box,
-                entity -> definition.getSacrifice().matches(entity));
-        return entities.isEmpty() ? null : entities.get(0);
-    }
-
-    private void playSacrificeEffects(EntityLivingBase sacrifice) {
-        if (this.world instanceof WorldServer) {
-            ((WorldServer) this.world).spawnParticle(EnumParticleTypes.SPELL_WITCH, sacrifice.posX,
-                    sacrifice.posY + sacrifice.height * 0.5D, sacrifice.posZ, 24, 0.5D, 0.5D, 0.5D, 0.02D);
-            ((WorldServer) this.world).spawnParticle(EnumParticleTypes.SMOKE_LARGE, sacrifice.posX,
-                    sacrifice.posY + sacrifice.height * 0.5D, sacrifice.posZ, 8, 0.3D, 0.3D, 0.3D, 0.01D);
-        }
-        this.world.playSound(null, sacrifice.getPosition(), SoundEvents.ENTITY_WITHER_HURT, SoundCategory.HOSTILE,
-                0.6F, 1.4F);
-    }
-
     private boolean consumePendingIngredients(RitualDefinition definition) {
         int requiredConsumed = this.getRequiredConsumedIngredientCount(definition);
-        while (this.consumedAdditionalIngredients < requiredConsumed) {
+        if (this.consumedAdditionalIngredients >= requiredConsumed) {
+            return true;
+        }
+        java.util.List<TileEntitySacrificialBowl> bowls = this.getNearbySacrificialBowls(this.world, this.pos);
+        java.util.List<ItemStack> available = new java.util.ArrayList<>();
+        for (TileEntitySacrificialBowl bowl : bowls) {
+            available.add(bowl.getStack());
+        }
+        int[] assignment = definition.findIngredientAssignment(available, this.consumedAdditionalIngredients);
+        if (assignment == null) {
+            return false;
+        }
+        for (int index = 0; this.consumedAdditionalIngredients < requiredConsumed; index++) {
             RitualIngredient ingredient = definition.getAdditionalIngredients().get(this.consumedAdditionalIngredients);
-            if (!this.consumeIngredient(ingredient)) {
+            TileEntitySacrificialBowl bowl = bowls.get(assignment[index]);
+            ItemStack bowlStack = bowl.getStack();
+            if (!ingredient.matches(bowlStack)) {
                 return false;
             }
+            ingredient.consume(bowlStack);
+            bowl.setStack(bowlStack.isEmpty() ? ItemStack.EMPTY : bowlStack);
             this.consumedAdditionalIngredients++;
+            this.playIngredientConsumeEffects(bowl.getPos());
         }
         return true;
     }
 
     private int getRequiredConsumedIngredientCount(RitualDefinition definition) {
         int ingredientCount = definition.getAdditionalIngredients().size();
+        // An accelerated ritual may have fewer ticks than materials; finishing still consumes every cost.
+        if (this.ritualProgress >= this.ritualDuration) {
+            return ingredientCount;
+        }
         if (ingredientCount == 0) {
             return 0;
         }
         int interval = Math.max(1, this.ritualDuration / (ingredientCount + 1));
         return Math.min(ingredientCount, this.ritualProgress / interval);
-    }
-
-    private boolean consumeIngredient(RitualIngredient ingredient) {
-        TileEntitySacrificialBowl bowl = this.findBowlWithIngredient(ingredient);
-        if (bowl == null) {
-            return false;
-        }
-
-        ItemStack bowlStack = bowl.getStack();
-        ingredient.consume(bowlStack);
-        if (bowlStack.isEmpty()) {
-            bowl.setStack(ItemStack.EMPTY);
-        } else {
-            bowl.setStack(bowlStack);
-        }
-        this.playIngredientConsumeEffects(bowl.getPos());
-        return true;
-    }
-
-    private TileEntitySacrificialBowl findBowlWithIngredient(RitualIngredient ingredient) {
-        java.util.List<TileEntitySacrificialBowl> bowls = this.getNearbySacrificialBowls(this.world, this.pos);
-        for (TileEntitySacrificialBowl bowl : bowls) {
-            if (ingredient.matches(bowl.getStack())) {
-                return bowl;
-            }
-        }
-        return null;
     }
 
     private void playIngredientConsumeEffects(net.minecraft.util.math.BlockPos bowlPos) {
@@ -905,6 +857,9 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
                     continue;
                 }
                 net.minecraft.util.math.BlockPos checkPos = center.add(x, 0, z);
+                if (!world.isBlockLoaded(checkPos)) {
+                    continue;
+                }
                 if (world.getBlockState(checkPos).getBlock() == com.occultism.occultism.registry.ModBlocks.SACRIFICIAL_BOWL
                         && world.getTileEntity(checkPos) instanceof TileEntitySacrificialBowl) {
                     bowls.add((TileEntitySacrificialBowl) world.getTileEntity(checkPos));
@@ -947,6 +902,8 @@ public class TileEntitySacrificialBowl extends TileEntity implements ITickable {
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
+        // A pending death belongs to the execution observed before loading, not a replacement ritual.
+        this.ritualGeneration++;
         if (compound.hasKey("Item")) {
             this.stack = new ItemStack(compound.getCompoundTag("Item"));
         } else {

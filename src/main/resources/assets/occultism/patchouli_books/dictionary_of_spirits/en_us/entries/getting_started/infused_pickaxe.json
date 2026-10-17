@@ -1,0 +1,41 @@
+{
+  "name": "Infused Pickaxe",
+  "icon": "occultism:infused_pickaxe",
+  "category": "getting_started",
+  "sortnum": 22,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:infused_pickaxe",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Beyond $(item)Otherworld Log$() and $(item)Otherstone$() there are also otherworld materials that require special tools to harvest.$(br2)This pickaxe is rather brittle, but it will do the job.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:spirit_attuned_gem",
+      "anchor": "gem_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "These gems, when infused with a spirit, can be used to interact with Otherword materials and are the key to crafting the pickaxe.$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:spirit_attuned_pickaxe_head",
+      "text": "",
+      "anchor": "head_recipe"
+    },
+    {
+      "type": "text",
+      "title": "Crafting",
+      "text": "After preparing the raw materials, the pickaxe needs to be infused with a spirit.$(br2)Follow the instructions at $(l:crafting_rituals/craft_infused_pickaxe)Craft Infuse Pickaxe$(/l)$(br)",
+      "anchor": "crafting"
+    }
+  ]
+}

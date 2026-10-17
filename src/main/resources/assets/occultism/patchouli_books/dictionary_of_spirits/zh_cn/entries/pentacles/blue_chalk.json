@@ -1,0 +1,41 @@
+{
+  "name": "七海粉笔",
+  "icon": "occultism:chalk_blue",
+  "category": "pentacles",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "text",
+      "title": "魔王诱饵",
+      "text": "正如红色粉笔由火灵的灵髓制成，蓝色粉笔则提取自魔王的灵髓，借此得以掌控这些强大的魔灵。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_blue",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "蓝色粉笔的用途在于压制魔王的意志力；有时过量使用能确保任何魔王都会被控制。$(br)倘若控制失败，将引发被召唤魔王的极端愤怒。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:marid_essence",
+      "text": "",
+      "anchor": "essence"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "要获得用来制作$(item)蓝色粉笔$()的$(#AA00AA)魔王$()灵髓，你需要$(l:summoning_rituals/marid_essence)召唤并击杀一只未受缚的魔王$(/l)。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_blue",
+      "anchor": "recipe"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "稳定虫洞",
+  "icon": "occultism:stable_wormhole",
+  "category": "crafting_rituals",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:stable_wormhole",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "稳定虫洞可以从远处连接维度矩阵。$(br2)右击一个$(item)维度存储促动器$()进行连接，然后把虫洞放在世界中用作一个无线访问节点。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stable_wormhole",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stable_wormhole_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

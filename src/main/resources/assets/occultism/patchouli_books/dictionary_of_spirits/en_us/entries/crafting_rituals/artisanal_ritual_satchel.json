@@ -1,0 +1,89 @@
+{
+  "name": "Artisanal Ritual Satchel",
+  "icon": "occultism:ritual_satchel_t2",
+  "category": "crafting_rituals",
+  "sortnum": 26,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:ritual_satchel_t2",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The artisanal satchel employs an $(#AA00AA)Afrit$() to assist the summoner in drawing pentacles for their rituals. Unlike $(#AA00AA)Foliot$() in the apprentice satchel, the bound $(#AA00AA)Afrit$() can set up an entire pentacle within a moments notice.$(br2) Moreover, the $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "spirit can also clean up the pentacle after the ritual is complete, leaving no trace of the ritual behind.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_ritual_satchel_t2",
+      "anchor": "crafting"
+    },
+    {
+      "type": "text",
+      "title": "Already have ritual satchel?",
+      "text": "You can use this alternative recipe to upgrade the $(item)Apprentice Ritual Satchel$(), keeping the items inside!$(br)",
+      "anchor": "upgrade"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_upgrade_ritual_satchel",
+      "anchor": "upgrading"
+    },
+    {
+      "type": "text",
+      "title": "About",
+      "text": "A ritual satchel can hold items needed to create pentacles for rituals.$(br)An item with durability will be used until only 1 durability remains, which will stop the glint effect.$(br)Other items cannot be placed in the satchel.$()",
+      "anchor": "about"
+    },
+    {
+      "type": "text",
+      "title": "About",
+      "text": "$(br2)The satchel sets up an entire pentacle at once, if all necessary items are present in the satchel.$(br)It can also remove (intact) pentacles by $(#55FF55)Right-Clicking$() the $(item)Golden Sacrificial Bowl$() and store all blocks $()"
+    },
+    {
+      "type": "text",
+      "title": "About",
+      "text": "back in the satchel.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Usage (Drawing)",
+      "text": "1. $(#55FF55)Shift-Right-Click$() to open the satchel and place chalks, candles, crystals, skulls and other items needed for rituals.$(br)2. Using this book, use the \"eye\" icon to preview the pentacle you want to set up in the world.$(br)3. $(#55FF55)Right-Click$() $()",
+      "anchor": "usage_drawing"
+    },
+    {
+      "type": "text",
+      "title": "Usage (Drawing)",
+      "text": "with this book to anchor the preview pentacle in the spot where you want to set it up.$(br)4. $(#55FF55)Right-Click$() with the satchel on a previewed chalk mark or block to automatically place all previewed blocks, since have the materials inside.$()"
+    },
+    {
+      "type": "text",
+      "title": "Usage (Drawing)",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Usage (Cleaning)",
+      "text": "1. Find a pentacle you want to remove. The pentacle needs to be intact (ready for a ritual).$(br)2. $(#55FF55)Right-Click$() the central $(item)Golden Sacrificial Bowl$() with the satchel.$(br)2. The satchel will remove all chalk marks, and pick up all $()",
+      "anchor": "usage_cleaning"
+    },
+    {
+      "type": "text",
+      "title": "Usage (Cleaning)",
+      "text": "paraphernalia blocks, such as candles or skulls, used in the pentacle.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Chalk Brush",
+      "text": "The ritual satchel can also store your $(item)Chalk Brush$().$(br)The stored brush will be selected and used automatically when you $(#55FF55)Right-Click$() on chalk glyphs.$(br)",
+      "anchor": "brush"
+    }
+  ]
+}

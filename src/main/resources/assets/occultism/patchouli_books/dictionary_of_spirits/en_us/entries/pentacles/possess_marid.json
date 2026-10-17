@@ -1,0 +1,28 @@
+{
+  "name": "Xeovrenth Adjure",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "pentacles",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Xeovrenth Adjure",
+      "text": "$(bold)Purpose:$() $(#AA00AA)Marid$() Possession$(br2)$(bold)Xeovrenth Adjure$() is a powerful pentacle, allowing to possessing $(#AA00AA)Marid$() in extremely dangerous rituals.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:possess_marid",
+      "name": "Xeovrenth Adjure",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:familiar_rituals/iesnium_golem)Iesnium Golem$(/l)$(br)$(li)$(l:possession_rituals/possess_goat)Cruelty Essence$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

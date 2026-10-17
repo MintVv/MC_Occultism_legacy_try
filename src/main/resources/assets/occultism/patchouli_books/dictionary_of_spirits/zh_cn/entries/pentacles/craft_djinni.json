@@ -1,0 +1,44 @@
+{
+  "name": "斯特里格的高等束缚",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 17,
+  "pages": [
+    {
+      "type": "text",
+      "title": "斯特里格的高等束缚",
+      "text": "$(bold)目的$()：束缚$(#AA00AA)巨灵$()$(br2)$(bold)斯特里格的高等束缚$()能将$(#AA00AA)巨灵$()束缚于物体之中，但新手召唤师切勿轻易尝试。该仪式以骷髅头颅为支撑，蜡烛为稳定媒介，尤其适合对物品进行永久性的魔灵灌注。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:craft_djinni",
+      "name": "斯特里格的高等束缚",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:crafting_rituals/craft_infused_pickaxe)灌注镐$(/l)$(br)$(li)$(l:crafting_rituals/craft_soul_gem)灵魂宝石$(/l)$(br)$(li)$(l:crafting_rituals/craft_familiar_ring)使魔之戒$(/l)$(br)$(li)$(l:crafting_rituals/entity_wormhole)实体虫洞$(/l)$(br)$(li)$(l:crafting_rituals/dimensional_extractor)维度提取器$(/l)$(br)$(li)$(l:crafting_rituals/craft_dimensional_mineshaft)维度矿井$(/l)$(br)$(li)$(l:crafting_rituals/craft_djinni_miner)巨灵掘矿者$(/l)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:crafting_rituals/ender_satchel)末影挎包$(/l)$(br)$(li)$(l:crafting_rituals/craft_dimensional_matrix)维度矩阵$(/l)$(br)$(li)$(l:crafting_rituals/craft_storage_remote)存储访问器$(/l)$(br)$(li)$(l:crafting_rituals/craft_stabilizer_tier2)存储稳定器（2阶）$(/l)$(br)$(li)$(l:crafting_rituals/spirit_grindstone)魔灵砂轮$(/l)$(br)$(li)$(l:crafting_rituals/repair)修复粉笔$(/l)$(br)$(li)$(l:pentacles/gray_chalk)灰色糨糊$(/l)$()",
+      "anchor": "uses2"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(br)"
+    }
+  ]
+}

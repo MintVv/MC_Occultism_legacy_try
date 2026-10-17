@@ -1,0 +1,36 @@
+{
+  "name": "最基础的粉笔",
+  "icon": "occultism:chalk_white",
+  "category": "pentacles",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "title": "第一阵基",
+      "text": "这是每位神秘学研习者在修行之路上使用的第一支粉笔。因其构造简单，它只能形成脆弱的法阵基础。仅用这种粉笔绘制的五芒星阵，只能召唤最为孱弱的魔灵，那些被称为魔精的低阶存在。",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_white",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "你在几乎所有五芒星阵中见到的白色符文，都可以被其他“无色”粉笔（淡灰色、灰色或黑色）替代。"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:chalk_white_impure",
+      "text": "",
+      "anchor": "recipe_impure"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_white",
+      "anchor": "recipe"
+    }
+  ]
+}

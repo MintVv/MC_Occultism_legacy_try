@@ -391,6 +391,39 @@ public final class PentacleDetector {
         return isRequiredSymbol(symbol) && symbolMatches(world, pos, symbol, state);
     }
 
+    /**
+     * Definition-aware variant. Some pentacles overload a symbol meaning (the wild Afrit pattern
+     * uses C for candles and P for purple chalk), so callers that know which pentacle they are
+     * checking must use this overload - otherwise the checker rejects the very block the preview
+     * placed for that pentacle.
+     */
+    public static boolean matchesRequiredSymbol(World world, BlockPos pos, char symbol, IBlockState state,
+            PentacleDefinition definition) {
+        return isRequiredSymbol(symbol) && symbolMatches(world, pos, symbol, state, definition);
+    }
+
+    /** State-only guide preview; skull type is checked by the world detector using its tile entity. */
+    public static boolean matchesPreviewSymbol(PentacleDefinition definition, char symbol, IBlockState state) {
+        if ("summon_wild_afrit".equals(definition.getId())) {
+            if (symbol == 'C') {
+                return isCandleBlock(state.getBlock());
+            }
+            if (symbol == 'P') {
+                return glyphMatches('X', state.getBlock());
+            }
+        }
+        if (isGlyphSymbol(symbol)) {
+            return glyphMatches(symbol, state.getBlock());
+        }
+        if (symbol == '1') {
+            return isCandleBlock(state.getBlock());
+        }
+        if (symbol == '3') {
+            return state.getBlock() == ModBlocks.SPIRIT_ATTUNED_CRYSTAL;
+        }
+        return "24NZ".indexOf(symbol) >= 0 && state.getBlock() == Blocks.SKULL;
+    }
+
     public static List<PentacleMatch> findMatches(World world, BlockPos near) {
         List<PentacleMatch> matches = new ArrayList<>();
         for (PentacleDefinition definition : DEFINITIONS) {
@@ -408,7 +441,11 @@ public final class PentacleDetector {
         return matches;
     }
 
-    private static boolean matches(World world, BlockPos center, PentacleDefinition definition) {
+    /** Validates only the selected pattern, without loading unavailable chunks. */
+    public static boolean matches(World world, BlockPos center, PentacleDefinition definition) {
+        if (world == null || center == null || definition == null) {
+            return false;
+        }
         String[] pattern = definition.getPattern();
         for (int z = 0; z < definition.getHeight(); z++) {
             String row = pattern[z];
@@ -418,6 +455,9 @@ public final class PentacleDetector {
                     continue;
                 }
                 BlockPos checkPos = center.add(x - definition.getCenterX(), 0, z - definition.getCenterZ());
+                if (!world.isBlockLoaded(checkPos)) {
+                    return false;
+                }
                 IBlockState state = world.getBlockState(checkPos);
                 if (!symbolMatches(world, checkPos, symbol, state, definition)) {
                     return false;

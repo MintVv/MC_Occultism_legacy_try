@@ -1,0 +1,42 @@
+{
+  "name": "召唤魔精碎矿者",
+  "icon": "occultism:copper_dust",
+  "category": "summoning_rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "title": "碎矿者魔灵",
+      "text": "碎矿者是一种召唤出来的魔灵，它能够将矿石粉碎为粉末，相当于使金属产量翻倍。$(br)它们会拾取合适的物品，并将粉碎后的产物丢在世界中。$(br)火花粒子效果与碾碎音效的显现，表明碎矿者正在工作。",
+      "anchor": "about_crushers"
+    },
+    {
+      "type": "text",
+      "title": "自动化",
+      "text": "为了便于自动化，可以召唤一只$(l:summoning_rituals/summon_transport_items)搬运工魔灵$(/l)将箱子中的物品送入碎矿者的物品栏，$(br)再召唤一只$(l:summoning_rituals/summon_cleaner)清洁工魔灵$(/l)收集处理好的物品。$(br)",
+      "anchor": "automation"
+    },
+    {
+      "type": "text",
+      "title": "魔精碎矿者",
+      "text": "魔精碎矿者是最基础的碎矿者魔灵。$(br2) $(br)它可以把$(bold)一个$()矿物粉碎成$(bold)两个$()对应的粉。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_crusher",
+      "anchor": "ritual"
+    }
+  ]
+}

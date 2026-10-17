@@ -1,0 +1,30 @@
+{
+  "name": "被附身的末影人",
+  "icon": "minecraft:ender_pearl",
+  "category": "possession_rituals",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_enderman",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：1-3x$(item)ender pearl$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_enderman",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)末影人$()利用$(#ad03fc)猪$()的生命能量生成，然后立刻被召唤出的$(#ad03fc)巨灵$()附身。$(#ad03fc)被附身的末影人$()被击杀后至少会掉落一个$(item)ender pearl$()。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

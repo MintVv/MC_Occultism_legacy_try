@@ -1,0 +1,24 @@
+{
+  "name": "灌注镐",
+  "icon": "occultism:infused_pickaxe",
+  "category": "crafting_rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:infused_pickaxe",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "一般来说，异界矿石只能被异界金属工具挖掘。$(br)$(item)灌注镐$()是这个鸡生蛋蛋生鸡问题的一个临时解决方案：$(br)易碎的魔灵同调宝石里寄宿一只$(#AA00AA)巨灵$()，允许镐子挖掘此类矿石，但耐久度非常低。$(br)更耐用的替代品是$(l:getting_started/iesnium_pickaxe)艾瑟金属镐$(/l)。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_infused_pickaxe",
+      "anchor": "ritual"
+    }
+  ]
+}

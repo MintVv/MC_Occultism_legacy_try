@@ -1,0 +1,29 @@
+{
+  "name": "4阶存储稳定器",
+  "icon": "occultism:storage_stabilizer_tier4",
+  "category": "crafting_rituals",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_stabilizer_tier4",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这个高度先进的存储稳定器内寄居着一只$(#AA00AA)魔王$()，它通过维系维度矩阵$(br)来保持存储维度的稳定性，从而实现更大容量的物品存储。$(br2)默认情况下，每个4级稳定器可增加$(bold)512$()种物品种类和4098000个物品存储容量。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier4",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier4_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Abras' Open Conjure",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Abras' Open Conjure",
+      "text": "$(bold)Purpose:$() Summon an unbound $(#ad03fc)Afrit$()$(br2)$(bold)Abras' Open Conjure$() is a simplified version of $(#ad03fc)Abras' Conjure$(), allowing to summon $(#ad03fc)Afrit$() without red chalk. Due to the much reduced power of the pentacle, it cannot be used to control $(#ad03fc)Afrit$(), and it $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Abras' Open Conjure",
+      "text": "thus can only be used to fight and kill $(#ad03fc)Afrit$().$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_wild_afrit",
+      "name": "Abras' Open Conjure",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:summoning_rituals/afrit_essence)Afrit Essence$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

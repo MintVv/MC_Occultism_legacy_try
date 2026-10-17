@@ -1,0 +1,38 @@
+{
+  "name": "Ophyx' Calling",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ophyx Calling",
+      "text": "$(bold)Purpose:$() Summon a $(#AA00AA)Djinni$()$(br2)Developed by $(#FF55FF)Ophyx$() during the Third Era, the $(#FF55FF)Calling$() is the go-to pentacle for $(#AA00AA)Djinni$() summonings ever since.$(br) Skeleton skulls ($(l:possession_rituals/possess_skeleton)Obtain here$(/l))$(br) and $(#AA00AA)Lime Chalk$() provide the $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Ophyx Calling",
+      "text": "calling power required to force Djinni into appearance and candles stabilize the ritual.$(br2)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_djinni",
+      "name": "Ophyx' Calling",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:summoning_rituals/summon_crusher_t2)Djinni Crusher$(/l)$(br)$(li)$(l:summoning_rituals/summon_smelter_t2)Djinni Smelter$(/l)$(br)$(li)$(l:summoning_rituals/summon_crystallizer_t2)Djinni Crystallizer$(/l)$(br)$(li)Djinni Machine Operator$(br)$(li)Gem Gambler$(br)$(li)$(l:summoning_rituals/summon_wondering)Wondering Trader$(/l)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(br)$(li)Clear Weather$(br)$(li)$(l:summoning_rituals/time_magic)Time Magic$(/l)$(br)$(li)$(l:familiar_rituals/demonic_partner)Demonic Partner$(/l)$(br)"
+    }
+  ]
+}

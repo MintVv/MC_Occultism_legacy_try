@@ -1,0 +1,35 @@
+{
+  "name": "Possessed Weak Shulker",
+  "icon": "minecraft:chorus_fruit",
+  "category": "possession_rituals",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_weak_shulker",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): 1-3x $(item)chorus fruit$()$(br)and as 10%% to drop a $(item)shulker shell$();$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_weak_shulker",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual a $(#ad03fc)Shulker$() is spawned using the life energy of a $(#ad03fc)Cube Mob$() and immediately possessed by the summoned $(#ad03fc)Djinni$(). The $(#ad03fc)Possessed Weak Shulker$() will always drop at least one $(item)chorus fruit$() when killed and has a chance to drop $(item)shulker shell$(). $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Minecraft 1.12 does not include the modern projectile-based Shulker multiplication mechanic.$(br)"
+    }
+  ]
+}

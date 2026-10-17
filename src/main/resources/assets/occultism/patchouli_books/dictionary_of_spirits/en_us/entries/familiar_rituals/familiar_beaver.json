@@ -1,0 +1,30 @@
+{
+  "name": "Beaver Familiar",
+  "icon": "occultism:textures/gui/book/familiar_beaver.png",
+  "category": "familiar_rituals",
+  "sortnum": 26,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:beaver_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Increased wood break speed$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_beaver",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The Beaver familiar chops down nearby trees when a sapling grows into one. It can only handle small trees.$(br)$(bold)Upgrade Behaviour$()$(br)Upgraded by a blacksmith familiar, it gives free snacks when right-clicked with an empty hand.",
+      "anchor": "description"
+    }
+  ]
+}

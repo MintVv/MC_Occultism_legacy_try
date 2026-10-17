@@ -1,0 +1,28 @@
+{
+  "name": "Uphyxes Inverted Tower",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Uphyxes Inverted Tower",
+      "text": "$(bold)Purpose:$() Bind $(#AA00AA)Marid$()$(br2)$(bold)Uphyxes Inverted Tower$() is one of the few pentacles capable of binding $(#AA00AA)Marid$() into objects.$(br) Any rituals involving $(#AA00AA)Marid$() should be performed only by the most experienced summoners.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:craft_marid",
+      "name": "Uphyxes Inverted Tower",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:crafting_rituals/craft_stabilizer_tier4)Storage Stabilizer Tier 4$(/l)$(br)$(li)$(l:crafting_rituals/craft_marid_miner)Marid Master Miner$(/l)$(br)$(li)$(l:crafting_rituals/craft_iesnium_anvil)Iesnium Anvil$(/l)$(br)$(li)$(l:crafting_rituals/true_sight_staff)True Sight Staff$(/l)$(br)$(li)$(l:pentacles/magenta_chalk)Dragonyst Dust$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

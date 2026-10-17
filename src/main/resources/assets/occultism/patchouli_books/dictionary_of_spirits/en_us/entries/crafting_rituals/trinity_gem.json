@@ -1,0 +1,29 @@
+{
+  "name": "Trinity Gem",
+  "icon": "occultism:trinity_gem",
+  "category": "crafting_rituals",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:trinity_gem",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Forging the $(item)Trinity Gem$() is a service provided by an $(#AA00AA)Eldritch Spirit$().$(br)This gem is upgraded version of $(item)Soul Gem$() created with$(br)3 distinct essences, 3 powerful dusts and 3 iesnium dusts.$(br)The trinity gem has an empty entity blacklist (by $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "default).$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_trinity_gem",
+      "anchor": "ritual"
+    }
+  ]
+}

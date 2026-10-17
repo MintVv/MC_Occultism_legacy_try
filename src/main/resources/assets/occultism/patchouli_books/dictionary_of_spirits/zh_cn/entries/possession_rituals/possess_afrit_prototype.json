@@ -1,0 +1,19 @@
+{
+  "name": "附身火灵（原型）",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "possession_rituals",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_afrit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "本仪式在上游没有对应物，属本地新增的桥接仪式，用于让$(#ad03fc)波苏克的召唤$()法阵保持可达且可用。完成后产出 4 个$(item)艾瑟金属粒$()，而不是附身效果。",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "name": "实体虫洞",
+  "icon": "occultism:entity_wormhole",
+  "category": "crafting_rituals",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:entity_wormhole",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(item)实体虫洞$()是一种由$(#AA00AA)巨灵$()维系的神秘传送装置，$(br)能实现生物的远距离瞬间传送。完成同调后，$(br)其会形成一道可供生物通行的稳定裂隙，将遥远的两点连接得宛若比邻。$(br)巨灵不仅确保虫洞持续开启，$(br)更维持着空间坐标的精准对接，使其成为一种尽管充满神秘色彩却值得信赖的传送方式。$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br2)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_entity_wormhole",
+      "anchor": "ritual"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:entity_wormhole_dark",
+      "text": "",
+      "anchor": "spotlight_dark"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "也可选择对应的$(item)异界岩$()版本。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_entity_wormhole_dark",
+      "anchor": "ritual_dark"
+    },
+    {
+      "type": "text",
+      "title": "设置目的地",
+      "text": "要设置目的地，你需要一个指南针。右击放置，Shift右击将其移除。$(br)+ 一个标准的指南针可将你传送到世界出生点；$(br)+ 一个链接到磁石的指南针可将你传送到磁石上。（将指南针放置到虫洞内之后，便可破坏磁石）；$(br)",
+      "anchor": "destination"
+    },
+    {
+      "type": "text",
+      "title": "其他指南针",
+      "text": "+ 重命名为“$(#AA00AA)HOME$()”的指南针可传送到个人出生点； $(br)+ 重命名为“$(#AA00AA)RTP$()\"的指南针可进行随机传送；$(br2)此外，你还可以使用这些特殊指南针：$(br)+ $(item)recovery compass$()可传送到上一次的死亡地点，仅对玩家生效；$(br)+ $(item)生命指南针$()可传送到链接生物所在位置，该生物需处于已加载区块中；$()",
+      "anchor": "extra_uses"
+    },
+    {
+      "type": "text",
+      "title": "其他指南针",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "出口视角方向",
+      "text": "使用$(item)魔灵同调宝石$()可定义传送后的视角角度。$(br)艾瑟金属粒会像指南针指针一样指向设定的方向。$(br)",
+      "anchor": "exit_yaw"
+    },
+    {
+      "type": "text",
+      "title": "出口视角倾角",
+      "text": "当副手持有特定宝石时，即可调整视野的俯仰角度。$(br)传送门中央的六芒星标识代表当前设置：$(br)+ 绿宝石 -> 向前方$(br)+ 铁 -> 向下倾斜$(br)+ 红石 -> 垂直向下$(br)+ 钻石 -> 向上倾斜$(br)+ 金 -> 垂直向上$(br)",
+      "anchor": "exit_pitch"
+    },
+    {
+      "type": "spotlight",
+      "item": "minecraft:fishing_rod",
+      "text": "",
+      "anchor": "fishing"
+    },
+    {
+      "type": "text",
+      "title": "给我过来！",
+      "text": "如果虫洞中存有$(l:crafting_rituals/vitality_compass)生命指南针$(/l)，你可以使用钓鱼竿将其所链接的实体拉入传送门，需先让鱼钩停留在虫洞中再收竿。$(br)"
+    }
+  ]
+}

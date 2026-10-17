@@ -1,0 +1,30 @@
+{
+  "name": "召唤魔王熔炼者",
+  "icon": "occultism:iesnium_ingot",
+  "category": "summoning_rituals",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "text",
+      "title": "魔王熔炼者",
+      "text": "魔王熔炼者极快无比，只需百分之一时间便可完成处理。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_marid_smelter",
+      "anchor": "ritual"
+    }
+  ]
+}

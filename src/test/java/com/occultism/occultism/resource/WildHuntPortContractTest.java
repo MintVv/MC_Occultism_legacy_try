@@ -321,8 +321,8 @@ class WildHuntPortContractTest {
                 pages += entryElement.getAsJsonObject().getAsJsonArray("pages").size();
             }
         }
-        assertEquals(203, entries);
-        assertEquals(717, pages);
+        assertEquals(232, entries);
+        assertEquals(788, pages);
         String dictionaryJson = dictionary.toString();
         assertTrue(dictionaryJson.contains("occultism:ritual/summon_wild_hunt"));
 

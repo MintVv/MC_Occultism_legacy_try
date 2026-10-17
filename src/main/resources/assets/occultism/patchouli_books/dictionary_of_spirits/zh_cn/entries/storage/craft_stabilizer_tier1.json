@@ -1,0 +1,29 @@
+{
+  "name": "1阶存储稳定器",
+  "icon": "occultism:storage_stabilizer_tier1",
+  "category": "storage",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_stabilizer_tier1",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这个简易存储稳定器内寄居着一只$(#AA00AA)魔精$()，它通过维系维度矩阵$(br)来保持存储维度的稳定性，从而实现更大容量的物品存储。$(br2)默认情况下，每个1级稳定器可增加$(bold)64$()种物品种类和512000个物品存储容量。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier1",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier1_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

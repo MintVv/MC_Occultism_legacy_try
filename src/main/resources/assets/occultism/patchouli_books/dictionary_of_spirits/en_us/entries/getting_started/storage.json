@@ -1,0 +1,14 @@
+{
+  "name": "Magic Storage",
+  "icon": "occultism:storage_controller",
+  "category": "getting_started",
+  "sortnum": 35,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Magic Storage",
+      "text": "Looking for much much much more storage? Look no further!",
+      "anchor": "storage/description"
+    }
+  ]
+}

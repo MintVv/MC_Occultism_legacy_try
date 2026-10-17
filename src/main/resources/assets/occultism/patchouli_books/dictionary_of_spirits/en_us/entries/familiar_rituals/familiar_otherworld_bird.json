@@ -1,0 +1,35 @@
+{
+  "name": "Drikwing Familiar",
+  "icon": "occultism:textures/gui/book/otherworld_bird.png",
+  "category": "familiar_rituals",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:otherworld_bird",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Multi-Jump$(), $(#ad03fc)Jump Boost$(), $(#ad03fc)Slow Falling$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_otherworld_bird",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(#ad03fc)Drikwings$() are a subclass of $(#ad03fc)Djinni$() known to be amicable towards humans. They usually take the shape of a dark blue and purple parrot. Drikwings grant their owner limited flight abilities when nearby.$(br)$(bold)Upgrade Behaviour$()$(br)Cannot be $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "upgraded by the blacksmith familiar."
+    }
+  ]
+}

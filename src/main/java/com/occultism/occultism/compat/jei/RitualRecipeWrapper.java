@@ -287,7 +287,7 @@ public class RitualRecipeWrapper implements IRecipeWrapper {
             return I18n.format("jei.occultism.ritual.job.trader");
         }
         if (this.ritual.requiresSacrifice()) {
-            return I18n.format("jei.occultism.ritual.sacrifice", this.ritual.getSacrifice().getDisplayName());
+            return I18n.format("jei.occultism.ritual.sacrifice", I18n.format(this.ritual.getSacrifice().getDisplayName()));
         }
         return I18n.format("jei.occultism.ritual.duration_line",
                 Math.max(1, this.ritual.getDurationTicks() / 20));

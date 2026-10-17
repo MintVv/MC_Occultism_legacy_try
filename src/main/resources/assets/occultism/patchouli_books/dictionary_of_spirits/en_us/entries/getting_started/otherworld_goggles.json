@@ -1,0 +1,25 @@
+{
+  "name": "Otherworld Goggles",
+  "icon": "occultism:otherworld_goggles",
+  "category": "getting_started",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:otherworld_goggles",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(item)Otherworld Goggles$() are what advanced summoners use to see the $(#ad03fc)Otherworld$(), to avoid the negative side effects of $(l:getting_started/demons_dream)demons_dream$(/l).$(br2)Making your first pair of these is seen by many as a rite of passage.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Crafting Goggles",
+      "text": "Crafting these goggles is a multi-step process described in detail in the Entry about $(l:crafting_rituals/craft_otherworld_goggles)Crafting Otherworld Goggles$(/l).$(br)",
+      "anchor": "crafting"
+    }
+  ]
+}

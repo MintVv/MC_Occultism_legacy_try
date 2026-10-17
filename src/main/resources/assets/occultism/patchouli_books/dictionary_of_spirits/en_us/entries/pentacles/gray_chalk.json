@@ -1,0 +1,57 @@
+{
+  "name": "Improved Foundation Chalk",
+  "icon": "occultism:chalk_gray",
+  "category": "pentacles",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Getting Power",
+      "text": "The gray chalk is made with one of the magical pastes, making it an intermediate-level$(br) foundation chalk. Its magical properties can react in curious ways with the world around it.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_gray",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "As an enhanced foundation chalk, it further strengthens the core of the pentacle and$(br) (almost always) can replace white glyphs or light gray glyphs.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_gray_paste",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Gray Paste",
+      "text": "This strange amorphous paste is mainly used to improve the foundation of your pentacles.$(br) But its secondary use can be very useful, some dusts react with portion of this matter$(br) and return to their original shape as before being crushed.$()",
+      "anchor": "paste"
+    },
+    {
+      "type": "text",
+      "title": "Gray Paste",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Growing ores",
+      "text": "The property of interacting with dusts can be combined with the powers of the $(item)Nature Paste$(),$(br) holding the $(item)Gray Paste$() in the off-hand will allow you to interact with$(br) some minerals, making them grow and extracting extra resources from $()",
+      "anchor": "ore_dupe"
+    },
+    {
+      "type": "text",
+      "title": "Growing ores",
+      "text": "them.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_gray",
+      "anchor": "recipe"
+    }
+  ]
+}

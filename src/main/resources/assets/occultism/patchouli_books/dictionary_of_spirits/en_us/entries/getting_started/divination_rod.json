@@ -1,0 +1,166 @@
+{
+  "name": "Divination Rod",
+  "icon": "occultism:divination_rod",
+  "category": "getting_started",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Divination",
+      "text": "To make it easier to get started, the materials obtained by divination now also have crafting recipes.$(br)$(bold)If you want the full experience, skip the following recipe page and move on to the$(br)divination instructions.$()$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherstone",
+      "anchor": "otherstone_recipe"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:divination_rod",
+      "text": "",
+      "anchor": "divination_rod"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Otherworld materials play an important role in interacting with spirits.$(br)As they are rare and not visible to the naked eye, finding them requires special tools.$(br)The divination rod allows to find Otherworld materials based on their $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "similarities to materials common to our world.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:spirit_attuned_gem",
+      "anchor": "spirit_attuned_gem_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:divination_rod",
+      "text": "",
+      "anchor": "divination_rod_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The divination rod uses a spirit attuned gem attached to a wooden rod.$(br)The gem resonates with the chosen material, and this movement is amplified by the wooden rod,$(br)allowing to detect nearby Otherworld materials.    $()",
+      "anchor": "about_divination_rod"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br2)    $(br)The rod works by detecting resonance between real world and Otherworld materials.$(br)Attuned the rod to a real world material, and it will find the corresponding Otherworld block.$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Use of the Rod",
+      "text": "$(#ad03fc)Shift-right-click$() a block to attune the rod to the corresponding Otherworld block.$(br)$(li)$(item)andesite$(): $(item)Otherstone$()$(br)$(li)$(item)oak wood$():  $(item)Otherworld Log$()$(br)$(li)$(item)leaves$(): $(item)Otherworld Leaves$()$()",
+      "anchor": "how_to_use"
+    },
+    {
+      "type": "text",
+      "title": "Use of the Rod",
+      "text": "$(br)$(li)$(item)netherrack$(): $(item)Iesnium Ore$()$(br2)Then $(#ad03fc)right-click$() and hold until the rod animation finishes."
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "After the animation finishes, a particle will fly toward the closest found block.$(br)Additionally you can watch the crystals for hints: a white crystal indicates no target blocks found,$(br)a fully purple block means the found block is $()",
+      "anchor": "how_to_use2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "nearby. Mixes between white and purple show$(br)that the target is rather far away."
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(#ad03fc)Right-clicking$() without holding after a successful search will send another particle toward the last found target block.$(br2)If you prefer the old target highlight, open occultism-client.toml and set $()",
+      "anchor": "how_to_use3"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "useAlternativeDivinationRodRenderer = true.$(br)"
+    },
+    {
+      "type": "image",
+      "images": [
+        "occultism:textures/gui/book/rod_far.png",
+        "occultism:textures/gui/book/rod_mid.png",
+        "occultism:textures/gui/book/rod_near.png"
+      ],
+      "border": true,
+      "anchor": "divination_rod_screenshots"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "White means nothing was found.$(br)The more purple you see, the closer you are.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Troubleshooting",
+      "text": "If the rod does not create visible particles for you, you can try to:$(br)$(li)Set particles to all or decreased in the video settings$(br)$(li)Open occultism-client.toml in your instance's /config folder and set $()",
+      "anchor": "troubleshooting"
+    },
+    {
+      "type": "text",
+      "title": "Troubleshooting",
+      "text": "useAlternativeDivinationRodRenderer = true to switch back to Occultism's old block outline renderer$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Otherworld Groves",
+      "text": "Otherworld Groves are lush, overgrown caves, with $(#ad03fc)Otherworld Trees$(),$(br)and walls of $(item)Otherstone$(), and represent the fastest way to get everything one$(br)needs to get set up as a summoner.$(br)To find them, attune your divination rod to $()",
+      "anchor": "otherworld_groves"
+    },
+    {
+      "type": "text",
+      "title": "Otherworld Groves",
+      "text": "Otherworld leaves$(br)or logs, as unlike Otherstone, they only spawn in these groves.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Hint:$() In the Overworld, look $(bold)down$().$(br)",
+      "anchor": "otherworld_groves_2"
+    },
+    {
+      "type": "text",
+      "title": "Otherworld Trees",
+      "text": "Otherworld trees grow naturally in Otherworld Groves. To the naked eye they appear as oak trees,$(br)but to the Third Eye they reveal their true nature.    $(br)$(bold)Important:$() Otherworld Saplings can only be obtained by breaking the $()",
+      "anchor": "otherworld_trees"
+    },
+    {
+      "type": "text",
+      "title": "Otherworld Trees",
+      "text": "leaves manually, naturally only oak saplings drop.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Trees grown from Stable Otherworld Saplings as obtained from spirit traders do not have that limitation.$(br)",
+      "anchor": "otherworld_trees_2"
+    },
+    {
+      "type": "text",
+      "title": "Extra Config",
+      "text": "An additional function of the Divination Rod is to locate any ore,$(br) however this is not a default function and needs to be enabled,$(br) as we recommend using the Greedy familiar or Theurgy mod for this type of divination.$(br) If you want to $()",
+      "anchor": "config"
+    },
+    {
+      "type": "text",
+      "title": "Extra Config",
+      "text": "enable this feature directly in Occultism Divination Rod, check$(br) \"Server Configuration > Items\" and set \"Divination c:ores\" to \"on\".$(br)"
+    }
+  ]
+}

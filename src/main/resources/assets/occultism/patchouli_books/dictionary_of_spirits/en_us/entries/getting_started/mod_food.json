@@ -1,0 +1,52 @@
+{
+  "name": "Mod Food",
+  "icon": "occultism:cursed_honey",
+  "category": "getting_started",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:cursed_honey",
+      "text": "",
+      "anchor": "spotlight_cursed_honey"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Cursed honey is dropped by Possessed Bees. Eating it grants instant health and absorption effects.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:beaver_nugget",
+      "text": "",
+      "anchor": "spotlight_beaver_nugget"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Beaver Nuggets are filling snacks dispensed by an upgraded Beaver Familiar. Eating one restores 8 hunger points and has no additional effects.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:sweet_honey_heart",
+      "text": "",
+      "anchor": "spotlight_sweet_honey_heart"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Sweet honey heart is crafted from cursed honey and other ingredients. Provides strong healing effects.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:demonic_meat",
+      "text": "",
+      "anchor": "spotlight_demonic_meat"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Demonic meat is dropped by Possessed Zombified Piglins. Eating it grants strength and fire resistance.$(br)"
+    }
+  ]
+}

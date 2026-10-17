@@ -1,0 +1,20 @@
+{
+  "name": "召唤仪式",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "getting_started",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "text",
+      "title": "召唤仪式",
+      "text": "召唤仪式可以召唤为你工作的魔灵。与使魔不同，它们并不属于你，也就是说它们并不会跟随你，但是依然会执行种类繁多的任务。事实上你启动的第一个仪式，也即$(l:getting_started/first_ritual)魔精碎矿者$(/l)，就是一个召唤仪式。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "更多信息",
+      "text": "更多召唤仪式详见$(thing)召唤仪式$()章节。$(br)",
+      "anchor": "more"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "name": "Dimensional Battlefield",
+  "icon": "occultism:dimensional_battlefield",
+  "category": "crafting_rituals",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:dimensional_battlefield",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The dimensional battlefield houses an $(#AA00AA)Afrit$() that opens a stable gateway$(br)  to a combat arena, perfectly suited for epic battles. Although the$(br)  portal is too small to transport humans, the afrit is able to pass$(br)  through it, carrying a few items $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "to farm mob drops within the dimension.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dimensional_battlefield",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Using",
+      "text": "To activate the Dimensional Battlefield, you must supply:$(br)  + A mob captured with $(item)Soul Gem$() (or one of its variants).$(br)  + A weapon for the afrit to wield in combat.$(br)  + A source of spiritual fuel, such as $(item)Demon's $()",
+      "anchor": "use"
+    },
+    {
+      "type": "text",
+      "title": "Using",
+      "text": "Dream Fruit$()$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Capture methods",
+      "text": "$(item)Soul Gem$() is the default and produces basic drops when simulating possessed mobs.$(br)  Using a $(item)Fragile Soul Gem$() comes with a chance of failure.$(br)  Finally, use the $(item)Trinity Gem$() improves efficiency, allowing the farming of$()",
+      "anchor": "gem"
+    },
+    {
+      "type": "text",
+      "title": "Capture methods",
+      "text": "$(br)  possessed mobs and bosses, and triples the loot from other mobs.$(br)  The $(item)Shattered Soul Shard$() doesn't need spiritual fuel, but can be consumed after the process.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Spiritual Fuel",
+      "text": "Spiritual fuel is used to clone the captured mob,$(br)  allowing it to be defeated in order to obtain its loot.$(br)  Some resources can be used: $(item)Demon's Dream Seeds$(), $(item)Demon's Dream Fruit$(), $(item)Demon's Dream Essence$(), $(item)Otherworld Essence$().$()",
+      "anchor": "fuel"
+    },
+    {
+      "type": "text",
+      "title": "Spiritual Fuel",
+      "text": "$(br2)  The higher the quality of the resource, the greater its value.$(br)  A total value equal to the mob’s health is required to initiate the battle.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Operation",
+      "text": "The dimensional battlefield will discard any items it cannot store, so it is important$(br)  to regularly empty the output, either manually, with hoppers or using a transporter spirit.$(br)  Interactions per side:$(br)  + Top -> input $()",
+      "anchor": "capabilities"
+    },
+    {
+      "type": "text",
+      "title": "Operation",
+      "text": "slots (gem, weapon, fuel);$(br)  + Bottom -> loot slots;$(br)  + Other -> all slots;$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Redstone",
+      "text": "The dimensional battlefield has two interactions with redstone:$(br)  1. The spirit will stop working when receives a redstone signal;$(br)  2. A comparator can be used to extract a signal based on occupied slots and weapon durability.$()",
+      "anchor": "redstone"
+    },
+    {
+      "type": "text",
+      "title": "Redstone",
+      "text": "$(br)  Tip, if the comparator sends a power of 15, it is better to stop the operations.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Enchantments",
+      "text": "As you know, weapons can be enchanted. Applying looting increases the amount of drops obtained.$(br2)  Sharpness speeds up the process, though not as effectively as Smite, Bane of$(br)  Arthropods, or Impaling when the $()",
+      "anchor": "enchantment"
+    },
+    {
+      "type": "text",
+      "title": "Enchantments",
+      "text": "mob is vulnerable to those enchantments.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Durability",
+      "text": "The $(bold)Unbreaking$() and $(bold)Mending$() enchantments function as vanilla.$(br2) With other methods (mods) you can make the weapon unusable ($(bold)unusing$())$(br) when it's close to breaking, or even truly unbreakable ($(bold)eternal$()).$(br)",
+      "anchor": "enchantment2"
+    }
+  ]
+}

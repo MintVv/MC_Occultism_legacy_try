@@ -1,0 +1,136 @@
+{
+  "name": "探测杖",
+  "icon": "occultism:divination_rod",
+  "category": "getting_started",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "探测",
+      "text": "为了让开局更加容易，通过探测得到的材料现在也有合成配方了。$(br)$(bold)如果你想要完整体验，请跳过接下来的几页配方，直接阅读$(br)探测步骤。$()$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherstone",
+      "anchor": "otherstone_recipe"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:divination_rod",
+      "text": "",
+      "anchor": "divination_rod"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "异界材料在与魔灵互动的方面发挥着重要的作用。$(br)由于它们十分罕见，而且肉眼不可见，想找到它们就要依靠特殊工具。$(br)探测杖可以根据异界材料与我们的世界的材料的相似处找到异界材料。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:spirit_attuned_gem",
+      "anchor": "spirit_attuned_gem_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:divination_rod",
+      "text": "",
+      "anchor": "divination_rod_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "把一个灵魂同调宝石安装到木棍上，就成了探测杖。$(br)宝石与选中的物质产生共鸣，这一行动被木棍强化，便可以探测周围的异界材料。$(br2)探测杖的原理是感测现世界和异界材料的共鸣。$(br)将探测杖与现世界材料同调，就能找到对应的异界方块。$(br)",
+      "anchor": "about_divination_rod"
+    },
+    {
+      "type": "text",
+      "title": "使用探测杖",
+      "text": "$(#ad03fc)Shift右击$()一个方块来让探测杖同调到对应的异界方块。$(br)$(li)$(item)andesite$()：$(item)异界石$()$(br)$(li)$(item)oak wood$()：$(item)异界原木$()$(br)$(li)$(item)leaves$()：$(item)异界树叶$()$(br)$(li)$(item)netherrack$()：$(item)艾瑟金属矿石$()$(br2)然后长按$(#ad03fc)右击$()直到探测杖$()",
+      "anchor": "how_to_use"
+    },
+    {
+      "type": "text",
+      "title": "使用探测杖",
+      "text": "动画播放完。"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "After the animation finishes, a particle will fly toward the closest found block.$(br)Additionally you can watch the crystals for hints: a white crystal indicates no target blocks found,$(br)a fully purple block means the found block is $()",
+      "anchor": "how_to_use2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "nearby. Mixes between white and purple show$(br)that the target is rather far away."
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(#ad03fc)Right-clicking$() without holding after a successful search will send another particle toward the last found target block.$(br2)If you prefer the old target highlight, open occultism-client.toml and set $()",
+      "anchor": "how_to_use3"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "useAlternativeDivinationRodRenderer = true.$(br)"
+    },
+    {
+      "type": "image",
+      "images": [
+        "occultism:textures/gui/book/rod_far.png",
+        "occultism:textures/gui/book/rod_mid.png",
+        "occultism:textures/gui/book/rod_near.png"
+      ],
+      "border": true,
+      "anchor": "divination_rod_screenshots"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "白色就是什么都没找到。$(br)紫色的部分越多，你就离得越近。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "排障",
+      "text": "If the rod does not create visible particles for you, you can try to:$(br)$(li)Set particles to all or decreased in the video settings$(br)$(li)Open occultism-client.toml in your instance's /config folder and set $()",
+      "anchor": "troubleshooting"
+    },
+    {
+      "type": "text",
+      "title": "排障",
+      "text": "useAlternativeDivinationRodRenderer = true to switch back to Occultism's old block outline renderer$(br)"
+    },
+    {
+      "type": "text",
+      "title": "异界树丛",
+      "text": "异界树丛是一种生长过度的繁茂的洞穴，有$(#ad03fc)异界树$()和$(item)异界石$()墙壁，是获取成为召唤师所需的所有入门物品的最快途径。$(br)若要找到异界树丛，将你的探测杖同调到异界树叶或者原木。与异界石不同，这些方块只在异界树丛中生成。$(br)",
+      "anchor": "otherworld_groves"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提示$()：在主世界，往$(bold)下$()看。$(br)",
+      "anchor": "otherworld_groves_2"
+    },
+    {
+      "type": "text",
+      "title": "异界树",
+      "text": "异界树在异界树丛中自然生成。对于肉眼来说，它们就好像普通橡树，但在第三只眼中，它们的本质便被展露无遗。$(br)$(bold)重要$()：异界树苗只能通过手动破坏树叶获得，自然腐烂只会掉落橡树树苗。$(br)",
+      "anchor": "otherworld_trees"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "稳定的异界树苗长成的异界树以及从交易者魔灵交易来的异界树没有这种限制。$(br)",
+      "anchor": "otherworld_trees_2"
+    },
+    {
+      "type": "text",
+      "title": "额外设置",
+      "text": "探测杖的另一项功能是定位任意矿石，但此功能默认禁用，需手动启用。我们建议使用贪婪使魔或神通术模组进行此类探测。若需直接在神秘学探测杖中启用该功能，请前往“服务端设置 > 物品”菜单，将“探测c:ores选项”选项设置为“开”。$(br)",
+      "anchor": "config"
+    }
+  ]
+}

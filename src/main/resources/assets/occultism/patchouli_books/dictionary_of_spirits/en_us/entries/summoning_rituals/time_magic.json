@@ -1,0 +1,29 @@
+{
+  "name": "Time Magic",
+  "icon": "minecraft:clock",
+  "category": "summoning_rituals",
+  "sortnum": 27,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Time Magic",
+      "text": "Summon a Djinni to gradually advance time to the next dawn or dusk over $(bold)5 seconds$(). The spirit changes time once, then vanishes.$(br2)Casting progress survives saving and magic-lamp transport. The target time is fixed when $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Time Magic",
+      "text": "casting begins. The server can disable either effect."
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_day_time",
+      "anchor": "ritual_day"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_night_time",
+      "anchor": "ritual_night"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Storage Stabilizer Tier 4",
+  "icon": "occultism:storage_stabilizer_tier4",
+  "category": "crafting_rituals",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_stabilizer_tier4",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This highly advanced storage stabilizer is inhabited by a $(#AA00AA)Marid$() that supports the dimensional matrix$(br) in keeping the storage dimension stable, thus allowing to store more items.$(br2)By default each Tier 4 Stabilizer $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "adds $(bold)512$() item types and 4098000 items storage capacity.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier4",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier4_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

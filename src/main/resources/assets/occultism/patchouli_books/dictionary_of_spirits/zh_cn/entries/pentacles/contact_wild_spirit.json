@@ -1,0 +1,22 @@
+{
+  "name": "奥索林的无缚呼唤",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "text",
+      "title": "奥索林的无缚呼唤",
+      "text": "$(bold)目的$()：接触$(#AA00AA)荒野魔灵$()$(br2)$(bold)奥索林的无缚呼唤$()具有独特的形式，融合了每种粉笔的不同特质，且不含任何常见的稳定用仪式器具。因此，这道五芒星阵无法为神秘学者提供保护，而是成为$(#AA00AA)荒野魔灵$()难以抗拒的接触媒介。$(br2)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:contact_wild_spirit",
+      "name": "奥索林的无缚呼唤",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    }
+  ]
+}

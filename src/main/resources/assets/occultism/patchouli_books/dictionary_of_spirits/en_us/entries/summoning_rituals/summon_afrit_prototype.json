@@ -1,0 +1,19 @@
+{
+  "name": "Summon Afrit Prototype",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 35,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_afrit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Summons a bound Afrit using the $(#ad03fc)Abras' Conjure$() pentacle. It has no upstream counterpart; it exists so the pentacle stays usable.",
+      "anchor": "description"
+    }
+  ]
+}

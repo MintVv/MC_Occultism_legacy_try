@@ -1,5 +1,6 @@
 package com.occultism.occultism.ritual;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -85,6 +86,55 @@ class RitualDataContractTest {
             assertNotNull(SpiritTier.fromId(tierId),
                     "Unknown spirit_tier " + tierId + " in ritual " + ritualId);
         }
+    }
+
+    /**
+     * Upstream tags are snake_case while the mod's own ore dictionary entries are
+     * PascalCase. When the conversion missed that, "dusts/end_stone" became
+     * "dustEnd_stone" while ModOreDictionary registers "dustEndStone", so the
+     * ingredient resolved to nothing and the ritual could never be completed.
+     */
+    @Test
+    void everyRitualTagMapsToARegisteredOreDictionaryName() throws IOException {
+        Set<String> tags = new HashSet<>();
+        for (JsonElement element : loadRituals()) {
+            JsonObject ritual = element.getAsJsonObject();
+            JsonElement activation = ritual.get("activation_item");
+            if (activation != null && activation.isJsonPrimitive()
+                    && activation.getAsString().startsWith("#")) {
+                tags.add(activation.getAsString());
+            }
+            if (!ritual.has("ingredients")) {
+                continue;
+            }
+            for (JsonElement ingredient : ritual.getAsJsonArray("ingredients")) {
+                if (ingredient.isJsonPrimitive() && ingredient.getAsString().startsWith("#")) {
+                    tags.add(ingredient.getAsString());
+                } else if (ingredient.isJsonObject() && ingredient.getAsJsonObject().has("tag")) {
+                    String tag = ingredient.getAsJsonObject().get("tag").getAsString();
+                    tags.add(tag.startsWith("#") ? tag : "#" + tag);
+                }
+            }
+        }
+
+        assertFalse(tags.isEmpty(), "Rituals must use at least one tag");
+        for (String tag : tags) {
+            String oreName = RitualRecipeManager.toOreDictionaryName(tag);
+            assertFalse(oreName.isEmpty(), "Tag " + tag + " mapped to an empty ore name");
+            // Every ore dictionary name this mod registers is camelCase; a leftover
+            // underscore means the snake_case tag was not normalised.
+            assertFalse(oreName.contains("_"),
+                    "Tag " + tag + " mapped to " + oreName + ", which keeps a snake_case segment");
+        }
+    }
+
+    @Test
+    void tagMappingKeepsTheKnownUpstreamShapesWorking() {
+        assertEquals("dustEndStone", RitualRecipeManager.toOreDictionaryName("#c:dusts/end_stone"));
+        assertEquals("blockGlass", RitualRecipeManager.toOreDictionaryName("#c:glass_blocks"));
+        assertEquals("cropBeetroot", RitualRecipeManager.toOreDictionaryName("#c:crops/beetroot"));
+        assertEquals("toolPickaxe", RitualRecipeManager.toOreDictionaryName("#c:tools/pickaxes"));
+        assertEquals("blockCopper", RitualRecipeManager.toOreDictionaryName("#c:storage_blocks/copper"));
     }
 
     private static JsonArray loadRituals() throws IOException {

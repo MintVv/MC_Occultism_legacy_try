@@ -1,0 +1,41 @@
+{
+  "name": "魔精矿工",
+  "icon": "occultism:miner_foliot_unspecialized",
+  "category": "crafting_rituals",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "魔精矿工",
+      "text": "矿工魔灵通过$(item)维度矿井$()来获取其他维度的资源。$(br)它们被召唤而来，束缚在神灯中，只能通过矿井离开。$(br)神灯会随着时间腐坏，一旦神灯破碎，其中的魔灵就会被放回$(#AA00AA)异世界$()。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:magic_lamp_empty",
+      "text": "",
+      "anchor": "magic_lamp"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "要召唤采矿魔灵，你首先需要造出一个可以容纳它们的$(l:getting_started/magic_lamps)神灯$(/l)。$(br)其中关键的材料便是$(item)魔灵同调宝石$()。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:miner_foliot_unspecialized",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(#AA00AA)魔精$()矿工会没有目标地挖掘方块，带回挖到的任何东西。$(br)魔精挖掘的速度相当慢，因此它只会消耗少量能量，$(br)神灯的损坏也较慢。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_miner_foliot_unspecialized",
+      "anchor": "ritual"
+    }
+  ]
+}

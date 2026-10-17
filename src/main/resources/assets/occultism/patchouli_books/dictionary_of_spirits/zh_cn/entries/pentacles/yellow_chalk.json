@@ -1,0 +1,30 @@
+{
+  "name": "附身粉笔",
+  "icon": "occultism:chalk_yellow",
+  "category": "pentacles",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "text",
+      "title": "附身",
+      "text": "黄色粉笔（亦称金色粉笔），足以令致力于附身仪式之人眼前一亮：它用于绘制该类仪式中使用的主要符文。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_yellow",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "附身是召唤的一种变体，由几何结构的改变和黄色符文的附加所引发，使得魔灵能够以与其常规形态不同的躯体（物质牢笼）显现。"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_yellow",
+      "anchor": "recipe"
+    }
+  ]
+}

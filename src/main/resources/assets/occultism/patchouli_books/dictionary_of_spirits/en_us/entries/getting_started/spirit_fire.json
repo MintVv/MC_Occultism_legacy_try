@@ -1,0 +1,83 @@
+{
+  "name": "It burns!",
+  "icon": "occultism:spirit_fire",
+  "category": "getting_started",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:spirit_fire",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(#ad03fc)Spiritfire$() is a special type of fire that exists mostly in $(#ad03fc)The Other Place$()$(br)and does not harm living beings. Its special properties allow to use it to purify and convert$(br)certain materials by burning them, without consuming $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "them.$(br)"
+    },
+    {
+      "type": "image",
+      "images": [
+        "occultism:textures/gui/book/spiritfire_instructions.png"
+      ],
+      "border": true,
+      "anchor": "spirit_fire_screenshot"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Throw $(item)Demon's Dream Fruit$() to the ground and light it on fire with $(item)flint and steel$().$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The main uses of $(item)Spiritfire$() are to convert $(item)diamond$() into $(item)Spirit Attuned Gem$(),$(br)to get basic ingredients such as $(item)Otherstone$() and $(item)Otherworld Saplings$(),$(br)and to purify impure chalks.$(br)",
+      "anchor": "main_uses"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherstone",
+      "anchor": "otherstone_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "An easier way to obtain $(item)Otherstone$() than via divination.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherrock",
+      "anchor": "otherrock_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Otherrock is a variation of $(item)Otherstone$(),$(br) you can use it for decoration and making sacrificial bowls,$(br)  but it does not work as a base for chalks or dimensional storage.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherworld_ashes",
+      "anchor": "otherworld_ashes_recipe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:spirit_attuned_gem",
+      "anchor": "gem_recipe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherflower",
+      "anchor": "otherflower_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "An easier way to clone any dye, mix this flower and the target color. You can also make ~~suspicious~~ delicious stews.$(br)"
+    }
+  ]
+}

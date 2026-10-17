@@ -1,0 +1,36 @@
+{
+  "name": "The Most Basic Chalk",
+  "icon": "occultism:chalk_white",
+  "category": "pentacles",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "title": "First Foundation",
+      "text": "This is the first chalk in the journey of any occultist. Due to its simplicity, it serves as a$(br) weak foundation. Pentacles drawn only with this chalk attract only the weakest spirits,$(br) known as Folit.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_white",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In almost any pentacle where you see a white glyph, it can be replaced with another$(br) \"colorless\" chalk (light gray, gray, or black).$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:chalk_white_impure",
+      "text": "",
+      "anchor": "recipe_impure"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_white",
+      "anchor": "recipe"
+    }
+  ]
+}

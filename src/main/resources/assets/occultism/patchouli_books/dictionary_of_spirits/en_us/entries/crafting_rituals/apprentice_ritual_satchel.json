@@ -1,0 +1,62 @@
+{
+  "name": "Apprentice Ritual Satchel",
+  "icon": "occultism:ritual_satchel_t1",
+  "category": "crafting_rituals",
+  "sortnum": 25,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:ritual_satchel_t1",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "At first glance the satchel appears to be a normal bag, of moderate size and storage capacity. However, closer inspection reveals that a $(#AA00AA)Foliot$() is bound to the satchel, tasked with assisting the summoner in drawing pentacles for their rituals.$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "About",
+      "text": "A ritual satchel can hold items needed to create pentacles for rituals.$(br)An item with durability will be used until only 1 durability remains, which will stop the glint effect.$(br)Other items cannot be placed in the satchel.$()",
+      "anchor": "about"
+    },
+    {
+      "type": "text",
+      "title": "About",
+      "text": "$(br2)The satchel allows to speed up setting pentacles by automatically choosing the right items from the satchel, instead of manually selecting chalks, candles and other items to place them.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_ritual_satchel_t1",
+      "anchor": "crafting"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "1. $(#55FF55)Shift-Right-Click$() to open the satchel and place chalks, candles, crystals, skulls and other items needed for rituals.$(br)2. Using this book, use the \"eye\" icon to preview the pentacle you want to set up in the world.$(br)3. $(#55FF55)Right-Click$() $()",
+      "anchor": "usage"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "with this book to anchor the preview pentacle in the spot where you want to set it up.$(br)4. $(#55FF55)Right-Click$() with the satchel on a previewed chalk mark or block to automatically place it.$(br)5. Repeat until the pentacle is complete.$()"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Chalk Brush",
+      "text": "The ritual satchel can also store your $(item)Chalk Brush$().$(br)The stored brush will be selected and used automatically when you $(#55FF55)Right-Click$() on chalk glyphs.$(br)",
+      "anchor": "brush"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "束缚仪式",
+  "icon": "occultism:textures/gui/book/infusion.png",
+  "category": "crafting_rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "束缚仪式",
+      "text": "束缚仪式能将魔灵灌注进物品之中，使之发挥特定的能力。$(br)创造的物品可以表现得如同简单的强化魔咒，也可以协助召唤师完成复杂的任务。$(br)",
+      "anchor": "intro"
+    }
+  ]
+}

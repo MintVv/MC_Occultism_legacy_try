@@ -1,0 +1,35 @@
+{
+  "name": "Knowledge Tablet",
+  "icon": "occultism:knowledge_tablet",
+  "category": "crafting_rituals",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:knowledge_tablet",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Knowledge Tablet is an item infused by a $(#AA00AA)Foliot$(). The spirit can hold a enormous$(br) quantity of experience points. Keeping safe and allowing giving XP to other players.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_knowledge_tablet",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "This item use is very simple: $(br)$(#55FF55)Right-Click$() will storage all of your experience points. $(br)$(#55FF55)Shift-Right-Click$() receive all stored points. $(br2)NOTE: Sometimes, with big values, you can lost a small quantity of $()",
+      "anchor": "use"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "point due numerical approximations.$(br)"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Summon Djinni Prototype",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Summons a bound Djinni using the $(#ad03fc)Ophyx' Calling$() pentacle. The spirit can be named, stored in a magic lamp, healed with spirit food, and restored from a soul shard.",
+      "anchor": "description"
+    }
+  ]
+}

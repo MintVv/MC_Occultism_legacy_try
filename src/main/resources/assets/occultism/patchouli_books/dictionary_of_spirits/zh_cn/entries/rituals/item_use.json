@@ -1,0 +1,14 @@
+{
+  "name": "使用物品",
+  "icon": "minecraft:flint_and_steel",
+  "category": "rituals",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "title": "使用物品",
+      "text": "有些仪式需要使用特定物品来进行。在$(item)金制仪式碗$()的$(bold)16格$()以内使用仪式页面上要求的物品。$(br2)$(bold)重要$()：在使用物品之前，先启动仪式。灰色粒子效果代表已经可以在仪式上使用物品了。$(br)",
+      "anchor": "intro"
+    }
+  ]
+}

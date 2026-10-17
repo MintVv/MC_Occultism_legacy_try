@@ -1,0 +1,30 @@
+{
+  "name": "使魔之戒",
+  "icon": "occultism:familiar_ring",
+  "category": "crafting_rituals",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:familiar_ring",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "使魔之戒是嵌着$(item)灵魂宝石$()的戒指，其中束缚着一只$(#AA00AA)巨灵$()。$(br)在本 1.12 移植版中，戒指用于储存、搬运并释放受支持的本地使魔替代实体；原生单槽装备还会应用受支持的戒指效果。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_familiar_ring",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "若要使用$(item)使魔之戒$()，请手持空戒指对受支持且已驯服的召唤使魔$(#AA00AA)右击$()。$(br2)手持已储存使魔的戒指右键空气可装备，右键方块可释放；潜行并空手右键空气可取下。魔灵从戒指中释放后，会将释放者视作新的主人。$(br)",
+      "anchor": "usage"
+    }
+  ]
+}

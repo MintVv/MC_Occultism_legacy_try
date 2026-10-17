@@ -1,0 +1,41 @@
+{
+  "name": "残暴粉笔",
+  "icon": "occultism:chalk_brown",
+  "category": "pentacles",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "text",
+      "title": "非常邪恶",
+      "text": "棕色粉笔由残暴灵髓铸就，获取过程确实不负其凶名。目的可否证成手段？道德是否确有其物？汝之道德为何物？",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_brown",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "众所周知，这支粉笔属于“阵营测试”道具。持有者将被自动划归为“邪恶阵营”。这些符文会招来何种魔灵？$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:cruelty_essence",
+      "text": "",
+      "anchor": "essence"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "要获得用来制作$(item)棕色粉笔$()的$(item)残暴灵髓$()，你需要$(l:possession_rituals/possess_goat)召唤并击杀一只仁慈之山羊$(/l)。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_brown",
+      "anchor": "recipe"
+    }
+  ]
+}

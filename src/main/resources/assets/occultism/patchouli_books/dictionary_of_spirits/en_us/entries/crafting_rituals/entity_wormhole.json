@@ -1,0 +1,95 @@
+{
+  "name": "Entity Wormhole",
+  "icon": "occultism:entity_wormhole",
+  "category": "crafting_rituals",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:entity_wormhole",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(item)Entity Wormhole$() is a mystical teleportation device maintained by a $(#AA00AA)Djinni$(),$(br) capable of instantly transporting living beings across vast distances. Once attuned,$(br) it creates a stable rift that creatures can step through, linking $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "distant points as if$(br) they were side by side. The Djinni ensures the wormhole remains open and aligned,$(br) making it a reliable—though undeniably arcane—means of travel.$(br2)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_entity_wormhole",
+      "anchor": "ritual"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:entity_wormhole_dark",
+      "text": "",
+      "anchor": "spotlight_dark"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "You can also choose the $(item)Otherrock$() version if you want.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_entity_wormhole_dark",
+      "anchor": "ritual_dark"
+    },
+    {
+      "type": "text",
+      "title": "Set destination",
+      "text": "To set the destination, you''ll need a compass. Right-click to place it and shift+right-click to remove it.$(br)+ A standard compass takes you to the world spawn;$(br)+ A compass attached to a lodestone takes you to the top of it. (After placing it in the $()",
+      "anchor": "destination"
+    },
+    {
+      "type": "text",
+      "title": "Set destination",
+      "text": "wormhole, the lodestone can be broken);$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Other compasses",
+      "text": "+ A compass renamed \"$(#AA00AA)HOME$()\" teleport for your personal spawn point;$(br)+ A compass renamed \"$(#AA00AA)RTP$()\" acts as a Random Teleport;$(br2)Alternatively, you can use special compasses:$(br)+ $(item)recovery compass$() teleports to the location of your $()",
+      "anchor": "extra_uses"
+    },
+    {
+      "type": "text",
+      "title": "Other compasses",
+      "text": "last death, works only for players;$(br)+ $(item)Vitality Compass$() teleports to the linked creature, it needs to be in a loaded chunk;$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Exit viewing direction",
+      "text": "Using a $(item)Spirit Attuned Gem$() will define the yaw viewing angle after teleportation.$(br)An iesnium nugget will point to the set direction like a compass rose.$(br)",
+      "anchor": "exit_yaw"
+    },
+    {
+      "type": "text",
+      "title": "Exit viewing inclination",
+      "text": "If you hold the gem in your off-hand, it will change the pitch viewing angle.$(br) A six-pointed star in the center of the portal indicates the current setting:$(br)+ Emerald -> Forward$(br)+ Iron -> Tilted Down$()",
+      "anchor": "exit_pitch"
+    },
+    {
+      "type": "text",
+      "title": "Exit viewing inclination",
+      "text": "$(br)+ Redstone -> Straight Down$(br)+ Diamond -> Tilted Up$(br)+ Gold -> Straight Up$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "minecraft:fishing_rod",
+      "text": "",
+      "anchor": "fishing"
+    },
+    {
+      "type": "text",
+      "title": "Get over here!",
+      "text": "If the wormhole contains an $(l:crafting_rituals/vitality_compass)Vitality Compass$(/l), you can use a fishing rod to pull the linked$(br) entity into the portal, the hook needs to stop in the portal before you pull.$(br)"
+    }
+  ]
+}

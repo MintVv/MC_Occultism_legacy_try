@@ -1,0 +1,24 @@
+{
+  "name": "火灵灵髓",
+  "icon": "occultism:afrit_essence",
+  "category": "summoning_rituals",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "text",
+      "title": "火灵灵髓",
+      "text": "$(item)火灵灵髓$()是安全召唤更强魔灵的必须物质，常用于红色粉笔的合成中。$(br)要获得这一灵髓，需要在本位面中不加束缚地召唤一只$(#AA00AA)火灵$()，然后杀掉它。$(br)注意，这并不是简单的任务，$(br)因为一只未受缚的魔灵能为周围带来极大危险。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_unbound_afrit",
+      "anchor": "ritual_day"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_wild_afrit",
+      "anchor": "wild_afrit"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "name": "首个仪式",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "getting_started",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "text",
+      "title": "仪式(tm)",
+      "text": "这几页会逐步介绍$(l:summoning_rituals/summon_crusher_t1)第一个仪式$(/l)的过程。$(br2)从摆放$(item)金制仪式碗$()$(bold)开始$()，画出合适的五芒星阵——另一边展示的$(l:pentacles/summon_foliot)阿维亚圆环$(/l)。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_foliot",
+      "name": "阿维亚圆环",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "仪式只与粉笔印迹的颜色和位置有关，而与印记中的符文/符号无关。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "献祭之碗",
+      "text": "接下来，将*至少*4个$(item)献祭之碗$()放在五芒星阵附近。$(br2)必须放在距离中心的$(item)金制仪式碗$()8格以内的$(bold)任何位置$()。$(bold)具体位置并不重要$()。$(br)",
+      "anchor": "bowl_text"
+    },
+    {
+      "type": "image",
+      "images": [
+        "occultism:textures/gui/book/bowl_placement.png"
+      ],
+      "border": true,
+      "anchor": "bowl_placement"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "几种可以放置献祭之碗的位置。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "放置材料",
+      "text": "现在，该把你在下一页看到的材料放进（普通的，不是黄金的）献祭之碗中了。仪式进行时，原材料会被消耗。$(br)",
+      "anchor": "ritual_text"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_crusher",
+      "anchor": "ritual_recipe"
+    },
+    {
+      "type": "text",
+      "title": "关于仪式配方的提示",
+      "text": "像之前展示的仪式配方页面一样，这些页面不止显示原材料，也会显示需要你需要用粉笔画出来以进行仪式的五芒星阵。$(br2)在仪式页面$(bold)点击上方中间的蓝色链接显示五芒星阵$()，你甚至可以在世界中预览。$(br)",
+      "anchor": "pentacle_link_hint"
+    },
+    {
+      "type": "text",
+      "title": "要有……魔灵！",
+      "text": "最终，手持提前做好的$(bold)已绑定的$()束缚之书$(#ad03fc)右击$()$(item)金制仪式碗$()，然后一直等到碎矿者生成。$(br2)接下来，只需要在碎矿者附近丢出合适的矿石，等待它将其处理为粉末即可。$(br)",
+      "anchor": "start_ritual"
+    },
+    {
+      "type": "text",
+      "title": "自动化仪式",
+      "text": "除了将最后一个物品摆放在黄金仪式之碗上，你还可以使用漏斗或者任意类型的物品管道来输入物品。仪式会自动启动。$(br)值得注意的是，那些召唤驯服的动物或使魔的仪式，在这种情况下会以未被驯服的形式进行召唤。$(br)",
+      "anchor": "automation"
+    },
+    {
+      "type": "text",
+      "title": "别乱丢物品",
+      "text": "若想收纳合成的物品，而非将其掉落至世界中，将一个献祭之碗倒扣放置于黄金仪式之碗上方。$(br)倒扣的碗最高可位于中心献祭之碗的上方第三格，也可使用铜或银献祭之碗。$(br)",
+      "anchor": "upside_down_bowl"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:spirit_fire",
+      "text": "",
+      "anchor": "automation_flame"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "若仪式没有物品产物，先前所述倒扣放置的仪式之碗中，则会产出$(item)灵火$()。$(br)例如，在魔灵召唤和附身仪式的自动化中，其可作为“产物”返回合成系统（它将附带所执行仪式的NBT数据）。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "红石",
+      "text": "根据仪式状态，黄金仪式之碗会发出不同强度的红石信号：$(br)$(li)$(bold)0$() 表示当前无激活的仪式$(br)$(li)$(bold)1$() 表示仪式已激活，但等待献祭$(br)$(li)$(bold)2$() 表示仪式已激活，但等待使用物品$(br)$(li)$(bold)8$() 表示仪式已激活，且正在运行$()",
+      "anchor": "redstone"
+    },
+    {
+      "type": "text",
+      "title": "红石",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "所有面都挡住了？",
+      "text": "可在原来的$(item)金制仪式碗$()下方第三格放置另一个$(item)金制仪式碗$()。每次这个新的仪式之碗接收到方块更新时，其便会克隆原始碗的实际信号强度。$(br)",
+      "anchor": "clone_redstone"
+    },
+    {
+      "type": "image",
+      "images": [
+        "occultism:textures/gui/book/redstone_clone.png"
+      ],
+      "border": true,
+      "anchor": "clone_placement"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "一个建议：使用任何能与红石互动的方块以及一个侦测器。$(br)"
+    }
+  ]
+}

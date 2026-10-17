@@ -1,0 +1,30 @@
+{
+  "name": "Possessed Witch",
+  "icon": "minecraft:experience_bottle",
+  "category": "possession_rituals",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_witch",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): Can drop: $(item)experience bottle$() or other bottles (See next page);$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_witch",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual a $(#ad03fc)Witch$() is spawned using the rage energy from the $(#ad03fc)Cat$() death. The $(#ad03fc)Possessed Witch$() can drop a $(item)experience bottle$(), $(item)honey bottle$(), $(item)ominous bottle$() or a simple water bottle.$(br)",
+      "anchor": "description"
+    }
+  ]
+}

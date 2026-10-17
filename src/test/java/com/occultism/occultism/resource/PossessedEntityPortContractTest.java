@@ -481,7 +481,7 @@ class PossessedEntityPortContractTest {
         assertTrue(prepare.indexOf("ForgeEventFactory.doSpecialSpawn(entity")
                 < prepare.indexOf("entity.onInitialSpawn("));
 
-        String boundSpawn = section(bowl, "private boolean spawnBoundSpiritEntity", "private void setTimeOfDay");
+        String boundSpawn = section(bowl, "private boolean spawnBoundSpiritEntity", "private boolean spawnFoliotJobEntity");
         assertSpawnOrder(boundSpawn, "spirit");
         String jobSpawn = section(bowl, "private boolean spawnFoliotJobEntity",
                 "private boolean spawnConfiguredEntities");
@@ -503,7 +503,7 @@ class PossessedEntityPortContractTest {
                 "private void triggerRitualAdvancement");
         assertTrue(summonedEntityTrigger.contains("entity.getEntityBoundingBox().grow(50.0D)"));
         assertTrue(summonedEntityTrigger.contains("CriteriaTriggers.SUMMONED_ENTITY.trigger(player, entity)"));
-        String trigger = section(bowl, "private void triggerRitualAdvancement", "private boolean applyWorldEffectJob");
+        String trigger = section(bowl, "private void triggerRitualAdvancement", "private boolean spawnBoundSpiritEntity");
         assertTrue(trigger.contains("ModAdvancements.RITUAL.trigger"));
 
         String dreamFood = readJava("item", "ItemDemonDreamFood.java");

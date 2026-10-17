@@ -1,0 +1,47 @@
+{
+  "name": "学徒仪式挎包",
+  "icon": "occultism:ritual_satchel_t1",
+  "category": "crafting_rituals",
+  "sortnum": 25,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:ritual_satchel_t1",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "乍一看，挎包似乎就是个中等大小的普通背包。但细察便会发现，其中束缚着一只$(#AA00AA)魔精$()，其职责是协助召唤师绘制仪式所需的五芒星阵。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "关于",
+      "text": "一个可用于存放五芒星阵所需物品的仪式挎包，$(br)带有耐久度的物品将被使用到只剩1点耐久度，此时闪烁效果将会停止。$(br)挎包内不能存放其他物品。$(br2)该挎包可以自动选择五芒星阵所需物品，从而加速五芒星阵的布置，无需再手动挑选放置粉笔、蜡烛等物品。$(br)",
+      "anchor": "about"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_ritual_satchel_t1",
+      "anchor": "crafting"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "1. $(#55FF55)Shift右击$()打开挎包，放置仪式所需的粉笔、蜡烛、水晶、头颅等物品。$(br)2. 使用本书时，点击“眼睛”图标可在世界中预览想要布置的五芒星阵样式。$(br)3. 手持本书时$(#55FF55)右击$()，可将预览中的五芒星阵锚定到你想布置的位置。$(br)4. 使用挎包$(#55FF55)右击$()预览状态的粉笔标记或方块，即可自动放置对应物品。$(br)5. 重复操作直至五芒星阵绘制完成。$()",
+      "anchor": "usage"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Chalk Brush",
+      "text": "The ritual satchel can also store your $(item)粉笔擦$().$(br)The stored brush will be selected and used automatically when you $(#55FF55)Right-Click$() on chalk glyphs.$(br)",
+      "anchor": "brush"
+    }
+  ]
+}

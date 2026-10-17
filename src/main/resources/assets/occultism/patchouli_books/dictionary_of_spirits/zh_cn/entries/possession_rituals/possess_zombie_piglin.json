@@ -1,0 +1,30 @@
+{
+  "name": "被附身的僵尸猪灵",
+  "icon": "occultism:demonic_meat",
+  "category": "possession_rituals",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_zombie_piglin",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：1-4x$(item)恶魔肉$()$(br)和其他身体部件；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_zombified_piglin",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)火灵$()将附身于$(#ad03fc)成年僵尸猪灵$()，融合$(#ad03fc)下界$()的能量、$(#ad03fc)火灵$()的力量、$(#ad03fc)猪肉$()的物质实体以及$(#ad03fc)粉红色$()的概念。$(br)这是获取$(item)恶魔肉$()的唯一已知方式，该物质的特性使其无法被烹煮，但食用者将获得抗火效果。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

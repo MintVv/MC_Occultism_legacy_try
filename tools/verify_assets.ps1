@@ -15,6 +15,7 @@ $enLangPath = Join-Path $assetRoot 'lang/en_us.lang'
 $zhLangPath = Join-Path $assetRoot 'lang/zh_cn.lang'
 $modBlocksPath = Join-Path $WorkspaceRoot 'src/main/java/com/occultism/occultism/registry/ModBlocks.java'
 $modItemsPath = Join-Path $WorkspaceRoot 'src/main/java/com/occultism/occultism/registry/ModItems.java'
+$modEntitiesPath = Join-Path $WorkspaceRoot 'src/main/java/com/occultism/occultism/registry/ModEntities.java'
 $dictionaryGuiPath = Join-Path $WorkspaceRoot 'src/main/java/com/occultism/occultism/client/gui/GuiDictionaryOfSpirits.java'
 $pentacleDetectorPath = Join-Path $WorkspaceRoot 'src/main/java/com/occultism/occultism/ritual/PentacleDetector.java'
 
@@ -536,6 +537,12 @@ $itemFactories = 'item|legacyRitualDummy|food|miner|magicLamp|familiarRing|chalk
 $itemPattern = '(?:' + $itemFactories + ')\("([^"]+)"'
 $items = @([regex]::Matches($modItems, $itemPattern) | ForEach-Object { $_.Groups[1].Value }) | Sort-Object -Unique
 
+# Entities used to be skipped here, which let four summoned spirits ship with no
+# display name (they fell back to the raw translation key in chat and name tags).
+$modEntities = Get-Content -LiteralPath $modEntitiesPath -Raw
+$entities = @([regex]::Matches($modEntities, 'new ResourceLocation\(Tags\.MOD_ID, "([^"]+)"\)') |
+    ForEach-Object { $_.Groups[1].Value }) | Sort-Object -Unique
+
 $noItemBlock = @('datura', 'lighted_air') + $glyphs + @(
     'otherplanks_double_slab',
     'otherstone_double_slab',
@@ -585,6 +592,17 @@ foreach ($item in $items) {
     }
     if ($zhLang -notmatch [regex]::Escape("item.occultism.$translationPath.name=")) {
         $missingLangZh.Add("item.occultism.$translationPath.name")
+    }
+}
+
+foreach ($entity in $entities) {
+    # A missing entity name key makes the game print the raw key in chat,
+    # death messages and name tags instead of a readable name.
+    if ($enLang -notmatch [regex]::Escape("entity.occultism.$entity.name=")) {
+        $missingLangEn.Add("entity.occultism.$entity.name")
+    }
+    if ($zhLang -notmatch [regex]::Escape("entity.occultism.$entity.name=")) {
+        $missingLangZh.Add("entity.occultism.$entity.name")
     }
 }
 

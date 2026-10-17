@@ -1,0 +1,28 @@
+{
+  "name": "罗纳扎通灵术",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "text",
+      "title": "罗纳扎通灵术",
+      "text": "$(bold)目的$()：接触$(#AA00AA)诡奇$()$(br2)这个奇特的五芒星阵运用了禁忌的知识，汇聚了来自远古传统的仪式器具。$(br)其所能达成的力量层级，几乎篡改了寻常现实的法则。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:contact_eldritch_spirit",
+      "name": "罗纳扎通灵术",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:crafting_rituals/craft_ancient_miner)诡奇远古矿工$(/l)$(br)$(li)$(l:crafting_rituals/stabilizer_tier5)存储稳定器（5阶）$(/l)$(br)$(li)$(l:crafting_rituals/craft_stabilized_storage)稳态存储$(/l)$(br)$(li)$(l:crafting_rituals/craft_eldritch_chalice)诡奇圣杯$(/l)$(br)$(li)$(l:crafting_rituals/craft_master_chalks)大师粉笔$(/l)$(br)$(li)$(l:crafting_rituals/trinity_gem)三位一体宝石$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

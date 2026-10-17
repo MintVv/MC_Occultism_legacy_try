@@ -1,0 +1,30 @@
+{
+  "name": "德里克翼使魔",
+  "icon": "occultism:textures/gui/book/otherworld_bird.png",
+  "category": "familiar_rituals",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:otherworld_bird",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)多段跳$()、$(#ad03fc)跳跃提升$()、$(#ad03fc)缓降$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_otherworld_bird",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(#ad03fc)德里克翼$() 是$(#ad03fc)巨灵$()的一个分支，以对人类友善而闻名，通常化作深蓝与紫色的鹦鹉。它们会在附近时给主人提供有限的飞行能力。$(br)$(bold)升级效果$()$(br)无法由铁匠使魔升级。",
+      "anchor": "description"
+    }
+  ]
+}

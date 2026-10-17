@@ -1,0 +1,45 @@
+{
+  "name": "Resurrecting Familiars",
+  "icon": "occultism:soul_shard",
+  "category": "familiar_rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:soul_shard",
+      "text": "",
+      "anchor": "soul_shard"
+    },
+    {
+      "type": "text",
+      "title": "Soul Shards",
+      "text": "If a familiar dies it does not merely return to the Otherworld. Due to the close connection to the summoner a splinter of the familiar's soul remains in the mortal realm.$(br2)This splinter - shard - can be used to re-summon the $()"
+    },
+    {
+      "type": "text",
+      "title": "Soul Shards",
+      "text": "familiar more easily.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Resurrection",
+      "text": "The resurrection is a relatively simple process. The soul shard is strengthened with $(item)Otherworld Essence$() until it is strong enough to allow the familiar to return to the mortal realm and create a new body for itself.$(br2)The essence is $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Resurrection",
+      "text": "obtained by growing (lots of) Demons Dream plants.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherworld_essence",
+      "anchor": "recipe_essence_pure"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "resurrect_familiar",
+      "anchor": "ritual"
+    }
+  ]
+}

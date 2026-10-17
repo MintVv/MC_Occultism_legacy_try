@@ -1,0 +1,91 @@
+{
+  "name": "Demonic Partner",
+  "icon": "occultism:textures/gui/book/demonic_partner.png",
+  "category": "familiar_rituals",
+  "sortnum": 22,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Demonic Partner",
+      "text": "Magicians practicing the occult are a diverse crowd, coming from all creeds and all corners of the world. However one thing unites them all - they are as lonely as any human without a partner.$(br2)Of course being a magician, the $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Demonic Partner",
+      "text": "dating pool is larger than for most people, meeting all kinds of otherworldly beings, besides humans.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Demonic Partner",
+      "text": "As beings of immense powers Demons can have it all ... even love.$(br)In rare cases a Demon is so impressed by a mortal that they stay in touch. And in even rarer cases, take them on a date. And in such cases, the most unlikely thing can happen - $()",
+      "anchor": "description2"
+    },
+    {
+      "type": "text",
+      "title": "Demonic Partner",
+      "text": "love between a Spirit and a mortal.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Demonic Partner",
+      "text": "Demons, of course, like to deal in contracts, and what better contract than a marriage contract?$(br)Beware however, Spirits are all about commitment, so this is a permanent bond.$(br)",
+      "anchor": "description3"
+    },
+    {
+      "type": "text",
+      "title": "Demonic Partner",
+      "text": "The Demonic Partner - a Husband or Wife - can fight for you and split your household chores.$(br2)Right-Click with any cookable food and they will use their magic to cook it.$(br2)Right-Click with $()",
+      "anchor": "about"
+    },
+    {
+      "type": "text",
+      "title": "Demonic Partner",
+      "text": "a potion to get the effect for a significantly longer time,$(br) instant potions will be two levels stronger.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Not a Familiar",
+      "text": "The Demonic Partner Chapter is part of the Familiar Category of this book because of the similarities, however a Partner is obviously not a familiar.$(br2)As such, they also cannot be stored in a $(item)Familiar Ring$(). You can, $()",
+      "anchor": "familiar"
+    },
+    {
+      "type": "text",
+      "title": "Not a Familiar",
+      "text": "however, use a $(item)Soul Gem$() as for any other being.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:sweet_honey_heart",
+      "text": "",
+      "anchor": "heart"
+    },
+    {
+      "type": "text",
+      "title": "Love is loving",
+      "text": "A great partner gift is the $(item)Sweet-Honey-Heart$(). To get this item, simply give a $(item)Cursed Honey$() to your husband or wife.$(br2)Note: This action has a cooldown of 10 minutes.$(br)"
+    },
+    {
+      "type": "entity",
+      "entity": "occultism:demonic_husband",
+      "text": "",
+      "anchor": "husband"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_demonic_husband",
+      "anchor": "ritual1"
+    },
+    {
+      "type": "entity",
+      "entity": "occultism:demonic_wife",
+      "text": "",
+      "anchor": "wife"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_demonic_wife",
+      "anchor": "ritual2"
+    }
+  ]
+}

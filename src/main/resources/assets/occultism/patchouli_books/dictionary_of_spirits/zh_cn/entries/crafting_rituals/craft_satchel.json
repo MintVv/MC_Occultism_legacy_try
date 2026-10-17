@@ -1,0 +1,24 @@
+{
+  "name": "意外结实的挎包",
+  "icon": "occultism:satchel",
+  "category": "crafting_rituals",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:satchel",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "一只$(#AA00AA)魔精$()被束缚于挎包上，负责$(bold)轻微$()扭曲现实，让挎包能容纳的物品比看上去的要多得多，$(br)这让它得以成为旅行家的实用伴侣。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_satchel",
+      "anchor": "ritual"
+    }
+  ]
+}

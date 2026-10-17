@@ -1,0 +1,24 @@
+{
+  "name": "Summon Wondering Trader",
+  "icon": "minecraft:emerald",
+  "category": "summoning_rituals",
+  "sortnum": 25,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Wondering Trader",
+      "text": "The true form of this merchant will only be revealed with $(#AA00AA)Third Eye$() or $(item)Otherworld Goggles$(),$(br) otherwise, he is identical to a common Wandering Trader,$(br) perhaps you have already encountered one without realizing it.$()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Wondering Trader",
+      "text": "$(br2) $(br) The first time you interact with him, mundane sales are always shown.$(br) These vendors love trying to sell everything they have.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_wondering_trader",
+      "anchor": "ritual"
+    }
+  ]
+}

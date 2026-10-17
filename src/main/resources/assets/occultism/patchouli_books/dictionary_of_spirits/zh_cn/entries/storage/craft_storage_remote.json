@@ -1,0 +1,24 @@
+{
+  "name": "远程存储访问器",
+  "icon": "occultism:storage_remote",
+  "category": "storage",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_remote",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(item)存储访问器$()可以通过Shift右击连接到$(item)维度存储促动器$()。$(br)束缚于访问器的$(#AA00AA)巨灵$()便可以从远处，$(br)甚至从别的维度访问促动器。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_storage_remote",
+      "anchor": "ritual"
+    }
+  ]
+}

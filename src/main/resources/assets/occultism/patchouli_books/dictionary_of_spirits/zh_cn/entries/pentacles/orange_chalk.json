@@ -1,0 +1,41 @@
+{
+  "name": "芬香粉笔",
+  "icon": "occultism:chalk_orange",
+  "category": "pentacles",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "text",
+      "title": "火灵引召",
+      "text": "橙色粉笔对火灵级别的魔灵而言是绝佳诱饵，虽然它们也会被黄绿色粉笔吸引，却能抵抗其召唤。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_orange",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "作为一块甜美而略带温热的粉笔，它并不能保证能够掌控召唤出的火灵。$(br)要驱使火灵这类魔灵，需要与其魔灵类型直接相关的力量，以及五芒星阵中极致的稳定性。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:cursed_honey",
+      "text": "",
+      "anchor": "honey"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "要获得用来制作$(item)橙色粉笔$()的$(item)诅咒蜂蜜$()，你需要$(l:possession_rituals/possess_bee)召唤并击杀一只被附身的蜜蜂$(/l)。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_orange",
+      "anchor": "recipe"
+    }
+  ]
+}

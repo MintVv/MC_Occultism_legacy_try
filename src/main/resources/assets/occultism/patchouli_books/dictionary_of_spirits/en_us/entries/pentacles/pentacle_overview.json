@@ -1,0 +1,42 @@
+{
+  "name": "On Pentacles",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Overview",
+      "text": "The name $(#AA00AA)Pentacle$() in this context refers to ritual drawings of any shape, not just five-pointed stars. $(br2)Pentacles are used to summon and bind spirits from $(#AA00AA)The Other Place$().$(br)",
+      "anchor": "intro1"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Each pentacle consists of a central golden ritual bowl, surrounding runes of various colors$(br) and occult paraphernalia that improve the intended effect in various ways.$(br2)They act both as a device to call $()",
+      "anchor": "intro2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "on the entity, an amplifier for the summoner's commanding power$(br) and as a protecting circle preventing attacks from within against the summoner.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The combination of chosen runes and supporting items as well as their exact spatial positioning$(br) determines the use and effectiveness of the pentacle.$(br)",
+      "anchor": "intro3"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Ingredients are placed in $(item)Sacrificial Bowls$()$(br) near the pentacle. Specifically, must be placed $(bold)anywhere$() within$(br) 8 blocks horizontally of the central $(item)Golden Sacrificial Bowl$().$(br) The exact location does not matter.$()",
+      "anchor": "intro4"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    }
+  ]
+}

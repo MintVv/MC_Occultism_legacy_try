@@ -1,0 +1,19 @@
+{
+  "name": "Possess Djinni Prototype",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "possession_rituals",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_djinni_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This ritual has no upstream counterpart. It is kept as a local bridging ritual so the $(#ad03fc)Possess Djinni$() pentacle stays reachable and useful. Completing it produces $(item)Lenses$() instead of a possession effect.",
+      "anchor": "description"
+    }
+  ]
+}

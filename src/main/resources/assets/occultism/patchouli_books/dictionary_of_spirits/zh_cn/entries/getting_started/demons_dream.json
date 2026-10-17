@@ -1,0 +1,78 @@
+{
+  "name": "揭开帷幕",
+  "icon": "occultism:datura",
+  "category": "getting_started",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "title": "异界",
+      "text": "在人类的肉眼之下，掩藏着另一个存在位面，或者说另一个*维度*——$(#ad03fc)异界$()。$(br)这个世界居住着许多常被称为$(#ad03fc)恶魔$()的生物。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这些恶魔拥有各种能力和实用的技能，数个世纪以来，法师们一直试图召唤它们从中获利。$(br)踏上成功召唤第一个这样的生物的旅程的第一步，就是学会如何与异界交互。$(br)",
+      "anchor": "intro2"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:datura",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "魔鬼之梦是一种能给予人类$(#ad03fc)第三只眼$()的草药，允许他们观测$(#ad03fc)异界$()与我们相交的部分。$(br)$(bold)打草$()即可发现种子。$(br)$(bold)吃下$()长成的魔鬼之梦果将*有一定概率*激活第三只眼。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "食用魔鬼之梦有个额外的副作用：$(bold)与$(#ad03fc)异界$()材料交互的能力$()。$(br)这是魔鬼之梦独有的能力，其他获得$(#ad03fc)第三只眼$()的方式并不能取代这种能力。在魔鬼之梦的效果之下，你可以$(bold)收获$()异界石和异界树。$(br)",
+      "anchor": "harvest_effect"
+    },
+    {
+      "type": "image",
+      "images": [
+        "occultism:textures/gui/book/datura_effect.png"
+      ],
+      "border": true,
+      "anchor": "datura_screenshot"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提示$()：在$(#ad03fc)第三只眼$()效果下获得的异界材料可以$(bold)通过$(item)灵火$()更轻松地获得$()。继续阅读这本书的下个条目，学习灵火的有关知识。$(br)",
+      "anchor": "note_on_spirit_fire"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:demons_dream_essence",
+      "text": "",
+      "anchor": "spotlight2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "多个魔鬼之梦果或种子能被压缩成效力更强的精华。它*必定*能激活$(#ad03fc)第三只眼$()，且持续时间更长，但它也会提供许多（正面和负面的）效果。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:demons_dream_essence",
+      "text": "",
+      "anchor": "spotlight3"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "精华能在灵火（稍后介绍！）中净化为没有负面效果，只有正面效果的版本。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherworld_essence",
+      "anchor": "recipe_essence_pure"
+    }
+  ]
+}

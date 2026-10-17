@@ -1,0 +1,14 @@
+{
+  "name": "使魔仪式",
+  "icon": "occultism:textures/gui/book/parrot.png",
+  "category": "rituals",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "text",
+      "title": "使魔仪式",
+      "text": "",
+      "anchor": "familiar_rituals/description"
+    }
+  ]
+}

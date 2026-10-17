@@ -1,0 +1,19 @@
+{
+  "name": "Possession Rituals",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "possession_rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Possession Rituals",
+      "text": "Possession rituals bind spirits into living beings, giving the summoner a degree of control over the possessed being.$(br2)As such these rituals are used to obtain rare items without having to venture into dangerous places.$()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Possession Rituals",
+      "text": "$(br2)Possessed Mobs count as their vanilla counterparts for the ritual sacrifices purposes.$(br)"
+    }
+  ]
+}

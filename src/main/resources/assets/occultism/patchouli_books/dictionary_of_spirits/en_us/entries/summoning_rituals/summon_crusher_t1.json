@@ -1,0 +1,47 @@
+{
+  "name": "Summon Foliot Crusher",
+  "icon": "occultism:copper_dust",
+  "category": "summoning_rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Crusher Spirits",
+      "text": "Crusher spirits are summoned to crush ores into dusts, effectively multiplying the metal output.$(br)   They will pick up appropriate ores and drop the resulting dusts into the world.$(br)   A spark particle effect and a crushing sound $()",
+      "anchor": "about_crushers"
+    },
+    {
+      "type": "text",
+      "title": "Crusher Spirits",
+      "text": "indicate the crusher is at work.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Automation",
+      "text": "To ease automation, try summoning a $(l:summoning_rituals/summon_transport_items)Transporter Spirit$(/l) to place items from chests$(br) in the crusher's inventory, and a $(l:summoning_rituals/summon_cleaner)Janitor Spirit$(/l) to collect the processed items.$(br)",
+      "anchor": "automation"
+    },
+    {
+      "type": "text",
+      "title": "Foliot Crusher",
+      "text": "The foliot crusher is the most basic crusher spirit.$(br2) $(br) It will crush $(bold)one$() ore into $(bold)two$() corresponding dusts.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_crusher",
+      "anchor": "ritual"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Remote Storage Accessor",
+  "icon": "occultism:storage_remote",
+  "category": "crafting_rituals",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_remote",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(item)Storage Accessor$() can be linked to a $(item)Dimensional Storage Actuator$() by shift-clicking.$(br) The $(#AA00AA)Djinni$() bound to the accessor will then be able to$(br) access items from the actuator even from across dimensions.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_storage_remote",
+      "anchor": "ritual"
+    }
+  ]
+}

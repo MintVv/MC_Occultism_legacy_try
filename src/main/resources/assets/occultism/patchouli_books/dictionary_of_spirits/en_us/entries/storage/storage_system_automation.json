@@ -1,0 +1,47 @@
+{
+  "name": "Storage Logistics",
+  "icon": "minecraft:hopper",
+  "category": "storage",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Storage Logistics",
+      "text": "The Storage Actuator behaves much like a big chest or shulker box.$(br) That means, hoppers and pipes can insert and extract items.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Performance",
+      "text": "Due to the potentially huge amount of items in the storage system,$(br) it is good to consider some performance aspects, otherwise your$(br) system might slow down your game or even a server you are playing on.$(br)",
+      "anchor": "performance"
+    },
+    {
+      "type": "text",
+      "title": "Extracting Items",
+      "text": "Extracting items can lead to performance issues, especially when pipes with Item Filters$(br) are used, because then the entire huge storage is searched for these items one by one.$(br2) $(br) To *massively* improve $()",
+      "anchor": "extraction"
+    },
+    {
+      "type": "text",
+      "title": "Extracting Items",
+      "text": "performance, use Transporter Spirits to extract from the$(br) Storage Actuator or Stable Wormhole. Even if the Spirit deposits into a chest$(br) right next to the storage system, and a pipe extracts from that chest, the$()"
+    },
+    {
+      "type": "text",
+      "title": "Extracting Items",
+      "text": "$(br) performance is $(bold)much$() better than if a pipe extracts directly.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Inserting Items",
+      "text": "When inserting items, you do not need to do anything, the Storage Actuator will$(br) maximize performance automatically for you. It is safe to insert high amounts$(br) of items at high frequencies without negative impact on game $()",
+      "anchor": "insertion"
+    },
+    {
+      "type": "text",
+      "title": "Inserting Items",
+      "text": "performance.$(br)"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "异界眼镜",
+  "icon": "occultism:otherworld_goggles",
+  "category": "getting_started",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:otherworld_goggles",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(item)异界眼镜$()是进阶召唤师们用来窥视$(#ad03fc)异界$()而不受$(l:getting_started/demons_dream)demons_dream$(/l)的副作用影响的装备。$(br2)在大多数人看来，制作自己的第一副眼镜，就算是通过了入门考验。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "制作眼镜",
+      "text": "制作这副眼镜有许多步骤，详见$(l:crafting_rituals/craft_otherworld_goggles)制作异界眼镜$(/l)条目。$(br)",
+      "anchor": "crafting"
+    }
+  ]
+}

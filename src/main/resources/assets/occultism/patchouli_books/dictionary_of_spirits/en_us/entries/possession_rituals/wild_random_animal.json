@@ -1,0 +1,44 @@
+{
+  "name": "Group of Random Animal",
+  "icon": "minecraft:egg",
+  "category": "possession_rituals",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Summon Group of Random Animal",
+      "text": "You have learned how to attract groups of random animals by changing$(br) the pentacle to $(#ad03fc)Osorins Wild Calling$() and using a$(br) $(item)Spirit Attuned Gem$() instead of a bound book of binding.$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_random_animal_common",
+      "anchor": "ritual_common"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_random_animal_water",
+      "anchor": "ritual_water"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_random_animal_small",
+      "anchor": "ritual_small"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_random_animal_rideable",
+      "anchor": "ritual_rideable"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_villager",
+      "anchor": "ritual_villager"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_random_animal_special",
+      "anchor": "ritual_special"
+    }
+  ]
+}

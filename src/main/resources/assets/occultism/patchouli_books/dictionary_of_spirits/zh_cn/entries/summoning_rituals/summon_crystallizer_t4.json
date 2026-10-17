@@ -1,0 +1,30 @@
+{
+  "name": "召唤魔王铸晶者",
+  "icon": "minecraft:emerald",
+  "category": "summoning_rituals",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "text",
+      "title": "魔王铸晶者",
+      "text": "魔王铸晶者速度极快，在宝石矿物产出倍增方面效率极高。$(br2)在本 1.12 移植版中，它可以将本地紫水晶块转化为紫水晶母岩。1.12 没有哭泣黑曜石的等价物，因此不会伪造替代品。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_marid_crystallizer",
+      "anchor": "ritual"
+    }
+  ]
+}

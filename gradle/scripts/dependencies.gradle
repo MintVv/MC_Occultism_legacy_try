@@ -41,6 +41,9 @@ dependencies {
     // JEI is available in the IDE/dev client, but is not bundled into this mod jar.
     compileOnly rfg.deobf("maven.modrinth:jei:${propertyString('jei_version')}")
     runtimeOnly rfg.deobf("maven.modrinth:jei:${propertyString('jei_version')}")
+    testImplementation rfg.deobf("maven.modrinth:jei:${propertyString('jei_version')}")
+    // Official 1.12 release; keep the book runtime external to the Occultism jar.
+    implementation rfg.deobf("vazkii.patchouli:Patchouli:${propertyString('patchouli_version')}")
     compileOnly rfg.deobf("CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.715")
     runtimeOnly rfg.deobf("CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.715")
 

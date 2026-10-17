@@ -1,0 +1,43 @@
+{
+  "name": "Hedyrin's Lure",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Hedyrins Lure",
+      "text": "$(bold)Purpose:$() $(#AA00AA)Foliot$() Possession$(br2)$(bold)Hedyrins Lure$() attracts $(#AA00AA)Foliot$() and forces them to possess a nearby Creature. This pentacle can$(br) perform basic possessions, bringing back only low-power Spirits and Possessed Creatures.$()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Hedyrins Lure",
+      "text": "$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:possess_foliot",
+      "name": "Hedyrin's Lure",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:possession_rituals/possess_endermite)Possessed Endermite$(/l)$(br)$(li)$(l:possession_rituals/possess_skeleton)Possessed Skeleton$(/l)$(br)$(li)$(l:possession_rituals/possess_witch)Possessed Witch$(/l)$(br)$(li)$(l:possession_rituals/possess_phantom)Possessed Phantom$(/l)$(br)$(li)$(l:possession_rituals/possess_unbound_parrot)Unbound Parrot$(/l)$(br)$(li)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(l:possession_rituals/possess_random_animal)Random Animal (Common, Water, Small)$(/l)$(br)$(li)$(l:familiar_rituals/familiar_parrot)Parrot Familiar$(/l)$(br)$(li)$(l:familiar_rituals/familiar_greedy)Greedy Familiar$(/l)$(br)$(li)$(l:familiar_rituals/familiar_deer)Deer Familiar$(/l)$(br)$(li)$(l:familiar_rituals/familiar_blacksmith)Blacksmith Familiar$(/l)$(br)$(li)$(l:familiar_rituals/familiar_beaver)Beaver Familiar$(/l)$()"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(br)"
+    }
+  ]
+}

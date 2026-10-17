@@ -1,0 +1,35 @@
+{
+  "name": "Possessed Guardian",
+  "icon": "minecraft:prismarine_shard",
+  "category": "possession_rituals",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_guardian",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): Every coral, prismarine and some sea plants;$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_guardian",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual an $(#ad03fc)afrit$() will possess a $(#ad03fc)Guardian$(),$(br)harvesting energy from warm seas, corals are infused into the guardians internal structure.$(br2) Drops:$(br)  + $(item)sea pickle$() or $(item)kelp$();$(br)  + $(item)prismarine $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "shard$(), $(item)brain coral$(), $(item)bubble coral$(),$(br)  $(item)fire coral$(), $(item)horn coral$() (all also in block and fan version)$(br)  + $(item)prismarine shard$(), $(item)prismarine crystals$();$(br)"
+    }
+  ]
+}

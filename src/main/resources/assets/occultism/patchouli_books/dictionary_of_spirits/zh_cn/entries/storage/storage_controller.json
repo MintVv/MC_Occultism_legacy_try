@@ -1,0 +1,65 @@
+{
+  "name": "存储促动器",
+  "icon": "occultism:storage_controller",
+  "category": "storage",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_controller",
+      "text": "",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "存储促动器",
+      "text": "$(item)维度存储促动器$()包括两部分，一个$(l:crafting_rituals/craft_dimensional_matrix)维度矩阵$(/l)，其中寄宿的$(#AA00AA)巨灵$()负责创造并管理存储维度，$(br)以及一个$(l:crafting_rituals/craft_storage_controller_base)基座$(/l)，其中灌注的$(#AA00AA)魔精$()负责将物品移入和移出存储维度。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "放置$(item)维度存储促动器$()，$(bold)右击$()打开终端。终端带有 $(bold)3x3 合成网格$()。安装 JEI 后，使用配方转移按钮即可先从主背包、再从存储中填入现有材料。缺少的材料格保持为空；转移材料本身不会自动合成产物。",
+      "anchor": "usage"
+    },
+    {
+      "type": "text",
+      "title": "安全第一！",
+      "text": "破坏存储控制器后，其保存的所有物品不会丢失，而是保存在其掉落物中。$(br)破坏或重新放置存储稳定器（稍后会进行介绍）是一样的道理。$(br2) $(br)如同潜影盒，你的物品绝对安全！$(br)",
+      "anchor": "safety"
+    },
+    {
+      "type": "text",
+      "title": "如此多的空间！",
+      "text": "新控制器默认有 $(bold)128 个存储槽$()，$(bold)每槽最多 1024 件物品$()，稳定器可增加槽位。同一种物品可以占用多个槽；损伤值和 NBT 不同的变体可能需要分开存放。总容量由槽位及每槽上限共同决定，没有独立的固定物品总量上限。",
+      "anchor": "size"
+    },
+    {
+      "type": "text",
+      "title": "特殊物品",
+      "text": "带有独特属性（“NBT数据”）的物品，如受损或附魔的装备，每种变体都会占用一个物品种类。$(br)例如：两把损坏值不同的木剑会占用两个物品类型，$(br)而两把损坏值相同（或无损坏值）的木剑则只占用一个物品种类。$(br)",
+      "anchor": "unique_items"
+    },
+    {
+      "type": "text",
+      "title": "配置性",
+      "text": "在 $(bold)config/occultism.cfg$() 的 storage 分类中调整基础槽位、稳定器增量、每槽容量及是否覆盖物品原本的堆叠上限。这是 Forge 1.12 配置，不使用世界目录中的 TOML 文件。",
+      "anchor": "config"
+    },
+    {
+      "type": "text",
+      "title": "与其他模组的交互",
+      "text": "对其他模组来说，存储控制器与潜影盒类似，$(br)任何能够与原版箱子和潜影盒交互的手段都能与存储控制器交互。$(br)统计存储内容的设备可能会因堆叠数量问题而出现异常。$(br)",
+      "anchor": "mods"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dimensional_matrix",
+      "anchor": "matrix_ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_storage_controller_base",
+      "anchor": "base_ritual"
+    }
+  ]
+}

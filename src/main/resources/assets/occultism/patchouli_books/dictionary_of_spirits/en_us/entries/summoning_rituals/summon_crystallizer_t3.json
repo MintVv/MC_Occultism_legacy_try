@@ -1,0 +1,30 @@
+{
+  "name": "Summon Afrit Crystallizer",
+  "icon": "minecraft:quartz",
+  "category": "summoning_rituals",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Afrit Crystallizer",
+      "text": "The afrit Crystallizer is more faster and efficient.$(br2)They also can re-materialize crushed blocks.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_afrit_crystallizer",
+      "anchor": "ritual"
+    }
+  ]
+}

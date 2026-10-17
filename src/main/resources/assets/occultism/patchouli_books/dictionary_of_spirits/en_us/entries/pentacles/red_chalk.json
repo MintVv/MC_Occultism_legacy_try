@@ -1,0 +1,41 @@
+{
+  "name": "The Afrit Control Chalk",
+  "icon": "occultism:chalk_red",
+  "category": "pentacles",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Under Control",
+      "text": "The red chalk is made from the very essence of Afrit, making its glyphs directly$(br) connected to these spirits. Additionally, it elevates the pentacles$(br)  capacity to the most demonic levels.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_red",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "These properties allow for an incredible achievement that has been sought$(br) for ages before being attained: the summoning of an Afrit bound to the occultist.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:afrit_essence",
+      "text": "",
+      "anchor": "essence"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "To obtain the essence of an $(#AA00AA)Afrit$() for $(item)Red Chalk$() you need to$(br) $(l:summoning_rituals/afrit_essence)summon and kill an Unbound Afrit$(/l).$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_red",
+      "anchor": "recipe"
+    }
+  ]
+}

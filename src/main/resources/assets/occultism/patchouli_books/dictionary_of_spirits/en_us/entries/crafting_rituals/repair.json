@@ -1,0 +1,39 @@
+{
+  "name": "Repair Rituals",
+  "icon": "occultism:repair_icon",
+  "category": "crafting_rituals",
+  "sortnum": 51,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "minecraft:anvil",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "Repairing",
+      "text": "With simple materials, a $(#AA00AA)Djinni$() can repair any chalk for you.$(br) By evolving in the occult path, an $(#AA00AA)Afrit$() can repair miners, tools and armors.$(br) Any item repaired in this way retains its properties.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "repair_chalks",
+      "anchor": "ritual_chalks"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "repair_miners",
+      "anchor": "ritual_miners"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "repair_tools",
+      "anchor": "ritual_tools"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "repair_armors",
+      "anchor": "ritual_armors"
+    }
+  ]
+}

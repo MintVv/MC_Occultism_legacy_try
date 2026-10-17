@@ -1,0 +1,45 @@
+{
+  "name": "大师粉笔",
+  "icon": "occultism:chalk_rainbow",
+  "category": "crafting_rituals",
+  "sortnum": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_rainbow",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "铸造$(item)彩虹粉笔$()是由$(#AA00AA)诡奇魔灵$()提供的一项服务。$(br)这种粉笔能替代任何粉笔，此外还拥有一些额外特性。$(br)1. 使用$(item)魔灵同调宝石$()可开关随机变色功能$(br)或使用任意染料固定符文颜色（染料不会被消耗）。$(br)2. 在潜行状态下使用该粉笔，可以擦除符文，效果等同于$(item)粉笔擦$()。$(br)3. 在副手持有染料来确定绘制符文的颜色。$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_chalk_rainbow",
+      "anchor": "ritual"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_void",
+      "text": "",
+      "anchor": "spotlight2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "铸造$(item)虚空粉笔$()是由$(#AA00AA)诡奇魔灵$()提供的一项服务。$(br)这种粉笔具备$(item)彩虹粉笔$()的全部功能，$(br)但其色彩闪烁为白色到黑色。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_chalk_void",
+      "anchor": "ritual2"
+    }
+  ]
+}

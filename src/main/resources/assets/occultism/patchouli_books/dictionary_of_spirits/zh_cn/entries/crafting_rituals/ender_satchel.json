@@ -1,0 +1,30 @@
+{
+  "name": "末影挎包",
+  "icon": "occultism:ender_satchel",
+  "category": "crafting_rituals",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:ender_satchel",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "一只$(#AA00AA)巨灵$()被束缚于末影挎包上，负责$(bold)轻微$()扭曲空间。$(br)这令其能够在任何地方打开你的末影箱，使其得以成为旅行家的实用伴侣。$(br2)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_ender_satchel",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "库存共享",
+      "text": "此外，通过$(#AA00AA)Shift右击$()可将挎包与你绑定，$(br)从而允许你与任何其他玩家共享你的末影箱。$(br)是一种向朋友远距离传送物品的绝佳方式。$(br)",
+      "anchor": "link"
+    }
+  ]
+}

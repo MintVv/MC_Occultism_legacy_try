@@ -1,0 +1,35 @@
+{
+  "name": "荒野集群蠹虫",
+  "icon": "minecraft:record_13",
+  "category": "possession_rituals",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:wild_horde_silverfish",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：与古迹废墟相关的物品（查看下一页）；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_silverfish",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "通过此法召唤的蠹虫可掉落：$(item)record 13$()、$(item)host armor trim smithing template$()、$(item)raiser armor trim smithing template$()、$(item)shaper armor trim smithing template$()、$(item)wayfinder armor trim smithing template$()、$(item)burn pottery sherd$()、$(item)danger pottery sherd$()、$(item)friend pottery sherd$()、$(item)heart $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "pottery sherd$()、$(item)heartbreak pottery sherd$()、$(item)howl pottery sherd$()、$(item)sheaf pottery sherd$()。$(br)"
+    }
+  ]
+}

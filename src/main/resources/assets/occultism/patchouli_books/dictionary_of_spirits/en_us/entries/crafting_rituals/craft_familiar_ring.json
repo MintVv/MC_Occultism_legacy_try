@@ -1,0 +1,40 @@
+{
+  "name": "Familiar Ring",
+  "icon": "occultism:familiar_ring",
+  "category": "crafting_rituals",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:familiar_ring",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Familiar Rings consist of a $(item)Soul Gem$(), that contains a $(#AA00AA)Djinni$(), mounted on a ring.$(br) In this 1.12 port the ring stores supported local familiar substitutes for transport and release; a native one-slot player accessory also applies supported $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "ring effects.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_familiar_ring",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "To use a $(item)Familiar Ring$(), capture a supported summoned and tamed familiar by $(#AA00AA)right-clicking$() it with an empty ring.$(br2)Right-click air with a filled ring to equip it, or right-click a block to release the stored familiar; $()",
+      "anchor": "usage"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "sneak-right-click empty air to remove the equipped ring. When released from a familiar ring, the spirit will recognize the person releasing them as their new master.$(br)"
+    }
+  ]
+}

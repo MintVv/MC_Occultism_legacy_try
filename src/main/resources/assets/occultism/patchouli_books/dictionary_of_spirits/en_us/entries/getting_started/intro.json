@@ -1,0 +1,25 @@
+{
+  "name": "About",
+  "icon": "occultism:dictionary_of_spirits",
+  "category": "getting_started",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "About",
+      "text": "This book aims to introduce the novice reader to the most common summoning rituals and equip them with a list of spirit names to summon.$(br)The authors advise caution in the summoning of the listed entities and does not take responsibility for $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "About",
+      "text": "any harm caused.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Getting Help",
+      "text": "If you run into any trouble while playing Occultism, please join our Discord server and ask for help.$(br2)$(l:https://discord.gg/trE4SHRXvb)Join us at https://discord.gg/trE4SHRXvb$(/l)$(br)",
+      "anchor": "help"
+    }
+  ]
+}

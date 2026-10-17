@@ -1,0 +1,30 @@
+{
+  "name": "Cthulhu Familiar",
+  "icon": "occultism:textures/gui/book/familiar_cthulhu.png",
+  "category": "familiar_rituals",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:cthulhu_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Water Breathing$(), $(#ad03fc)General Coolness$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_cthulhu",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "$(bold)Upgrade Behaviour$()$(br)When upgraded by a blacksmith familiar, it will act as a mobile light source.$(br)",
+      "anchor": "description"
+    }
+  ]
+}

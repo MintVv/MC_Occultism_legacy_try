@@ -1,0 +1,34 @@
+{
+  "name": "Stabilized Dimensional Storage Actuator",
+  "icon": "occultism:storage_controller_stabilized",
+  "category": "storage",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_controller_stabilized",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Forging the $(item)Stabilized Dimensional Storage Actuator$() is one service provide by $(#AA00AA)Eldritch Spirits$(),$(br) this block will helps occult masters twist space, placing the stabilizers in the same$(br) position as the actuator in some extra-planar $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "dimension invisible even to the best eyes.$(br) By default this item receives two bonus stabilizer tier 5$(br) Other external stabilizers do not affect this block.$(br) The recipe keep items inside!$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_stabilized_storage",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_stabilized_storage_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

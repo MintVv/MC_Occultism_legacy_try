@@ -1,0 +1,66 @@
+{
+  "name": "On Spirits",
+  "icon": "occultism:textures/gui/book/spirits.png",
+  "category": "spirits",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "On Spirits",
+      "text": "$(#ad03fc)Spirit$(), commonly referred to also as $(#ad03fc)Demon$(), is a general term for a variety of supernatural entities usually residing in $(#ad03fc)The Other Place$(), a plane of existence entirely separate from our own.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Shapes",
+      "text": "When in our world Spirits can take a variety of forms, by morphing their essence into $(#ad03fc)Chosen Forms$(). Alternatively, they can inhabit objects or even living beings.$(br)",
+      "anchor": "shapes"
+    },
+    {
+      "type": "text",
+      "title": "Types of Spirits",
+      "text": "There are four major \"ranks\" of spirits identified by researchers, but there are a myriad spirits below and in between these ranks, and some great entities of terrible power, referred to only as $(#ad03fc)Greater Spirits$(), that are beyond classification.$()",
+      "anchor": "tiers"
+    },
+    {
+      "type": "text",
+      "title": "Types of Spirits",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Foliot",
+      "text": "The lowest identified class of spirit. Equipped with some intelligence and a modicum of power they are most often used for manual labor or minor artifacts.$(br)",
+      "anchor": "foliot"
+    },
+    {
+      "type": "text",
+      "title": "Djinni",
+      "text": "The most commonly summoned class. There is a great variety of Djinni, differing both in intelligence and power. Djinni can be used for a variety of task, ranging from higher artifacts over possession of living beings to carrying out tasks in their $()",
+      "anchor": "djinni"
+    },
+    {
+      "type": "text",
+      "title": "Djinni",
+      "text": "Chosen Form.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Afrit",
+      "text": "Even more powerful than Djinni, Afrit are used for the creation of major artifacts and the possession of powerful beings.$(br)",
+      "anchor": "afrit"
+    },
+    {
+      "type": "text",
+      "title": "Marid",
+      "text": "The strongest identified class of spirits. Due to their power and vast intellect attempting a summoning is extremely dangerous and usually only carried out by the most experienced summoners, and even then usually in groups.$(br)",
+      "anchor": "marid"
+    },
+    {
+      "type": "text",
+      "title": "Greater Spirits",
+      "text": "Spirits of power so great it is beyond measure. No summons have been attempted in living memory, and records of summonings in ancient times are mostly considered apocryphal.$(br)",
+      "anchor": "greater_spirits"
+    }
+  ]
+}

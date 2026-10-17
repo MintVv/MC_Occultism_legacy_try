@@ -1,0 +1,30 @@
+{
+  "name": "The Chalk of Infusion",
+  "icon": "occultism:chalk_purple",
+  "category": "pentacles",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Infusing",
+      "text": "The purple chalk is extremely important for those wishing to perform infusions,$(br) serving as the main glyph in this type of ritual.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_purple",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Infusions are an extremely different type of ritual, as while summoning and possession$(br) bring living creatures into the world, infusion creates objects bound to spirits.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_purple",
+      "anchor": "recipe"
+    }
+  ]
+}

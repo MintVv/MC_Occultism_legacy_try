@@ -1,0 +1,63 @@
+{
+  "name": "Summon Foliot Transporter",
+  "icon": "minecraft:minecart",
+  "category": "summoning_rituals",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Foliot Transporter",
+      "text": "The transporter is useful in that you don't need a train of hoppers$(br)transporting stuff, and can use any inventory to take from and deposit.$(br2)To make it take from an inventory simply sneak and interact$(br)with it's book $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Foliot Transporter",
+      "text": "of calling on the inventory you want.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "You can also dictate which inventory it deposits to in the same way.$(br2)The transporter will move all items it can access from one inventory to another,$(br) including machines. It can also deposit into the inventories of other $()",
+      "anchor": "intro2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "spirits.$(br) By setting the extract and insert side they can be used to automate various transport tasks.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Spirit Inventories",
+      "text": "The Transporter can also interact with the inventories of other spirits.$(br)This is especially useful to automatically supply a $(l:summoning_rituals/summon_crusher_t1)Crusher spirit$(/l) with items to crush,$(br)a $(l:summoning_rituals/summon_smelter_t1)Smelter spirit$(/l) with items to smelt or a $(l:summoning_rituals/summon_crystallizer_t1)Crystallizer spirit$(/l) with $()",
+      "anchor": "spirit_inventories"
+    },
+    {
+      "type": "text",
+      "title": "Spirit Inventories",
+      "text": "items to crystallize.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Item Filters",
+      "text": "Shift-click the transporter to open the config UI.$(br)The filter slot accepts a $(item)list filter$() or $(item)attribute filter$(), which control what the transporter extracts or inserts.$(br)A transporter without a filter will move any items it can reach. See $()",
+      "anchor": "item_filters"
+    },
+    {
+      "type": "text",
+      "title": "Item Filters",
+      "text": "Spirit Filters for details and recipes.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_transport_items",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "Use the book of calling to set the extract and insert location of the transporter.$(br2) $(br) See Books of Calling for more information.$(br)",
+      "anchor": "usage"
+    }
+  ]
+}

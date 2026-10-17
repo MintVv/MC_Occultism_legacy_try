@@ -1,0 +1,35 @@
+{
+  "name": "Fragile Soul Gem",
+  "icon": "occultism:fragile_soul_gem",
+  "category": "crafting_rituals",
+  "sortnum": 27,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:fragile_soul_gem",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Fragile Soul gems are eggs infused by a $(#AA00AA)Foliot$(). The spirit creates a small dimension$(br) that allows the temporary entrapment of living beings.$(br) Beings of great power or size cannot be stored, however. $(br) Be careful, $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "this item will break after transporting a creature.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_fragile_soul_gem",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "To capture an entity, $(#55FF55)right-click$() it with the soul gem. $(br)$(#55FF55)Right-click$() again to release the entity.$(br2)Bosses cannot be captured.$(br)",
+      "anchor": "use"
+    }
+  ]
+}

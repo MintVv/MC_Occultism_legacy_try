@@ -1,0 +1,35 @@
+{
+  "name": "Possessed Shulker",
+  "icon": "minecraft:shulker_shell",
+  "category": "possession_rituals",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_shulker",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): 1x $(item)shulker shell$(), with a 25%% chance plus 10%% per Looting level for one additional shell.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_shulker",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual a $(#ad03fc)Shulker$() is spawned using the life energy of a $(#ad03fc)Cube Mob$() and immediately possessed by the summoned $(#ad03fc)Afrit$(). The $(#ad03fc)Possessed Shulker$() will always drop at least one $(item)shulker shell$() when killed. Minecraft 1.12 does not include the modern $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "projectile-based Shulker multiplication mechanic, so this entity cannot create normal Shulkers that way.$(br)"
+    }
+  ]
+}

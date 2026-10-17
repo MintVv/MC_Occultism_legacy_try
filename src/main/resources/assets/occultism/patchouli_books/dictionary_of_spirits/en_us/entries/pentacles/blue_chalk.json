@@ -1,0 +1,46 @@
+{
+  "name": "The Chalk of The Seven Seas",
+  "icon": "occultism:chalk_blue",
+  "category": "pentacles",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Marid Lure",
+      "text": "Just as the red chalk is made from the essence of Afrit, the blue chalk is made$(br) from the essence of Marid, allowing for control over these powerful spirits.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_blue",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The purpose of the blue chalk is to overcome the willpower of a Marid; its sometimes$(br) excessive use serves as a guarantee that any Marid will be controlled.$(br) Should the control fail, it would generate extreme fury in the invoked Marid.$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:marid_essence",
+      "text": "",
+      "anchor": "essence"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "To obtain the essence of a $(#AA00AA)Marid$() for $(item)Blue Chalk$() you need to$(br) $(l:summoning_rituals/marid_essence)summon and kill an Unbound Marid$(/l).$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_blue",
+      "anchor": "recipe"
+    }
+  ]
+}

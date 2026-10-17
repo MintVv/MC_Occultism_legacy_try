@@ -1,0 +1,44 @@
+{
+  "name": "被附身的随机动物",
+  "icon": "minecraft:egg",
+  "category": "possession_rituals",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "text",
+      "title": "召唤随机动物",
+      "text": "在这个仪式中，一只$(#ad03fc)魔灵$()将会以$(bold)未驯服的生物$()的形态随机化形成某种随机动物。$(br)不同仪式可召唤的动物种类各异，具体可能性请查看仪式象征物或配方产出说明。$(br2)该动物可像其自然存在的同类一样进行互动，包括驯服、繁殖及获取战利品。$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_random_animal_common",
+      "anchor": "ritual_common"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_random_animal_water",
+      "anchor": "ritual_water"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_random_animal_small",
+      "anchor": "ritual_small"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_random_animal_rideable",
+      "anchor": "ritual_rideable"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_villager",
+      "anchor": "ritual_villager"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_random_animal_special",
+      "anchor": "ritual_special"
+    }
+  ]
+}

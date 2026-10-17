@@ -1,0 +1,30 @@
+{
+  "name": "召唤巨灵碎矿者",
+  "icon": "occultism:iron_dust",
+  "category": "summoning_rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "title": "巨灵碎矿者",
+      "text": "巨灵碎矿者比魔精速度更快，效率更高，技艺更精湛。$(br)能够在无须烧炼的前提下粉碎冰。$(br2)可将$(bold)一份$()矿石粉碎成$(bold)三份$()对应粉末。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_crusher",
+      "anchor": "ritual"
+    }
+  ]
+}

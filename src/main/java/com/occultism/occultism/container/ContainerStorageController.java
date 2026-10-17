@@ -3,6 +3,7 @@ package com.occultism.occultism.container;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 import com.occultism.occultism.client.gui.ClientStorageCache;
 import com.occultism.occultism.item.ItemStorageRemote;
@@ -20,10 +21,12 @@ import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.entity.player.EntityPlayerMP;
 
@@ -290,6 +293,40 @@ public class ContainerStorageController extends Container {
         return this.recipeLocked;
     }
 
+    /** Server-side counterpart of the upstream MessageSetRecipeByID ingredient transfer. */
+    public boolean setRecipeById(ResourceLocation recipeId, EntityPlayer player) {
+        if (this.recipeLocked || recipeId == null || player == null || !this.canInteractWith(player)
+                || this.storageController.getWorld() == null || this.storageController.getWorld().isRemote) {
+            return false;
+        }
+        IRecipe recipe = CraftingManager.REGISTRY.getObject(recipeId);
+        NonNullList<Ingredient> ingredients = StorageRecipeLayout.getMatrixIngredients(recipe);
+        if (ingredients == null) {
+            return false;
+        }
+        this.recipeLocked = true;
+        try {
+            this.returnCraftingMatrix(player);
+            for (int slot = 0; slot < ingredients.size(); slot++) {
+                Ingredient ingredient = ingredients.get(slot);
+                if (ingredient == Ingredient.EMPTY) {
+                    continue;
+                }
+                ItemStack found = this.takeMatchingFromPlayer(ingredient::apply);
+                if (found.isEmpty()) {
+                    found = this.storageController.getOneOfMostCommonItem(ingredient::apply, false);
+                }
+                if (!found.isEmpty()) {
+                    this.craftMatrix.setInventorySlotContents(slot, found);
+                }
+            }
+        } finally {
+            this.recipeLocked = false;
+            this.finishRecipeTransfer(player);
+        }
+        return true;
+    }
+
     /**
      * Applies an upstream-compatible recipe-transfer payload. Each {@code sN}
      * list contains one or more alternative item stacks for matrix slot N.
@@ -306,13 +343,7 @@ public class ContainerStorageController extends Container {
             this.recipeLocked = true;
         }
         try {
-            for (int i = 0; i < this.craftMatrix.getSizeInventory(); i++) {
-                ItemStack existing = this.craftMatrix.getStackInSlot(i);
-                if (!existing.isEmpty()) {
-                    this.returnStackSafely(player, existing.copy());
-                    this.craftMatrix.setInventorySlotContents(i, ItemStack.EMPTY);
-                }
-            }
+            this.returnCraftingMatrix(player);
             for (int i = 0; i < 9; i++) {
                 if (!payload.hasKey("s" + i, 9)) {
                     continue;
@@ -346,20 +377,41 @@ public class ContainerStorageController extends Container {
                 this.recipeLocked = false;
             }
         }
+        this.finishRecipeTransfer(player);
+        return true;
+    }
+
+    private void returnCraftingMatrix(EntityPlayer player) {
+        for (int slot = 0; slot < this.craftMatrix.getSizeInventory(); slot++) {
+            ItemStack existing = this.craftMatrix.getStackInSlot(slot);
+            if (!existing.isEmpty()) {
+                this.craftMatrix.setInventorySlotContents(slot, ItemStack.EMPTY);
+                this.returnStackSafely(player, existing.copy());
+            }
+        }
+    }
+
+    private void finishRecipeTransfer(EntityPlayer player) {
         this.syncCraftingMatrixToController();
         this.updateCraftingResult();
         if (player instanceof EntityPlayerMP) {
             com.occultism.occultism.network.ModNetworking.syncStorageStacks((EntityPlayerMP) player,
                     this.storageController);
         }
-        return true;
     }
 
     private ItemStack takeMatchingFromPlayer(ItemStack template) {
-        for (int slot = 0; slot < this.playerInventory.getSizeInventory(); slot++) {
+        return this.takeMatchingFromPlayer(current -> ItemStack.areItemsEqual(template, current)
+                && ItemStack.areItemStackTagsEqual(template, current));
+    }
+
+    private ItemStack takeMatchingFromPlayer(Predicate<ItemStack> ingredient) {
+        for (int slot = 0; slot < this.playerInventory.mainInventory.size(); slot++) {
+            if (this.remoteItemAccess && slot == this.remoteSlot) {
+                continue;
+            }
             ItemStack current = this.playerInventory.getStackInSlot(slot);
-            if (current.isEmpty() || !ItemStack.areItemsEqual(template, current)
-                    || !ItemStack.areItemStackTagsEqual(template, current)) {
+            if (current.isEmpty() || !ingredient.test(current)) {
                 continue;
             }
             ItemStack result = this.playerInventory.decrStackSize(slot, 1);

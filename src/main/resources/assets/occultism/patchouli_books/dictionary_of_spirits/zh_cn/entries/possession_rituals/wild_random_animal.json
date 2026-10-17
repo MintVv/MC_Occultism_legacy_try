@@ -1,0 +1,44 @@
+{
+  "name": "随机动物集群",
+  "icon": "minecraft:egg",
+  "category": "possession_rituals",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "text",
+      "title": "召唤随机动物集群",
+      "text": "你已习得如何通过将五芒星阵改为$(#ad03fc)奥索林的荒野呼唤$()，并使用$(item)魔灵同调宝石$()而非束缚之书来引召成群的随机动物。$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_random_animal_common",
+      "anchor": "ritual_common"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_random_animal_water",
+      "anchor": "ritual_water"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_random_animal_small",
+      "anchor": "ritual_small"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_random_animal_rideable",
+      "anchor": "ritual_rideable"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_villager",
+      "anchor": "ritual_villager"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_random_animal_special",
+      "anchor": "ritual_special"
+    }
+  ]
+}

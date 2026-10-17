@@ -1,0 +1,47 @@
+{
+  "name": "Summon Foliot Smelter",
+  "icon": "occultism:copper_ingot",
+  "category": "summoning_rituals",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Smelter Spirits",
+      "text": "Smelter spirits are summoned to do furnace, blast furnace, smoker and campfire process,$(br)without using fuel. They will pick up appropriate items and drop the resulting into the world.$(br)A fire particle effect and a flame sound indicate $()",
+      "anchor": "about_smelters"
+    },
+    {
+      "type": "text",
+      "title": "Smelter Spirits",
+      "text": "the smelter is at work.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Automation",
+      "text": "To ease automation, try summoning a $(l:summoning_rituals/summon_transport_items)Transporter Spirit$(/l) to place items from chests$(br) in the smelter's inventory, and a $(l:summoning_rituals/summon_cleaner)Janitor Spirit$(/l) to collect the processed items.$(br)",
+      "anchor": "automation"
+    },
+    {
+      "type": "text",
+      "title": "Foliot Smelter",
+      "text": "The foliot smelter is the most basic smelter spirit.$(br2)It will smelt an item at the same speed as the furnace.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_smelter",
+      "anchor": "ritual"
+    }
+  ]
+}

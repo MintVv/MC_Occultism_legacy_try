@@ -1,0 +1,19 @@
+{
+  "name": "召唤巨灵机器操作员",
+  "icon": "minecraft:lever",
+  "category": "summoning_rituals",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_manage_machine",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "手持召唤之书对机器或维度存储促动器使用即可绑定。之后该巨灵会持续把机器产物送进绑定的存储，并把原料取回机器。每只灵体最多排队 64 笔存入订单，每次转移 16 个物品。",
+      "anchor": "description"
+    }
+  ]
+}

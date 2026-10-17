@@ -1,0 +1,35 @@
+{
+  "name": "Possessed Warden",
+  "icon": "occultism:echo_dust",
+  "category": "possession_rituals",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_warden",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): 1-4x $(item)Echo Dust$() with Looting adding 0-3; rare pools use 1.12 music records as ancient-city loot substitutes.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_warden",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This ritual summons a dedicated 1.12 $(#ad03fc)Possessed Warden$() from a local squid sacrifice and a bound $(#ad03fc)Djinni$(). It uses echo dust, redstone, and obsidian in place of Sculk materials. The entity keeps the upstream size and core attributes, but its Brain, $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "vibration sensing, darkness, digging, and true sonic boom are represented by the documented 1.12 pulse and blindness compatibility behavior.$(br)"
+    }
+  ]
+}

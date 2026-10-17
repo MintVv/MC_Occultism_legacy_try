@@ -1,0 +1,45 @@
+{
+  "name": "Iesnium Ritual Bowl",
+  "icon": "occultism:iesnium_sacrificial_bowl",
+  "category": "crafting_rituals",
+  "sortnum": 35,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:iesnium_sacrificial_bowl",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(item)Iesnium Ritual Bowl$() is an $(#AA00AA)Afrit$() infusion$(br) that helps expert occultists save time,$(br) performing any ritual in only a quarter of the normal time.$(br) All other things will works like the Golden Ritual Bowl.$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_iesnium_sacrificial_bowl",
+      "anchor": "ritual"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:dark_iesnium_sacrificial_bowl",
+      "text": "",
+      "anchor": "spotlight2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "For players who are on the path of otherrock, there is also the dark version.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dark_iesnium_sacrificial_bowl",
+      "anchor": "ritual2"
+    }
+  ]
+}

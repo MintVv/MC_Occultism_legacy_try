@@ -1,0 +1,35 @@
+{
+  "name": "Beholder Familiar",
+  "icon": "occultism:textures/gui/book/familiar_beholder.png",
+  "category": "familiar_rituals",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:beholder_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Highlights enemies$(), $(#ad03fc)Shoots $(bold)FREAKING LAZORS$()$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_beholder",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "The Beholder familiar highlights nearby entities with a glow effect and shoots laser rays at enemies. It $(bold)eats$() (poor) $(bold)Shub Niggurath babies$() to gain temporary damage and speed.$(br2)$(bold)Upgrade Behaviour$()$(br)When upgraded by a blacksmith $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "familiar, it gives its master immunity to blindness.$(br)"
+    }
+  ]
+}

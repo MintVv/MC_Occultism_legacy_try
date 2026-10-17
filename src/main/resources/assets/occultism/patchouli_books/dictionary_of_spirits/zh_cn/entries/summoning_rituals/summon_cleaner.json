@@ -1,0 +1,37 @@
+{
+  "name": "召唤魔精清洁工",
+  "icon": "occultism:brush",
+  "category": "summoning_rituals",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "text",
+      "title": "魔精清洁工",
+      "text": "清洁工会拾取地上掉落的物品并将其存放到指定容器中。$(br)你可以配置物品的黑白名单来控制应该拾取和忽略的物品。$(br)$(bold)警告$()：它默认被设为白名单模式，$(br)所以只会捡起你在白名单中指定的物品。$(br)你也可以使用标签针对一整类物品进行控制。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "要想将清洁工绑定到某个容器，$(br)只需要用清洁工的召唤之书在想指定的容器上潜行交互即可。$(br)你也可以在手持召唤之书时与方块交互，$(br)指示清洁工在这里丢下物品。你还可以切换模式$(br)并让它在选定的区域游荡。$(br)潜行与清洁工交互可以设置黑白名单。$(br)",
+      "anchor": "intro2"
+    },
+    {
+      "type": "text",
+      "title": "专家提示",
+      "text": "清洁工会捡起$(l:summoning_rituals/summon_crusher_t1)碎矿者$(/l)、$(l:summoning_rituals/summon_smelter_t1)熔炼者$(/l)、$(l:summoning_rituals/summon_crystallizer_t1)铸晶者$(/l)$(br)魔灵粉碎的物品并放进箱子中。$(br2)将其与$(l:summoning_rituals/summon_transport_items)搬运工魔灵$(/l)结合就可以自动化整个过程。$(br)",
+      "anchor": "tip"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_cleaner",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "使用召唤之书来设置清洁工的工作区域和存放位置。$(br2) $(br)更多信息参阅召唤之书。$(br)",
+      "anchor": "usage"
+    }
+  ]
+}

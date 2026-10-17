@@ -1,0 +1,27 @@
+{
+  "name": "Osorin's Unbound Calling",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Osorins Unbound Calling",
+      "text": "$(bold)Purpose:$() Contact $(#AA00AA)Wild Spirits$()$(br2)$(bold)Osorins Unbound Calling$() has a unique form, mixing different aspects obtained in each chalk$(br) and none of the common stabilizing paraphernalia. Therefore, the pentacle offers no $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Osorins Unbound Calling",
+      "text": "protection$(br)  to the occultist, but acts as an irresistible contact with the $(#AA00AA)Wild Spirits$().$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:contact_wild_spirit",
+      "name": "Osorin's Unbound Calling",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    }
+  ]
+}

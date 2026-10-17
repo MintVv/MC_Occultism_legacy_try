@@ -1,0 +1,30 @@
+{
+  "name": "The Chalk of Possession",
+  "icon": "occultism:chalk_yellow",
+  "category": "pentacles",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Possessing",
+      "text": "The yellow chalk, also known as golden chalk, brings a sparkle to the eyes of those who$(br) engage in possessions, serving as the main glyph in this type of ritual.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_yellow",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Possessions are a variation of summoning, caused by a transformation in geometry and$(br) the addition of yellow glyphs, allowing spirits to manifest in bodies (material prisons)$(br)  different from their usual ones.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_yellow",
+      "anchor": "recipe"
+    }
+  ]
+}

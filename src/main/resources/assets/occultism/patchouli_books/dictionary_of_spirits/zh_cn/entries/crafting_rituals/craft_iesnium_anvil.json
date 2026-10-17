@@ -1,0 +1,24 @@
+{
+  "name": "艾瑟金属砧",
+  "icon": "occultism:iesnium_anvil",
+  "category": "crafting_rituals",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:iesnium_anvil",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(item)艾瑟金属铁砧$()是一件$(#AA00AA)魔王$()灌注物品。$(br)该砧具有以下改进特性：$(br)1. 不会损坏；$(br)2. 可使魔咒等级上限+1；$(br)3. 魔王将支付所显示经验等花费的一半（向上取整）；$(br)4. 同一物品重复操作导致的消耗增幅将降低；$(br)5. 最高消耗上限提升；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_iesnium_anvil",
+      "anchor": "ritual"
+    }
+  ]
+}

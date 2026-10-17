@@ -1,0 +1,28 @@
+{
+  "name": "法特玛的犒灵引召",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "text",
+      "title": "法特玛的犒灵引召",
+      "text": "$(bold)目的$()：召唤一只$(#AA00AA)魔王$()$(br2)$(bold)法特玛的犒灵引召$()是一种极为强大的五芒星阵，能够召唤并驱使$(#AA00AA)魔王$()，令其服从你的意志。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_marid",
+      "name": "法特玛的犒灵引召",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:summoning_rituals/summon_crusher_t4)魔王碎矿者$(/l)$(br)$(li)$(l:summoning_rituals/summon_smelter_t4)魔王熔炼者$(/l)$(br)$(li)$(l:summoning_rituals/summon_crystallizer_t4)魔王铸晶者$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

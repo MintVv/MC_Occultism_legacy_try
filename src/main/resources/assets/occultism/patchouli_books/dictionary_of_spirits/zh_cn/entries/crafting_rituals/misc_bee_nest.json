@@ -1,0 +1,19 @@
+{
+  "name": "制造蜂巢",
+  "icon": "occultism:bee_nest",
+  "category": "crafting_rituals",
+  "sortnum": 53,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_bee_nest",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "产出一个蜂巢方块。1.12 没有蜜蜂，因此它仅作为建筑装饰物使用。",
+      "anchor": "description"
+    }
+  ]
+}

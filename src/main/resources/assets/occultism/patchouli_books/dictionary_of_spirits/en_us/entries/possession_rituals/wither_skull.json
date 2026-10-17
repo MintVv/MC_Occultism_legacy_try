@@ -1,0 +1,24 @@
+{
+  "name": "Wild Hunt",
+  "icon": "minecraft:skull:1",
+  "category": "possession_rituals",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Wither Skeleton Skull",
+      "text": "Besides venturing into nether dungeons, there is one more way to get these skulls. The legendary $(#ad03fc)Wild Hunt$() consists of $(#ad03fc)Greater Spirits$() taking the form of wither skeletons. While summoning the Wild Hunt is incredibly dangerous, it is the fastest way $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Wither Skeleton Skull",
+      "text": "to get wither skeleton skulls.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_wild_hunt",
+      "anchor": "ritual"
+    }
+  ]
+}

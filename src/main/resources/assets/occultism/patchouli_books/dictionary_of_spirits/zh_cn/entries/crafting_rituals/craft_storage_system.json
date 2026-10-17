@@ -1,0 +1,30 @@
+{
+  "name": "魔法存储",
+  "icon": "minecraft:chest",
+  "category": "crafting_rituals",
+  "sortnum": 12,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:satchel",
+      "text": "",
+      "anchor": "satchels"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "神秘学提供了两种存储方案：第一种基于挎包，这是一种便携存储空间，其功能依种类而异。$(br)其中一部分当前即可获得，而其他的则需要先在推进本模组进度。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_controller",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "第二种选择是遵循下列条目，它们展示了与魔法存储系统有关的仪式。$(br)如果想要构建存储系统的详细说明，请参阅$(thing)魔法存储$()章节。$(br)"
+    }
+  ]
+}

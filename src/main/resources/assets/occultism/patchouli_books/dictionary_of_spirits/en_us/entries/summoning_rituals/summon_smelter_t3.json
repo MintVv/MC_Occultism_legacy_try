@@ -1,0 +1,30 @@
+{
+  "name": "Summon Afrit Smelter",
+  "icon": "minecraft:gold_ingot",
+  "category": "summoning_rituals",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Afrit Smelter",
+      "text": "The afrit smelter is more faster, doing the process in a tenth of the time.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_afrit_smelter",
+      "anchor": "ritual"
+    }
+  ]
+}

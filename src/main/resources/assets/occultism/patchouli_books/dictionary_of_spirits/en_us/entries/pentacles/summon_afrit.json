@@ -1,0 +1,33 @@
+{
+  "name": "Abras' Conjure",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Abras Conjure",
+      "text": "$(bold)Purpose:$() Summon a $(#AA00AA)Afrit$()$(br2)$(bold)Abras Conjure$() is one of the few pentacles capable of (mostly) safely summoning an $(#AA00AA)Afrit$().$(br) While the requirement of several $(#FF55FF)Spirit Attuned Gems$() makes it comparatively expensive,$(br) the additional $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Abras Conjure",
+      "text": "calling potential is required to reach these high-power spirits.$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_afrit",
+      "name": "Abras' Conjure",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:summoning_rituals/summon_crusher_t3)Afrit Crusher$(/l)$(br)$(li)$(l:summoning_rituals/summon_smelter_t3)Afrit Smelter$(/l)$(br)$(li)$(l:summoning_rituals/summon_crystallizer_t3)Afrit Crystallizer$(/l)$(br)$(li)Thunderstorm$(br)$(li)Rainy Weather$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

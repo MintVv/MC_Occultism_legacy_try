@@ -1,0 +1,30 @@
+{
+  "name": "Decent Foundation Chalk",
+  "icon": "occultism:chalk_light_gray",
+  "category": "pentacles",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Most Common Foundation",
+      "text": "The light gray chalk uses mineral compounds to enhance the foundation of a pentacle.$(br) The foundation is an important property, often considered the stabilization of the \"core.\"$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_light_gray",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Due to its relatively low cost and inherent magical properties, it is the most common$(br) foundation option among practitioners of occultism, capable of replacing white chalk$(br) in almost all pentacles.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_light_gray",
+      "anchor": "recipe"
+    }
+  ]
+}

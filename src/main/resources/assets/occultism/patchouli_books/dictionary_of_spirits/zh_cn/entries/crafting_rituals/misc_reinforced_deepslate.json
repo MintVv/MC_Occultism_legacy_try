@@ -1,0 +1,19 @@
+{
+  "name": "制造强化深板岩",
+  "icon": "occultism:reinforced_deepslate",
+  "category": "crafting_rituals",
+  "sortnum": 56,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_reinforced_deepslate",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "产出一个强化深板岩方块，它是一种耐久的防爆建筑装饰方块。",
+      "anchor": "description"
+    }
+  ]
+}

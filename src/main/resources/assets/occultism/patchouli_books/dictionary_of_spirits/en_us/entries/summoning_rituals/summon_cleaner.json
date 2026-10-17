@@ -1,0 +1,47 @@
+{
+  "name": "Summon Foliot Janitor",
+  "icon": "occultism:brush",
+  "category": "summoning_rituals",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Foliot Janitor",
+      "text": "The janitor will pick up dropped items and deposit them into a target$(br)inventory.$(br)If the filter slot is empty, the janitor will pick up everything in its work area.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to control $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Foliot Janitor",
+      "text": "which items it picks up instead.$(br)See Spirit Filters for filter details and recipes.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "To bind the janitor to an inventory simply sneak and interact$(br)with the janitor book of calling on that inventory. You can$(br)also interact with a block while holding the janitor book of$(br)calling to have it deposit items $()",
+      "anchor": "intro2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "there. You can also have it$(br)wander around a select area by pulling up that interface.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Pro tip",
+      "text": "The Janitor will pick up crushed items from a $(l:summoning_rituals/summon_crusher_t1)Crusher$(/l), $(l:summoning_rituals/summon_smelter_t1)Smelter$(/l), $(l:summoning_rituals/summon_crystallizer_t1)Crystallizer$(/l)$(br)spirits and deposit them into a chest.$(br2)Combine that with a $(l:summoning_rituals/summon_transport_items)Transporter Spirit$(/l) to automate the whole process.$(br)",
+      "anchor": "tip"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_cleaner",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "Use the book of calling to set the work area and deposit location of the janitor.$(br2) $(br) See Books of Calling for more information.$(br)",
+      "anchor": "usage"
+    }
+  ]
+}

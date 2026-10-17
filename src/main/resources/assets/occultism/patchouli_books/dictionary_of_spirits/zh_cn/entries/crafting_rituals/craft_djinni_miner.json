@@ -1,0 +1,24 @@
+{
+  "name": "巨灵矿工",
+  "icon": "occultism:miner_djinni_ores",
+  "category": "crafting_rituals",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:miner_djinni_ores",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(#AA00AA)巨灵$()矿工专门采集矿物。由于摒弃了其他方块，巨灵矿工挖得更快，效率也更高。$(br)然而巨灵的强大力量也让神灯损坏得更快。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_miner_djinni_ores",
+      "anchor": "ritual"
+    }
+  ]
+}

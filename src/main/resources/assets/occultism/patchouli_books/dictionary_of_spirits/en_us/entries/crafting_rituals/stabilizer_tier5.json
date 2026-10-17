@@ -1,0 +1,34 @@
+{
+  "name": "Storage Stabilizer Tier 5",
+  "icon": "occultism:storage_stabilizer_tier5",
+  "category": "crafting_rituals",
+  "sortnum": 19,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_stabilizer_tier5",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This extremely advanced stabilizer maybe is inhabited by a $(#AA00AA)Ancient Spirit$() that supports$(br) the dimensional matrix in keeping the storage dimension stable, thus allowing to store even more items.$(br2)By default each Tier 5 Stabilizer $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "adds $(bold)1024$() item types and 8196000 items storage capacity.$(br2)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_stabilizer_tier5",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_stabilizer_tier5_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

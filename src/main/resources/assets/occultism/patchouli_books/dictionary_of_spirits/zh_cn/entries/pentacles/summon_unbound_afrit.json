@@ -1,0 +1,28 @@
+{
+  "name": "坎达尔的无羁召唤",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "pentacles",
+  "sortnum": 19,
+  "pages": [
+    {
+      "type": "text",
+      "title": "坎达尔的无羁召唤",
+      "text": "$(bold)目的$()：召唤一只$(#AA00AA)未受缚的火灵$()$(br2)$(bold)坎达尔的无羁召唤$()是$(#FF55FF)阿布拉召唤术$()的简化版本，无需红色粉笔，便能召唤$(#AA00AA)火灵$()。$(br) 由于五芒星阵的力量被大幅削弱，其无法控制$(#AA00AA)火灵$()，因此只能用来与$(#AA00AA)火灵$()战斗并将其击杀。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_unbound_afrit",
+      "name": "坎达尔的无羁召唤",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:summoning_rituals/afrit_essence)火灵灵髓$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

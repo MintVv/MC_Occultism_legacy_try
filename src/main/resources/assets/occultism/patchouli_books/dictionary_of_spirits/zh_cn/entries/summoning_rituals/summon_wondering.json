@@ -1,0 +1,19 @@
+{
+  "name": "召唤流琅商人",
+  "icon": "minecraft:emerald",
+  "category": "summoning_rituals",
+  "sortnum": 25,
+  "pages": [
+    {
+      "type": "text",
+      "title": "流琅商人",
+      "text": "只有有通过$(#AA00AA)第三只眼$()或者$(item)异界眼镜$()，才能勘破此商人的真实形态，$(br)否则，他与普通的流浪商人别无二致，$(br)或许你早已在不知不觉中遇到过一位。$(br2) $(br)初次与其交互时，显示的总是常规交易。$(br)这些商贩热衷于兜售他们拥有的一切。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_wondering_trader",
+      "anchor": "ritual"
+    }
+  ]
+}

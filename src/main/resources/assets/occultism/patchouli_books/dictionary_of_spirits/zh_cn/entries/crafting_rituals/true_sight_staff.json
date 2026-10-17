@@ -1,0 +1,24 @@
+{
+  "name": "真视法杖",
+  "icon": "occultism:true_sight_staff",
+  "category": "crafting_rituals",
+  "sortnum": 39,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:true_sight_staff",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(item)真视法杖$()驱使一只$(#AA00AA)魔王$()魔灵协助召唤者完成在异界中搜寻与交互的任务。$(br)与异界眼镜中仅能提供视界的$(#AA00AA)魔精$()不同，当该法杖置于副手或饰品栏时，神秘学者便能采集异界材料。$(br)探测杖的搜索能力也会获得升级，现可定位任意方块。$(br2)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_true_sight_staff",
+      "anchor": "ritual"
+    }
+  ]
+}

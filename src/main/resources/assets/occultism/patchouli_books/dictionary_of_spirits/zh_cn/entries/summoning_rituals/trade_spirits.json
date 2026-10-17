@@ -1,0 +1,20 @@
+{
+  "name": "交易者魔灵",
+  "icon": "occultism:textures/gui/book/cash.png",
+  "category": "summoning_rituals",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "text",
+      "title": "交易者魔灵",
+      "text": "交易者魔灵的工作方式是捡起正确的物品并将交易结果扔在地上。$(br)魔灵只在发出紫色粒子时积极进行交易。$(br2)$(bold)如果你没看见任何粒子$()，请确保给予了正确种类和数量的物品。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "大多数交易者魔灵都会经历非常严重的灵髓衰退，并在短时间内返回$(#AA00AA)异世界$()。$(br)",
+      "anchor": "intro2"
+    }
+  ]
+}

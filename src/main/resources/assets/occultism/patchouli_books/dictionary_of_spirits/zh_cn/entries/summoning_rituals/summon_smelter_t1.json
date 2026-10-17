@@ -1,0 +1,42 @@
+{
+  "name": "召唤魔精熔炼者",
+  "icon": "occultism:copper_ingot",
+  "category": "summoning_rituals",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "text",
+      "title": "熔炼者魔灵",
+      "text": "熔炼者魔灵能在不使用燃料的情况下，处理熔炉、高炉、烟熏炉和营火的配方。$(br)它们会拾取合适的物品，并将产物丢在世界中。$(br)火焰粒子效果和火焰音效的显现，表明熔炼者正在工作。$(br)",
+      "anchor": "about_smelters"
+    },
+    {
+      "type": "text",
+      "title": "自动化",
+      "text": "为了便于自动化，可以召唤一只$(l:summoning_rituals/summon_transport_items)搬运工魔灵$(/l)将箱子中的物品送入熔炼者的物品栏，$(br)再召唤一只$(l:summoning_rituals/summon_cleaner)清洁工魔灵$(/l)收集处理好的物品。$(br)",
+      "anchor": "automation"
+    },
+    {
+      "type": "text",
+      "title": "魔精熔炼者",
+      "text": "魔精熔炼者是最基础的熔炼者魔灵。$(br2)它会以与熔炉相同的速度烧炼物品。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_smelter",
+      "anchor": "ritual"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Possessed Ghast",
+  "icon": "minecraft:ghast_tear",
+  "category": "possession_rituals",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_ghast",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): 1-3x $(item)ghast tear$() and$(br)1-4x $(item)gunpowder$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_ghast",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual a $(#ad03fc)Ghast$() is spawned using the life energy of a $(#ad03fc)Cow$() and immediately possessed by the summoned $(#ad03fc)Djinni$(). The $(#ad03fc)Possessed Ghast$() will always drop at least one $(item)ghast tear$() when killed.$(br)",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Odus' Open Convocation",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "pentacles",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Odus' Open Convocation",
+      "text": "$(bold)Purpose:$() $(#AA00AA)Unbound Afrit$() Possession$(br2)$(bold)Odus Open Convocation$() is a simplified version of $(#AA00AA)Posuc' Convocation$(), allowing you to forces $(#AA00AA)Afrit$() to possess a nearby Creature without red chalk.$(br) Due to the very reduced power of $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Odus' Open Convocation",
+      "text": "the Pentacle its limited in use.$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:possess_unbound_afrit",
+      "name": "Odus' Open Convocation",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:possession_rituals/possess_zombie_piglin)Possessed Zombified Piglin$(/l)$(br)$(li)$(l:possession_rituals/possess_guardian)Possessed Guardian$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

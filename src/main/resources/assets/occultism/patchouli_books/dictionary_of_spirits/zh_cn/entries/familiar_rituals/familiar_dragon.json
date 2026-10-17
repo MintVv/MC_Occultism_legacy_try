@@ -1,0 +1,30 @@
+{
+  "name": "龙使魔",
+  "icon": "occultism:textures/gui/book/familiar_dragon.png",
+  "category": "familiar_rituals",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:dragon_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)经验提升$()，喜欢木棍$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_dragon",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "描述",
+      "text": "贪婪使魔可以骑在龙使魔上，让龙使魔额外具有贪婪使魔的效果。$(br2)$(bold)升级效果$()$(br)被铁匠使魔升级后，它会向附近的敌人扔出飞剑。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

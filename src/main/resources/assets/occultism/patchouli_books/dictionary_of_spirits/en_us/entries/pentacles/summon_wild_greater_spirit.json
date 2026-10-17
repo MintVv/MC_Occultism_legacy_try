@@ -1,0 +1,33 @@
+{
+  "name": "Osorin's Unbound Calling",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "pentacles",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Osorin's Unbound Calling",
+      "text": "$(bold)Purpose:$() Summon an unbound $(#AA00AA)Greater Spirit$()$(br2)$(bold)Osorin's Unbound Calling$() is based on $(#AA00AA)Abras' Open Conjure$(), but features none of the stabilizing paraphernalia. The pentacle offers no protection whatsoever to the summoner, but $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Osorin's Unbound Calling",
+      "text": "acts as an irresistible call to $(#AA00AA)Greater Spirits$()."
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_wild_greater_spirit",
+      "name": "Osorin's Unbound Calling",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:possession_rituals/wither_skull)Wither Skeleton Skull$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

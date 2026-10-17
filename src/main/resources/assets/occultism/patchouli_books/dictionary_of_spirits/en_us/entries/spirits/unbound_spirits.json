@@ -1,0 +1,42 @@
+{
+  "name": "Unbound Spirits",
+  "icon": "occultism:textures/gui/book/unbound_spirits.png",
+  "category": "spirits",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Unbound Spirits",
+      "text": "Generally spirits are summoned $(#ad03fc)bound$(), which refers to any condition that keeps them under control of the summoner. A side effect of binding spells is that part of the spirit remains in $(#ad03fc)The Other Place$(), robbing them of large portions of the power, but $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Unbound Spirits",
+      "text": "at the same time also protecting their essence from foreign access in this world.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Forego the Leash",
+      "text": "In order to access a spirits essence, or unleash its full destructive power, it needs to be summoned $(#ad03fc)unbound$(). Unbound summonings use pentacles that are intentionally incomplete or unstable, allowing to call on the spirit, but not putting any $()",
+      "anchor": "unbound"
+    },
+    {
+      "type": "text",
+      "title": "Forego the Leash",
+      "text": "constraints on it.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Beware!",
+      "text": "The lack of restraints when summoning spirits unbound makes these rituals incredibly dangerous, but you may find that the rewards are worth the risk - and often there is no way around them to achieve certain results.$(br)",
+      "anchor": "unbound2"
+    },
+    {
+      "type": "text",
+      "title": "Spirit Essence",
+      "text": "Unbound summonings are the only way to obtain $(l:summoning_rituals/afrit_essence)Afrit Essence$(/l), a powerful substance required for crafting $(item)Red Chalk$() which is used for the most powerful binding pentacles.$(br)",
+      "anchor": "essence"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "治疗魔灵",
+  "icon": "minecraft:splash_potion",
+  "category": "getting_started",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:datura",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "用$(item)魔鬼之梦果$()右击治愈一个魔灵$(br2)同样可以治愈$(bold)使魔$()，$(bold)召唤出的魔灵$()和$(bold)被附身的生物$()。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:demons_dream_essence",
+      "text": "",
+      "anchor": "spotlight2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "由魔鬼之梦果或种子压缩制成的精华，具备强大的瞬间治疗效果。但这会损耗效益：9个魔鬼之梦果造成的治疗总量，要高于等量材料制成的精华。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:otherworld_essence",
+      "text": "",
+      "anchor": "spotlight3"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "提纯魔鬼之梦精华将会产出一个治疗量更多，从而抵消效益损失的版本。$(br)"
+    }
+  ]
+}

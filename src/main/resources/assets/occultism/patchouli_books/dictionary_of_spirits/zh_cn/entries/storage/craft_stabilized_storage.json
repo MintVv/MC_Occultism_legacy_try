@@ -1,0 +1,34 @@
+{
+  "name": "稳态维度存储促动器",
+  "icon": "occultism:storage_controller_stabilized",
+  "category": "storage",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_controller_stabilized",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "铸造$(item)稳定维度存储促动器$()是由$(#AA00AA)诡奇魔灵$()提供的一项服务，$(br)该方块能助神秘学大师扭曲空间，将稳定器安置在与促动器相同的位点——这些稳定器存在于某个异次元维度中，即便最敏锐的视觉也无法察觉。$(br)默认状态下，除了配方中的6个稳定器外，该物品还会获得两个额外的5级稳定器。$(br)该方块容量不受其他外部$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "稳定器影响。$(br)此配方可保留其中物品！$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_stabilized_storage",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_stabilized_storage_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

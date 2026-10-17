@@ -1,0 +1,29 @@
+{
+  "name": "5阶存储稳定器",
+  "icon": "occultism:storage_stabilizer_tier5",
+  "category": "storage",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_stabilizer_tier5",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这个极度先进的存储稳定器内寄居着一只$(#AA00AA)远古魔灵$()，它通过维系维度矩阵$(br)来保持存储维度的稳定性，从而实现更大容量的物品存储。$(br2)默认情况下，每个5级稳定器可增加$(bold)1024$()种物品种类和8196000个物品存储容量。$(br2)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_stabilizer_tier5",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_stabilizer_tier5_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

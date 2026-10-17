@@ -1,0 +1,41 @@
+{
+  "name": "血肉粉笔",
+  "icon": "occultism:chalk_pink",
+  "category": "pentacles",
+  "sortnum": 22,
+  "pages": [
+    {
+      "type": "text",
+      "title": "它是活的",
+      "text": "这种粉笔由一只被火灵附身的猪的肉制成，既带有动物的兽性特质，又蕴含了火灵的部分魔力。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_pink",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "一些神秘学者声称，恶魔血肉能使粉笔保持活性，从而产生诡异的运动现象。然而，这种说法从未得到官方记录或证实，始终只是真假难辨的坊间传闻。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:demonic_meat",
+      "text": "",
+      "anchor": "meat"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "要获得用来制作$(item)粉红色粉笔$()的$(item)恶魔肉$()，你需要$(l:possession_rituals/possess_zombie_piglin)召唤并击杀一只被附身的僵尸猪灵$(/l)。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_pink",
+      "anchor": "recipe"
+    }
+  ]
+}

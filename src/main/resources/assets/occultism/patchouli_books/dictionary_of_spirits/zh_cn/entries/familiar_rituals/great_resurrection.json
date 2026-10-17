@@ -1,0 +1,24 @@
+{
+  "name": "复活任意生物",
+  "icon": "occultism:soul_shattered",
+  "category": "familiar_rituals",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:soul_shattered",
+      "text": "",
+      "anchor": "soul_shattered"
+    },
+    {
+      "type": "text",
+      "title": "易碎的灵魂碎片",
+      "text": "神秘学者们发现，通过一种名为$(#55FF55)裂魂$()的魔咒，可以捕获倒下敌人部分灵髓。$(br2)借助使魔复活仪式的一种变体，神秘学者能够从$(item)易碎的灵魂碎片$()中创造出完全复活的生物，为其塑造新的躯体，并将碎片中残余的灵魂禁锢其中。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "resurrect_mob",
+      "anchor": "ritual"
+    }
+  ]
+}

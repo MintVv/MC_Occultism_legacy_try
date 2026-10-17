@@ -1,0 +1,38 @@
+{
+  "name": "Aviar's Circle",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Aviars Circle",
+      "text": "$(bold)Purpose:$() Summon a $(#AA00AA)Foliot$()$(br2)Considered by most to be the simplest pentacle, $(#FF55FF)Aviars Circle$() is easy to set up,$(br) but provides only a minimum of binding power and protection for the summoner.$()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Aviars Circle",
+      "text": "$(br2)Only the weakest $(#AA00AA)Foliot$() can be summoned in rituals using this pentacle.$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_foliot",
+      "name": "Aviar's Circle",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:familiar_rituals/resurrection)Resurrect Familiar$(/l)$(br)$(li)$(l:summoning_rituals/summon_crusher_t1)Foliot Crusher$(/l)$(br)$(li)$(l:summoning_rituals/summon_smelter_t1)Foliot Smelter$(/l)$(br)$(li)$(l:summoning_rituals/summon_crystallizer_t1)Foliot Crystallizer$(/l)$(br)$(li)$(l:summoning_rituals/summon_lumberjack)Foliot Lumberjack$(/l)$(br)$(li)$(l:summoning_rituals/summon_farmer)Foliot Farmer$(/l)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(br)$(li)$(l:summoning_rituals/summon_transport_items)Foliot Transporter$(/l)$(br)$(li)$(l:summoning_rituals/summon_cleaner)Foliot Janitor$(/l)$(br)$(li)$(l:summoning_rituals/summon_otherstone_trader)Otherstone Trader$(/l)$(br)$(li)$(l:summoning_rituals/summon_otherrock_trader)Otherrock Trader$(/l)$(br)$(li)$(l:summoning_rituals/summon_otherworld_sapling_trader)Otherworld Sapling Trader$(/l)$(br)"
+    }
+  ]
+}

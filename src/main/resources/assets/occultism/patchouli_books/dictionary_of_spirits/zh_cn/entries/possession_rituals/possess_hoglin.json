@@ -1,0 +1,35 @@
+{
+  "name": "被附身的疣猪兽",
+  "icon": "minecraft:porkchop",
+  "category": "possession_rituals",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_hoglin",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：1-3 个$(item)porkchop$()和 0-2 个$(item)leather$()，每个掉落池受抢夺额外增加 0-1 个；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_hoglin",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只专用 1.12$(#ad03fc)被附身的疣猪兽$()由$(#ad03fc)猪$()的生命能量和绑定的$(#ad03fc)火灵$()召唤。兼容实体拥有 66 点生命、12 点攻击、火焰免疫、近战击退，以经典蘑菇作为诡异菌回避替代，并在下界外经过 300 tick 后转换为原版僵尸猪人。它使用本地化的猪排和皮革掉落。现代疣猪兽 Brain、真正的 Zoglin 属性、下界生物群系规则、诡异菌身份和下界合金锻造模板掉落$()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在 1.12 中不可用。$(br)"
+    }
+  ]
+}

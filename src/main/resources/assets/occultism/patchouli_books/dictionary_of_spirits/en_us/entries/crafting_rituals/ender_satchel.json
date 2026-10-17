@@ -1,0 +1,30 @@
+{
+  "name": "Ender Satchel",
+  "icon": "occultism:ender_satchel",
+  "category": "crafting_rituals",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:ender_satchel",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "A $(#AA00AA)Djinni$() is bound to the ender satchel, tasked with $(bold)slightly$() warping the space.$(br) This allows open your ender chest from anywhere, making it a practical traveller's companion.$(br2)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_ender_satchel",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Inventory Sharing",
+      "text": "Additionally, using $(#AA00AA)Shift + Right-Click$() will bind the satchel to you,$(br) allowing to share your ender chest with any other player,$(br) making this a great way to send items over long distances to friends.$(br)",
+      "anchor": "link"
+    }
+  ]
+}

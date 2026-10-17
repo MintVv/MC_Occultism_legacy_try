@@ -1,0 +1,54 @@
+{
+  "name": "维度矿井",
+  "icon": "occultism:dimensional_mineshaft",
+  "category": "crafting_rituals",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:dimensional_mineshaft",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这个维度矿井中居住着一只$(#AA00AA)巨灵$()，它开启了一个通往无人维度的稳定通道，这个维度非常适合采矿。虽然传送门太小无法让人类通过，但其他魔灵可以利用它进入采矿维度并带回资源。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dimensional_mineshaft",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "操作",
+      "text": "维度矿井会丢弃无法储存的物品，因此定期清空矿井很重要，可以通过手动、使用漏斗或搬运工魔灵来实现。$(br)各面交互：$(br)+ 顶面 -> 神灯槽位；$(br)+ 底面 -> 矿石槽位；$(br)+ 其他 -> 所有槽位；$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "红石",
+      "text": "维度矿井与红石有两种交互模式：$(br)1. 接收到红石信号时，魔灵将停止工作；$(br)2. 可以使用比较器根据已占用槽位和神灯耐久度输出信号。$(br)提示：如果比较器发出的红石信号强度达到10，最好停止矿井运作。$(br)",
+      "anchor": "redstone"
+    },
+    {
+      "type": "text",
+      "title": "魔咒",
+      "text": "你有没有注意到矿工能够被附魔？来看看它的效果！$(br) $(bold)效率$()：增加进度条，增加值取两个随机数中较小值；$(br) $(bold)时运$()：额外挖掘次数取三个随机数中最小值；$(br) $(bold)精准采集$()：挖掘数量乘以(1+随机数)；$(br) 随机数范围：0至附魔等级。$(br)",
+      "anchor": "enchantment"
+    },
+    {
+      "type": "text",
+      "title": "耐久度",
+      "text": "$(bold)耐久$()和$(bold)经验修补$()魔咒的工作机制和原版一样。$(br2)搭配其他思路（模组），能够让矿工在快要损坏时无法被使用（$(bold)保险$()魔咒），$(br)甚至实现真正意义上的不毁（$(bold)永恒$()魔咒）。$(br)",
+      "anchor": "enchantment2"
+    },
+    {
+      "type": "text",
+      "title": "设置",
+      "text": "若想避免矿工损坏，前往“服务端设置 > 物品”界面进行设置。$(br)将“损坏前输出矿工”选项设为“开”后，当矿工的耐久度降至1时，其将被自动传输至维度矿井的输出位置。魔咒的效果也可以被关闭。$(br)",
+      "anchor": "config"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "name": "恶魔伴侣",
+  "icon": "occultism:textures/gui/book/demonic_partner.png",
+  "category": "familiar_rituals",
+  "sortnum": 22,
+  "pages": [
+    {
+      "type": "text",
+      "title": "恶魔伴侣",
+      "text": "修习神秘学的法师来自各种信仰、各个角落，群体十分多样。但他们有一点是共通的——没有伴侣时，和任何人类一样孤独。$(br2)当然，作为法师，他们的约会对象范围比大多数人更广，除了人类以外，还能遇见各种异界存在。$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "恶魔伴侣",
+      "text": "作为力量无比强大的存在，恶魔可以拥有一切……甚至包括爱情。$(br)少数情况下，恶魔会被凡人深深打动，并愿意继续保持联系。更少见的情况下，他们还会赴约。而在这种时候，最不可思议的事情也可能发生——魔灵与凡人之间产生爱情。$(br)",
+      "anchor": "description2"
+    },
+    {
+      "type": "text",
+      "title": "恶魔伴侣",
+      "text": "恶魔当然喜欢契约，而还有什么契约比婚姻契约更合适呢？$(br)不过要小心，魔灵非常重视承诺，所以这是一份永久的羁绊。$(br)",
+      "anchor": "description3"
+    },
+    {
+      "type": "text",
+      "title": "恶魔伴侣",
+      "text": "恶魔伴侣——丈夫或妻子——可以为你战斗，也可以分担家务。$(br2)用任何可烹饪食物右击他们，他们会用魔法将其烹饪。$(br2)用药水右击他们，可以让你获得持续时间显著延长的效果；瞬间药水则会增强两级。$(br)",
+      "anchor": "about"
+    },
+    {
+      "type": "text",
+      "title": "并不是使魔",
+      "text": "由于存在相似性，本书将恶魔伴侣章节放在使魔分类中；不过显然，伴侣并不是使魔。$(br2)因此，他们也不能被存入$(item)使魔之戒$()。不过你仍然可以像对待其它生物一样，对他们使用$(item)灵魂宝石$()。$(br)",
+      "anchor": "familiar"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:sweet_honey_heart",
+      "text": "",
+      "anchor": "heart"
+    },
+    {
+      "type": "text",
+      "title": "爱是爱意",
+      "text": "一份绝佳的伴侣礼物是$(item)甜蜜蜂蜜之心$()。要获得它，只需把$(item)诅咒蜂蜜$()交给你的丈夫或妻子。$(br2)注意：这个行为有 10 分钟冷却时间。$(br)"
+    },
+    {
+      "type": "entity",
+      "entity": "occultism:demonic_husband",
+      "text": "",
+      "anchor": "husband"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_demonic_husband",
+      "anchor": "ritual1"
+    },
+    {
+      "type": "entity",
+      "entity": "occultism:demonic_wife",
+      "text": "",
+      "anchor": "wife"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_demonic_wife",
+      "anchor": "ritual2"
+    }
+  ]
+}

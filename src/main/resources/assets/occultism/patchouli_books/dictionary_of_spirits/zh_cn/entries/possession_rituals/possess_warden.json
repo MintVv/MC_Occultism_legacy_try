@@ -1,0 +1,30 @@
+{
+  "name": "被附身的监守者",
+  "icon": "occultism:echo_dust",
+  "category": "possession_rituals",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_warden",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：1-4 个$(item)回响粉$()，抢夺额外增加 0-3 个；稀有掉落池使用 1.12 唱片作为古城掉落替代。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_warden",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这个仪式使用本地鱿鱼献祭和绑定的$(#ad03fc)巨灵$()召唤专用 1.12$(#ad03fc)被附身的监守者$()。它使用回响粉、红石和黑曜石替代幽匿材料。实体保留上游尺寸和核心属性，但 Brain、振动感知、黑暗、钻地和真正音波被记录中的 1.12 兼容脉冲与失明行为替代。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

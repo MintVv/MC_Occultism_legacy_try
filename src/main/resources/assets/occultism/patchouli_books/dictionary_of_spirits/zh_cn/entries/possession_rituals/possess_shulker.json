@@ -1,0 +1,30 @@
+{
+  "name": "被附身的潜影贝",
+  "icon": "minecraft:shulker_shell",
+  "category": "possession_rituals",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_shulker",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：1x$(item)shulker shell$()，另有 25%% 基础概率及每级抢夺额外 10%% 概率再掉落一个。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_shulker",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)潜影贝$()将借由$(#ad03fc)史莱姆类生物$()的生命能量生成，然后立刻被召唤出的$(#ad03fc)火灵$()附身。$(#ad03fc)被附身的潜影贝$()被击杀后至少掉落一个$(item)shulker shell$()。Minecraft 1.12 不含现代版本的受弹增殖机制，因此该实体不能以这种方式产生普通潜影贝。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

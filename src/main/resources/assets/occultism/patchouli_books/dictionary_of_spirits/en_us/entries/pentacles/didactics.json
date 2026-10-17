@@ -1,0 +1,25 @@
+{
+  "name": "Reading this Section",
+  "icon": "occultism:brush",
+  "category": "pentacles",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "title": "About",
+      "text": "This category is a roadmap that guides you step by step, follow the unlocked entries.$(br2)$(bold)Tip:$() By default, to set up all pentacles, you need four 19x19 areas.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Types and Tier",
+      "text": "This category is organized as a table.$(br) Each line refers to a type of ritual.$(br) And each column represents a tier.$(br) By following the line you can just upgrade the pentacle you drew before,$(br) working like $()",
+      "anchor": "table"
+    },
+    {
+      "type": "text",
+      "title": "Types and Tier",
+      "text": "the previous and the new one.$(br)"
+    }
+  ]
+}

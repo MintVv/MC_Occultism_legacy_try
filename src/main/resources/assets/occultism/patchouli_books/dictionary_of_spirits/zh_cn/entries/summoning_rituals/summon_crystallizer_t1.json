@@ -1,0 +1,42 @@
+{
+  "name": "召唤魔精铸晶者",
+  "icon": "minecraft:dye:4",
+  "category": "summoning_rituals",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "text",
+      "title": "铸晶者魔灵",
+      "text": "铸晶者魔灵可从粉末中再生宝石，并能直接提升宝石矿物的产量。$(br)它们会拾取合适的物品，并将转化后的产物丢在世界中。$(br)魔法粒子效果与紫水晶音效的显现，表明铸晶者正在工作。$(br)",
+      "anchor": "about_crystallizers"
+    },
+    {
+      "type": "text",
+      "title": "自动化",
+      "text": "为了便于自动化，可以召唤一只$(l:summoning_rituals/summon_transport_items)搬运工魔灵$(/l)将箱子中的物品送入铸晶者的物品栏，$(br)再召唤一只$(l:summoning_rituals/summon_cleaner)清洁工魔灵$(/l)收集处理好的物品。$(br)",
+      "anchor": "automation"
+    },
+    {
+      "type": "text",
+      "title": "魔精铸晶者",
+      "text": "魔精铸晶者是最基础的铸晶者魔灵。$(br2)它会以极慢的速度进行结晶操作。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_crystallizer",
+      "anchor": "ritual"
+    }
+  ]
+}

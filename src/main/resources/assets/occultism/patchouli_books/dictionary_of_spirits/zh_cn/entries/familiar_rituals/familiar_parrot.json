@@ -1,0 +1,36 @@
+{
+  "name": "鹦鹉使魔",
+  "icon": "occultism:textures/gui/book/parrot.png",
+  "category": "familiar_rituals",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "minecraft:parrot",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)陪伴$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_parrot",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "描述",
+      "text": "仪式中，一只$(#ad03fc)魔精$()会被$(bold)作为使魔$()召唤，而对$(#ad03fc)鸡$()的屠宰和供奉的染料能诱使$(#ad03fc)魔精$()变身为鹦鹉。$(br)不过，由于$(#ad03fc)魔精$()并不算是非常聪明的魔灵，它们有时会误解这一指示……$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "*也就是说，要是生成了一只$(#ad03fc)鸡$()的话，这不是Bug，是单纯的运气不好！*$(br2)$(bold)升级效果$()$(br)不能被铁匠使魔升级。$(br)",
+      "anchor": "description2"
+    }
+  ]
+}

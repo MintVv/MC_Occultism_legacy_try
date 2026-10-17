@@ -1,0 +1,20 @@
+{
+  "name": "灌注仪式",
+  "icon": "occultism:textures/gui/book/infusion.png",
+  "category": "getting_started",
+  "sortnum": 39,
+  "pages": [
+    {
+      "type": "text",
+      "title": "灌注仪式",
+      "text": "灌注仪式是通过将魔灵束缚（“灌注”）到物品中来创造强力物品的仪式。魔灵会给物品附加特殊功能。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "更多信息",
+      "text": "更多灌注物品详见$(thing)灌注仪式$()章节。$(br)",
+      "anchor": "more"
+    }
+  ]
+}

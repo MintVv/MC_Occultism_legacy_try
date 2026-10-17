@@ -1,0 +1,43 @@
+{
+  "name": "召唤魔精搬运工",
+  "icon": "minecraft:minecart",
+  "category": "summoning_rituals",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "text",
+      "title": "魔精搬运工",
+      "text": "搬运工相当有用。有了它，$(br)你就不需要再造一长串漏斗运输物品，而且它可以与任何容器交互。$(br2)若想让它从某个容器取货，$(br)只需要用它的召唤之书潜行与目标容器交互。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "你也可以用相同方法指定存货的容器。$(br2)搬运工会将一个容器/机器内它能拿到的所有物品移动到另一个容器/机器。$(br)此外，它还能将物品放到其他魔灵的物品栏。$(br)设置提取和输入的面，就可让它们进行多种自动化传输任务。$(br)",
+      "anchor": "intro2"
+    },
+    {
+      "type": "text",
+      "title": "魔灵物品栏",
+      "text": "搬运工还可与其他魔灵的物品栏交互。$(br)这一功能尤其适用于自动为$(l:summoning_rituals/summon_crusher_t1)碎矿者魔灵$(/l)提供待粉碎物品，$(br)为$(l:summoning_rituals/summon_smelter_t1)熔炼者魔灵$(/l)提供待烧炼物品，或为$(l:summoning_rituals/summon_crystallizer_t1)铸晶者魔灵$(/l)提供待结晶物品。$(br)",
+      "anchor": "spirit_inventories"
+    },
+    {
+      "type": "text",
+      "title": "过滤物品",
+      "text": "搬运工默认处于“白名单”模式，不会搬运任何物品。$(br)潜行点击搬运工打开配置界面，你可以在过滤器中添加物品，$(br)让它只运输这些物品，或者改为“黑名单”模式，$(br)让它运输选中物品*以外*的所有物品。$(br)你也可以在下方的输入框内输入标签，让它按标签过滤。$(br)",
+      "anchor": "item_filters"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_transport_items",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "使用召唤之书来设置搬运工的存取位置。$(br2) $(br)更多信息参阅召唤之书。$(br)",
+      "anchor": "usage"
+    }
+  ]
+}

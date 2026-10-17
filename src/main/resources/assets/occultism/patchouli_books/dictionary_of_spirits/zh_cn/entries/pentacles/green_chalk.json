@@ -1,0 +1,35 @@
+{
+  "name": "植物粉笔",
+  "icon": "occultism:chalk_green",
+  "category": "pentacles",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "text",
+      "title": "荒野",
+      "text": "绿色粉笔采用草本浓缩精华，将植物的能量引入五芒星阵中。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_green",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这种与自然的联系使得绿色粉笔成为吸引荒野魔灵的理想之物。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_nature_paste",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_green",
+      "anchor": "recipe"
+    }
+  ]
+}

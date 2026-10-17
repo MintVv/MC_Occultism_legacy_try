@@ -1,0 +1,66 @@
+{
+  "name": "维度战场",
+  "icon": "occultism:dimensional_battlefield",
+  "category": "crafting_rituals",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:dimensional_battlefield",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "维度战场中居住着一只$(#AA00AA)火灵$()，它开启了一个通往竞技场地稳定通道，非常适合用于史诗级战斗。虽然传送门太小无法让人类通过，但火灵能够带着少量物品通过，前往该维度中刷取生物掉落物。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dimensional_battlefield",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "要激活维度战场，你必须提供：$(br)+ 由$(item)灵魂宝石$()（或其变体）捕获的生物。$(br)+ 火灵在战斗中持有的武器。$(br)+ 精神燃料来源，例如$(item)魔鬼之梦果$()$(br)",
+      "anchor": "use"
+    },
+    {
+      "type": "text",
+      "title": "捕获方法",
+      "text": "$(item)灵魂宝石$()是默认选项，能在模拟附身生物时产出基础掉落物。$(br)使用$(item)易碎灵魂宝石$()则会有概率失败。$(br)而使用$(item)三位一体宝石$()能够提升效率，不仅可以刷取附身生物和Boss的掉落物，还能三倍产出其他生物的战利品。$(br)$(item)易碎的灵魂碎片$()不需要灵魂燃料，但会在模拟过程结束后消耗。$(br)",
+      "anchor": "gem"
+    },
+    {
+      "type": "text",
+      "title": "灵魂燃料",
+      "text": "灵魂燃料用于克隆被捕获的生物，$(br)使其能被击败以获取战利品。$(br)可使用以下资源作为燃料：$(item)魔鬼之梦种子$()、$(item)魔鬼之梦果$()、$(item)魔鬼之梦精华$()、$(item)异界精华$()。$(br2)资源品质越高，其价值也就越大。$(br)需要总价值等于生物生命值的燃料才能开始战斗。$(br)",
+      "anchor": "fuel"
+    },
+    {
+      "type": "text",
+      "title": "操作",
+      "text": "维度战场会丢弃无法储存的物品，因此定期清空输出很重要，可以通过手动、使用漏斗或搬运工魔灵来实现。$(br)各面交互：$(br)+ 顶面 -> 输入槽位（宝石、武器、燃料）；$(br)+ 底面 -> 战利品槽位；$(br)+ 其他 -> 所有槽位；$(br)",
+      "anchor": "capabilities"
+    },
+    {
+      "type": "text",
+      "title": "红石",
+      "text": "维度战场与红石有两种交互模式：$(br)1. 接收到红石信号时，魔灵将停止工作；$(br)2. 可以使用比较器根据已占用槽位和武器耐久度输出信号。$(br)提示：如果比较器发出的红石信号强度达到15，最好停止战场运作。$(br)",
+      "anchor": "redstone"
+    },
+    {
+      "type": "text",
+      "title": "魔咒",
+      "text": "如你所知，武器可以被附魔。施加抢夺魔咒可以增加掉落物的数量。$(br2)锋利魔咒能加快击杀速度，不过对于特定生物，$(br)亡灵杀手、节肢杀手或穿刺魔咒的效果会更为显著。$(br)",
+      "anchor": "enchantment"
+    },
+    {
+      "type": "text",
+      "title": "耐久度",
+      "text": "$(bold)耐久$()和$(bold)经验修补$()魔咒的工作机制和原版一样。$(br2)搭配其他思路（模组），能够让武器在快要损坏时无法被使用（$(bold)保险$()魔咒），$(br)甚至实现真正意义上的不毁（$(bold)永恒$()魔咒）。$(br)",
+      "anchor": "enchantment2"
+    }
+  ]
+}

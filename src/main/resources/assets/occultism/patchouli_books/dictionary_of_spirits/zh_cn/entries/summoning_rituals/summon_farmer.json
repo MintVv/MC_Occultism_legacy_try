@@ -1,0 +1,31 @@
+{
+  "name": "召唤魔精农夫",
+  "icon": "minecraft:iron_hoe",
+  "category": "summoning_rituals",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "text",
+      "title": "魔精农夫",
+      "text": "农夫会收获并重新种植工作区域之内的作物。$(br)如果指定了存放位置，它会将掉落的物品都存放在指定的箱子中。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_farmer",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "使用召唤之书来设置农夫的工作区域和存放位置。$(br2) $(br)更多信息参阅召唤之书。$(br)",
+      "anchor": "usage"
+    },
+    {
+      "type": "text",
+      "title": "农夫在偷懒？",
+      "text": "在清理完工作区域后，魔灵可能会停止工作几分钟，即使此时作物已经成熟。这是为了节省性能而设计的机制，并非Bug，稍后其便会自行继续工作。$(br2)  $(br)再次设置工作区域可令其立刻继续工作。$(br)",
+      "anchor": "usage2"
+    }
+  ]
+}

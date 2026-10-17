@@ -1,0 +1,26 @@
+{
+  "name": "Familiar Rituals",
+  "icon": "occultism:textures/gui/book/parrot.png",
+  "category": "familiar_rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Familiar Rituals",
+      "text": "Familiar rituals summon spirits to aid the summoner directly. The spirits usually inhabit an animal's body, allowing them to resist essence decay. Familiars provide buffs, but may also actively protect the summoner.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Equipping Familiars",
+      "text": "Enterprising summoners have found a way to bind familiars into jewelry, the $(l:crafting_rituals/craft_familiar_ring)Familiar Ring$(/l). In this 1.12 port it stores and releases supported local familiars, and its native player slot applies their supported effects.$(br)",
+      "anchor": "ring"
+    },
+    {
+      "type": "text",
+      "title": "Equipping Familiars",
+      "text": "\"Familiars can be easily traded when in a $(l:crafting_rituals/craft_familiar_ring)Familiar Ring$(/l).$(br2)When released, the spirit will recognize the person releasing them as their new master.$(br)",
+      "anchor": "trading"
+    }
+  ]
+}

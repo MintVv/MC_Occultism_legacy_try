@@ -1,0 +1,40 @@
+{
+  "name": "诡奇圣杯",
+  "icon": "occultism:eldritch_chalice",
+  "category": "crafting_rituals",
+  "sortnum": 46,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:eldritch_chalice",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "铸造$(item)reinforced deepslate$()是由$(#AA00AA)诡奇魔灵$()提供的一项服务，该方块能助神秘学大师扭曲时间，瞬间完成任何仪式。$(br)其余功能均与黄金或艾瑟金属仪式之碗相同。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_eldritch_chalice",
+      "anchor": "ritual"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:celestial_chalice",
+      "text": "",
+      "anchor": "spotlight2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "天辉版本也有相同功能。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_celestial_chalice",
+      "anchor": "ritual2"
+    }
+  ]
+}

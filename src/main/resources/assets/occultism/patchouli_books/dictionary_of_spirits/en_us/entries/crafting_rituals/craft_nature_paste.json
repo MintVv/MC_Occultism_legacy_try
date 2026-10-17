@@ -1,0 +1,24 @@
+{
+  "name": "Nature Paste",
+  "icon": "occultism:nature_paste",
+  "category": "crafting_rituals",
+  "sortnum": 47,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:nature_paste",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Nature Paste is an organic crafting paste created with the help of $(#AA00AA)Foliot$(). $(br)Made from leaves, saplings, and seeds, it serves as a versatile $(br)natural crafting material.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_nature_paste",
+      "anchor": "ritual"
+    }
+  ]
+}

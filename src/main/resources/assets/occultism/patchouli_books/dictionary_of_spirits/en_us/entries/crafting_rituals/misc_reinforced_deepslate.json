@@ -1,0 +1,19 @@
+{
+  "name": "Craft Reinforced Deepslate",
+  "icon": "occultism:reinforced_deepslate",
+  "category": "crafting_rituals",
+  "sortnum": 56,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_reinforced_deepslate",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Produces a reinforced deepslate block, a durable blast-resistant decorative building block.",
+      "anchor": "description"
+    }
+  ]
+}

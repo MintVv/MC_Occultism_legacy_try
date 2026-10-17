@@ -1,0 +1,25 @@
+{
+  "name": "Summoning Rituals",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "getting_started",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Summoning Rituals",
+      "text": "Summoning Rituals allow you to summon spirits to work for you. Unlike familiars, they are not personally bound to you, meaning they will not follow you around, but they will perform various work tasks for you. In fact the first ritual you performed, $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Summoning Rituals",
+      "text": "the $(l:getting_started/first_ritual)Foliot Crusher$(/l), was a summoning ritual.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "More Information",
+      "text": "To find more about Summoning Rituals, see the $(thing)Summoning Rituals$() Category.$(br)",
+      "anchor": "more"
+    }
+  ]
+}

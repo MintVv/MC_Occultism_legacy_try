@@ -1,0 +1,25 @@
+{
+  "name": "Theurgy Storage Integration",
+  "icon": "occultism:book_of_calling_foliot_transport_items",
+  "category": "storage",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Theurgy Storage Integration",
+      "text": "Much like transporter Spirits, Theurgy Mercurial Logistics systems$(br) are optimized to work with the Storage Actuator and Stable Wormholes.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Extracting Items",
+      "text": "Once again, item extraction is the critical issue for performance.$(br2)To make use of the performance optimization, use a $(item)logistics item extractor$()$(br) and apply a $(item)Book of Calling: Foliot Transporter$() to extract the $()",
+      "anchor": "extraction"
+    },
+    {
+      "type": "text",
+      "title": "Extracting Items",
+      "text": "desired items.$(br2)The Theurgy Guidebook \"The Hermetica\" has a chapter on Theurgy$(br) mercurial logistics and how to use them to insert and extract items.$(br)"
+    }
+  ]
+}

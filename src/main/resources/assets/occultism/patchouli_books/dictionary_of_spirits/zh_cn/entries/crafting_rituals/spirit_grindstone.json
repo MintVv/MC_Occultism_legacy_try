@@ -1,0 +1,29 @@
+{
+  "name": "魔灵砂轮",
+  "icon": "occultism:spirit_grindstone",
+  "category": "crafting_rituals",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:spirit_grindstone",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(item)魔灵砂轮$()是一件$(#AA00AA)巨灵$()灌注物品。$(br)这种砂轮有以下特殊之处：$(br)1. 仅移除附魔物品上的诅咒；$(br)2. 返还的经验值为被移除诅咒的100%%（而非50%%-100%%）；$(br)3. 合并两个物品时，上方物品的魔咒会被保留；$(br)4. 修复效率获得额外加成：耐久度之和额外增加20%%$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)（而非5%），因此在合适时机进行修复收益会更高；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_spirit_grindstone",
+      "anchor": "ritual"
+    }
+  ]
+}

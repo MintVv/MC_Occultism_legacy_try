@@ -1,0 +1,30 @@
+{
+  "name": "Unbound Drikwing",
+  "icon": "occultism:textures/gui/book/otherworld_bird.png",
+  "category": "possession_rituals",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:otherworld_bird",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): A tameable Drikwing$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_unbound_otherworld_bird",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "See $(l:familiar_rituals/familiar_otherworld_bird)Drikwing Familiar$(/l) for more information.$(br)",
+      "anchor": "description"
+    }
+  ]
+}

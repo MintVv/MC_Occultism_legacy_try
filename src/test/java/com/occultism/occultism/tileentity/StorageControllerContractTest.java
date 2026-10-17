@@ -62,19 +62,19 @@ class StorageControllerContractTest {
     }
 
     @Test
-    void stabilizerTiersMapToUpstreamAdditionalCapacity() throws Exception {
+    void stabilizerTiersMapToPinnedCapacityAndDocumentedTierFiveExtension() throws Exception {
         assertEquals(0, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER0));
         assertEquals(256, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER1));
         assertEquals(512, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER2));
         assertEquals(1024, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER3));
         assertEquals(2048, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER4));
-        assertEquals(0, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER5));
+        assertEquals(ModConfig.STORAGE.stabilizerTier5Slots, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER5));
         assertEquals(0, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER0_DARK));
         assertEquals(256, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER1_DARK));
         assertEquals(512, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER2_DARK));
         assertEquals(1024, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER3_DARK));
         assertEquals(2048, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER4_DARK));
-        assertEquals(0, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER5_DARK));
+        assertEquals(ModConfig.STORAGE.stabilizerTier5Slots, slotsFor(ModBlocks.STORAGE_STABILIZER_TIER5_DARK));
     }
 
     @Test

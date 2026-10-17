@@ -1,0 +1,47 @@
+{
+  "name": "Summon Foliot Crystallizer",
+  "icon": "minecraft:dye:4",
+  "category": "summoning_rituals",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Crystallizer Spirits",
+      "text": "Crystallizer spirits are summoned to regenerate gem from their dusts and directly multiply$(br)the output of breaking gem ores. They will pick up appropriate items and drop the resulting into$(br)the world. A magical particle $()",
+      "anchor": "about_crystallizers"
+    },
+    {
+      "type": "text",
+      "title": "Crystallizer Spirits",
+      "text": "effect and a amethyst sound indicate the crystallizer is at work.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Automation",
+      "text": "To ease automation, try summoning a $(l:summoning_rituals/summon_transport_items)Transporter Spirit$(/l) to place items from chests in the$(br) crystallizer's inventory, and a $(l:summoning_rituals/summon_cleaner)Janitor Spirit$(/l) to collect the processed items.$(br)",
+      "anchor": "automation"
+    },
+    {
+      "type": "text",
+      "title": "Foliot Crystallizer",
+      "text": "The foliot crystallizer is the most basic crystallizer spirit.$(br2)It will crystallize in a very low speed.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_crystallizer",
+      "anchor": "ritual"
+    }
+  ]
+}

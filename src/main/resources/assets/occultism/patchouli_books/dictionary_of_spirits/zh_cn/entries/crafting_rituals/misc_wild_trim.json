@@ -1,0 +1,19 @@
+{
+  "name": "制造野性纹饰",
+  "icon": "occultism:wild_trim",
+  "category": "crafting_rituals",
+  "sortnum": 57,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_wild_trim",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "产出一个野性纹饰物品。1.12 没有锻造纹饰系统，因此它是收藏品而非可用模板。",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Eldritch Chalice",
+  "icon": "occultism:eldritch_chalice",
+  "category": "crafting_rituals",
+  "sortnum": 46,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:eldritch_chalice",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Forging an $(item)Eldritch Chalice$() is one service provide by $(#AA00AA)Eldritch Spirits$(), this block will$(br) helps occult masters twist time, performing any ritual instantly.$(br) All other things will works like the Golden or Iesnium Ritual Bowl.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_eldritch_chalice",
+      "anchor": "ritual"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:celestial_chalice",
+      "text": "",
+      "anchor": "spotlight2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Also in the Celestial version.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_celestial_chalice",
+      "anchor": "ritual2"
+    }
+  ]
+}

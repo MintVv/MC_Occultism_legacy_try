@@ -1,0 +1,30 @@
+{
+  "name": "净化恼鬼为悦灵",
+  "icon": "occultism:textures/gui/book/allay.png",
+  "category": "familiar_rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:purified_allay",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：悦灵$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "resurrect_allay",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在揭示其真名的复活仪式中，将一只恼鬼净化为悦灵。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

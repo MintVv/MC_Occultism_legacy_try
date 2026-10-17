@@ -1,0 +1,70 @@
+{
+  "name": "制作异界眼镜",
+  "icon": "occultism:otherworld_goggles",
+  "category": "crafting_rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:otherworld_goggles",
+      "text": "",
+      "anchor": "goggles_spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(item)异界眼镜$()给予穿戴者永久的$(#AA00AA)第三只眼$()效果，让他们甚至得以窥视使用$(l:getting_started/demons_dream)魔鬼之梦$(/l)也看不到的隐藏方块。$(br2)这个方案优雅地解决了召唤师因为用药过量导致各种症状的问题。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "然而，穿戴眼镜并不能收获异界材料。$(br)这意味着你需要一边戴着眼镜一边使用$(l:getting_started/infused_pickaxe)灌注镐$(/l)或者$(l:getting_started/iesnium_pickaxe)艾瑟金属镐$(/l)破坏方块$(br)来获得它们的异界变体。$(br)",
+      "anchor": "goggles_more"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:lenses",
+      "text": "",
+      "anchor": "lenses_spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "异界眼镜利用了束缚于镜片中的$(#AA00AA)魔精$()。$(br)魔精将它窥视更高位面的能力传递给穿戴者，$(br)让穿戴者得以看见异界材料。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "合成镜片",
+      "text": "将魔灵灌注到镜片中制作眼镜，$(br)常常是新手召唤师所尝试的第一个复杂仪式之一。$(br)这个仪式证明他们的掌握的技能已经不仅限于基础知识。$(br)",
+      "anchor": "lenses_more"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:lenses",
+      "text": "",
+      "anchor": "lenses_recipe"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_infused_lenses",
+      "anchor": "ritual"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:lens_frame",
+      "text": "",
+      "anchor": "frame_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:lens_frame_otherrock",
+      "text": ""
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:goggles",
+      "text": "",
+      "anchor": "goggles_recipe"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Bat Familiar",
+  "icon": "occultism:textures/gui/book/bat_familiar.png",
+  "category": "familiar_rituals",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:bat_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Night Vision$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_bat",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Upgrade Behaviour$()$(br)Upgraded by a blacksmith familiar, it also grants its master life steal, healing them when they deal damage.",
+      "anchor": "description"
+    }
+  ]
+}

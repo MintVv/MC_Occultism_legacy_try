@@ -1,0 +1,24 @@
+{
+  "name": "时间魔法",
+  "icon": "minecraft:clock",
+  "category": "summoning_rituals",
+  "sortnum": 27,
+  "pages": [
+    {
+      "type": "text",
+      "title": "时间魔法",
+      "text": "召唤巨灵，在$(bold)5秒$()内逐步将时间推进至下一个黎明或黄昏。灵体只改变一次时间，随后消散。$(br2)施法进度可随存档和神灯运输保留，目标时间在施法开始时确定。服务端可分别禁用昼夜效果。",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_day_time",
+      "anchor": "ritual_day"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_night_time",
+      "anchor": "ritual_night"
+    }
+  ]
+}

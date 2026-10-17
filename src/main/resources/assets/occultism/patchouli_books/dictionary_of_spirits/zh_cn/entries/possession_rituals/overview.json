@@ -1,0 +1,14 @@
+{
+  "name": "附身仪式",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "possession_rituals",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "附身仪式",
+      "text": "附身仪式将魔灵束缚于生物体内，从而让召唤者对被附身的生物获得一定程度的控制。$(br2)因此这些仪式通常用于获取一些往往需要去危险的地方探索才能获取到的稀有物品。$(br2)用于仪式献祭时，被附身的生物被视为其对应的原版生物。$(br)",
+      "anchor": "intro"
+    }
+  ]
+}

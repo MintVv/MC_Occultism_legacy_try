@@ -1,0 +1,25 @@
+{
+  "name": "Possession Rituals",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "getting_started",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Possession Rituals",
+      "text": "Possessed mobs are controlled by spirits, allowing the summoner to determine some of their properties. They usually have $(bold)high drop rates$() for rare drops, but are generally harder to kill.$(br2)You probably will want to start by $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Possession Rituals",
+      "text": "summoning a $(l:possession_rituals/possess_endermite)Possessed Endermite$(/l) to get $(item)end stone$() to craft Advanced Chalks.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "More Information",
+      "text": "To find out more about Possession Rituals, see the $(thing)Possession Rituals$() Category.$(br)",
+      "anchor": "more"
+    }
+  ]
+}

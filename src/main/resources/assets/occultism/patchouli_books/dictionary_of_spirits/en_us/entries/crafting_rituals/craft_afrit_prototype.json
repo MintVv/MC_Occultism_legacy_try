@@ -1,0 +1,19 @@
+{
+  "name": "Craft Afrit Prototype",
+  "icon": "occultism:textures/gui/book/infusion.png",
+  "category": "crafting_rituals",
+  "sortnum": 52,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_afrit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This ritual has no upstream counterpart. It is kept as a local bridging ritual so the $(#ad03fc)Sevira's Permanent Confinement$() pentacle stays reachable and useful. Completing it produces an $(item)Iesnium Ingot$() instead of an infusion effect.",
+      "anchor": "description"
+    }
+  ]
+}

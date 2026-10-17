@@ -1,0 +1,30 @@
+{
+  "name": "Summon Marid Crusher",
+  "icon": "occultism:gold_dust",
+  "category": "summoning_rituals",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Marid Crusher",
+      "text": "The marid crusher is faster, more efficient and proficient than the afrit crusher.$(br)Allowing crushing the echo shard while maintaining its properties.$(br2)It will crush $(bold)one$() ore into $(bold)six$() corresponding dusts.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_marid_crusher",
+      "anchor": "ritual"
+    }
+  ]
+}

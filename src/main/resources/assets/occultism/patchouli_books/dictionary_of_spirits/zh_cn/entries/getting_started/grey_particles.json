@@ -1,0 +1,14 @@
+{
+  "name": "灰色的粒子？",
+  "icon": "minecraft:dye:8",
+  "category": "getting_started",
+  "sortnum": 19,
+  "pages": [
+    {
+      "type": "text",
+      "title": "仪式卡住了？",
+      "text": "如果仪式似乎卡住了——物品没有消失——你应该会在$(item)金制仪式碗$()周围看到灰色粒子。如果是这样的话，那仪式要么要求你$(l:rituals/item_use)使用一个指定物品$(/l)，要么要求$(l:rituals/sacrifice)献祭一个指定生物$(/l)。$(br2)在$(thing)仪式$()章节中找到对应仪式并检查说明。$(br)",
+      "anchor": "text"
+    }
+  ]
+}

@@ -5928,6 +5928,68 @@
               "detail": ""
             }
           ]
+        },
+        {
+          "id": "summon_wild_afrit",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:pentacles",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "item": "occultism:pentacle"
+          },
+          "name": "book.occultism.dictionary_of_spirits.pentacles.summon_wild_afrit.name",
+          "parents": [],
+          "sort_number": 38,
+          "x": -2,
+          "y": -2,
+          "pages": [
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "intro",
+              "show_title_separator": true,
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.pentacles.summon_wild_afrit.intro.text",
+              "title": "book.occultism.dictionary_of_spirits.pentacles.summon_wild_afrit.intro.title",
+              "detail": ""
+            },
+            {
+              "type": "modonomicon:multiblock",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "multiblock",
+              "multiblock_id": "occultism:summon_wild_afrit",
+              "multiblock_name": "",
+              "show_visualize_button": true,
+              "sort_number": 1,
+              "text": "",
+              "title": "",
+              "detail": "Multiblock: occultism:summon_wild_afrit"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "uses",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.pentacles.summon_wild_afrit.uses.text",
+              "title": "book.occultism.dictionary_of_spirits.pentacles.summon_wild_afrit.uses.title",
+              "detail": ""
+            }
+          ]
         }
       ]
     },
@@ -7716,6 +7778,18 @@
               "title": "",
               "text": "",
               "detail": "Recipe: occultism:ritual/summon_unbound_afrit"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "wild_afrit",
+              "recipe_id_1": "occultism:ritual/summon_wild_afrit",
+              "sort_number": 2,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/summon_wild_afrit"
             }
           ]
         },
@@ -7769,6 +7843,602 @@
               "title": "",
               "text": "",
               "detail": "Recipe: occultism:ritual/summon_unbound_marid"
+            }
+          ]
+        },
+        {
+          "id": "contact_wild_spirit_prototype",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:summoning_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/summoning.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.summoning_rituals.contact_wild_spirit_prototype.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 30,
+          "x": 8,
+          "y": 1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/contact_wild_spirit_prototype",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/contact_wild_spirit_prototype"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.contact_wild_spirit_prototype.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "contact_eldritch_spirit_prototype",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:summoning_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/summoning.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.summoning_rituals.contact_eldritch_spirit_prototype.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 31,
+          "x": 10,
+          "y": 1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/contact_eldritch_spirit_prototype",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/contact_eldritch_spirit_prototype"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.contact_eldritch_spirit_prototype.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "summon_djinni_gambler",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:summoning_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "item": "occultism:spirit_attuned_gem"
+          },
+          "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_djinni_gambler.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 32,
+          "x": 12,
+          "y": 1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/summon_djinni_gambler",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/summon_djinni_gambler"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_djinni_gambler.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "summon_djinni_manage_machine",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:summoning_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "item": "minecraft:lever"
+          },
+          "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_djinni_manage_machine.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 33,
+          "x": 14,
+          "y": 1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/summon_djinni_manage_machine",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/summon_djinni_manage_machine"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_djinni_manage_machine.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "summon_djinni_prototype",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:summoning_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "texture": "occultism:textures/gui/book/summoning.png"
+          },
+          "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_djinni_prototype.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 34,
+          "x": 16,
+          "y": 1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/summon_djinni_prototype",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/summon_djinni_prototype"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_djinni_prototype.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "summon_afrit_prototype",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:summoning_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "texture": "occultism:textures/gui/book/summoning.png"
+          },
+          "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_afrit_prototype.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 35,
+          "x": 18,
+          "y": 1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/summon_afrit_prototype",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/summon_afrit_prototype"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_afrit_prototype.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "summon_marid_prototype",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:summoning_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "texture": "occultism:textures/gui/book/summoning.png"
+          },
+          "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_marid_prototype.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 36,
+          "x": 20,
+          "y": 1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/summon_marid_prototype",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/summon_marid_prototype"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_marid_prototype.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "summon_unbound_afrit_prototype",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:summoning_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "texture": "occultism:textures/gui/book/summoning.png"
+          },
+          "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_unbound_afrit_prototype.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 37,
+          "x": 22,
+          "y": 1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/summon_unbound_afrit_prototype",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/summon_unbound_afrit_prototype"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_unbound_afrit_prototype.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "summon_wild_parrot",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:summoning_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/parrot.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wild_parrot.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 38,
+          "x": 10,
+          "y": 4,
+          "pages": [
+            {
+              "type": "modonomicon:entity",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "entity_id": "minecraft:parrot",
+              "entity_name": "",
+              "id": "entity",
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wild_parrot.entity.text",
+              "title": "",
+              "detail": "Entity: minecraft:parrot"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/summon_wild_parrot",
+              "sort_number": 1,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/summon_wild_parrot"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "text2",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wild_parrot.description.text",
+              "title": "",
+              "detail": ""
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "text3",
+              "show_title_separator": true,
+              "sort_number": 3,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wild_parrot.description2.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "summon_wild_otherworld_bird",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:summoning_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/otherworld_bird.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wild_otherworld_bird.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:summoning_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 39,
+          "x": 10,
+          "y": 6,
+          "pages": [
+            {
+              "type": "modonomicon:entity",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "entity_id": "occultism:otherworld_bird",
+              "entity_name": "",
+              "id": "entity",
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wild_otherworld_bird.entity.text",
+              "title": "",
+              "detail": "Entity: occultism:otherworld_bird"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/summon_wild_otherworld_bird",
+              "sort_number": 1,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/summon_wild_otherworld_bird"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "text2",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.summoning_rituals.summon_wild_otherworld_bird.description.text",
+              "title": "",
+              "detail": ""
             }
           ]
         }
@@ -9624,6 +10294,232 @@
               "detail": ""
             }
           ]
+        },
+        {
+          "id": "possess_djinni_prototype",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:possession_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/possession.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_djinni_prototype.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 31,
+          "x": 11,
+          "y": -1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/possess_djinni_prototype",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/possess_djinni_prototype"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.possession_rituals.possess_djinni_prototype.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "possess_unbound_afrit_prototype",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:possession_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/possession.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_unbound_afrit_prototype.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 32,
+          "x": 13,
+          "y": -1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/possess_unbound_afrit_prototype",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/possess_unbound_afrit_prototype"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.possession_rituals.possess_unbound_afrit_prototype.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "possess_afrit_prototype",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:possession_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/possession.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.possession_rituals.possess_afrit_prototype.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 33,
+          "x": 15,
+          "y": -1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/possess_afrit_prototype",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/possess_afrit_prototype"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.possession_rituals.possess_afrit_prototype.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "wild_horde_illager",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:possession_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "item": "minecraft:iron_axe"
+          },
+          "name": "book.occultism.dictionary_of_spirits.possession_rituals.wild_horde_illager.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:possession_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 34,
+          "x": 17,
+          "y": -1,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/wild_horde_illager",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/wild_horde_illager"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.possession_rituals.wild_horde_illager.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
         }
       ]
     },
@@ -10781,6 +11677,566 @@
               "show_title_separator": true,
               "sort_number": 3,
               "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_chimera.description2.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "familiar_bat",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:familiar_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/bat_familiar.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_bat.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 24,
+          "x": -6,
+          "y": 2,
+          "pages": [
+            {
+              "type": "modonomicon:entity",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "entity_id": "occultism:bat_familiar",
+              "entity_name": "",
+              "id": "entity",
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_bat.entity.text",
+              "title": "",
+              "detail": "Entity: occultism:bat_familiar"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/familiar_bat",
+              "sort_number": 1,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/familiar_bat"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_bat.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "familiar_deer",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:familiar_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_deer.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_deer.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 25,
+          "x": 0,
+          "y": 2,
+          "pages": [
+            {
+              "type": "modonomicon:entity",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "entity_id": "occultism:deer_familiar",
+              "entity_name": "",
+              "id": "entity",
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_deer.entity.text",
+              "title": "",
+              "detail": "Entity: occultism:deer_familiar"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/familiar_deer",
+              "sort_number": 1,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/familiar_deer"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_deer.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "familiar_beaver",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:familiar_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_beaver.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_beaver.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 26,
+          "x": -5,
+          "y": 4,
+          "pages": [
+            {
+              "type": "modonomicon:entity",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "entity_id": "occultism:beaver_familiar",
+              "entity_name": "",
+              "id": "entity",
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_beaver.entity.text",
+              "title": "",
+              "detail": "Entity: occultism:beaver_familiar"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/familiar_beaver",
+              "sort_number": 1,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/familiar_beaver"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_beaver.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "familiar_mummy",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:familiar_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_mummy.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_mummy.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 27,
+          "x": -1,
+          "y": -4,
+          "pages": [
+            {
+              "type": "modonomicon:entity",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "entity_id": "occultism:mummy_familiar",
+              "entity_name": "",
+              "id": "entity",
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_mummy.entity.text",
+              "title": "",
+              "detail": "Entity: occultism:mummy_familiar"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/familiar_mummy",
+              "sort_number": 1,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/familiar_mummy"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_mummy.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "familiar_devil",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:familiar_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_devil.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_devil.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 28,
+          "x": 1,
+          "y": 4,
+          "pages": [
+            {
+              "type": "modonomicon:entity",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "entity_id": "occultism:devil_familiar",
+              "entity_name": "",
+              "id": "entity",
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_devil.entity.text",
+              "title": "",
+              "detail": "Entity: occultism:devil_familiar"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/familiar_devil",
+              "sort_number": 1,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/familiar_devil"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_devil.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "familiar_guardian",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:familiar_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_guardian.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_guardian.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 29,
+          "x": -3,
+          "y": -4,
+          "pages": [
+            {
+              "type": "modonomicon:entity",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "entity_id": "occultism:guardian_familiar",
+              "entity_name": "",
+              "id": "entity",
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_guardian.entity.text",
+              "title": "",
+              "detail": "Entity: occultism:guardian_familiar"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/familiar_guardian",
+              "sort_number": 1,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/familiar_guardian"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_guardian.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "familiar_headless",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:familiar_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/familiar_headless_ratman.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_headless.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 30,
+          "x": -2,
+          "y": -2,
+          "pages": [
+            {
+              "type": "modonomicon:entity",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "entity_id": "occultism:headless_familiar",
+              "entity_name": "",
+              "id": "entity",
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_headless.entity.text",
+              "title": "",
+              "detail": "Entity: occultism:headless_familiar"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/familiar_headless",
+              "sort_number": 1,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/familiar_headless"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_headless.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "familiar_otherworld_bird",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:familiar_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/otherworld_bird.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_otherworld_bird.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:familiar_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 31,
+          "x": 0,
+          "y": -2,
+          "pages": [
+            {
+              "type": "modonomicon:entity",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "entity_id": "occultism:otherworld_bird",
+              "entity_name": "",
+              "id": "entity",
+              "sort_number": 0,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_otherworld_bird.entity.text",
+              "title": "",
+              "detail": "Entity: occultism:otherworld_bird"
+            },
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/familiar_otherworld_bird",
+              "sort_number": 1,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/familiar_otherworld_bird"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 2,
+              "text": "book.occultism.dictionary_of_spirits.familiar_rituals.familiar_otherworld_bird.description.text",
               "title": "",
               "detail": ""
             }
@@ -14022,6 +15478,338 @@
               "title": "",
               "text": "",
               "detail": "Recipe: occultism:ritual/repair_armors"
+            }
+          ]
+        },
+        {
+          "id": "craft_afrit_prototype",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:crafting_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "height": 16,
+            "texture": "occultism:textures/gui/book/infusion.png",
+            "width": 16
+          },
+          "name": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_afrit_prototype.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 52,
+          "x": 12,
+          "y": 0,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/craft_afrit_prototype",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/craft_afrit_prototype"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.crafting_rituals.craft_afrit_prototype.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "misc_bee_nest",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:crafting_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "item": "occultism:bee_nest"
+          },
+          "name": "book.occultism.dictionary_of_spirits.crafting_rituals.misc_bee_nest.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 53,
+          "x": 14,
+          "y": 0,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/misc_bee_nest",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/misc_bee_nest"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.crafting_rituals.misc_bee_nest.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "misc_bell",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:crafting_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "item": "occultism:bell"
+          },
+          "name": "book.occultism.dictionary_of_spirits.crafting_rituals.misc_bell.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 54,
+          "x": 16,
+          "y": 0,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/misc_bell",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/misc_bell"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.crafting_rituals.misc_bell.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "misc_budding_amethyst",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:crafting_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "item": "occultism:budding_amethyst"
+          },
+          "name": "book.occultism.dictionary_of_spirits.crafting_rituals.misc_budding_amethyst.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 55,
+          "x": 18,
+          "y": 0,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/misc_budding_amethyst",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/misc_budding_amethyst"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.crafting_rituals.misc_budding_amethyst.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "misc_reinforced_deepslate",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:crafting_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "item": "occultism:reinforced_deepslate"
+          },
+          "name": "book.occultism.dictionary_of_spirits.crafting_rituals.misc_reinforced_deepslate.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 56,
+          "x": 20,
+          "y": 0,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/misc_reinforced_deepslate",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/misc_reinforced_deepslate"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.crafting_rituals.misc_reinforced_deepslate.description.text",
+              "title": "",
+              "detail": ""
+            }
+          ]
+        },
+        {
+          "id": "misc_wild_trim",
+          "type": "modonomicon:content",
+          "background": {
+            "height": 26,
+            "sprite": "modonomicon:modonomicon/themes/default/node/entry_backgrounds/square_gold",
+            "width": 26
+          },
+          "category": "occultism:crafting_rituals",
+          "condition": {
+            "type": "modonomicon:true"
+          },
+          "description": "",
+          "icon": {
+            "item": "occultism:wild_trim"
+          },
+          "name": "book.occultism.dictionary_of_spirits.crafting_rituals.misc_wild_trim.name",
+          "parents": [
+            {
+              "draw_arrow": true,
+              "entry": "occultism:crafting_rituals/overview",
+              "line_enabled": true,
+              "line_reversed": false
+            }
+          ],
+          "sort_number": 57,
+          "x": 22,
+          "y": 0,
+          "pages": [
+            {
+              "type": "occultism:ritual_recipe",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "ritual",
+              "recipe_id_1": "occultism:ritual/misc_wild_trim",
+              "sort_number": 0,
+              "title": "",
+              "text": "",
+              "detail": "Recipe: occultism:ritual/misc_wild_trim"
+            },
+            {
+              "type": "modonomicon:text",
+              "condition": {
+                "type": "modonomicon:none"
+              },
+              "id": "description",
+              "show_title_separator": true,
+              "sort_number": 1,
+              "text": "book.occultism.dictionary_of_spirits.crafting_rituals.misc_wild_trim.description.text",
+              "title": "",
+              "detail": ""
             }
           ]
         }

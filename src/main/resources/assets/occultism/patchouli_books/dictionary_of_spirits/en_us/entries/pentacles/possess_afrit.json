@@ -1,0 +1,28 @@
+{
+  "name": "Posuc's Convocation",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 25,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Posuc's Convocation",
+      "text": "$(bold)Purpose:$() $(#AA00AA)Afrit$() Possession$(br2)$(bold)Posuc Convocation$() is a modified version in the possession geometry of $(#FF55FF)Abras Conjure$() that allows$(br) possessing entities, and thus summoning familiars.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:possess_afrit",
+      "name": "Posuc's Convocation",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:possession_rituals/possess_shulker)Possessed Shulker$(/l)$(br)$(li)$(l:possession_rituals/possess_elder_guardian)Possessed Elder Guardian$(/l)$(br)$(li)$(l:possession_rituals/possess_hoglin)Possessed Hoglin$(/l)$(br)$(li)$(l:possession_rituals/possess_warden)Possessed Warden$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

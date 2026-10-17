@@ -1,0 +1,14 @@
+{
+  "name": "Crafting Rituals",
+  "icon": "occultism:textures/gui/book/infusion.png",
+  "category": "rituals",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Crafting Rituals",
+      "text": "",
+      "anchor": "crafting_rituals/description"
+    }
+  ]
+}

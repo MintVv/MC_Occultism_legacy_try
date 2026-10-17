@@ -1,0 +1,30 @@
+{
+  "name": "灵魂宝石",
+  "icon": "occultism:soul_gem",
+  "category": "crafting_rituals",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:soul_gem",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "灵魂宝石是以珍贵金属作为嵌座，并注入有$(#AA00AA)巨灵$()的钻石。$(br)巨灵会创造一个小空间，暂时困住生物。$(br)但无法储存力量强大或者体型巨大的存在。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_soul_gem",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "使用方法",
+      "text": "手持灵魂宝石$(#AA00AA)右击$()捕获实体。$(br)再次$(#AA00AA)右击$()释放实体。$(br2)无法捕获Boss。$(br)",
+      "anchor": "usage"
+    }
+  ]
+}

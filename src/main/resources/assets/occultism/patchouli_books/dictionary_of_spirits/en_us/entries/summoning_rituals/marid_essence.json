@@ -1,0 +1,24 @@
+{
+  "name": "Marid Essence",
+  "icon": "occultism:marid_essence",
+  "category": "summoning_rituals",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Marid Essence",
+      "text": "$(item)Marid Essence$()  is required to safely control the most powerful spirits, commonly used$(br) in the form of blue chalk. To obtain the essence, an $(#AA00AA)Marid$() needs to be summoned$(br) unbound into this plane, and killed. Be warned that this is no simple $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Marid Essence",
+      "text": "endeavour,$(br) and unbound spirit presents great danger to all nearby.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_unbound_marid",
+      "anchor": "ritual_day"
+    }
+  ]
+}

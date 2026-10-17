@@ -1,0 +1,36 @@
+{
+  "name": "Shub Niggurath Familiar",
+  "icon": "occultism:textures/gui/book/familiar_shub_niggurath.png",
+  "category": "familiar_rituals",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:shub_niggurath_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Spawns small versions of itself to fight for you.$()$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Ritual",
+      "text": "The $(#ad03fc)Shub Niggurath$() is not summoned directly. First, summon a $(l:familiar_rituals/familiar_chimera)Chimera Familiar$(/l) and feed it a $(item)golden apple$() to detach the $(#ad03fc)Goat$(). Bring the goat to a $(#ad03fc)Forest Biome$(). Then use $(item)any Black Dye$(), $(item)flint$(), and $(item)ender eye$() on the goat. The fixed upstream code accepts $()",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Ritual",
+      "text": "the materials in any order.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "$(bold)Upgrade Behaviour$()$(br)When upgraded by a blacksmith familiar, it gets a warning bell. When the familiar is hit, it rings the bell and $(bold)attracts enemies$() in a large radius.$(br)",
+      "anchor": "description"
+    }
+  ]
+}

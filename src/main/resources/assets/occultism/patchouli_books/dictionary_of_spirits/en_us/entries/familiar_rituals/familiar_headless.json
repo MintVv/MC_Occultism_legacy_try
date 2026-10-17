@@ -1,0 +1,35 @@
+{
+  "name": "Headless Ratman Familiar",
+  "icon": "occultism:textures/gui/book/familiar_headless_ratman.png",
+  "category": "familiar_rituals",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:headless_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Weakness against a stolen head type$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_headless",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The headless ratman familiar steals the heads of mobs killed nearby and remembers that type of mob.$(br)$(bold)Upgrade Behaviour$()$(br)Upgraded by a blacksmith familiar, it applies weakness to nearby mobs matching the stolen head type.$(br)If it drops $(bold)$()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "below 50% health$() it dies, but its master can rebuild it with $(item)wheat$(), $(item)stick$(), $(item)hay block$() and a $(item)pumpkin$()."
+    }
+  ]
+}

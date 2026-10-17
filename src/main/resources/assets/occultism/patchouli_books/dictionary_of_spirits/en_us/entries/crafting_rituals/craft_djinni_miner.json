@@ -1,0 +1,24 @@
+{
+  "name": "Djinni Miner",
+  "icon": "occultism:miner_djinni_ores",
+  "category": "crafting_rituals",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:miner_djinni_ores",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(#AA00AA)Djinni$() miner harvests most general ores. It is able to mine faster and more efficiently.$(br) The greater power of the djinni it damages the magic lamp relatively quickly.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_miner_djinni_ores",
+      "anchor": "ritual"
+    }
+  ]
+}

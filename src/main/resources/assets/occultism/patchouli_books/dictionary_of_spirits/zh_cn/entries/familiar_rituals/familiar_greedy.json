@@ -1,0 +1,30 @@
+{
+  "name": "贪婪使魔",
+  "icon": "occultism:textures/gui/book/familiar_greedy.png",
+  "category": "familiar_rituals",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:greedy_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)拾取物品$()、$(#ad03fc)升级后定位选中的方块$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_greedy",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "描述",
+      "text": "贪婪使魔是一种会直接为主人拾取附近物品的魔精。支持使魔之戒储存，但 1.12 版本不提供 Curios 拾取范围效果。$(br2)$(bold)升级效果$()$(br)经铁匠使魔升级一次后，手持方块与其交互可指定要定位的方块类型，再次交互可取回样本。它只会指向并接近匹配方块，不会挖掘目标，也不会消耗样本。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

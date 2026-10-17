@@ -1,0 +1,28 @@
+{
+  "name": "修菲斯的倒转之塔",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "text",
+      "title": "修菲斯的倒转之塔",
+      "text": "$(bold)目的$()：束缚$(#AA00AA)魔王$()$(br2)$(bold)修菲斯的倒转之塔$()是少数能够将$(#AA00AA)魔王$()束缚进物体的五芒星阵之一。$(br)任何涉及$(#AA00AA)魔王$()的仪式都应仅由经验最丰富的召唤师执行。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:craft_marid",
+      "name": "修菲斯的倒转之塔",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:crafting_rituals/craft_stabilizer_tier4)存储稳定器（4阶）$(/l)$(br)$(li)$(l:crafting_rituals/craft_marid_miner)魔王矿脉矿主$(/l)$(br)$(li)$(l:crafting_rituals/craft_iesnium_anvil)艾瑟金属砧$(/l)$(br)$(li)$(l:crafting_rituals/true_sight_staff)真视法杖$(/l)$(br)$(li)$(l:pentacles/magenta_chalk)龙晶粉$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

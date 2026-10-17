@@ -1,0 +1,40 @@
+{
+  "name": "艾瑟金属仪式之碗",
+  "icon": "occultism:iesnium_sacrificial_bowl",
+  "category": "crafting_rituals",
+  "sortnum": 35,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:iesnium_sacrificial_bowl",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(item)艾瑟金属仪式碗$()是一件$(#AA00AA)魔王$()灌注物品，能使资深神秘学者以常规时间的四分之一完成任何仪式。其余功能均与黄金仪式之碗完全相同。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_iesnium_sacrificial_bowl",
+      "anchor": "ritual"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:dark_iesnium_sacrificial_bowl",
+      "text": "",
+      "anchor": "spotlight2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "对于选择异界岩的玩家来说，还有暗色版本以供使用。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dark_iesnium_sacrificial_bowl",
+      "anchor": "ritual2"
+    }
+  ]
+}

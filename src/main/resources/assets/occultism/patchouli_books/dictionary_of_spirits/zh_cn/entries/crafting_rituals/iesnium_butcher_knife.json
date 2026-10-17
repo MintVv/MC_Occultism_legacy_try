@@ -1,0 +1,24 @@
+{
+  "name": "艾瑟金属屠刀",
+  "icon": "occultism:iesnium_butcher_knife",
+  "category": "crafting_rituals",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:iesnium_butcher_knife",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这把刀是一件$(#AA00AA)火灵$()灌注物品，在艾瑟金属的强化下，$(br)屠刀在伤害提升的同时，保留了掉落动物油脂的特性。$(br2)此外，部分生物可能会掉落其头颅，且会对魔灵造成三倍伤害。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_iesnium_butcher_knife",
+      "anchor": "ritual"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "Wild Horde Drowned",
+  "icon": "minecraft:egg",
+  "category": "possession_rituals",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:wild_horde_drowned",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): Items related to ocean trials (See next page);$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_drowned",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Drowned summoned by this way can drop: $(item)egg$(), $(item)turtle egg$(), $(item)trident$(), $(item)angler pottery sherd$(), $(item)shelter pottery sherd$(), $(item)snort pottery sherd$(), $(item)blade pottery sherd$(), $(item)explorer pottery sherd$(), $(item)mourner pottery sherd$(), $(item)plenty pottery sherd$().$(br)",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "制造钟",
+  "icon": "occultism:bell",
+  "category": "crafting_rituals",
+  "sortnum": 54,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_bell",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "产出一个钟方块。在 1.12 中它不会召唤袭击，仅作为建筑装饰物使用。",
+      "anchor": "description"
+    }
+  ]
+}

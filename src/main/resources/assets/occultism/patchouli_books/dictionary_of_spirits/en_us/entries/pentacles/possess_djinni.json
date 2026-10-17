@@ -1,0 +1,49 @@
+{
+  "name": "Ihagan's Enthrallment",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ihagans Enthrallment",
+      "text": "$(bold)Purpose:$() $(#AA00AA)Djinni$() Possession$(br2)$(bold)Ihagans Enthrallment$() forces $(#AA00AA)Djinni$() to possess a nearby Creature. This pentacle is very versatile$(br)  for imprisonment, allowing you to summon more powerful Spirits and Creatures.$()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Ihagans Enthrallment",
+      "text": "$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:possess_djinni",
+      "name": "Ihagan's Enthrallment",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:possession_rituals/possess_enderman)Possessed Enderman$(/l)$(br)$(li)$(l:possession_rituals/possess_ghast)Possessed Ghast$(/l)$(br)$(li)$(l:possession_rituals/possess_weak_shulker)Possessed Weak Shulker$(/l)$(br)$(li)$(l:possession_rituals/possess_bee)Possessed Bee$(/l)$(br)$(li)$(l:possession_rituals/possess_blaze)Possessed Blaze$(/l)$(br)$(li)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(l:possession_rituals/possess_random_animal)Random Animal (Rideable, Special, Villager)$(/l)$(br)$(li)$(l:possession_rituals/possess_unbound_otherworld_bird)Unbound Drikwing$(/l)$(br)$(li)$(l:familiar_rituals/familiar_otherworld_bird)Drikwing Familiar$(/l)$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:familiar_rituals/familiar_bat)Bat Familiar$(/l)$(br)$(li)$(l:familiar_rituals/familiar_cthulhu)Cthulhu Familiar$(/l)$(br)$(li)$(l:familiar_rituals/familiar_dragon)Dragon Familiar$(/l)$(br)$(li)$(l:familiar_rituals/familiar_beholder)Beholder Familiar$(/l)$(br)$(li)$(l:familiar_rituals/familiar_fairy)Fairy Familiar$(/l)$(br)$(li)$(l:familiar_rituals/familiar_chimera)Chimera Familiar$(/l)$(br)$(li)$(l:familiar_rituals/familiar_mummy)Mummy Familiar$(/l)$()",
+      "anchor": "uses2"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(br)"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Resurrecting any Mob",
+  "icon": "occultism:soul_shattered",
+  "category": "familiar_rituals",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:soul_shattered",
+      "text": "",
+      "anchor": "soul_shattered"
+    },
+    {
+      "type": "text",
+      "title": "Shattered Soul Shards",
+      "text": "Occultists have discovered a way to capture part of the essence$(br) of any fallen enemy through an enchantment known as $(#55FF55)Fracture Soul$().$(br2)With a variation of the ritual to resurrect familiars,$(br) it is possible $()"
+    },
+    {
+      "type": "text",
+      "title": "Shattered Soul Shards",
+      "text": "for a $(item)Shattered Soul Shard$() to create a completely revived mob,$(br) forming its new body and trapping within it the shard's remaining soul.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "resurrect_mob",
+      "anchor": "ritual"
+    }
+  ]
+}

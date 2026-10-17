@@ -1,0 +1,30 @@
+{
+  "name": "克苏鲁使魔",
+  "icon": "occultism:textures/gui/book/familiar_cthulhu.png",
+  "category": "familiar_rituals",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:cthulhu_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)水下呼吸$()、$(#ad03fc)超凡酷劲$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_cthulhu",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "描述",
+      "text": "$(bold)升级效果$()$(br)经铁匠使魔升级后，它会成为移动光源。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "存储促动器基座",
+  "icon": "occultism:storage_controller_base",
+  "category": "crafting_rituals",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_controller_base",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "该基座囚禁了一只$(#AA00AA)魔精$()，$(br)并迫使其负责与维度存储矩阵的物品交互。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_storage_controller_base",
+      "anchor": "ritual"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_controller_base_dark",
+      "text": "",
+      "anchor": "spotlight_dark"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "所有存储系统的方块都存在对应的暗色版本，$(br)其功能完全相同。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_storage_controller_base_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

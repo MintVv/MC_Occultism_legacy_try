@@ -1,0 +1,29 @@
+{
+  "name": "Vitality Compass",
+  "icon": "occultism:vitality_compass",
+  "category": "crafting_rituals",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:vitality_compass",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(item)Vitality Compass$() is a mystical tool infused with a $(#AA00AA)Foliot$()$(br) that allows it to be attuned to the essence of living beings.$(br) By right-clicking on a creature, you bind its life force to the compass,$(br) allowing the $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "needle to always point toward its location no matter the distance (while loaded).$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_vitality_compass",
+      "anchor": "ritual"
+    }
+  ]
+}

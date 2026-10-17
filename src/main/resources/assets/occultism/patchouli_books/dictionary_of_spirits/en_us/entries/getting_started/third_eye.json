@@ -1,0 +1,46 @@
+{
+  "name": "The Third Eye",
+  "icon": "occultism:textures/mob_effect/third_eye.png",
+  "category": "getting_started",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Third Eye",
+      "text": "The ability to see beyond the physical world is referred to as $(#ad03fc)Third Eye$().$(br)Humans do not possess such an ability to see $(#ad03fc)beyond the veil$(),$(br)however with certain substances and contraptions the knowledgeable summoner can work $()",
+      "anchor": "about"
+    },
+    {
+      "type": "text",
+      "title": "Third Eye",
+      "text": "around this limitation.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The most comfortable, and most *expensive*, way to obtain this ability, is to wear spectacles$(br)infused with spirits, that *lend* their sight to the wearer.$(br)A slightly more nauseating, but $(bold)very affordable$() alternative is the $()",
+      "anchor": "how_to_obtain"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "consumption of certain herbs,$(br)$(l:getting_started/demons_dream)Demon's Dream$(/l) most prominent among them.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:otherworld_goggles",
+      "text": "",
+      "anchor": "otherworld_goggles"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(l:crafting_rituals/craft_otherworld_goggles)These goggles$(/l) allow to see even more hidden Otherworld blocks,$(br)however they do not allow harvesting those materials.$(br)Low-tier materials can be harvested by consuming $(l:getting_started/demons_dream)Demon's Dream$(/l),$(br)but more valuable materials require special tools.$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    }
+  ]
+}

@@ -20,6 +20,7 @@ import org.junit.jupiter.api.Test;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.occultism.occultism.block.BlockStorageStabilizer;
+import com.occultism.occultism.config.ModConfig;
 import com.occultism.occultism.registry.ModBlocks;
 
 import net.minecraft.block.Block;
@@ -162,6 +163,19 @@ class StorageStabilizerPortContractTest {
         assertTrue(stabilizer.contains("updateStabilizers()"));
         assertTrue(stabilizer.contains("Keep tracing after a hit"),
                 "a stabilizer must continue tracing after notifying one controller");
+    }
+
+    @Test
+    void tierFiveStabilizersContributeConfiguredStorageInsteadOfBeingIgnored() throws IOException {
+        assertTrue(ModConfig.STORAGE.stabilizerTier5Slots > 0);
+        assertEquals(ModConfig.STORAGE.stabilizerTier5Slots,
+                com.occultism.occultism.tileentity.TileEntityStorageController
+                        .getSlotsForStabilizerBlock(ModBlocks.STORAGE_STABILIZER_TIER5));
+        assertEquals(ModConfig.STORAGE.stabilizerTier5Slots,
+                com.occultism.occultism.tileentity.TileEntityStorageController
+                        .getSlotsForStabilizerBlock(ModBlocks.STORAGE_STABILIZER_TIER5_DARK));
+        String controller = readJava("tileentity", "TileEntityStorageController.java");
+        assertTrue(controller.contains("stabilizerTier5Slots"));
     }
 
     private static void assertBox(AxisAlignedBB expected, AxisAlignedBB actual) {

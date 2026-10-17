@@ -1,0 +1,95 @@
+{
+  "name": "束缚之书",
+  "icon": "occultism:book_of_binding_bound_foliot",
+  "category": "getting_started",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "text",
+      "title": "束缚之书",
+      "text": "为了召唤一个魔灵，仪式中需要用到一本$(#ad03fc)束缚之书$()。每个类型（或者等阶）的魔灵都有一种对应的书。为了指定召唤的魔灵，魔灵的名称必须写在$(#ad03fc)束缚之书$()上，得到的$(#ad03fc)已绑定的束缚之书$()可以用于仪式。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)注意$()：*魔灵的名称只是为了好看*，也就是说名称和配方无关。只要你的束缚之书中有正确的魔灵类型就可以使用。$(br)",
+      "anchor": "intro2"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:purified_ink",
+      "anchor": "purified_ink_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "为了制作$(#ad03fc)束缚之书$()召唤魔灵，你需要纯净墨水。把任何黑色染料投入$(item)灵火$()来净化就够了。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:awakened_feather",
+      "anchor": "awakened_feather_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "为了制作$(#ad03fc)束缚之书$()以召唤魔灵，你需要觉醒羽毛。只需将任意羽毛投入$(item)灵火$()令其觉醒。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:taboo_book",
+      "anchor": "taboo_book_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "最后你需要禁忌之书来制作$(#ad03fc)束缚之书$()以召唤魔灵。只需将一本书投入$(item)灵火$()就能得到它。$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:book_of_binding_bound_foliot_from_unbound",
+      "text": "",
+      "anchor": "book_of_binding_bound_foliot_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "通过与魔灵全典合成，将要召唤的魔灵的名称添加到束缚之书上。$(br)魔灵全典不会消耗。$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:book_of_binding_bound_djinni_from_unbound",
+      "text": "",
+      "anchor": "book_of_binding_bound_djinni_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:book_of_binding_bound_afrit_from_unbound",
+      "text": "",
+      "anchor": "book_of_binding_bound_afrit_recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:book_of_binding_bound_marid_from_unbound",
+      "text": "",
+      "anchor": "book_of_binding_bound_marid_recipe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:book_of_binding_empty",
+      "anchor": "book_of_binding_empty"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "作为代替，你可以直接使用束缚之书：空来替换之前提到的三件物品。有两种配方合成这本书。将这本书放在四个染料的中间以合成特定的束缚之书。$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:book_of_binding_empty",
+      "text": "",
+      "anchor": "book_of_binding_empty_recipe"
+    }
+  ]
+}

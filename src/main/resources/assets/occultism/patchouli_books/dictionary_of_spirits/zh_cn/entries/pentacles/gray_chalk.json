@@ -1,0 +1,47 @@
+{
+  "name": "改良阵基粉笔",
+  "icon": "occultism:chalk_gray",
+  "category": "pentacles",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "text",
+      "title": "攫取力量",
+      "text": "这支灰色粉笔由某种魔法糨糊制成，属于中级阵基粉笔。其魔法特性会与周围环境产生奇妙的互动反应。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_gray",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "作为强化型阵基粉笔，它能进一步巩固五芒星的核心力量，并且（几乎在所有情况下）可以替代白色符文或淡灰色符文。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_gray_paste",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "灰色糨糊",
+      "text": "这种奇特的非晶态糨糊主要用于强化五芒星阵法的阵基。$(br)但其次要用途可能更为实用，某些粉尘与此物质接触反应后，能恢复至被粉碎前的原始形态。$(br)",
+      "anchor": "paste"
+    },
+    {
+      "type": "text",
+      "title": "生长矿物",
+      "text": "其与粉末交互的特性，可与$(item)自然糨糊$()的力量相结合，$(br)在副手持有$(item)灰色糨糊$()即可与某些矿物交互，$(br)使其生长并从中获取额外资源。$(br)",
+      "anchor": "ore_dupe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_gray",
+      "anchor": "recipe"
+    }
+  ]
+}

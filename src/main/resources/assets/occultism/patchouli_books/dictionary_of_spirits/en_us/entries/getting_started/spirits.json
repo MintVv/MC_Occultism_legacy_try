@@ -1,0 +1,14 @@
+{
+  "name": "About Spirits",
+  "icon": "occultism:textures/gui/book/spirits.png",
+  "category": "getting_started",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "text",
+      "title": "About Spirits",
+      "text": "Learn more about Spirits.",
+      "anchor": "spirits/description"
+    }
+  ]
+}

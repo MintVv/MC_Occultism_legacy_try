@@ -1,0 +1,19 @@
+{
+  "name": "召唤未束缚火灵（原型）",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_unbound_afrit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "使用$(#ad03fc)坎达尔的开放召唤$()法阵召唤一只敌对的未束缚火灵，并带出烈焰人随从。击杀该火灵可获得火灵精华。它在上游没有对应物。",
+      "anchor": "description"
+    }
+  ]
+}

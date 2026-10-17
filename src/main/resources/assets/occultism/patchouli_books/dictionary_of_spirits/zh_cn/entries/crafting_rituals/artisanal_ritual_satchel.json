@@ -1,0 +1,64 @@
+{
+  "name": "匠心仪式挎包",
+  "icon": "occultism:ritual_satchel_t2",
+  "category": "crafting_rituals",
+  "sortnum": 26,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:ritual_satchel_t2",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这款匠心仪式挎包内束缚着一只$(#AA00AA)火灵$()，能协助召唤者快速绘制仪式所需的五芒星阵。与学徒挎包中的$(#AA00AA)魔精$()不同，被束缚的$(#AA00AA)火灵$()可在瞬息间完成整个五芒星阵的布置。$(br2)更值得一提的是，这只魔灵还能在仪式结束后彻底清理五芒星阵痕迹，确保不留任何仪式证据。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_ritual_satchel_t2",
+      "anchor": "crafting"
+    },
+    {
+      "type": "text",
+      "title": "已经有仪式挎包了？",
+      "text": "你可以使用这个替代配方来升级$(item)学徒仪式挎包$()，这会保留其中物品！$(br)",
+      "anchor": "upgrade"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_upgrade_ritual_satchel",
+      "anchor": "upgrading"
+    },
+    {
+      "type": "text",
+      "title": "关于",
+      "text": "一个可用于存放五芒星阵所需物品的仪式挎包，$(br)带有耐久度的物品将被使用到只剩1点耐久度，此时闪烁效果将会停止。$(br)挎包内不能存放其他物品。$(br2)若存有所需的所有物品，该挎包可以一次性布置好整个五芒星阵。$(br)同时，还能$(#55FF55)右击$()[#]$(item)金制仪式碗$()以拆除（完整的）五芒星阵，并将所有方块收回$()",
+      "anchor": "about"
+    },
+    {
+      "type": "text",
+      "title": "关于",
+      "text": "挎包中。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "使用方法（绘制）",
+      "text": "1. $(#55FF55)Shift右击$()打开挎包，放置仪式所需的粉笔、蜡烛、水晶、头颅等物品。$(br)2. 使用本书时，点击“眼睛”图标可在世界中预览想要布置的五芒星阵样式。$(br)3. 手持本书时$(#55FF55)右击$()，可将预览中的五芒星阵锚定到你想布置的位置。$(br)4. 使用挎包$(#55FF55)右击$()预览状态的粉笔标记或方块，只要其中存有所需原料，即可自动放置全部预览方块。$(br)",
+      "anchor": "usage_drawing"
+    },
+    {
+      "type": "text",
+      "title": "使用方法（清除）",
+      "text": "1. 寻找需要移除的五芒星阵。该星阵必须保持完整（处于可进行仪式的就绪状态）。$(br)2. 使用挎包$(#55FF55)右击$()五芒星阵中央的$(item)金制仪式碗$()。$(br)3. 挎包将清除所有粉笔标记，并回收星阵中使用的所有仪式器具方块（如蜡烛、头颅等）。$(br)",
+      "anchor": "usage_cleaning"
+    },
+    {
+      "type": "text",
+      "title": "Chalk Brush",
+      "text": "The ritual satchel can also store your $(item)粉笔擦$().$(br)The stored brush will be selected and used automatically when you $(#55FF55)Right-Click$() on chalk glyphs.$(br)",
+      "anchor": "brush"
+    }
+  ]
+}

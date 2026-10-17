@@ -1,0 +1,35 @@
+{
+  "name": "荒野集群苦力怕",
+  "icon": "minecraft:record_cat",
+  "category": "possession_rituals",
+  "sortnum": 22,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:wild_horde_creeper",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：普通苦力怕被骷髅击杀时掉落的唱片（查看下一页）；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_creeper",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "通过此仪式召唤的苦力怕将被充能，会掉落1-3个以下唱片：$(item)music disc 13$()、$(item)record cat$()、$(item)music disc blocks$()、$(item)music disc chirp$()、$(item)music disc far$()、$(item)music disc mall$()、$(item)music disc mellohi$()、$(item)music disc stal$()、$(item)music disc strad$()、$(item)music disc ward$()、$(item)music disc 11$()、$(item)music disc wait$()。$()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    }
+  ]
+}

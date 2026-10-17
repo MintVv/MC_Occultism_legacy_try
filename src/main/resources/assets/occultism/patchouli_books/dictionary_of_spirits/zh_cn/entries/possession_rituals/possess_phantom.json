@@ -1,0 +1,30 @@
+{
+  "name": "被附身的幻翼",
+  "icon": "occultism:phantom_membrane",
+  "category": "possession_rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_phantom",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：1-4x$(item)幻翼膜$()，抢夺附魔额外增加 0-1 个。"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_phantom",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)幻翼$()将借由任意$(#ad03fc)飞行被动生物$()的生命能量生成，然后立刻被召唤出的$(#ad03fc)魔精$()附身。$(#ad03fc)被附身的幻翼$()被击杀后至少掉落一个$(item)幻翼膜$()，使用这个仪式召唤的幻翼可被轻易困住，并且你在这之后还能回去睡个好觉。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

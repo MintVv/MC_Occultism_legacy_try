@@ -284,8 +284,11 @@
     "type": "occultism:ritual",
     "ritual_type": "occultism:summon_spirit_with_job",
     "activation_item": "occultism:book_of_binding_bound_djinni",
-    "duration_ticks": 800,
+    "duration_ticks": 1200,
+    "spirit_tier": "occultism:djinni",
+    "spirit_max_age": 60,
     "spirit_job_type": "occultism:clear_weather",
+    "entity_to_summon": "occultism:djinni_job",
     "ingredients": [
       "#c:crops/beetroot",
       "#c:crops/carrot",
@@ -306,8 +309,11 @@
     "type": "occultism:ritual",
     "ritual_type": "occultism:summon_spirit_with_job",
     "activation_item": "occultism:book_of_binding_bound_djinni",
-    "duration_ticks": 800,
+    "duration_ticks": 1200,
+    "spirit_tier": "occultism:djinni",
+    "spirit_max_age": 60,
     "spirit_job_type": "occultism:day_time",
+    "entity_to_summon": "occultism:djinni_job",
     "ingredients": [
       "minecraft:torch",
       "#minecraft:saplings",
@@ -328,8 +334,11 @@
     "type": "occultism:ritual",
     "ritual_type": "occultism:summon_spirit_with_job",
     "activation_item": "occultism:book_of_binding_bound_djinni",
-    "duration_ticks": 800,
+    "duration_ticks": 1200,
+    "spirit_tier": "occultism:djinni",
+    "spirit_max_age": 60,
     "spirit_job_type": "occultism:night_time",
+    "entity_to_summon": "occultism:djinni_job",
     "ingredients": [
       "#c:gunpowders",
       "minecraft:rotten_flesh",
@@ -611,7 +620,10 @@
     "ritual_type": "occultism:summon_spirit_with_job",
     "activation_item": "occultism:book_of_binding_bound_afrit",
     "duration_ticks": 1200,
+    "spirit_tier": "occultism:afrit",
+    "spirit_max_age": 120,
     "spirit_job_type": "occultism:rain_weather",
+    "entity_to_summon": "occultism:afrit_job",
     "entity_to_sacrifice": {
       "display_name": "ritual.occultism.sacrifice.cows",
       "tag": "c:cows"
@@ -637,7 +649,10 @@
     "ritual_type": "occultism:summon_spirit_with_job",
     "activation_item": "occultism:book_of_binding_bound_afrit",
     "duration_ticks": 1200,
+    "spirit_tier": "occultism:afrit",
+    "spirit_max_age": 240,
     "spirit_job_type": "occultism:thunder_weather",
+    "entity_to_summon": "occultism:afrit_job",
     "entity_to_sacrifice": {
       "display_name": "ritual.occultism.sacrifice.cows",
       "tag": "c:cows"
@@ -3550,6 +3565,9 @@
     "pentacle_id": "occultism:possess_djinni",
     "result": {
       "id": "occultism:lenses"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_djinni_prototype"
     }
   },
   {
@@ -3680,6 +3698,9 @@
     "pentacle_id": "occultism:possess_unbound_afrit",
     "result": {
       "id": "occultism:burnt_otherstone"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_unbound_afrit_prototype"
     }
   },
   {
@@ -3697,6 +3718,9 @@
     "result": {
       "id": "occultism:iesnium_nugget",
       "count": 4
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/possess_afrit_prototype"
     }
   },
   {
@@ -3714,6 +3738,9 @@
     "pentacle_id": "occultism:craft_afrit",
     "result": {
       "id": "occultism:iesnium_ingot"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/craft_afrit_prototype"
     }
   },
   {
@@ -3806,6 +3833,9 @@
     "pentacle_id": "occultism:contact_wild_spirit",
     "result": {
       "id": "occultism:awakened_feather"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/contact_wild_spirit_prototype"
     }
   },
   {
@@ -3823,6 +3853,9 @@
     "pentacle_id": "occultism:contact_eldritch_spirit",
     "result": {
       "id": "occultism:taboo_book"
+    },
+    "ritual_dummy": {
+      "id": "occultism:ritual_dummy/contact_eldritch_spirit_prototype"
     }
   },
   {

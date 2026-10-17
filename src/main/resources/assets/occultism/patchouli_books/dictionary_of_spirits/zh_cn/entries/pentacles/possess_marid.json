@@ -1,0 +1,28 @@
+{
+  "name": "希奥弗伦斯敕令术",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "pentacles",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "text",
+      "title": "希奥弗伦斯敕令术",
+      "text": "$(bold)目的$()：$(#AA00AA)魔王$()附身$(br2)$(bold)希奥弗伦斯敕令术$()是一种极为强大的五芒星阵，能够能够在极度危险的仪式中实现$(#AA00AA)魔王$()附身。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:possess_marid",
+      "name": "希奥弗伦斯敕令术",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:familiar_rituals/iesnium_golem)艾瑟金属傀儡$(/l)$(br)$(li)$(l:possession_rituals/possess_goat)残暴灵髓$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

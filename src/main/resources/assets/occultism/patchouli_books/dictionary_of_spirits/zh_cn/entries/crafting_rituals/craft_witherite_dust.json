@@ -1,0 +1,24 @@
+{
+  "name": "Withertite Dust",
+  "icon": "occultism:witherite_dust",
+  "category": "crafting_rituals",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:witherite_dust",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Withertite dust is a powerful ingredient for dark rituals.$(br) It is crafted using the essence of the $(#AA00AA)Afrit$() and$(br) requires rare materials from the Nether.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_witherite_dust",
+      "anchor": "ritual"
+    }
+  ]
+}

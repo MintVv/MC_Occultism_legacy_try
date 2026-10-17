@@ -1,0 +1,35 @@
+{
+  "name": "The Knowledge Chalk",
+  "icon": "occultism:chalk_lime",
+  "category": "pentacles",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Getting Experience",
+      "text": "The lime chalk attracts greater spirits than Foliots.$(br) Anyone wishing to elevate the level of their rituals will need this chalk.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_lime",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Made with valuable gems infused with experiences, lime glyphs become especially$(br) interesting to demonstrate that yours skills have surpassed the basic level.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_research_fragment_dust",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_lime",
+      "anchor": "recipe"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "火灵掌控粉笔",
+  "icon": "occultism:chalk_red",
+  "category": "pentacles",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "text",
+      "title": "尽在掌控",
+      "text": "这种红色粉笔由火灵的本源精髓制成，使其绘制的符文与这些魔灵直接相通。此外，它还能将五芒星阵的效力提升至最强大的恶魔层级。",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_red",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这些特性使得一项自古以来人们梦寐以求，却难以企及的惊人成就得以实现：召唤出一位受制于神秘学家的火灵。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:afrit_essence",
+      "text": "",
+      "anchor": "essence"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "要获得用来制作$(item)红色粉笔$()的$(#AA00AA)火灵$()灵髓，你需要$(l:summoning_rituals/afrit_essence)召唤并击杀一只未受缚的火灵$(/l)。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_red",
+      "anchor": "recipe"
+    }
+  ]
+}

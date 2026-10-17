@@ -1,0 +1,24 @@
+{
+  "name": "Summon Djinni Machine Operator",
+  "icon": "minecraft:lever",
+  "category": "summoning_rituals",
+  "sortnum": 33,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_manage_machine",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Use the book of calling on a machine or on a dimensional storage controller to bind it. The Djinni then keeps that machine's output flowing into the bound storage and pulls ingredients back out. Up to 64 deposit orders queue per spirit, 16 items per $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "transfer."
+    }
+  ]
+}

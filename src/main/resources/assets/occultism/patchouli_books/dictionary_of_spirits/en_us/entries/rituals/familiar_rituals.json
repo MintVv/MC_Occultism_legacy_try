@@ -1,0 +1,14 @@
+{
+  "name": "Familiar Rituals",
+  "icon": "occultism:textures/gui/book/parrot.png",
+  "category": "rituals",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Familiar Rituals",
+      "text": "",
+      "anchor": "familiar_rituals/description"
+    }
+  ]
+}

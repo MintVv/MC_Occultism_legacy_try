@@ -1,0 +1,20 @@
+{
+  "name": "使魔仪式",
+  "icon": "occultism:textures/gui/book/parrot.png",
+  "category": "getting_started",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "text",
+      "title": "使魔仪式",
+      "text": "使魔可提供多种增益效果，比如摔落缓冲，水下呼吸，跳跃提升等等，也能在战斗中协助你。$(br2)在本 1.12 移植版中，受支持的使魔可以用$(l:crafting_rituals/craft_familiar_ring)使魔之戒$(/l)储存和释放，再装备到原生单槽以应用受支持的效果。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "更多信息",
+      "text": "更多使魔信息详见$(thing)使魔仪式$()章节。$(br)",
+      "anchor": "more"
+    }
+  ]
+}

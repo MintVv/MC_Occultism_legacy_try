@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Queue;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.annotation.Nullable;
 
@@ -23,6 +24,8 @@ import com.occultism.occultism.item.WorkAreaSize;
 import com.occultism.occultism.spirit.DepositOrder;
 import com.occultism.occultism.spirit.MachineReference;
 import com.occultism.occultism.spirit.SpiritJobRecipe;
+import com.occultism.occultism.spirit.SpiritTradeRecipeRegistry;
+import com.occultism.occultism.spirit.WorldEffectJob;
 import com.occultism.occultism.spirit.SpiritJobType;
 import com.occultism.occultism.spirit.SpiritTier;
 import com.occultism.occultism.tileentity.TileEntityStorageController;
@@ -59,6 +62,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -108,6 +112,12 @@ public class EntityFoliotJob extends EntityCreature {
 
     private int workTimer;
     private SpiritJobRecipe currentRecipe;
+    private String spiritTradeId;
+    private int tradeTimeOverride = -1;
+    private int tradeLimitOverride = -1;
+    private SpiritTradeRecipeRegistry.Recipe currentTrade;
+    private WorldEffectJob worldEffectJob;
+    private UUID worldEffectCaster;
     private BlockPos transporterSourcePos;
     private BlockPos transporterTargetPos;
     private BlockPos workAreaPos;
@@ -294,8 +304,73 @@ public class EntityFoliotJob extends EntityCreature {
     }
 
     public void setJobType(SpiritJobType jobType) {
+        if (this.getJobType() != jobType) {
+            this.workTimer = 0;
+            this.currentRecipe = null;
+            this.spiritTradeId = null;
+            this.tradeTimeOverride = -1;
+            this.tradeLimitOverride = -1;
+            this.currentTrade = null;
+            this.worldEffectJob = jobType.isWorldEffectJob() ? new WorldEffectJob(jobType) : null;
+            this.worldEffectCaster = null;
+        }
         this.dataManager.set(JOB_TYPE, Integer.valueOf(jobType.ordinal()));
         this.updateEntitySizeForJob();
+    }
+
+    public void setWorldEffectCaster(@Nullable EntityPlayer player) {
+        this.worldEffectCaster = player == null ? null : player.getUniqueID();
+    }
+
+    @Nullable
+    public WorldEffectJob getWorldEffectJob() {
+        if (this.getJobType().isWorldEffectJob() && this.worldEffectJob == null) {
+            this.worldEffectJob = new WorldEffectJob(this.getJobType());
+        }
+        return this.worldEffectJob;
+    }
+
+    public String getSpiritTradeId() {
+        return this.spiritTradeId == null
+                ? SpiritTradeRecipeRegistry.getDefaultRecipeId(this.getJobType()) : this.spiritTradeId;
+    }
+
+    /** Unknown IDs remain selected and stop processing until the recipe becomes available. */
+    public void setTradeRecipeId(String id) {
+        String canonical = SpiritTradeRecipeRegistry.canonicalId(id);
+        if (canonical == null || !SpiritTradeRecipeRegistry.isTradeJob(this.getJobType())) {
+            throw new IllegalArgumentException("Invalid trade ID or non-trader job");
+        }
+        this.spiritTradeId = canonical;
+        this.currentTrade = null;
+        this.workTimer = 0;
+    }
+
+    @Nullable
+    private SpiritTradeRecipeRegistry.Recipe getTradeRecipe() {
+        return SpiritTradeRecipeRegistry.isTradeJob(this.getJobType())
+                ? SpiritTradeRecipeRegistry.find(this.getSpiritTradeId()) : null;
+    }
+
+    public int getTimeToConvert() {
+        SpiritTradeRecipeRegistry.Recipe recipe = this.getTradeRecipe();
+        return this.tradeTimeOverride > 0 ? this.tradeTimeOverride
+                : recipe == null ? 20 : recipe.getConversionSteps();
+    }
+
+    public void setTimeToConvert(int seconds) {
+        if (seconds < 1 || seconds > SpiritTradeRecipeRegistry.MAX_CONVERSION_STEPS) {
+            throw new IllegalArgumentException("Invalid trader conversion time");
+        }
+        this.tradeTimeOverride = seconds;
+        this.workTimer = 0;
+    }
+
+    public void setMaxTradesPerRound(int count) {
+        if (count < 1 || count > SpiritTradeRecipeRegistry.MAX_TRADES_PER_ROUND) {
+            throw new IllegalArgumentException("Invalid trader batch size");
+        }
+        this.tradeLimitOverride = count;
     }
 
     public SpiritTier getTier() {
@@ -705,6 +780,10 @@ public class EntityFoliotJob extends EntityCreature {
     }
 
     private void updateJob() {
+        if (this.getJobType().isWorldEffectJob()) {
+            this.updateWorldEffectJob();
+            return;
+        }
         if (this.getJobType() == SpiritJobType.MANAGE_MACHINE) {
             this.updateManageMachine();
             return;
@@ -746,26 +825,55 @@ public class EntityFoliotJob extends EntityCreature {
             tradeResult = this.findTradeResult(held);
         }
         if (recipe == null && smeltingResult.isEmpty() && tradeResult.isEmpty()) {
+            if (SpiritTradeRecipeRegistry.isTradeJob(this.getJobType())) {
+                // TraderJob keeps invalid/unavailable input in hand and resets conversion progress.
+                this.workTimer = 0;
+                this.currentTrade = this.getTradeRecipe();
+                if (this.currentTrade != null && this.currentTrade.acceptsStackType(held)
+                        && held.getCount() < this.currentTrade.getIngredients().size()
+                        && this.ticksExisted % SEARCH_INTERVAL == 0) {
+                    this.pickupProcessingInput();
+                }
+                return;
+            }
             this.debugAI("Cannot process held item, dropping " + describeStack(held), this.getPosition(),
                     EnumParticleTypes.SMOKE_NORMAL);
             this.dropHeldItem();
             return;
         }
 
+        boolean fixedTrade = SpiritTradeRecipeRegistry.isTradeJob(this.getJobType());
+        if (fixedTrade && this.currentTrade != this.getTradeRecipe()) {
+            // Replacing a recipe must not inherit progress accumulated for its previous input/output.
+            this.currentTrade = this.getTradeRecipe();
+            this.workTimer = 0;
+        }
         if (recipe != this.currentRecipe) {
             this.currentRecipe = recipe;
             this.workTimer = 0;
-            this.playWorkSound();
-        } else if (recipe == null && this.workTimer == 0) {
+            if (!fixedTrade) {
+                this.playWorkSound();
+            }
+        } else if (!fixedTrade && recipe == null && this.workTimer == 0) {
             this.playWorkSound();
         }
 
-        this.workTimer++;
-        if (this.workTimer % 40 == 0) {
-            this.playWorkSound();
-        }
-        if (this.workTimer % 10 == 0) {
-            this.spawnServerWorkParticles();
+        if (fixedTrade) {
+            // TraderJob advances conversionTimer once per world second, independent of spawn time.
+            if (this.world.getTotalWorldTime() % 20L == 0L) {
+                this.workTimer += 20;
+            }
+            if (this.world.getTotalWorldTime() % 10L == 0L) {
+                this.spawnServerWorkParticles();
+            }
+        } else {
+            this.workTimer++;
+            if (this.workTimer % 40 == 0) {
+                this.playWorkSound();
+            }
+            if (this.workTimer % 10 == 0) {
+                this.spawnServerWorkParticles();
+            }
         }
         if (this.workTimer >= this.getProcessTime()) {
             if (this.getJobType() == SpiritJobType.SMELTER) {
@@ -776,6 +884,50 @@ public class EntityFoliotJob extends EntityCreature {
                 this.completeWork(recipe, held);
             }
         }
+    }
+
+    private void updateWorldEffectJob() {
+        if (this.world == null || this.world.isRemote) {
+            return;
+        }
+        WorldEffectJob job = this.getWorldEffectJob();
+        boolean enabled = ModConfig.RITUALS.isEnabled(this.getJobType());
+        boolean finished = job.tick(this.world.getWorldInfo(), enabled);
+        if (!this.isSwingInProgress) {
+            this.swingArm(EnumHand.MAIN_HAND);
+        }
+        if (this.world instanceof WorldServer && this.world.getTotalWorldTime() % 2L == 0L) {
+            ((WorldServer) this.world).spawnParticle(
+                    job.isTimeJob() ? EnumParticleTypes.PORTAL : EnumParticleTypes.SMOKE_NORMAL,
+                    this.posX, this.posY + 0.5D, this.posZ, 3, 0.5D, 0.0D, 0.0D, 0.0D);
+        }
+        if (!finished) {
+            return;
+        }
+        if (!enabled && this.worldEffectCaster != null && this.world.getMinecraftServer() != null) {
+            EntityPlayer caster = this.world.getMinecraftServer().getPlayerList().getPlayerByUUID(this.worldEffectCaster);
+            if (caster != null) {
+                caster.sendMessage(new TextComponentTranslation("ritual.occultism.disabled"));
+            }
+        }
+        if (this.world instanceof WorldServer) {
+            for (int index = 0; index < 5; index++) {
+                ((WorldServer) this.world).spawnParticle(
+                        job.isTimeJob() ? EnumParticleTypes.PORTAL : EnumParticleTypes.SMOKE_LARGE,
+                        this.posX + this.rand.nextGaussian(), this.posY + 0.5D + this.rand.nextGaussian(),
+                        this.posZ + this.rand.nextGaussian(), 5, 0.0D, 0.0D, 0.0D, 0.0D);
+            }
+        }
+        if (job.isTimeJob()) {
+            // Beacon activation sounds were added after 1.12; use the local ritual completion sound.
+            this.world.playSound(null, this.getPosition(), SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE,
+                    SoundCategory.NEUTRAL, 1.0F, 1.0F);
+        }
+        // Successful one-shot jobs must not yield a shard that can replay the world change.
+        this.dropHeldItem();
+        this.droppedSoulShard = true;
+        this.onDeath(job.isTimeJob() ? DamageSource.OUT_OF_WORLD : DamageSource.LIGHTNING_BOLT);
+        this.setDead();
     }
 
     private void updateCleaner() {
@@ -1628,7 +1780,7 @@ public class EntityFoliotJob extends EntityCreature {
                     EnumParticleTypes.SMOKE_NORMAL);
             return;
         }
-        this.setHeldItem(EnumHand.MAIN_HAND, extracted);
+        this.mergePickedTradeInput(extracted);
         this.setDropChance(EntityEquipmentSlot.MAINHAND, 0.0F);
         this.currentRecipe = this.findSpiritJobRecipe(extracted);
         this.workTimer = 0;
@@ -1643,7 +1795,19 @@ public class EntityFoliotJob extends EntityCreature {
     private ItemStack extractFirstProcessableStack(TileEntity inventory) {
         return InventoryAccess.extractFirst(inventory,
                 stack -> Math.min(stack.getCount(), this.getPickupCountForJob(stack)),
-                this::canProcess);
+                this::canPickUpProcessingStack);
+    }
+
+    private boolean canPickUpProcessingStack(ItemStack stack) {
+        if (stack.isEmpty() || this.getPickupCountForJob(stack) <= 0) {
+            return false;
+        }
+        SpiritTradeRecipeRegistry.Recipe trade = this.getTradeRecipe();
+        ItemStack held = this.getHeldItemMainhand();
+        if (trade != null && !held.isEmpty()) {
+            return trade.acceptsStackType(stack) && this.canMergeStacks(held, stack);
+        }
+        return this.canProcess(stack);
     }
 
     @Nullable
@@ -1657,7 +1821,7 @@ public class EntityFoliotJob extends EntityCreature {
             if (item.isDead || item.getItem().isEmpty() || this.shouldIgnoreDrop(item)) {
                 continue;
             }
-            if (!this.canProcess(item.getItem())) {
+            if (!this.canPickUpProcessingStack(item.getItem())) {
                 continue;
             }
             double distance = this.getDistanceSq(item);
@@ -1679,8 +1843,14 @@ public class EntityFoliotJob extends EntityCreature {
 
     private void pickupOne(EntityItem entityItem) {
         ItemStack stack = entityItem.getItem();
+        if (!this.canPickUpProcessingStack(stack)) {
+            return;
+        }
         ItemStack picked = stack.copy();
         int pickupCount = Math.min(stack.getCount(), this.getPickupCountForJob(stack));
+        if (pickupCount <= 0) {
+            return;
+        }
         picked.setCount(pickupCount);
         stack.shrink(pickupCount);
         if (stack.isEmpty()) {
@@ -1689,13 +1859,24 @@ public class EntityFoliotJob extends EntityCreature {
             entityItem.setItem(stack);
         }
 
-        this.setHeldItem(EnumHand.MAIN_HAND, picked);
+        this.mergePickedTradeInput(picked);
         this.setDropChance(EntityEquipmentSlot.MAINHAND, 0.0F);
         this.currentRecipe = this.findSpiritJobRecipe(picked);
         this.workTimer = 0;
         this.debugAI("Picked up " + describeStack(picked), entityItem.getPosition(), EnumParticleTypes.VILLAGER_HAPPY);
         this.world.playSound(null, this.posX, this.posY, this.posZ, SoundEvents.ENTITY_ITEM_PICKUP,
                 SoundCategory.NEUTRAL, 0.4F, 1.2F);
+    }
+
+    private void mergePickedTradeInput(ItemStack picked) {
+        ItemStack held = this.getHeldItemMainhand();
+        if (this.getTradeRecipe() != null && !held.isEmpty()) {
+            ItemStack combined = held.copy();
+            combined.grow(picked.getCount());
+            this.setHeldItem(EnumHand.MAIN_HAND, combined);
+        } else {
+            this.setHeldItem(EnumHand.MAIN_HAND, picked);
+        }
     }
 
     private void completeWork(SpiritJobRecipe recipe, ItemStack held) {
@@ -1730,11 +1911,26 @@ public class EntityFoliotJob extends EntityCreature {
 
     private void completeTrade(ItemStack tradeResult, ItemStack held) {
         int inputCount = Math.min(held.getCount(), this.getTraderOperationCount());
-        ItemStack output = tradeResult.copy();
-        output.setCount(output.getCount() * inputCount);
+        SpiritTradeRecipeRegistry.Recipe recipe = this.getTradeRecipe();
+        ItemStack output;
+        if (recipe != null) {
+            inputCount = Math.min(held.getCount() / recipe.getIngredients().size(), this.getTraderOperationCount());
+            output = recipe.trade(held, this.getTraderOperationCount());
+            if (output.isEmpty()) {
+                this.workTimer = 0;
+                return;
+            }
+        } else if (this.getJobType() == SpiritJobType.GAMBLER && !tradeResult.isEmpty()) {
+            // Gambling retains its separate weighted-result behavior.
+            output = tradeResult.copy();
+            output.setCount(output.getCount() * inputCount);
+            held.shrink(inputCount);
+        } else {
+            this.workTimer = 0;
+            return;
+        }
         this.debugAI("Completed trade x" + inputCount + " -> " + describeStack(output), this.getPosition(),
                 EnumParticleTypes.VILLAGER_HAPPY);
-        held.shrink(inputCount);
         this.setHeldItem(EnumHand.MAIN_HAND, held.isEmpty() ? ItemStack.EMPTY : held);
         this.outputProcessedStack(output);
         this.world.playEvent(2004, this.getPosition(), 0);
@@ -1777,26 +1973,14 @@ public class EntityFoliotJob extends EntityCreature {
         if (stack.isEmpty()) {
             return ItemStack.EMPTY;
         }
-        if ((this.getJobType() == SpiritJobType.TRADER_OTHERSTONE
-                || this.getJobType() == SpiritJobType.TRADER_OTHERROCK) && this.isStoneInput(stack)) {
-            return new ItemStack(this.getJobType() == SpiritJobType.TRADER_OTHERSTONE
-                    ? ModBlocks.OTHERSTONE : ModBlocks.OTHERROCK, 2);
-        }
-        if (this.getJobType() == SpiritJobType.TRADER_SAPLING && this.isNaturalOtherworldSapling(stack)) {
-            return new ItemStack(ModBlocks.OTHERWORLD_SAPLING);
+        SpiritTradeRecipeRegistry.Recipe recipe = this.getTradeRecipe();
+        if (recipe != null && recipe.matches(stack)) {
+            return recipe.getOutput();
         }
         if (this.getJobType() == SpiritJobType.GAMBLER && this.isGamblerInput(stack)) {
             return this.getGamblerResult();
         }
         return ItemStack.EMPTY;
-    }
-
-    private boolean isStoneInput(ItemStack stack) {
-        return OreDictionary.itemMatches(new ItemStack(Blocks.STONE, 1, OreDictionary.WILDCARD_VALUE), stack, false);
-    }
-
-    private boolean isNaturalOtherworldSapling(ItemStack stack) {
-        return stack.getItem() == Item.getItemFromBlock(ModBlocks.OTHERWORLD_SAPLING_NATURAL);
     }
 
     private boolean isGamblerInput(ItemStack stack) {
@@ -1963,24 +2147,34 @@ public class EntityFoliotJob extends EntityCreature {
         if (this.getJobType() == SpiritJobType.CLEANER) {
             return stack.getCount();
         }
+        SpiritTradeRecipeRegistry.Recipe trade = this.getTradeRecipe();
+        if (trade != null) {
+            ItemStack held = this.getHeldItemMainhand();
+            if (!held.isEmpty() && !this.canMergeStacks(held, stack)) {
+                return 0;
+            }
+            int capacity = Math.min(stack.getMaxStackSize(),
+                    trade.getIngredients().size() * this.getTraderOperationCount());
+            return Math.max(0, capacity - held.getCount());
+        }
         return this.isTrader() ? this.getTraderOperationCount() : this.getProcessingOperationCount();
     }
 
     private int getTraderOperationCount() {
-        if (this.getJobType() == SpiritJobType.TRADER_OTHERSTONE
-                || this.getJobType() == SpiritJobType.TRADER_OTHERROCK) {
-            return 4;
+        SpiritTradeRecipeRegistry.Recipe recipe =
+                this.getTradeRecipe();
+        if (SpiritTradeRecipeRegistry.isTradeJob(this.getJobType()) && this.tradeLimitOverride > 0) {
+            return this.tradeLimitOverride;
+        }
+        if (recipe != null) {
+            return recipe.getMaxTradesPerRound();
         }
         return 1;
     }
 
     private int getProcessTime() {
-        if (this.getJobType() == SpiritJobType.TRADER_OTHERSTONE
-                || this.getJobType() == SpiritJobType.TRADER_OTHERROCK) {
-            return 10;
-        }
-        if (this.getJobType() == SpiritJobType.TRADER_SAPLING) {
-            return 20;
+        if (SpiritTradeRecipeRegistry.isTradeJob(this.getJobType())) {
+            return this.getTimeToConvert() * 20;
         }
         if (this.getJobType() == SpiritJobType.GAMBLER) {
             return PROCESS_TIME;
@@ -2223,6 +2417,28 @@ public class EntityFoliotJob extends EntityCreature {
         compound.setInteger("JobType", this.getJobType().ordinal());
         compound.setInteger("SpiritTier", this.getTier().ordinal());
         compound.setInteger("WorkTimer", this.workTimer);
+        if (this.getWorldEffectJob() != null) {
+            compound.setTag("spiritJob", this.worldEffectJob.writeToNBT());
+            if (this.worldEffectCaster != null) {
+                compound.setUniqueId("WorldEffectCaster", this.worldEffectCaster);
+            } else {
+                compound.removeTag("WorldEffectCaster");
+            }
+        } else {
+            compound.removeTag("spiritJob");
+            compound.removeTag("WorldEffectCaster");
+        }
+        if (SpiritTradeRecipeRegistry.isTradeJob(this.getJobType())) {
+            compound.setString("spiritTradeId", this.getSpiritTradeId());
+            compound.setInteger("timeToConvert", this.getTimeToConvert());
+            compound.setInteger("conversionTimer", this.workTimer / 20);
+            compound.setInteger("maxTradesPerRound", this.getTraderOperationCount());
+        } else {
+            compound.removeTag("spiritTradeId");
+            compound.removeTag("timeToConvert");
+            compound.removeTag("conversionTimer");
+            compound.removeTag("maxTradesPerRound");
+        }
         compound.setInteger("SpiritAge", this.getSpiritAge());
         compound.setInteger("SpiritMaxAge", this.getSpiritMaxAge());
         compound.setBoolean("isFilterBlacklist", this.isFilterBlacklist());
@@ -2262,6 +2478,35 @@ public class EntityFoliotJob extends EntityCreature {
         SpiritTier[] tiers = SpiritTier.values();
         this.setTier(tier >= 0 && tier < tiers.length ? tiers[tier] : SpiritTier.FOLIOT);
         this.workTimer = compound.getInteger("WorkTimer");
+        this.worldEffectJob = this.getJobType().isWorldEffectJob() ? new WorldEffectJob(this.getJobType()) : null;
+        if (this.worldEffectJob != null && compound.hasKey("spiritJob", 10)) {
+            this.worldEffectJob.readFromNBT(compound.getCompoundTag("spiritJob"));
+        }
+        this.worldEffectCaster = compound.hasUniqueId("WorldEffectCaster")
+                ? compound.getUniqueId("WorldEffectCaster") : null;
+        this.spiritTradeId = null;
+        this.tradeTimeOverride = -1;
+        this.tradeLimitOverride = -1;
+        this.currentTrade = null;
+        if (SpiritTradeRecipeRegistry.isTradeJob(this.getJobType())) {
+            if (compound.hasKey("spiritTradeId", 8)) {
+                String canonical = SpiritTradeRecipeRegistry.canonicalId(compound.getString("spiritTradeId"));
+                // Keep malformed explicit selections unresolved instead of silently performing a default trade.
+                this.spiritTradeId = canonical == null ? compound.getString("spiritTradeId") : canonical;
+            }
+            if (compound.hasKey("timeToConvert", 3)) {
+                this.tradeTimeOverride = Math.max(1, Math.min(SpiritTradeRecipeRegistry.MAX_CONVERSION_STEPS,
+                        compound.getInteger("timeToConvert")));
+            }
+            if (compound.hasKey("maxTradesPerRound", 3)) {
+                this.tradeLimitOverride = Math.max(1, Math.min(SpiritTradeRecipeRegistry.MAX_TRADES_PER_ROUND,
+                        compound.getInteger("maxTradesPerRound")));
+            }
+            int seconds = compound.hasKey("conversionTimer", 3)
+                    ? compound.getInteger("conversionTimer") : this.workTimer / 20;
+            this.workTimer = Math.max(0, Math.min(seconds, this.getTimeToConvert() - 1)) * 20;
+            this.currentTrade = this.getTradeRecipe();
+        }
         this.setSpiritAge(compound.getInteger("SpiritAge"));
         this.setSpiritMaxAge(compound.hasKey("SpiritMaxAge") ? compound.getInteger("SpiritMaxAge") : -1);
         boolean hasFilterData = compound.hasKey("isFilterBlacklist", 1)

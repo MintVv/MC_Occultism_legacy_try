@@ -1,0 +1,79 @@
+{
+  "name": "Dimensional Mineshaft",
+  "icon": "occultism:dimensional_mineshaft",
+  "category": "crafting_rituals",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:dimensional_mineshaft",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The dimensional mineshaft houses a $(#AA00AA)Djinni$() which opens up a stable connection into an$(br)  uninhabited dimension, perfectly suited for mining. While the portal is too small$(br)   to transfer humans, other spirits can use it to enter the mining $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "dimension and bring back resources.$(br2)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dimensional_mineshaft",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Operation",
+      "text": "The dimensional mineshaft will discard any items it cannot store, so it is important$(br)to regularly empty the mineshaft, either manually, with hoppers or using a transporter spirit.$(br)Interactions per side:$(br)+ Top -> lamp $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Operation",
+      "text": "slot;$(br)+ Bottom -> ores slots;$(br)+ Other -> all slots;$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Redstone",
+      "text": "The dimensional mineshaft has two interactions with redstone:$(br) 1. The spirit will stop working when receives a redstone signal;$(br) 2. A comparator can be used to extract a signal based on occupied slots and lamp durability.$()",
+      "anchor": "redstone"
+    },
+    {
+      "type": "text",
+      "title": "Redstone",
+      "text": "$(br)  Tip, if the comparator sends a power of 10, it is better to stop the operations.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Enchantments",
+      "text": "You've noticed that your miner can be enchanted? Here's how effective it is!$(br) $(bold)Efficiency:$() Increase the progress bar by the smaller of two RNB;$(br) $(bold)Fortune:$() Mine a number of extra results equals smaller of three RNB;$(br) $(bold)Silk touch:$() $()",
+      "anchor": "enchantment"
+    },
+    {
+      "type": "text",
+      "title": "Enchantments",
+      "text": "Multiply the count of mined result by 1 plus a RNB;$(br) RNB = random number between 0 and the enchantment level.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Durability",
+      "text": "The $(bold)Unbreaking$() and $(bold)Mending$() enchantments function as vanilla.$(br2) With other methods (mods) you can make your miner unusable ($(bold)unusing$())$(br) when it's close to breaking, or even truly unbreakable ($(bold)eternal$()).$(br)",
+      "anchor": "enchantment2"
+    },
+    {
+      "type": "text",
+      "title": "Config",
+      "text": "If you want to save your miners before they break, check \"Server Configuration > Items\".$(br) By setting the \"Save miners before breaking\" option to \"on\", a miner will go to the output$(br) of the dimensional mineshaft when it reaches 1 $()",
+      "anchor": "config"
+    },
+    {
+      "type": "text",
+      "title": "Config",
+      "text": "durability. The effects of enchantments can also be turned off.$(br)"
+    }
+  ]
+}

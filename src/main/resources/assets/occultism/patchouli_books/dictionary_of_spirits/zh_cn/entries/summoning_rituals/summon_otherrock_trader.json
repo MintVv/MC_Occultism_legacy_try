@@ -1,0 +1,29 @@
+{
+  "name": "交易异界岩交易者",
+  "icon": "occultism:otherrock",
+  "category": "summoning_rituals",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "text",
+      "title": "异界岩交易者",
+      "text": "相比$(item)灵火$()，异界岩交易者能让你获得更多$(item)异界岩$()。$(br)如果想将异界岩用作建筑材料，这个办法相当有效。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:spirit_trade",
+      "recipe": "stone_to_otherrock",
+      "anchor": "trade"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "要进行交易，请把供品丢在交易者旁边，$(br)它会拾取供品并掉出交换物。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_otherrock_trader",
+      "anchor": "ritual"
+    }
+  ]
+}

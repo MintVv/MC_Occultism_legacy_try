@@ -1,0 +1,52 @@
+{
+  "name": "模组食物",
+  "icon": "occultism:cursed_honey",
+  "category": "getting_started",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:cursed_honey",
+      "text": "",
+      "anchor": "spotlight_cursed_honey"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "诅咒蜂蜜由被附身的蜜蜂掉落。食用后会获得瞬间治疗和伤害吸收效果。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:beaver_nugget",
+      "text": "",
+      "anchor": "spotlight_beaver_nugget"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "河狸肉块是升级后的河狸使魔分发的高饱腹零食。食用一个会恢复 8 点饥饿值，且没有额外效果。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:sweet_honey_heart",
+      "text": "",
+      "anchor": "spotlight_sweet_honey_heart"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "甜蜜蜂蜜之心由诅咒蜂蜜和其它材料制成。它会提供强大的治疗效果。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:demonic_meat",
+      "text": "",
+      "anchor": "spotlight_demonic_meat"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "恶魔肉由被附身的僵尸猪灵掉落。食用后会获得力量和抗火效果。$(br)"
+    }
+  ]
+}

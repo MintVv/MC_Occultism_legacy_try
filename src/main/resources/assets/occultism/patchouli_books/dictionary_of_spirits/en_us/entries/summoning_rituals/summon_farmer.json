@@ -1,0 +1,36 @@
+{
+  "name": "Summon Foliot Farmer",
+  "icon": "minecraft:iron_hoe",
+  "category": "summoning_rituals",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Foliot Farmer",
+      "text": "The farmer will harvest and re-plant crops in it's working area.$(br) If a deposit location is set it will collect the dropped items into the specified chest.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_farmer",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "Use the book of calling to set the work area and deposit location of the farmer.$(br2) $(br) See Books of Calling for more information.$(br)",
+      "anchor": "usage"
+    },
+    {
+      "type": "text",
+      "title": "Lazy Farmer?",
+      "text": "The spirit might pause for a few minutes after clearing his work area,$(br)   even if crops have mature since. This is a performance-saving$(br)   measure and not a bug, he will continue on his own.$(br2)  $()",
+      "anchor": "usage2"
+    },
+    {
+      "type": "text",
+      "title": "Lazy Farmer?",
+      "text": "$(br)  Set the work area again to make him continue work immediately.$(br)"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Dimensional Matrix",
+  "icon": "occultism:dimensional_matrix",
+  "category": "crafting_rituals",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:dimensional_matrix",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The dimensional matrix is the entry point to a small dimension used for storing items.$(br) A $(#AA00AA)Djinni$() bound to the matrix keeps the dimension stable, often supported by additional$(br) spirits in storage stabilizers, to increase the dimension size.$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dimensional_matrix",
+      "anchor": "ritual"
+    }
+  ]
+}

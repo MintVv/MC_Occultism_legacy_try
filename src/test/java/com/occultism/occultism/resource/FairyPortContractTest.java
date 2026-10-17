@@ -403,7 +403,7 @@ class FairyPortContractTest {
     }
 
     @Test
-    void dictionaryHas203Entries717PagesAndFairyFallback() throws IOException {
+    void dictionaryHas232Entries788PagesAndFairyFallback() throws IOException {
         JsonObject root = readJsonObject(ASSET_ROOT.resolve("dictionary").resolve("modonomicon_index.json"));
         assertEquals(9, root.getAsJsonArray("categories").size());
         int entries = 0;
@@ -415,8 +415,8 @@ class FairyPortContractTest {
                 pages += entryElement.getAsJsonObject().getAsJsonArray("pages").size();
             }
         }
-        assertEquals(203, entries);
-        assertEquals(717, pages);
+        assertEquals(232, entries);
+        assertEquals(788, pages);
 
         JsonObject category = findObject(root.getAsJsonArray("categories"), "id", "familiar_rituals");
         assertNotNull(category);

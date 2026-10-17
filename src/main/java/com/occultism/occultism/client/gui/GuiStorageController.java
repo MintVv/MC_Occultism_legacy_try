@@ -250,6 +250,10 @@ public class GuiStorageController extends GuiContainer {
         ModNetworking.sendStorageRecipe(template);
     }
 
+    public void setRecipeById(net.minecraft.util.ResourceLocation recipeId) {
+        ModNetworking.sendStorageRecipeById(recipeId);
+    }
+
     private void drawStorageScrollbar(int x, int y) {
         ContainerStorageController container = this.getStorageContainer();
         int maxScroll = container.getMaxStorageScrollRow();

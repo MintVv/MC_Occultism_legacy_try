@@ -1,0 +1,34 @@
+{
+  "name": "Spirit Grindstone",
+  "icon": "occultism:spirit_grindstone",
+  "category": "crafting_rituals",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:spirit_grindstone",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(item)Spirit Grindstone$() is a $(#AA00AA)Djinni$() infusion.$(br)This grindstone has some differences:$(br)1. Remove only curses from enchanted items;$(br)2. The returned XP is 100%% of removed curses (instead 50%%-100%%);$(br)3. When $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "combining two items, the enchantments of the top one will be maintained;$(br)4. The repair rate gets an extra bonus, sum of durability values plus 20%%$(br) (instead of just 5%% of maximum durability), so repairing at the $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "right time will be rewarding;$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_spirit_grindstone",
+      "anchor": "ritual"
+    }
+  ]
+}

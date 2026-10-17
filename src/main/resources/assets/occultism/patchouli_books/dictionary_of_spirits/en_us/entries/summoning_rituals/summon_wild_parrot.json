@@ -1,0 +1,41 @@
+{
+  "name": "Summon Wild Parrot",
+  "icon": "occultism:textures/gui/book/parrot.png",
+  "category": "summoning_rituals",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "minecraft:parrot",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): A tameable Parrot$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_wild_parrot",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual a $(#ad03fc)Foliot$() is summoned $(bold)as an untamed spirit$().$(br2)The slaughter of a $(#ad03fc)Chicken$() and the offering of dyes are intended to entice the Foliot to take the shape of a parrot. As $(#ad03fc)Foliot$() are not among the smartest $()",
+      "anchor": "text2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "spirits, they sometimes misunderstand the instructions ...$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "*This means, if a $(#ad03fc)Chicken$() is spawned, that's not a bug, just bad luck!*$(br)",
+      "anchor": "text3"
+    }
+  ]
+}

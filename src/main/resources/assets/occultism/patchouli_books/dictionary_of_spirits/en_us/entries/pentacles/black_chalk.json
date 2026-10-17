@@ -1,0 +1,35 @@
+{
+  "name": "Perfect Foundation Chalk",
+  "icon": "occultism:chalk_black",
+  "category": "pentacles",
+  "sortnum": 27,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Powerful",
+      "text": "The black chalk has a composition as rigid as it is supernatural. Mixing the essence of$(br) Wither with netherite turns this chalk into an extremely valuable tool.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_black",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Perfect for the foundation of any pentacle, the power of the black chalk is sufficient$(br) to replace any other \"colorless\" chalk.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_witherite_dust",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_black",
+      "anchor": "recipe"
+    }
+  ]
+}

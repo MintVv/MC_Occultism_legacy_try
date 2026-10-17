@@ -1,0 +1,20 @@
+{
+  "name": "关于",
+  "icon": "occultism:dictionary_of_spirits",
+  "category": "getting_started",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "关于",
+      "text": "这本书旨在向新手介绍最基础的召唤仪式，并且提供一份需要召唤的魔灵的列表。$(br)作者建议召唤实体需谨慎，且对造成的任何伤害不承担责任。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "获取帮助",
+      "text": "如果你在游玩神秘学时遇到了任何问题，请加入我们的Discord服务器寻求帮助。$(br2)$(l:https://discord.gg/trE4SHRXvb)点击加入服务器：https://discord.gg/trE4SHRXvb$(/l)$(br)",
+      "anchor": "help"
+    }
+  ]
+}

@@ -121,6 +121,11 @@ public class RitualTweaker {
         CraftTweakerAPI.apply(new RemoveByPentacleAction(CraftTweakerUtil.normalizeId(pentacleId)));
     }
 
+    @ZenMethod
+    public static void removeAll() {
+        CraftTweakerAPI.apply(new RemoveAllAction());
+    }
+
     private static void applyAdd(AddRitualAction action) {
         CraftTweakerAPI.apply(action);
     }
@@ -227,6 +232,19 @@ public class RitualTweaker {
         @Override
         public String describe() {
             return "Removing Occultism ritual " + this.id;
+        }
+    }
+
+    private static final class RemoveAllAction implements IAction {
+
+        @Override
+        public void apply() {
+            RitualRecipeManager.removeAll();
+        }
+
+        @Override
+        public String describe() {
+            return "Removing all Occultism rituals";
         }
     }
 

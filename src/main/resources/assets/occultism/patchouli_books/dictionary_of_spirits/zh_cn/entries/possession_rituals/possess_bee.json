@@ -1,0 +1,30 @@
+{
+  "name": "被附身的蜜蜂",
+  "icon": "occultism:cursed_honey",
+  "category": "possession_rituals",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_bee",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：$(item)诅咒蜂蜜$()；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_bee",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)巨灵$()将附身于$(#ad03fc)蜜蜂$()，小心，通过此法召唤的蜜蜂不会失去螫针，总是能使目标中毒，攻击速度更快，并且在受到伤害时会召唤其他蜜蜂。$(br)这是获取$(item)诅咒蜂蜜$()的唯一已知方式，食用者将获得短时间的生命恢复效果。$(br2)若该蜜蜂进入蜂巢，巨灵将返回$(#ad03fc)异世界$()。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

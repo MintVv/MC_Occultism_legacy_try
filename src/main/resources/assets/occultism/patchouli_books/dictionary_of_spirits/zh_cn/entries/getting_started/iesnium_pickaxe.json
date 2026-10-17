@@ -1,0 +1,25 @@
+{
+  "name": "艾瑟金属镐",
+  "icon": "occultism:iesnium_pickaxe",
+  "category": "getting_started",
+  "sortnum": 24,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:iesnium_pickaxe",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "如同$(l:getting_started/infused_pickaxe)灌注镐$(/l)一样，这支镐子可以用来挖掉挖掘等级为2的异界材料，比如$(item)艾瑟金属矿石$()。由于它的金属质地，它并不像$(item)魔灵同调宝石$()一样易碎，而是相当耐用，能用很长时间。$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:iesnium_pickaxe",
+      "text": "",
+      "anchor": "crafting"
+    }
+  ]
+}

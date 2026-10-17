@@ -1,0 +1,58 @@
+{
+  "name": "Silver",
+  "icon": "occultism:silver_ingot",
+  "category": "getting_started",
+  "sortnum": 26,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:silver_ore",
+      "text": "",
+      "anchor": "spotlight_ore"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Silver ore is found underground and can be smelted into silver ingots. It is a key crafting material for many mod recipes.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:silver_ingot",
+      "text": "",
+      "anchor": "spotlight_ingot"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Silver ingots are used in satchels, soul gems, infused pickaxes, and many other recipes.$(br)"
+    },
+    {
+      "type": "smelting",
+      "recipe": "occultism:silver_ore",
+      "text": "",
+      "anchor": "smelting"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:silver_block",
+      "text": "",
+      "anchor": "block"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "Silver is used in many recipes throughout the mod, including:$(br2)$(li)$(bold)Satchels$() for storing and transporting items$(br)$(li)$(bold)Soul Gems$() for capturing and storing souls$(br)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(bold)Infused Pickaxe$() for mining special ores$(br)$(li)$(bold)Ritual Satchels$() for automating rituals$(br)$(li)$(bold)Familiar Rings$() for binding familiars$(br)$(li)And many more!$()"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(br2)Silver can also be obtained from $(bold)crusher$() spirit jobs.$(br)"
+    }
+  ]
+}

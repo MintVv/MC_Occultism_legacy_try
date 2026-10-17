@@ -15,7 +15,6 @@ import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.entity.monster.EntitySpider;
 import net.minecraft.entity.monster.EntityVex;
-import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityBat;
 import net.minecraft.entity.passive.EntityChicken;
@@ -29,7 +28,11 @@ import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public class RitualSacrifice {
 
@@ -42,7 +45,8 @@ public class RitualSacrifice {
     }
 
     public boolean matches(EntityLivingBase entity) {
-        if (entity == null || !entity.isEntityAlive()) {
+        // Death notifications arrive after health reaches zero; this predicate checks type, not liveness.
+        if (entity == null) {
             return false;
         }
 
@@ -62,7 +66,7 @@ public class RitualSacrifice {
             case "c:shulkers":
                 return entity instanceof EntityShulker;
             case "occultism:humans":
-                return entity instanceof EntityVillager || entity instanceof EntityWitch;
+                return entity instanceof EntityVillager || entity instanceof EntityPlayer;
             case "c:animals":
                 return entity instanceof EntityAnimal;
             case "c:armadillos":
@@ -118,6 +122,14 @@ public class RitualSacrifice {
 
     public String getDisplayName() {
         return this.displayName;
+    }
+
+    public ITextComponent createNameComponent() {
+        if (this.displayName == null || this.displayName.isEmpty()) {
+            return new TextComponentString(this.tag);
+        }
+        return this.displayName.startsWith("ritual.") ? new TextComponentTranslation(this.displayName)
+                : new TextComponentString(this.displayName);
     }
 
     private boolean matchesRegistryName(EntityLivingBase entity, String normalizedTag) {

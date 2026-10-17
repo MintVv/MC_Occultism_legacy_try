@@ -1,0 +1,38 @@
+{
+  "name": "Ronaza's Contact",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ronazas Contact",
+      "text": "$(bold)Purpose:$() Contact $(#AA00AA)Eldritch$()$(br2)This strange pentacle uses forbidden knowledge, bringing together paraphernalia from ancient traditions.$(br)The level of power that can be achieved almost cheats the common reality.$()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Ronazas Contact",
+      "text": "$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:contact_eldritch_spirit",
+      "name": "Ronaza's Contact",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:crafting_rituals/craft_ancient_miner)Eldritch Ancient Miner$(/l)$(br)$(li)$(l:crafting_rituals/stabilizer_tier5)Storage Stabilizer Tier 5$(/l)$(br)$(li)$(l:crafting_rituals/craft_stabilized_storage)Stabilized Storage$(/l)$(br)$(li)$(l:crafting_rituals/craft_eldritch_chalice)Eldritch Chalice$(/l)$(br)$(li)$(l:crafting_rituals/craft_master_chalks)Mastery Chalks$(/l)$(br)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:crafting_rituals/trinity_gem)Trinity Gem$(/l)$(br)"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "Kandar's Open Conjure",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "pentacles",
+  "sortnum": 19,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Kandar's Open Conjure",
+      "text": "$(bold)Purpose:$() Summon an $(#AA00AA)Unbound Afrit$()$(br2)$(bold)Kandars Open Conjure$() is a simplified version of $(#FF55FF)Abras Conjure$(), allowing to summon $(#AA00AA)Afrit$() without red chalk.$(br) Due to the much reduced power of the pentacle, it cannot be used to control $(#AA00AA)Afrit$(),$()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Kandar's Open Conjure",
+      "text": "$(br) and it thus can only be used to fight and kill $(#AA00AA)Afrit$().$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_unbound_afrit",
+      "name": "Kandar's Open Conjure",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:summoning_rituals/afrit_essence)Afrit Essence$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

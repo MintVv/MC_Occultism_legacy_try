@@ -1,0 +1,58 @@
+{
+  "name": "仪式准备：献祭之碗",
+  "icon": "occultism:golden_sacrificial_bowl",
+  "category": "getting_started",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:sacrificial_bowl",
+      "text": "",
+      "anchor": "sacrificial_bowl"
+    },
+    {
+      "type": "text",
+      "title": "仪式准备：献祭之碗",
+      "text": "这些碗用于放置仪式中需要献祭的物品，你会需要一些。$(br)注意：这些碗在仪式中放置的具体位置并不重要——只要把它们放在离五芒星阵中心水平距离8格以内的位置即可！$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:sacrificial_bowl",
+      "text": "",
+      "anchor": "sacrificial_bowl_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "可将献祭之碗与铜锭或银锭混合来制作出拥有相同功能的变种。$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:spirit_fire",
+      "text": "",
+      "anchor": "spirit_bowl"
+    },
+    {
+      "type": "text",
+      "title": "献祭碗与灵火",
+      "text": "如果将献祭之碗放置在灵火或灵火营火上方，任何放入其中的物品若存在对应的灵火配方，都将被立即转化。$(br)此效果同样适用于铜或银版本的献祭之碗。"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:golden_sacrificial_bowl",
+      "text": "",
+      "anchor": "golden_sacrificial_bowl"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "万事俱备之后，这个特殊的仪式之碗可以用于开始仪式，只需用激活物品$(#ad03fc)右击$()它。一般来说，这个物品会是一本$(l:getting_started/books_of_binding)束缚之书$(/l)。$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:golden_sacrificial_bowl",
+      "text": "",
+      "anchor": "golden_sacrificial_bowl_recipe"
+    }
+  ]
+}

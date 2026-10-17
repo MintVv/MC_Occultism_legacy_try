@@ -1,0 +1,30 @@
+{
+  "name": "Purify Vex to Allay",
+  "icon": "occultism:textures/gui/book/allay.png",
+  "category": "familiar_rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:purified_allay",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): Allay$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "resurrect_allay",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Purify a Vex to an Allay on a resurrection process that reveals its true name.$(br)",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "被附身的恶魂",
+  "icon": "minecraft:ghast_tear",
+  "category": "possession_rituals",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_ghast",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：1-3x$(item)ghast tear$()和$(br)1-4x$(item)gunpowder$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_ghast",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)恶魂$()将借由$(#ad03fc)牛$()的生命能量生成，然后立刻被召唤出的$(#ad03fc)巨灵$()附身。$(#ad03fc)被附身的恶魂$()被击杀后至少会掉落一个$(item)ghast tear$()。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Iesnium Anvil",
+  "icon": "occultism:iesnium_anvil",
+  "category": "crafting_rituals",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:iesnium_anvil",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(item)Iesnium Anvil$() is a $(#AA00AA)Marid$() infusion.$(br)This anvil has some improvements:$(br)1. Is unbreakable;$(br)2. Can exceed the maximum level of enchantments by 1;$(br)3. Marid will pay half of the showed level cost (round up);$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)4. The cost increase of working with the same item is reduced;$(br)5. The maximum cost limit is increased;$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_iesnium_anvil",
+      "anchor": "ritual"
+    }
+  ]
+}

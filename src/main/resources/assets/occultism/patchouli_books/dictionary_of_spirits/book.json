@@ -1,0 +1,11 @@
+{
+  "name": "item.occultism.dictionary_of_spirits.name",
+  "landing_text": "guide.occultism.patchouli.landing",
+  "version": "1",
+  "custom_book_item": "occultism:dictionary_of_spirits",
+  "show_progress": false,
+  "show_toasts": false,
+  "use_blocky_font": true,
+  "book_texture": "patchouli:textures/gui/book_purple.png",
+  "index_icon": "occultism:dictionary_of_spirits"
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Strigeor's Higher Binding",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 17,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Strigeors Higher Binding",
+      "text": "$(bold)Purpose:$() Bind $(#AA00AA)Djinni$()$(br2)$(bold)Strigeors Higher Binding$() is a pentacle for binding $(#AA00AA)Djinni$() into objects, should not be attempted by the$(br) novice summoner. Supported by skeleton skulls and stabilized by candles it is highly $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Strigeors Higher Binding",
+      "text": "suitable for$(br) permanent infusions of objects with spirits.$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:craft_djinni",
+      "name": "Strigeor's Higher Binding",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:crafting_rituals/craft_infused_pickaxe)Infused Pickaxe$(/l)$(br)$(li)$(l:crafting_rituals/craft_soul_gem)Soul Gem$(/l)$(br)$(li)$(l:crafting_rituals/craft_familiar_ring)Familiar Ring$(/l)$(br)$(li)$(l:crafting_rituals/entity_wormhole)Entity Wormhole$(/l)$(br)$(li)$(l:crafting_rituals/dimensional_extractor)Dimensional Extractor$(/l)$(br)$(li)$(l:crafting_rituals/craft_dimensional_mineshaft)Dimensional Mineshaft$(/l)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(br)$(li)$(l:crafting_rituals/craft_djinni_miner)Djinni Ore Miner$(/l)$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:crafting_rituals/ender_satchel)Ender Satchel$(/l)$(br)$(li)$(l:crafting_rituals/craft_dimensional_matrix)Dimensional Matrix$(/l)$(br)$(li)$(l:crafting_rituals/craft_storage_remote)Storage Accessor$(/l)$(br)$(li)$(l:crafting_rituals/craft_stabilizer_tier2)Storage Stabilizer Tier 2$(/l)$(br)$(li)$(l:crafting_rituals/spirit_grindstone)Spirit Grindstone$(/l)$(br)$(li)$(l:crafting_rituals/repair)Repair Chalks$(/l)$()",
+      "anchor": "uses2"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(br)$(li)$(l:pentacles/gray_chalk)Gray Paste$(/l)$(br)"
+    }
+  ]
+}

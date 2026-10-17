@@ -1,0 +1,44 @@
+{
+  "name": "Forge Animal Armors",
+  "icon": "minecraft:diamond_horse_armor",
+  "category": "crafting_rituals",
+  "sortnum": 45,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "minecraft:leather",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Like forging the wild armor trim, upgrading a $(item)leather$()$(br) is a service provided by $(#AA00AA)Wild Spirits$() and not bound any spirit to the final object.$(br) You sacrifice the items and the $(#AA00AA)Wild Spirits$() uses his power to forge that item for you.$(br) Use the $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "respective materials to obtain $(item)铜马铠$(),$(br) $(item)iron horse armor$(), $(item)golden horse armor$()$(br) or $(item)diamond horse armor$().$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_copper_horse_armor",
+      "anchor": "ritual_copper"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_iron_horse_armor",
+      "anchor": "ritual_iron"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_golden_horse_armor",
+      "anchor": "ritual_golden"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_diamond_horse_armor",
+      "anchor": "ritual_diamond"
+    }
+  ]
+}

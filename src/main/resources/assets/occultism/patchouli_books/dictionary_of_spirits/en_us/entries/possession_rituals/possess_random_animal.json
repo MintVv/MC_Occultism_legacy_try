@@ -1,0 +1,49 @@
+{
+  "name": "Possessed Random Animal",
+  "icon": "minecraft:egg",
+  "category": "possession_rituals",
+  "sortnum": 29,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Summon Random Animal",
+      "text": "In this type of ritual, a $(#ad03fc)Spirit$() is summoned $(bold)as an untamed creature$() to take the shape of a random animal.$(br)Different rituals can be performed, each with their own respective animals, check in the ritual dummy or in the recipe output the $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Summon Random Animal",
+      "text": "possibilities.$(br2)The animal can be interacted with as its natural counterpart, including taming, breeding and loot.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_random_animal_common",
+      "anchor": "ritual_common"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_random_animal_water",
+      "anchor": "ritual_water"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_random_animal_small",
+      "anchor": "ritual_small"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_random_animal_rideable",
+      "anchor": "ritual_rideable"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_villager",
+      "anchor": "ritual_villager"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_random_animal_special",
+      "anchor": "ritual_special"
+    }
+  ]
+}

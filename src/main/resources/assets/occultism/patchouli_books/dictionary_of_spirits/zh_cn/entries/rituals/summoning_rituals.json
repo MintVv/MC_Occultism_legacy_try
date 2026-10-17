@@ -1,0 +1,14 @@
+{
+  "name": "召唤仪式",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "title": "召唤仪式",
+      "text": "",
+      "anchor": "summoning_rituals/description"
+    }
+  ]
+}

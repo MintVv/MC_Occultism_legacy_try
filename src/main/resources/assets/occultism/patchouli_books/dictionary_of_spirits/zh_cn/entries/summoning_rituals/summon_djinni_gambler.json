@@ -1,0 +1,19 @@
+{
+  "name": "召唤巨灵赌徒",
+  "icon": "occultism:spirit_attuned_gem",
+  "category": "summoning_rituals",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_gambler",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "把宝石（任何属于 gems 矿物词典的物品）交给赌徒，它会摇出奖励。权重总和 55：铁粉 16、灵魂调和宝石 12、金粒 8、银粒 8、海晶石 4、石英 2、青金石 2、钻石 1、绿宝石 1、镍锭 1。",
+      "anchor": "description"
+    }
+  ]
+}

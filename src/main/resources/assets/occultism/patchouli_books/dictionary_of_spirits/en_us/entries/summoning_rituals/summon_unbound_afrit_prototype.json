@@ -1,0 +1,19 @@
+{
+  "name": "Summon Unbound Afrit Prototype",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_unbound_afrit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Summons a hostile unbound Afrit with its blaze entourage using the $(#ad03fc)Kandar's Opened Conjure$() pentacle. Killing the Afrit yields afrit essence. It has no upstream counterpart.",
+      "anchor": "description"
+    }
+  ]
+}

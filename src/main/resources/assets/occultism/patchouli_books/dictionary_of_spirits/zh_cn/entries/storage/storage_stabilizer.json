@@ -1,0 +1,65 @@
+{
+  "name": "拓展空间",
+  "icon": "occultism:storage_controller",
+  "category": "storage",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_stabilizer_tier0",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "存储稳定器能够增加存储促动器存储维度的存储空间。$(br)稳定器的等阶越高，其提供的额外容量就越大。$(br)以下条目将为你展示如何合成所有等阶的稳定器。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "合成",
+      "text": "稳定器系统按等阶运作，从0阶（不增加存储空间）开始，最高至5阶。$(br2)要开始合成，请查阅后续页面上的配方和说明。$(br)",
+      "anchor": "crafting"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:otherstone_pedestal",
+      "text": "",
+      "anchor": "recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:storage_stabilizer_tier0",
+      "text": ""
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:otherrock_pedestal",
+      "text": "",
+      "anchor": "recipe_dark"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:storage_stabilizer_tier0_dark",
+      "text": ""
+    },
+    {
+      "type": "text",
+      "title": "升级",
+      "text": "可以为了升级而$(bold)安全地破坏存储稳定器$()。$(l:storage/storage_controller)存储促动器$(/l)中的内容$(br)不会丢失或掉落——只不过是在添加足够多的存储稳定器以获得空闲槽位之前$(br)都不能添加新物品了。$(br)",
+      "anchor": "upgrade"
+    },
+    {
+      "type": "text",
+      "title": "建筑说明",
+      "text": "存储稳定器必须指向$(l:crafting_rituals/craft_dimensional_matrix)维度矩阵$(/l)，也就是$(br)$(bold)$(l:storage/storage_controller)存储促动器$(/l)上方的一格$()。$(br2) $(br)稳定器可以距离维度矩阵$(bold)至多五格$()，而且必须在直线上无遮挡。$(br)下一页展示了一个可行的非常简单的设置方式。$(br)",
+      "anchor": "build_instructions"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)注意$()：你并不需要全部四台稳定器，每一台都会增加你的存储容量。$(br)此外，上下方向也可起效。$(br)",
+      "anchor": "demo"
+    }
+  ]
+}

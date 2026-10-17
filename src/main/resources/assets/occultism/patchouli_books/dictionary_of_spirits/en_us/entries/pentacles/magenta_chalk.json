@@ -1,0 +1,35 @@
+{
+  "name": "The Dragon Chalk",
+  "icon": "occultism:chalk_magenta",
+  "category": "pentacles",
+  "sortnum": 35,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Ender Energy",
+      "text": "All the power of a dragon in a single chalk: this is the marvel of the purple chalk.$(br) The relationship between spirits and dragons is unclear, but there may definitely be connections.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_magenta",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Ah, the energy of the end. But what end? Does an end truly exist?$(br) What concludes at the end? Will the end ever come to an end?$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dragonyst_dust",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_magenta",
+      "anchor": "recipe"
+    }
+  ]
+}

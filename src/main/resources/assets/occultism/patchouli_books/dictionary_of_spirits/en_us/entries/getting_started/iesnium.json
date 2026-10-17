@@ -1,0 +1,74 @@
+{
+  "name": "Iesnium Ore",
+  "icon": "occultism:iesnium_ore",
+  "category": "getting_started",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:iesnium_ore",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This is a rare metal that, to the naked eye, looks like $(item)netherrack$() and cannot be mined with a regular pickaxe.$(br2)When mined with the correct tools, it can be used to craft powerful items (you will learn more about that $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "later).$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Where to find it",
+      "text": "Like Netherrack, Iesnium can be found in the Nether. In order to $(bold)see$() it, you need to wear $(l:getting_started/otherworld_goggles)Otherworld Goggles$(/l).$(br2)To make searching for it simpler, attune a $(l:getting_started/divination_rod)Divination Rod$(/l) to it and righ-click and hold in the nether $()",
+      "anchor": "where"
+    },
+    {
+      "type": "text",
+      "title": "Where to find it",
+      "text": "until it highlights a nearby block, which will hold the ore.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "How to mine it",
+      "text": "Iesnium can only be mined with the $(l:getting_started/infused_pickaxe)Infused Pickaxe$(/l) or an $(item)Iesnium Pickaxe$() (about which you will learn later).$(br2)After identifying a block that holds Iesnium, you can mine it with the pickaxe you created in the previous $()",
+      "anchor": "how"
+    },
+    {
+      "type": "text",
+      "title": "How to mine it",
+      "text": "step.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Processing",
+      "text": "Iesnium ore, when mined, will drop $(item)Raw Iesnium$() that can be smelted directly into ingots.$(br)Like common ores, this is affected by Fortune and Silk Touch. If mined with silk, it will drop$(br) a stabilized version of Iesnium Ore, which can be $()",
+      "anchor": "processing"
+    },
+    {
+      "type": "text",
+      "title": "Processing",
+      "text": "mined with any pickaxe when placed back on the ground.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "Iesnium can be used to craft an improved pickaxe, spirit lamps, and other powerful items. Follow the progress in this book to learn more about it.$(br)",
+      "anchor": "uses"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:otherglass",
+      "text": "",
+      "anchor": "otherglass"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "One of the uses of iesnium is the creation of Otherglass, this block hides from common eyes and is revealed only to those who see the other world. To collect this you need an infused or iesnium pickaxe.$(br)"
+    }
+  ]
+}

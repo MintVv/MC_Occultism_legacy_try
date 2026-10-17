@@ -1,0 +1,19 @@
+{
+  "name": "火灵灌注（原型）",
+  "icon": "occultism:textures/gui/book/infusion.png",
+  "category": "crafting_rituals",
+  "sortnum": 52,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_afrit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "本仪式在上游没有对应物，属本地新增的桥接仪式，用于让$(#ad03fc)塞维拉的永久囚禁$()法阵保持可达且可用。完成后产出$(item)艾瑟金属锭$()，而不是灌注效果。",
+      "anchor": "description"
+    }
+  ]
+}

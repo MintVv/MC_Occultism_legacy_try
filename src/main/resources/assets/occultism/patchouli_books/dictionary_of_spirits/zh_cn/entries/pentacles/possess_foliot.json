@@ -1,0 +1,33 @@
+{
+  "name": "海德林诱惑术",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "text",
+      "title": "海德林诱惑术",
+      "text": "$(bold)目的$()：$(#AA00AA)魔精$()附身$(br2)$(bold)海德林诱惑术$()能吸引$(#AA00AA)魔精$()，并强迫其附身于附近生物。该五芒星阵能进行基础的附身仪式，只会召回低阶魔灵和被附身的生物。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:possess_foliot",
+      "name": "海德林诱惑术",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:possession_rituals/possess_endermite)被附身的末影螨$(/l)$(br)$(li)$(l:possession_rituals/possess_skeleton)被附身的骷髅$(/l)$(br)$(li)$(l:possession_rituals/possess_witch)被附身的女巫$(/l)$(br)$(li)$(l:possession_rituals/possess_phantom)被附身的幻翼$(/l)$(br)$(li)$(l:possession_rituals/possess_unbound_parrot)未受缚的鹦鹉$(/l)$(br)$(li)$(l:possession_rituals/possess_random_animal)随机动物（普通、水生、小型）$(/l)$(br)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:familiar_rituals/familiar_parrot)鹦鹉使魔$(/l)$(br)$(li)$(l:familiar_rituals/familiar_greedy)贪婪使魔$(/l)$(br)$(li)$(l:familiar_rituals/familiar_deer)小鹿使魔$(/l)$(br)$(li)$(l:familiar_rituals/familiar_blacksmith)铁匠使魔$(/l)$(br)$(li)$(l:familiar_rituals/familiar_beaver)河狸使魔$(/l)$(br)"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Iesnium Butcher Knife",
+  "icon": "occultism:iesnium_butcher_knife",
+  "category": "crafting_rituals",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:iesnium_butcher_knife",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This knife is an $(#AA00AA)Afrit$() infusion that enhances the butcher knife with iesnium,$(br) increasing its damage while preserving the tallow drop property.$(br2) Additionally, certain mobs may drop their heads, and attacks against $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "spirits deal triple damage.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_iesnium_butcher_knife",
+      "anchor": "ritual"
+    }
+  ]
+}

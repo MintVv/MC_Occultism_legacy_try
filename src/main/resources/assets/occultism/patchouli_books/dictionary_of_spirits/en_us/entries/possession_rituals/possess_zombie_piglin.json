@@ -1,0 +1,35 @@
+{
+  "name": "Possessed Zombified Piglin",
+  "icon": "occultism:demonic_meat",
+  "category": "possession_rituals",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_zombie_piglin",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Drops$(): 1-4x $(item)Demonic Meat$() and$(br)  other body parts;$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_zombified_piglin",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "In this ritual an $(#ad03fc)afrit$() will possess an $(#ad03fc)Old Zombified Piglin$(),$(br) unifying the energies of the $(#ad03fc)nether$(), the power of the $(#ad03fc)afrit$(),$(br)  the material $(#ad03fc)pork$() and the concept of the color $(#ad03fc)pink$().$(br) This is the only known method to $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "obtain $(item)Demonic Meat$(), its properties$(br)  prevent cooking but grant fire resistance to whoever consumes it.$(br)"
+    }
+  ]
+}

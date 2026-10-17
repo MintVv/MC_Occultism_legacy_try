@@ -1,0 +1,78 @@
+{
+  "name": "烫烫烫！",
+  "icon": "occultism:spirit_fire",
+  "category": "getting_started",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:spirit_fire",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(#ad03fc)灵火$()是一种特殊的火焰，主要存在于$(#ad03fc)异界$()而且不会伤害生物。它的特殊性令它具有净化的作用，可以通过灼烧的方式——并不会消耗物品——来转换某些特定材料的能力。$(br)"
+    },
+    {
+      "type": "image",
+      "images": [
+        "occultism:textures/gui/book/spiritfire_instructions.png"
+      ],
+      "border": true,
+      "anchor": "spirit_fire_screenshot"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "将$(item)魔鬼之梦果$()扔到地上，并用$(item)flint and steel$()将其点燃。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(item)灵火$()的主要作用是将$(item)diamond$()转化为$(item)魔灵同调宝石$()，获取如$(item)异界石$()和$(item)异界树苗$()等的基础材料以及净化含杂粉笔。$(br)",
+      "anchor": "main_uses"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherstone",
+      "anchor": "otherstone_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "比使用探测杖容易的获取$(item)异界石$()的方式。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherrock",
+      "anchor": "otherrock_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "异界岩是$(item)异界石$()的变种，$(br)可用于装饰和制作献祭之碗，$(br)但不能作为粉笔或维度存储的基底。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherworld_ashes",
+      "anchor": "otherworld_ashes_recipe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:spirit_attuned_gem",
+      "anchor": "gem_recipe"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:otherflower",
+      "anchor": "otherflower_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "一种更简单的染料克隆方法：将这朵花与目标颜色混合即可。你还能用它制作~~谜之~~美味炖菜。$(br)"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "狂猎",
+  "icon": "occultism:textures/gui/book/wild_hunt.png",
+  "category": "spirits",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "狂猎",
+      "text": "一群传奇高等魔灵，通常以凋灵骷髅的形态出现，带着它们以骷髅显形的喽啰。高等魔灵与其喽啰的连结方式比较特殊，使得它们在喽啰都被送回$(#ad03fc)异世界$()前无法被伤害。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "凋灵骷髅头颅",
+      "text": "虽然召唤狂猎极其危险，但仍有召唤师会铤而走险，以便快速获得它们留下的稀有凋灵骷髅头颅。召唤狂猎的详细说明请见获取$(l:possession_rituals/wither_skull)凋灵骷髅头颅$(/l)的页面。$(br)",
+      "anchor": "wither_skull"
+    }
+  ]
+}

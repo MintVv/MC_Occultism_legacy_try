@@ -1,0 +1,41 @@
+{
+  "name": "灌注镐",
+  "icon": "occultism:infused_pickaxe",
+  "category": "getting_started",
+  "sortnum": 22,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:infused_pickaxe",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "除却$(item)异界原木$()和$(item)异界石$()之外，还有一些需要特别的工具来获取的异界材料。$(br2)这支镐子相当易碎，但不是不能用。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:spirit_attuned_gem",
+      "anchor": "gem_recipe"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "一旦这些宝石被魔灵灌注，就能用来与异界材料交互。它们是制作镐子的关键材料。$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:spirit_attuned_pickaxe_head",
+      "text": "",
+      "anchor": "head_recipe"
+    },
+    {
+      "type": "text",
+      "title": "制作",
+      "text": "准备好原材料后，需要用魔灵灌注镐子。$(br2)请遵循$(l:crafting_rituals/craft_infused_pickaxe)制作灌注镐$(/l)条目的流程。$(br)",
+      "anchor": "crafting"
+    }
+  ]
+}

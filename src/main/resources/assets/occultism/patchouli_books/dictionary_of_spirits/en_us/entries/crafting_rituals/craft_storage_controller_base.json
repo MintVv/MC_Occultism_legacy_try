@@ -1,0 +1,40 @@
+{
+  "name": "Storage Actuator Base",
+  "icon": "occultism:storage_controller_base",
+  "category": "crafting_rituals",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_controller_base",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The storage actuator base imprisons a $(#AA00AA)Foliot$() responsible for$(br) interacting with items in a dimensional storage matrix.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_storage_controller_base",
+      "anchor": "ritual"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_controller_base_dark",
+      "text": "",
+      "anchor": "spotlight_dark"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "All inventory system blocks have a dark version,$(br) they function exactly like their counterpart.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_storage_controller_base_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

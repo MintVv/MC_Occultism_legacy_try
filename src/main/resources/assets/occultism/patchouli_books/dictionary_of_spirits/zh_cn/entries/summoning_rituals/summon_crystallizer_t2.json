@@ -1,0 +1,30 @@
+{
+  "name": "召唤巨灵铸晶者",
+  "icon": "occultism:amethyst_dust",
+  "category": "summoning_rituals",
+  "sortnum": 11,
+  "pages": [
+    {
+      "type": "text",
+      "title": "巨灵铸晶者",
+      "text": "巨灵铸晶者速度更快，效率更高，处理速度翻倍的同时，还能增加宝石矿物的产出数量。$(br2)  $(br)同时，它们还可以分解紫水晶和石英块。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "This spirit already only picks up items it has recipes for.$(br)Put a $(item)list filter$() or $(item)attribute filter$() into its filter slot to further restrict which valid inputs it will take.$(br)See Spirit Filters for filter details.$()",
+      "anchor": "filters"
+    },
+    {
+      "type": "text",
+      "title": "Filters",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_crystallizer",
+      "anchor": "ritual"
+    }
+  ]
+}

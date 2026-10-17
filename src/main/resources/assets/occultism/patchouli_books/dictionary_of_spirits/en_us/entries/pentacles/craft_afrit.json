@@ -1,0 +1,38 @@
+{
+  "name": "Sevira's Permanent Confinement",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 26,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Seviras Permanent Confinement",
+      "text": "$(bold)Purpose:$() Bind $(#AA00AA)Afrit$()$(br2)First discovered by Grandmistress Sevira of Emberwoods, $(bold)Seviras Permanent Confinement$() is used for$(br) binding $(#AA00AA)Afrit$() into objects. Due to the power of the spirits involved, this should be $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Seviras Permanent Confinement",
+      "text": "performed only by advanced summoners.$(br2)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:craft_afrit",
+      "name": "Sevira's Permanent Confinement",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:crafting_rituals/dimensional_battlefield)Dimensional Battlefield$(/l)$(br)$(li)$(l:crafting_rituals/craft_iesnium_sacrificial_bowl)Iesnium Ritual Bowl$(/l)$(br)$(li)$(l:crafting_rituals/iesnium_butcher_knife)Iesnium Butcher Knife$(/l)$(br)$(li)$(l:crafting_rituals/craft_stabilizer_tier3)Storage Stabilizer Tier 3$(/l)$(br)$(li)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(l:crafting_rituals/craft_afrit_miner)Afrit Deep Ore Miner$(/l)$(br)$(li)$(l:crafting_rituals/artisanal_ritual_satchel)Artisanal Ritual Satchel$(/l)$(br)$(li)$(l:crafting_rituals/repair)Repair Items$(/l)$(br)$(li)$(l:pentacles/black_chalk)Whiterite Dust$(/l)$(br)"
+    }
+  ]
+}

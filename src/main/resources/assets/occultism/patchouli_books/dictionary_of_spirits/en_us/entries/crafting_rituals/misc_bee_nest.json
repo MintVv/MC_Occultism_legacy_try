@@ -1,0 +1,19 @@
+{
+  "name": "Craft Bee Nest",
+  "icon": "occultism:bee_nest",
+  "category": "crafting_rituals",
+  "sortnum": 53,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_bee_nest",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Produces a bee nest block. 1.12 has no bees, so this is a decorative building result only.",
+      "anchor": "description"
+    }
+  ]
+}

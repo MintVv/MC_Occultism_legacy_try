@@ -1,0 +1,39 @@
+{
+  "name": "修复仪式",
+  "icon": "occultism:repair_icon",
+  "category": "crafting_rituals",
+  "sortnum": 51,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "minecraft:anvil",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "修复",
+      "text": "利用一些简单材料，$(#AA00AA)巨灵$()可以为你修复任何粉笔。$(br)通过深入神秘学之路，还可利用$(#AA00AA)火灵$()修复矿工、工具以及盔甲。$(br)任何使用此法修复的物品都会保留其属性。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "repair_chalks",
+      "anchor": "ritual_chalks"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "repair_miners",
+      "anchor": "ritual_miners"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "repair_tools",
+      "anchor": "ritual_tools"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "repair_armors",
+      "anchor": "ritual_armors"
+    }
+  ]
+}

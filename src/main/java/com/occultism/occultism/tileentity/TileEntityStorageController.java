@@ -1216,6 +1216,9 @@ public class TileEntityStorageController extends TileEntity
         if (block == ModBlocks.STORAGE_STABILIZER_TIER4 || block == ModBlocks.STORAGE_STABILIZER_TIER4_DARK) {
             return ModConfig.STORAGE.stabilizerTier4Slots;
         }
+        if (block == ModBlocks.STORAGE_STABILIZER_TIER5 || block == ModBlocks.STORAGE_STABILIZER_TIER5_DARK) {
+            return ModConfig.STORAGE.stabilizerTier5Slots;
+        }
         return 0;
     }
 

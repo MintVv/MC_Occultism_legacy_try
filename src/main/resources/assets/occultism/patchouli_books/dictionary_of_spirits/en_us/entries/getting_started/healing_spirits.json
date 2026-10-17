@@ -1,0 +1,46 @@
+{
+  "name": "Healing Spirits",
+  "icon": "minecraft:splash_potion",
+  "category": "getting_started",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:datura",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Right-click a spirit with $(item)Demon's Dream Fruit$() to heal it.$(br2)This will work on $(bold)Familiars$(), $(bold)Summoned Spirits$() and also $(bold)Possessed Mobs$().$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:demons_dream_essence",
+      "text": "",
+      "anchor": "spotlight2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "When compressing Demon's Dream fruits or seeds into essence, a much stronger instant healing effect can be achieved. This comes at the cost of efficiency: Feeding 9 fruits to a spirit in succession will heal it more than feeding it 9 fruits worth of $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "essence.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:otherworld_essence",
+      "text": "",
+      "anchor": "spotlight3"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Purifying the Demon's Dream Essence will yield a version that heals even more, negating the efficiency loss.$(br)"
+    }
+  ]
+}

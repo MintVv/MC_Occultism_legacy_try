@@ -1,0 +1,75 @@
+{
+  "name": "Extending Storage",
+  "icon": "occultism:storage_controller",
+  "category": "storage",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_stabilizer_tier0",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Storage Stabilizers increase the storage space in the storage dimension of the storage actuator.$(br) The higher the tier of the stabilizer, the more additional storage it provides.$(br) The following entries will show you how to craft $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "each tier.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Crafting",
+      "text": "The stabilizer system works by tier, starting from 0 (which does not add space) up to 5.$(br2)To get started, see the recipes and instructions on the following pages.$(br)",
+      "anchor": "crafting"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:otherstone_pedestal",
+      "text": "",
+      "anchor": "recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:storage_stabilizer_tier0",
+      "text": ""
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:otherrock_pedestal",
+      "text": "",
+      "anchor": "recipe_dark"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:storage_stabilizer_tier0_dark",
+      "text": ""
+    },
+    {
+      "type": "text",
+      "title": "Upgrading",
+      "text": "It is $(bold)safe to destroy a storage stabilizer$() to upgrade it. The items$(br) in the $(l:storage/storage_controller)Storage Actuator$(/l) will not be lost or dropped - you simply cannot add new items$(br) until you add enough storage stabilizers to have free slots again.$(br)",
+      "anchor": "upgrade"
+    },
+    {
+      "type": "text",
+      "title": "Build Instructions",
+      "text": "Storage controllers need to point at the $(l:crafting_rituals/craft_dimensional_matrix)Dimensional Matrix$(/l), that means $(bold)one block above the $(l:storage/storage_controller)Storage Actuator$(/l)$().$(br2) $(br) They can be $(bold)up to 5 blocks away$() from the Dimensional Matrix, and need to be in$()",
+      "anchor": "build_instructions"
+    },
+    {
+      "type": "text",
+      "title": "Build Instructions",
+      "text": "$(br) a straight line of sight. See the next page for a possible very simple setup.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Note:$() You do not need all 4 stabilizers, even one will increase your storage.$(br) In addition, the up and down directions also work.$(br)",
+      "anchor": "demo"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "欧菲克斯呼唤",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 13,
+  "pages": [
+    {
+      "type": "text",
+      "title": "欧菲克斯呼唤",
+      "text": "$(bold)目的$()：召唤一只$(#AA00AA)巨灵$()$(br2)由$(#FF55FF)欧菲克斯$()在第三纪元研发的$(#FF55FF)召唤术$()，自此成为召唤$(#AA00AA)巨灵$()的首选五芒星阵。$(br)骷髅头颅（$(l:possession_rituals/possess_skeleton)获取方法$(/l)）与$(#AA00AA)黄绿色粉笔$()可提供迫使巨灵显形所需的召唤之力，而蜡烛则用于稳定仪式。$(br2)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_djinni",
+      "name": "欧菲克斯呼唤",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:summoning_rituals/summon_crusher_t2)巨灵碎矿者$(/l)$(br)$(li)$(l:summoning_rituals/summon_smelter_t2)巨灵熔炼者$(/l)$(br)$(li)$(l:summoning_rituals/summon_crystallizer_t2)巨灵铸晶者$(/l)$(br)$(li)巨灵机器操作员$(br)$(li)宝石赌徒$(br)$(li)$(l:summoning_rituals/summon_wondering)流琅商人$(/l)$(br)$(li)召唤晴天$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(br)$(li)$(l:summoning_rituals/time_magic)时间魔法$(/l)$(br)$(li)$(l:familiar_rituals/demonic_partner)恶魔配偶$(/l)$(br)"
+    }
+  ]
+}

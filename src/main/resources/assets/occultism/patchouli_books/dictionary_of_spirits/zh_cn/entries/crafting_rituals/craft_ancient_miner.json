@@ -1,0 +1,24 @@
+{
+  "name": "远古矿工",
+  "icon": "occultism:miner_ancient_eldritch",
+  "category": "crafting_rituals",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:miner_ancient_eldritch",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "通过压缩$(#AA00AA)矿脉领主魔王$()，你获得了一种极其强大的矿工，但同时也吸引来了某物的注视。$(br)$(item)采矿维度核心部件$()是魔王矿工的极稀有产物。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_miner_ancient_eldritch",
+      "anchor": "ritual"
+    }
+  ]
+}

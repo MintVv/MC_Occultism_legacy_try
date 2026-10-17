@@ -1,0 +1,28 @@
+{
+  "name": "Fatma's Incentivized Attraction",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Fatmas Incentivized Attraction",
+      "text": "$(bold)Purpose:$() Summon a $(#AA00AA)Marid$()$(br2)$(bold)Fatmas Incentivized Attraction$() is a powerful pentacle, allowing you to summon and bind $(#AA00AA)Marids$()$(br) to your will.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_marid",
+      "name": "Fatma's Incentivized Attraction",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:summoning_rituals/summon_crusher_t4)Marid Crusher$(/l)$(br)$(li)$(l:summoning_rituals/summon_smelter_t4)Marid Smelter$(/l)$(br)$(li)$(l:summoning_rituals/summon_crystallizer_t4)Marid Crystallizer$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "铁匠使魔",
+  "icon": "occultism:textures/gui/book/familiar_blacksmith.png",
+  "category": "familiar_rituals",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:blacksmith_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)挖矿时修复装备$()，$(#ad03fc)升级其他使魔$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_blacksmith",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "描述",
+      "text": "每当玩家捡起石头时，铁匠使魔就有几率修复一点他们的装备。$(br2)$(bold)升级效果$()：$(br)无法升级，但是可以升级其他使魔。$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "升级使魔",
+      "text": "若要升级其他使魔，必须先$(#ad03fc)右击$()给予铁匠使魔铁锭或者铁块。$(br2)升级过的使魔会提供额外效果。$(br)",
+      "anchor": "description2"
+    }
+  ]
+}

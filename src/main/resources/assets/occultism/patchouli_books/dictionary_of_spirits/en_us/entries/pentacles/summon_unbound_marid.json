@@ -1,0 +1,33 @@
+{
+  "name": "Tibira's Attraction",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "pentacles",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Tibira's Attraction",
+      "text": "$(bold)Purpose:$() Summon an $(#AA00AA)Unbound Marid$()$(br2)$(bold)Tibiras Attraction$() is a improved version of $(#FF55FF)Abras Conjure$(), allowing to summon $(#AA00AA)Marid$(),$(br) however without any control of the occultist. $(#AA00AA)Marid$() summoned by this will become$(br) aggressive due $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Tibira's Attraction",
+      "text": "to the instability of the ritual$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_unbound_marid",
+      "name": "Tibira's Attraction",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "Uses",
+      "text": "$(li)$(l:summoning_rituals/marid_essence)Marid Essence$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

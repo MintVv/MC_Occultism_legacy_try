@@ -1,0 +1,25 @@
+{
+  "name": "Magic Storage",
+  "icon": "minecraft:chest",
+  "category": "storage",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Magic Storage",
+      "text": "Every summoner knows the problem: There are just too many occult paraphernalia lying around.$(br) The solution is simple, yet elegant: Magic Storage!$(br2)Using Spirits able to access storage dimensions it is possible to $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Magic Storage",
+      "text": "create almost unlimited storage space.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Follow the steps shown in this category to get your own storage system!$(br) The steps related to storage in $(thing)Binding Rituals$() show only the rituals,$(br) while here $(bold)all required steps$() including crafting are shown.$(br)",
+      "anchor": "intro2"
+    }
+  ]
+}

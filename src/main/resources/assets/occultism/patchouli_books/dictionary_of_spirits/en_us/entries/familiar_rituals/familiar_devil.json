@@ -1,0 +1,30 @@
+{
+  "name": "Devil Familiar",
+  "icon": "occultism:textures/gui/book/familiar_devil.png",
+  "category": "familiar_rituals",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:devil_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Fire Resistance$(), $(#ad03fc)Attacks Enemies$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_devil",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The Devil familiar attacks hostile mobs and grants its master fire resistance.$(br)$(bold)Upgrade Behaviour$()$(br)Upgraded by a blacksmith familiar, it unlocks its golden apple sin mechanic. Before the upgrade it refuses to use it.",
+      "anchor": "description"
+    }
+  ]
+}

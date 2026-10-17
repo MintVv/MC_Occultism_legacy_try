@@ -1,0 +1,30 @@
+{
+  "name": "恶魔使魔",
+  "icon": "occultism:textures/gui/book/familiar_devil.png",
+  "category": "familiar_rituals",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:devil_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)火焰免疫$()、$(#ad03fc)攻击敌人$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_devil",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "恶魔使魔会攻击敌对生物，并为主人提供火焰免疫。$(br)$(bold)升级效果$()$(br)经铁匠使魔升级后，才能使用它的金苹果罪孽机制；未升级时它会拒绝。",
+      "anchor": "description"
+    }
+  ]
+}

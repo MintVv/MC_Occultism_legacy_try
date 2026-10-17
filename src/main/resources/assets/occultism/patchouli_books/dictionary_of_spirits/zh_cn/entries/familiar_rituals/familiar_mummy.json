@@ -1,0 +1,30 @@
+{
+  "name": "木乃伊使魔",
+  "icon": "occultism:textures/gui/book/familiar_mummy.png",
+  "category": "familiar_rituals",
+  "sortnum": 27,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:mummy_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)为你作战$()、$(#ad03fc)闪避效果$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_mummy",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "木乃伊使魔是武术高手，会为保护主人而战。$(br)$(bold)升级效果$()$(br)经铁匠使魔升级后，它的伤害会进一步提高。",
+      "anchor": "description"
+    }
+  ]
+}

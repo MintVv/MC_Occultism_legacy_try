@@ -1,0 +1,41 @@
+{
+  "name": "Iesnium Golem",
+  "icon": "occultism:textures/gui/book/iesnium_golem.png",
+  "category": "familiar_rituals",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:iesnium_golem",
+      "text": "",
+      "anchor": "golem"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides:$() $(#AA00AA)Immortal area protector$()"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_iesnium_golem",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Iesnium Golem",
+      "text": "An Iesnium Golem is a direct upgrade from a regular Iron Golem, this new version is much stronger and invulnerable. $(br)Only a player can dismiss them, by hitting while crouched, returning as a $(item)Fragile Soul Gem$().$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Not a Familiar",
+      "text": "The Iesnium Golem Chapter is part of the Familiar Category of this book because of the similarities, however a golem is not exactly a familiar since it does not have an owner.$(br2)As such, they also cannot be stored in a $(item)Familiar $()",
+      "anchor": "familiar"
+    },
+    {
+      "type": "text",
+      "title": "Not a Familiar",
+      "text": "Ring$() or in a $(item)Soul Gem$(). You can, however, dispense with them as stated on the previous page.$(br)"
+    }
+  ]
+}

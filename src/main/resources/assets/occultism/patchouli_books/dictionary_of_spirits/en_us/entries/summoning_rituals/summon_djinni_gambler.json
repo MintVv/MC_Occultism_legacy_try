@@ -1,0 +1,24 @@
+{
+  "name": "Summon Djinni Gambler",
+  "icon": "occultism:spirit_attuned_gem",
+  "category": "summoning_rituals",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_gambler",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Give the gambler gems — any item in the gems ore dictionary — and it rolls for a reward. Weights out of 55: iron dust 16, spirit-attuned gem 12, gold nugget 8, silver nugget 8, prismarine crystals 4, quartz 2, lapis lazuli 2, diamond 1, emerald 1, $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "iesnium nugget 1."
+    }
+  ]
+}

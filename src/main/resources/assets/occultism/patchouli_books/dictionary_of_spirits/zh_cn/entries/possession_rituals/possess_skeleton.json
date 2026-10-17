@@ -1,0 +1,30 @@
+{
+  "name": "被附身的骷髅",
+  "icon": "minecraft:skull:0",
+  "category": "possession_rituals",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_skeleton",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：1x$(item)skull$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_skeleton",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)骷髅$()利用$(#ad03fc)鸡$()的生命能量生成，然后立刻被召唤出的$(#ad03fc)魔精$()附身。$(#ad03fc)被附身的骷髅$()免疫日光伤害，而且被击杀后至少会掉落一个$(item)skull$()。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

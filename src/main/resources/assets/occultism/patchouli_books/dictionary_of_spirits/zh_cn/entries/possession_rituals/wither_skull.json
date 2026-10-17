@@ -1,0 +1,19 @@
+{
+  "name": "狂猎",
+  "icon": "minecraft:skull:1",
+  "category": "possession_rituals",
+  "sortnum": 18,
+  "pages": [
+    {
+      "type": "text",
+      "title": "凋灵骷髅头颅",
+      "text": "除了冒险进入下界要塞，还有一种办法获取这些头颅。传说中的$(#ad03fc)狂猎$()由$(#ad03fc)高等魔灵$()组成，以凋灵骷髅的形态现界。尽管召唤狂猎极度危险，但这也是最快获取凋灵骷髅头颅的方式。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_wild_hunt",
+      "anchor": "ritual"
+    }
+  ]
+}

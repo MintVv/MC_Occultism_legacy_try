@@ -62,7 +62,7 @@ public class BlockGoldenSacrificialBowl extends Block {
                         : activeRitual.createNameComponent();
                 if (bowl.isWaitingForSacrifice() && activeRitual != null) {
                     playerIn.sendStatusMessage(new TextComponentTranslation("occultism.ritual.missing_sacrifice",
-                            ritualName, activeRitual.getSacrifice().getTag()), false);
+                            ritualName, activeRitual.getSacrifice().createNameComponent()), false);
                     return true;
                 }
                 if (bowl.isWaitingForItemUse() && activeRitual != null) {
@@ -102,8 +102,7 @@ public class BlockGoldenSacrificialBowl extends Block {
 
             RitualDefinition ritual = this.findStartableRitual(worldIn, pos, bowl, matches, heldStack);
             if (ritual == null) {
-                playerIn.sendStatusMessage(new TextComponentTranslation("occultism.ritual.missing_ingredients",
-                        activationMatch.createNameComponent()), false);
+                playerIn.sendStatusMessage(activationMatch.createConditionsComponent(), false);
                 RitualDebugMessages.sendActivationMatches(playerIn, matches.get(0).getDefinition(), heldStack);
                 return true;
             }
@@ -115,7 +114,7 @@ public class BlockGoldenSacrificialBowl extends Block {
             }
             bowl.startRitual(ritual, activationStack, this.ritualDurationDivisor, playerIn);
             playerIn.sendStatusMessage(
-                    new TextComponentTranslation("occultism.ritual.started", ritual.createNameComponent()), false);
+                    ritual.createStartedComponent(), false);
             worldIn.playSound(null, pos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 0.6F, 0.8F);
         }
         return true;

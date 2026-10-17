@@ -1,0 +1,36 @@
+{
+  "name": "奇美拉使魔",
+  "icon": "occultism:textures/gui/book/familiar_chimera.png",
+  "category": "familiar_rituals",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:chimera_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：$(#ad03fc)可骑乘坐骑$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_chimera",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "描述",
+      "text": "给奇美拉使魔喂食任意肉类可使它成长，并提高伤害与速度。长到足够大后，主人可骑乘它。喂食$(item)golden apple$()会将$(#ad03fc)山羊$()分离为独立使魔。$(br2)分离后的山羊使魔可用于获得$(l:familiar_rituals/familiar_shub_niggurath)莎布·尼古拉丝$(/l)使魔。$(br)",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)升级效果$()$(br)被铁匠使魔升级后，分离出的山羊使魔会获得警铃。攻击山羊会摇响警铃，并吸引大范围内的敌人。奇美拉本身不可升级。$(br)",
+      "anchor": "description2"
+    }
+  ]
+}

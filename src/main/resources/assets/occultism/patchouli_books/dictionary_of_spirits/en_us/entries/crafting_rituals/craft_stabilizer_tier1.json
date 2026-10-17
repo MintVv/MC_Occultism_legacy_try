@@ -1,0 +1,34 @@
+{
+  "name": "Storage Stabilizer Tier 1",
+  "icon": "occultism:storage_stabilizer_tier1",
+  "category": "crafting_rituals",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:storage_stabilizer_tier1",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This simple storage stabilizer is inhabited by a $(#AA00AA)Foliot$() that supports the dimensional matrix$(br) in keeping the storage dimension stable, thus allowing to store more items.$(br2)By default each Tier 1 Stabilizer $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "adds $(bold)64$() item types and 512000 items storage capacity.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier1",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_stabilizer_tier1_dark",
+      "anchor": "ritual_dark"
+    }
+  ]
+}

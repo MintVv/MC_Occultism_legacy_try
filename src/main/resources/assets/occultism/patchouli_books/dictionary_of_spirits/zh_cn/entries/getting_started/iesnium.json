@@ -1,0 +1,54 @@
+{
+  "name": "艾瑟金属矿石",
+  "icon": "occultism:iesnium_ore",
+  "category": "getting_started",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:iesnium_ore",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "这种稀有金属肉眼看起来就像$(item)netherrack$()一般，也无法使用常规的镐子开采。$(br2)用合适的工具开采后，它可以用来制作强力的物品（稍后会进行讲解）。$(br)"
+    },
+    {
+      "type": "text",
+      "title": "如何定位",
+      "text": "如同下界岩一样，艾瑟金属生成在下界。为了可以$(bold)看到$()它，你需要穿戴$(l:getting_started/otherworld_goggles)异界眼镜$(/l)。$(br2)为了更方便的找到艾瑟金属，你可以将其与$(l:getting_started/divination_rod)探测杖$(/l)同调并在下界长按右键，直到它高亮附近的艾瑟金属矿石。$(br)",
+      "anchor": "where"
+    },
+    {
+      "type": "text",
+      "title": "如何开采",
+      "text": "艾瑟金属只能用$(l:getting_started/infused_pickaxe)灌注镐$(/l)或者$(item)艾瑟金属镐$() （后面的章节会详细介绍）挖掘。$(br2)你可以用前面步骤制作的镐子挖掘找到的艾瑟金属矿石。$(br)",
+      "anchor": "how"
+    },
+    {
+      "type": "text",
+      "title": "处理",
+      "text": "被开采时，艾瑟金属矿石会掉落可直接烧炼为锭的$(item)粗艾瑟金属$()。$(br)与寻常矿石类似，此矿石也会受时运和精准采集影响。$(br)若使用精准采集挖掘，便会掉落稳定版的艾瑟金属矿石。重新放置后，此种矿石可被任何镐类工具采集。$(br)",
+      "anchor": "processing"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "艾瑟金属可以制作改良的镐子，神灯和其他强力物品。跟随本书推进以了解更多。$(br)",
+      "anchor": "uses"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:otherglass",
+      "text": "",
+      "anchor": "otherglass"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "艾瑟金属的用途之一，便是制作异界玻璃，肉眼凡胎无法觉察这种方块，唯有能窥见异界之人方能得见。采集此方块需使用灌注或艾瑟金属镐。$(br)"
+    }
+  ]
+}

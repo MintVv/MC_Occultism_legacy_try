@@ -1,0 +1,41 @@
+{
+  "name": "True Names",
+  "icon": "minecraft:writable_book",
+  "category": "spirits",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "title": "True Names",
+      "text": "To summon a spirit the magician needs to know their $(#ad03fc)True Name$(). By calling the true naming during the summoning ritual the Spirit is drawn forth from $(#ad03fc)The Other Place$() and forced to do the summoners bidding.$(br2)*It should be $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "True Names",
+      "text": "noted, that it does not matter which spirit name is used in summoning, only the spirit tier is relevant.*$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Finding Names",
+      "text": "In ancient summoners had to research and experiment to find $(#ad03fc)True Names$(). Some spirits can be convinced to share their knowledge of true names of other demons, either by promising a swift return to $(#ad03fc)The Other Place$(), or by more ... *persuasive* measures.$()",
+      "anchor": "finding_names"
+    },
+    {
+      "type": "text",
+      "title": "Finding Names",
+      "text": "$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Using Names to Summon a Spirit",
+      "text": "For your convenience, in this work you will find the known names of spirits of all 4 ranks, as well as some beyond that. To summon a spirit, copy their name from this book into the appropriate book of binding, then use this bound book of binding to $()",
+      "anchor": "using_names"
+    },
+    {
+      "type": "text",
+      "title": "Using Names to Summon a Spirit",
+      "text": "activate a ritual.$(br)"
+    }
+  ]
+}

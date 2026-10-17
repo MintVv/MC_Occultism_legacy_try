@@ -1,0 +1,30 @@
+{
+  "name": "来自远古的粉笔",
+  "icon": "occultism:chalk_cyan",
+  "category": "pentacles",
+  "sortnum": 31,
+  "pages": [
+    {
+      "type": "text",
+      "title": "往昔遗尘",
+      "text": "几乎被时间遗忘的青色粉笔，承载着古老的知识，其中往往不乏禁忌之术。$(br)但谁在乎呢？毕竟知识就是知识，多多益善，对吧？$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_cyan",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "尽管这种粉笔制作工艺复杂，它仍被鉴定为现存最古老的粉笔之一，甚至可能是人类有记录以来最古老的粉笔。纵使历经漫长岁月，它的具体用途至今仍鲜为人知，但你能感受到它无与伦比的稳定性。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_cyan",
+      "anchor": "recipe"
+    }
+  ]
+}

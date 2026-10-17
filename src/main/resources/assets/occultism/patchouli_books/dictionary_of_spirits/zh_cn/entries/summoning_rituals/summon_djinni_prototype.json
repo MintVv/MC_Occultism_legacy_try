@@ -1,0 +1,19 @@
+{
+  "name": "召唤巨灵（原型）",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_djinni_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "使用$(#ad03fc)奥菲克斯的呼唤$()法阵召唤一只已束缚巨灵。该灵体可以命名、被神灯收纳、用灵体食物治疗，并可通过灵魂碎片保存后复活。",
+      "anchor": "description"
+    }
+  ]
+}

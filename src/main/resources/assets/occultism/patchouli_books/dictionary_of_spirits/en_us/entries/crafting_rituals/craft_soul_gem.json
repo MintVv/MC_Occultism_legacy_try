@@ -1,0 +1,35 @@
+{
+  "name": "Soul Gem",
+  "icon": "occultism:soul_gem",
+  "category": "crafting_rituals",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:soul_gem",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Soul gems are diamonds set in precious metals, which are then infused with a $(#AA00AA)Djinni$().$(br) The spirit creates a small dimension that allows the temporary entrapment of living beings.$(br) Beings of great power or size cannot be stored, $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "however.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_soul_gem",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Usage",
+      "text": "To capture an entity, $(#AA00AA)right-click$() it with the soul gem. $(br)$(#AA00AA)right-click$() again to release the entity.$(br2)Bosses cannot be captured.$(br)",
+      "anchor": "usage"
+    }
+  ]
+}

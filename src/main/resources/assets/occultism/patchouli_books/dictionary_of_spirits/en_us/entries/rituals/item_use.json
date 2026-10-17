@@ -1,0 +1,19 @@
+{
+  "name": "Item Use",
+  "icon": "minecraft:flint_and_steel",
+  "category": "rituals",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Item Use",
+      "text": "Some rituals require the use of certain items to be performed. Use the item described on the ritual's page within $(bold)16 blocks$() of the $(item)Golden Sacrificial Bowl$() to proceed with the ritual.$(br2)$(bold)Important:$() Before using the item, $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Item Use",
+      "text": "start the ritual. Grey particles indicate that the ritual is ready for the item use."
+    }
+  ]
+}

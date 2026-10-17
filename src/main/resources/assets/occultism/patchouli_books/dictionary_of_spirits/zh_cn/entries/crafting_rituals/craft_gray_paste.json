@@ -1,0 +1,24 @@
+{
+  "name": "Gray Paste",
+  "icon": "occultism:gray_paste",
+  "category": "crafting_rituals",
+  "sortnum": 48,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:gray_paste",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Gray Paste is a versatile crafting paste created with the help of $(#AA00AA)Djinni$(). $(br)It can be used to convert various dusts back into their original items, $(br)effectively acting as a reverse crusher.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_gray_paste",
+      "anchor": "ritual"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Infused Pickaxe",
+  "icon": "occultism:infused_pickaxe",
+  "category": "crafting_rituals",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:infused_pickaxe",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Otherworld ores usually can only be mined with Otherworld metal tools.$(br) The $(item)Infused Pickaxe$() is a makeshift solution to this Chicken-and-Egg problem.$(br) Brittle spirit attuned gems house a $(#AA00AA)Djinni$() that allows harvesting the,$(br) but the $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "durability is extremely low. A more durable version is the $(l:getting_started/iesnium_pickaxe)Iesnium Pickaxe$(/l).$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_infused_pickaxe",
+      "anchor": "ritual"
+    }
+  ]
+}

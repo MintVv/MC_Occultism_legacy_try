@@ -1,0 +1,68 @@
+{
+  "name": "Occult Paraphernalia",
+  "icon": "minecraft:skull:0",
+  "category": "pentacles",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Paraphernalia",
+      "text": "In addition to runes various occult paraphernalia are used to improve the intended effect of the pentacle.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:large_candle",
+      "text": "",
+      "anchor": "candle"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Candles increase the stability of the pentacle, thus allowing a slowed essence decay of the summoned$(br) spirit, leading to a longer lifetime of the spirit, or possessed object or being.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "minecraft:skull:0",
+      "text": "",
+      "anchor": "skull"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Skulls increase the calling power of the pentacle, allowing to summon more dangerous spirits.$(br2)Occultists can find an easy way to obtain these skulls using basic possession rituals.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:spirit_attuned_crystal",
+      "text": "",
+      "anchor": "crystal"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Crystals increase the stability of the pentacle, at levels that candles would not reach, allowing a performing more unstable rituals.$(br2)Check the recipes in next page.$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:spirit_attuned_gem",
+      "anchor": "recipe_gem"
+    },
+    {
+      "type": "spotlight",
+      "item": "minecraft:skull:1",
+      "text": "",
+      "anchor": "wither_skull"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Whiter Skulls are stronger than regular Skull, and increase a lot the calling power of the pentacle,$(br) allowing to summon more powerful class of spirits.$(br2)Occultists can find an easy way to obtain these skulls using wild $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "rituals.$(br)"
+    }
+  ]
+}

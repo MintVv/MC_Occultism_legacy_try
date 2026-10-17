@@ -1,0 +1,29 @@
+{
+  "name": "Afrit Essence",
+  "icon": "occultism:afrit_essence",
+  "category": "summoning_rituals",
+  "sortnum": 28,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Afrit Essence",
+      "text": "$(item)Afrit Essence$() is required to safely call on the more powerful spirits, commonly used$(br) in the form of red chalk. To obtain the essence, an $(#AA00AA)Afrit$() needs to be summoned$(br) unbound into this plane, and killed. Be warned that this is no simple $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Afrit Essence",
+      "text": "endeavour,$(br) and unbound spirit presents great danger to all nearby.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_unbound_afrit",
+      "anchor": "ritual_day"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_wild_afrit",
+      "anchor": "wild_afrit"
+    }
+  ]
+}

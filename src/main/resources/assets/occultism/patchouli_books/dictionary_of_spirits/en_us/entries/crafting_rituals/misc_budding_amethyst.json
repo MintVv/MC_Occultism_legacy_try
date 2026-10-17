@@ -1,0 +1,19 @@
+{
+  "name": "Craft Budding Amethyst",
+  "icon": "occultism:budding_amethyst",
+  "category": "crafting_rituals",
+  "sortnum": 55,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_budding_amethyst",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Produces a budding amethyst block. 1.12 amethyst does not grow buds, so this is a decorative building result.",
+      "anchor": "description"
+    }
+  ]
+}

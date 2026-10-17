@@ -25,6 +25,8 @@ import com.occultism.occultism.ritual.RitualIngredient;
 import com.occultism.occultism.ritual.RitualRegistry;
 import com.occultism.occultism.ritual.SpiritFireRecipeRegistry;
 import com.occultism.occultism.spirit.SpiritJobType;
+import com.occultism.occultism.spirit.SpiritTradeRecipeRegistry;
+import com.occultism.occultism.spirit.SpiritTradeIngredient;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -1642,18 +1644,6 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
         }
     }
 
-    private static final class SpiritTradeReference {
-        private final SpiritJobType jobType;
-        private final ItemStack input;
-        private final ItemStack result;
-
-        private SpiritTradeReference(SpiritJobType jobType, ItemStack input, ItemStack result) {
-            this.jobType = jobType;
-            this.input = input;
-            this.result = result;
-        }
-    }
-
     private static final class CraftingGridPreview {
         private final ItemStack[] slots;
         private final ItemStack result;
@@ -2085,7 +2075,7 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
 
     private static GuideReference createSpiritTradeReference(String id) {
         String recipeId = removeCategoryPath(id, "spirit_trade/");
-        SpiritTradeReference trade = getSpiritTradeReference(recipeId);
+        SpiritTradeRecipeRegistry.Recipe trade = SpiritTradeRecipeRegistry.find(recipeId);
         List<GuideReferenceLine> lines = new ArrayList<>();
         List<ItemStack> stacks = new ArrayList<>();
         if (trade == null) {
@@ -2093,28 +2083,17 @@ public class GuiDictionaryOfSpirits extends GuiScreen {
             return reference("gui.occultism.dictionary.reference.spirit_trade", id, lines, stacks);
         }
 
-        lines.add(line("gui.occultism.dictionary.reference.job", getJobDisplayName(trade.jobType)));
-        lines.add(line("gui.occultism.dictionary.reference.input", describeStack(trade.input)));
-        lines.add(line("gui.occultism.dictionary.reference.result", describeStack(trade.result)));
-        addStack(stacks, trade.input);
-        addStack(stacks, trade.result);
+        lines.add(line("gui.occultism.dictionary.reference.job", getJobDisplayName(trade.getJobType())));
+        for (SpiritTradeIngredient ingredient : trade.getIngredients()) {
+            List<ItemStack> inputs = ingredient.getDisplayInputs();
+            lines.add(line("gui.occultism.dictionary.reference.input", describeStacks(inputs, 5)));
+            if (!inputs.isEmpty()) {
+                addStack(stacks, inputs.get(0));
+            }
+        }
+        lines.add(line("gui.occultism.dictionary.reference.result", describeStack(trade.getOutput())));
+        addStack(stacks, trade.getOutput());
         return reference("gui.occultism.dictionary.reference.spirit_trade", id, lines, stacks);
-    }
-
-    private static SpiritTradeReference getSpiritTradeReference(String recipeId) {
-        if ("stone_to_otherstone".equals(recipeId)) {
-            return new SpiritTradeReference(SpiritJobType.TRADER_OTHERSTONE,
-                    new ItemStack(Blocks.STONE), new ItemStack(ModBlocks.OTHERSTONE, 2));
-        }
-        if ("stone_to_otherrock".equals(recipeId)) {
-            return new SpiritTradeReference(SpiritJobType.TRADER_OTHERROCK,
-                    new ItemStack(Blocks.STONE), new ItemStack(ModBlocks.OTHERROCK, 2));
-        }
-        if ("otherworld_sapling".equals(recipeId)) {
-            return new SpiritTradeReference(SpiritJobType.TRADER_SAPLING,
-                    new ItemStack(ModBlocks.OTHERWORLD_SAPLING_NATURAL), new ItemStack(ModBlocks.OTHERWORLD_SAPLING));
-        }
-        return null;
     }
 
     private static String getJobDisplayName(SpiritJobType jobType) {

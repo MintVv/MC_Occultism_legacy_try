@@ -1,0 +1,36 @@
+{
+  "name": "召唤荒野鹦鹉",
+  "icon": "occultism:textures/gui/book/parrot.png",
+  "category": "summoning_rituals",
+  "sortnum": 38,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "minecraft:parrot",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)提供$()：一只可驯服的鹦鹉$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_wild_parrot",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)魔灵$()将会以$(bold)未驯服的魔灵$()形式召唤。$(br2)宰杀一只$(#ad03fc)鸡$()并提供染料，魔精将会获得鹦鹉的形态。由于$(#ad03fc)魔精$()并不是最聪明的魔灵，它们有时候会误解你的指示……$(br)",
+      "anchor": "text2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "*意思是说，如果生成了一只$(#ad03fc)鸡$()，这不是bug，只是运气不好！*$(br)",
+      "anchor": "text3"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Summon Otherrock Trader",
+  "icon": "occultism:otherrock",
+  "category": "summoning_rituals",
+  "sortnum": 23,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Otherrock Trader",
+      "text": "The Otherrock Trader spirit allows to get more $(item)Otherrock$() than using $(item)Spiritfire$().$(br) Thus it is especially efficient if you want to use Otherrock as a building material.$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "occultism:spirit_trade",
+      "recipe": "stone_to_otherrock",
+      "anchor": "trade"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "To trade, drop your offered item next to the trader,$(br)he will pick it up and drop the exchanged item.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_otherrock_trader",
+      "anchor": "ritual"
+    }
+  ]
+}

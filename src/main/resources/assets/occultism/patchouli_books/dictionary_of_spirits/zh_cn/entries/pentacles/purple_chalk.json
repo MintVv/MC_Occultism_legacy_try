@@ -1,0 +1,30 @@
+{
+  "name": "灌注粉笔",
+  "icon": "occultism:chalk_purple",
+  "category": "pentacles",
+  "sortnum": 8,
+  "pages": [
+    {
+      "type": "text",
+      "title": "灌注",
+      "text": "紫色粉笔对于希望进行灌注仪式的人来说极为重要，它是这类仪式中的核心符文。",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_purple",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "灌注是一种极为不同的仪式类型，因为召唤和附身是将活物带入这个世界，而灌注则是创造出束缚有魔灵的物体。$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_purple",
+      "anchor": "recipe"
+    }
+  ]
+}

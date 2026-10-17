@@ -1,0 +1,45 @@
+{
+  "name": "Mastery Chalks",
+  "icon": "occultism:chalk_rainbow",
+  "category": "crafting_rituals",
+  "sortnum": 50,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_rainbow",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Forging the $(item)Rainbow Chalk$() is a service provided by an $(#AA00AA)Eldritch Spirit$().$(br)This chalk can replace any chalk, with extra features.$(br)1. Use a $(item)Spirit Attuned Gem$() to toggle the random color changes or$(br)use any dye to set the color of $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "glyph, items will not be consumed.$(br)2. Use this chalk in a glyph while crouched will erase the glyph, acting as a $(item)Chalk Brush$().$(br)3. Hold a dye in your other hand to define the color when placing the glyph.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_chalk_rainbow",
+      "anchor": "ritual"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_void",
+      "text": "",
+      "anchor": "spotlight2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Forging the $(item)Void Chalk$() is a service provided by an $(#AA00AA)Eldritch Spirit$().$(br)This chalk has the same abilities as the $(item)Rainbow Chalk$()$(br) but the color flickering is white to black.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_chalk_void",
+      "anchor": "ritual2"
+    }
+  ]
+}

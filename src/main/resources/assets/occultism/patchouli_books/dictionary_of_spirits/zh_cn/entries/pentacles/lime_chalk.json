@@ -1,0 +1,35 @@
+{
+  "name": "知识粉笔",
+  "icon": "occultism:chalk_lime",
+  "category": "pentacles",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "text",
+      "title": "获取经验",
+      "text": "黄绿色粉笔比魔精更能吸引强大的魔灵。$(br)任何希望提升仪式等级的人都需要这种粉笔。$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_lime",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "由灌注经验的珍稀宝石制成，这些黄绿色符文因此意义非凡，彰显你的技艺已突破初级阶段。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_research_fragment_dust",
+      "anchor": "ritual"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_lime",
+      "anchor": "recipe"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Dragonyst Dust",
+  "icon": "occultism:dragonyst_dust",
+  "category": "crafting_rituals",
+  "sortnum": 49,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:dragonyst_dust",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Dragonyst dust is the rarest and most powerful dust, used for$(br) the highest tier eldritch crafting. It is crafted using the$(br) essence of the $(#AA00AA)Marid$() and requires extremely rare materials$(br) from the End.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_dragonyst_dust",
+      "anchor": "ritual"
+    }
+  ]
+}

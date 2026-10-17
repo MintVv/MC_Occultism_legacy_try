@@ -1,0 +1,24 @@
+{
+  "name": "Ancient Miner",
+  "icon": "occultism:miner_ancient_eldritch",
+  "category": "crafting_rituals",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:miner_ancient_eldritch",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "By compressing $(#AA00AA)MMM$() you get an extremely powerful miner, but something starts watching you.$(br) $(item)Mining Dimension Core Piece$() are a extremely rarely mined by a Marid.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_miner_ancient_eldritch",
+      "anchor": "ritual"
+    }
+  ]
+}

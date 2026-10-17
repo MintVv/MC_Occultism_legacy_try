@@ -1,0 +1,29 @@
+{
+  "name": "True Sight Staff",
+  "icon": "occultism:true_sight_staff",
+  "category": "crafting_rituals",
+  "sortnum": 39,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:true_sight_staff",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(item)True Sight Staff$() employs an $(#AA00AA)Marid$() to assist the summoner in tasks of finding and interacting with the otherworld.$(br) Unlike $(#AA00AA)Foliot$() in the otherworld goggles, which can only provide vision, with this staff in the off-hand or curio slot, the $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "occultist can collect otherworld materials.$(br) The divining rods search abilities receive an upgrade, now is possible locate any block.$(br2)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_true_sight_staff",
+      "anchor": "ritual"
+    }
+  ]
+}

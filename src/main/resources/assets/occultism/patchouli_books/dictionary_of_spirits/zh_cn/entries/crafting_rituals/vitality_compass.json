@@ -1,0 +1,24 @@
+{
+  "name": "生命指南针",
+  "icon": "occultism:vitality_compass",
+  "category": "crafting_rituals",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:vitality_compass",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(item)生命指南针$()是一种灌注有一只$(#AA00AA)魔精$()的神秘工具，$(br)使其能够与活物的精华同调。$(br)通过右击生物，可将其生命力绑定至指南针，$(br)使指针始终指向该生物所在位置，无论相隔多远（只要目标所在区块已加载）。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_vitality_compass",
+      "anchor": "ritual"
+    }
+  ]
+}

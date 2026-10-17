@@ -1,0 +1,24 @@
+{
+  "name": "火灵矿工",
+  "icon": "occultism:miner_afrit_deeps",
+  "category": "crafting_rituals",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:miner_afrit_deeps",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "除了像巨灵矿工一样挖掘矿物，$(#AA00AA)火灵$()矿工偶尔还可以$(br)额外挖掘到一些深板岩矿物。这种矿工比巨灵更快，效率更高，$(br)而且对神灯的伤害也更小。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_miner_afrit_deeps",
+      "anchor": "ritual"
+    }
+  ]
+}

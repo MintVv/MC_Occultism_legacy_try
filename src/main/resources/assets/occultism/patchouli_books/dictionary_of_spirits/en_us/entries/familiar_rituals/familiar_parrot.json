@@ -1,0 +1,41 @@
+{
+  "name": "Parrot Familiar",
+  "icon": "occultism:textures/gui/book/parrot.png",
+  "category": "familiar_rituals",
+  "sortnum": 20,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "minecraft:parrot",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Company$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_parrot",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "In this ritual a $(#ad03fc)Foliot$() is summoned $(bold)as a familiar$(), the slaughter of a $(#ad03fc)Chicken$() and the offering of dyes are intended to entice the $(#ad03fc)Foliot$() to take the shape of a parrot.$(br)As $(#ad03fc)Foliot$() are not among the smartest spirits, they sometimes $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "misunderstand the instructions ...$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "*This means, if a $(#ad03fc)Chicken$() is spawned, that's not a bug, just bad luck!*$(br2)$(bold)Upgrade Behaviour$()$(br)Cannot be upgraded by the blacksmith familiar.$(br)",
+      "anchor": "description2"
+    }
+  ]
+}

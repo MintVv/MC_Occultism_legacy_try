@@ -1,0 +1,30 @@
+{
+  "name": "被附身的远古守卫者",
+  "icon": "occultism:nautilus_shell",
+  "category": "possession_rituals",
+  "sortnum": 14,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_elder_guardian",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：2-4x $(item)鹦鹉螺壳$()$(br)同时还具有普通远古守卫者的掉落物；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_elder_guardian",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)远古守卫者$()将借由$(#ad03fc)鱼$()的生命能量生成，并立刻被召唤出的$(#ad03fc)火灵$()附身。$(#ad03fc)被附身的远古守卫者$()会掉落 2-4 个$(item)鹦鹉螺壳$()，以及 1.12 中普通远古守卫者可掉落的物品。$(br)",
+      "anchor": "description"
+    }
+  ]
+}

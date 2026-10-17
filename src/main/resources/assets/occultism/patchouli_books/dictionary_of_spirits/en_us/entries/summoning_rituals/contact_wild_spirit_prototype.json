@@ -1,0 +1,19 @@
+{
+  "name": "Contact Wild Spirit Prototype",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "summoning_rituals",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "contact_wild_spirit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This ritual has no upstream counterpart. It is kept as a local bridging ritual so the $(#ad03fc)Osorin's Unbound Calling$() pentacle stays reachable and useful. Completing it produces an $(item)Awakened Feather$() instead of contacting a wild spirit.",
+      "anchor": "description"
+    }
+  ]
+}

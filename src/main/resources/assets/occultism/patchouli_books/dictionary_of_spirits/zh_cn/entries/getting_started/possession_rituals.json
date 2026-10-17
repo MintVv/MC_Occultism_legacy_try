@@ -1,0 +1,20 @@
+{
+  "name": "附身仪式",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "getting_started",
+  "sortnum": 36,
+  "pages": [
+    {
+      "type": "text",
+      "title": "附身仪式",
+      "text": "被附身的生物被魔灵所操纵，让召唤师得以控制它们的一些特性。这些生物通常$(bold)掉落更多$()稀有掉落物，但也一般更难杀死。$(br2)你或许该从召唤$(l:possession_rituals/possess_endermite)被附身的末影螨$(/l)开始，获得一些$(item)end stone$()来制作进阶粉笔。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "更多信息",
+      "text": "更多附身仪式详见$(thing)附身仪式$()章节。$(br)",
+      "anchor": "more"
+    }
+  ]
+}

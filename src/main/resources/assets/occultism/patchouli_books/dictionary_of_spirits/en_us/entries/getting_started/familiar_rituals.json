@@ -1,0 +1,25 @@
+{
+  "name": "Familiar Rituals",
+  "icon": "occultism:textures/gui/book/parrot.png",
+  "category": "getting_started",
+  "sortnum": 37,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Familiar Rituals",
+      "text": "Familiars provide a variety of bonus effects, such as feather falling, water breathing, jump boosts and more, and may also assist you in combat.$(br2)In this 1.12 port, supported familiars can be stored and released with $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Familiar Rituals",
+      "text": "a $(l:crafting_rituals/craft_familiar_ring)Familiar Ring$(/l), then equipped in the native one-slot player accessory to apply supported effects.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "More Information",
+      "text": "To find more about Familiars, see the $(thing)Familiar Rituals$() Category.$(br)",
+      "anchor": "more"
+    }
+  ]
+}

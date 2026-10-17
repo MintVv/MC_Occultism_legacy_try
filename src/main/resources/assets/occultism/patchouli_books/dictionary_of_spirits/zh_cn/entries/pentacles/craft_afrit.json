@@ -1,0 +1,33 @@
+{
+  "name": "塞维拉永囚咒",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 26,
+  "pages": [
+    {
+      "type": "text",
+      "title": "塞维拉永囚咒",
+      "text": "$(bold)目的$()：束缚$(#AA00AA)火灵$()$(br2)由灰烬林地的召唤宗师塞维拉首次发现的$(bold)塞维拉永囚咒$()，主要用于将$(#AA00AA)火灵$()束缚于物体之中。由于涉及到的魔灵力量强大，此术仅应由高阶召唤师施展。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:craft_afrit",
+      "name": "塞维拉永囚咒",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:crafting_rituals/dimensional_battlefield)维度战场$(/l)$(br)$(li)$(l:crafting_rituals/craft_iesnium_sacrificial_bowl)艾瑟金属仪式之碗$(/l)$(br)$(li)$(l:crafting_rituals/iesnium_butcher_knife)艾瑟金属屠刀$(/l)$(br)$(li)$(l:crafting_rituals/craft_stabilizer_tier3)存储稳定器（3阶）$(/l)$(br)$(li)$(l:crafting_rituals/craft_afrit_miner)火灵深层掘矿者$(/l)$(br)$(li)$(l:crafting_rituals/artisanal_ritual_satchel)匠心仪式挎包$(/l)$(br)$(li)$(l:crafting_rituals/repair)修复物品$(/l)$()",
+      "anchor": "uses"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(br)$(li)$(l:pentacles/black_chalk)凋灵合金粉$(/l)$(br)"
+    }
+  ]
+}

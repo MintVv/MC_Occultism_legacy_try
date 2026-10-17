@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Append `ritual.occultism.<id>.name` keys for every ritual in rituals.json to the lang files.
+"""Append ritual name and upstream message keys for every ritual in rituals.json.
 
 English values reuse the ritual `display_name` verbatim (JEI classifies spirit jobs from that English string,
 so it must stay English). Chinese values reuse the matching `item.occultism.ritual_dummy.<path>.name` entry with
 its `仪式：` prefix stripped, because the chat sentences already supply their own prefix. Six bridge prototype
 rituals have no ritual dummy item and are translated manually in MANUAL_ZH below.
 
-Idempotent: rituals that already have a name key in a lang file are skipped.
+Idempotent: keys that already exist in a lang file are skipped.
 """
 from __future__ import unicode_literals
 
@@ -21,6 +21,7 @@ LANG_DIR = os.path.join(ASSETS, 'lang')
 ZH_PREFIX = '仪式：'
 EN_PREFIX = 'Ritual: '
 HEADER = '# Ritual display names, resolved client side so chat sentences stay in one language.'
+MESSAGE_HEADER = '# Upstream-style per-ritual message protocol.'
 
 # Rituals without a ritual_dummy item; these are the recently restored bridge prototypes.
 MANUAL_ZH = {
@@ -67,6 +68,12 @@ def main():
     zh, _ = read_lang(zh_path)
 
     additions = {'en_us.lang': [], 'zh_cn.lang': []}
+    message_values = {
+        'started': ('Starting the ritual: %s.', '正在开始仪式：%s。'),
+        'interrupted': ('Interruption in the ritual: %s.', '仪式中断：%s。'),
+        'finished': ('Ritual completed successfully: %s.', '仪式成功完成：%s。'),
+        'conditions': ('Not all requirements for this ritual are met: %s.', '该仪式的要求尚未全部满足：%s。'),
+    }
     for ritual in rituals:
         ritual_id = ritual['id']
         key = 'ritual.occultism.%s.name' % ritual_id
@@ -85,16 +92,29 @@ def main():
             additions['en_us.lang'].append((key, english))
         if key not in zh:
             additions['zh_cn.lang'].append((key, chinese))
+        for suffix, values in message_values.items():
+            message_key = 'ritual.occultism.%s.%s' % (ritual_id, suffix)
+            if message_key not in en:
+                additions['en_us.lang'].append((message_key, values[0] % english))
+            if message_key not in zh:
+                additions['zh_cn.lang'].append((message_key, values[1] % chinese))
 
     for name, path in (('en_us.lang', en_path), ('zh_cn.lang', zh_path)):
         rows = additions[name]
         if not rows:
             print('%s: nothing to add' % name)
             continue
+        name_rows = [row for row in rows if row[0].endswith('.name')]
+        message_rows = [row for row in rows if not row[0].endswith('.name')]
         with io.open(path, 'a', encoding='utf-8', newline='\n') as handle:
-            handle.write('\n%s\n' % HEADER)
-            for key, value in rows:
-                handle.write('%s=%s\n' % (key, value))
+            if name_rows:
+                handle.write('\n%s\n' % HEADER)
+                for key, value in name_rows:
+                    handle.write('%s=%s\n' % (key, value))
+            if message_rows:
+                handle.write('\n%s\n' % MESSAGE_HEADER)
+                for key, value in message_rows:
+                    handle.write('%s=%s\n' % (key, value))
         print('%s: appended %d keys' % (name, len(rows)))
 
 

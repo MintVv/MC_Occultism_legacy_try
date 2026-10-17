@@ -1,0 +1,157 @@
+{
+  "name": "First Ritual",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "getting_started",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Ritual (tm)",
+      "text": "These pages will walk the gentle reader through the process of the $(l:summoning_rituals/summon_crusher_t1)first ritual$(/l) step by step.$(br2)We $(bold)start$() by placing the $(item)Golden Sacrificial Bowl$() and drawing the appropriate pentacle, $(l:pentacles/summon_foliot)Aviar's Circle$(/l) as seen on the left $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "The Ritual (tm)",
+      "text": "around it.$(br)"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:summon_foliot",
+      "name": "Aviar's Circle",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Only the color and location of the chalk marks is relevant, not the glyph/sign.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Sacrificial Bowls",
+      "text": "Next, place *at least* 4 $(item)Sacrificial Bowls$() close to the pentacle.$(br2)They must be placed $(bold)anywhere$() within 8 blocks of the central $(item)Golden Sacrificial Bowl$(). $(bold)The exact location does not matter.$()$(br)",
+      "anchor": "bowl_text"
+    },
+    {
+      "type": "image",
+      "images": [
+        "occultism:textures/gui/book/bowl_placement.png"
+      ],
+      "border": true,
+      "anchor": "bowl_placement"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Some possible locations for the sacrificial bowls.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Placing Ingredients",
+      "text": "Now it is time to place the ingredients you see on the next page in the (regular, not golden) sacrificial bowls. The ingredients will be consumed from the bowls as the ritual progresses.$(br)",
+      "anchor": "ritual_text"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "summon_foliot_crusher",
+      "anchor": "ritual_recipe"
+    },
+    {
+      "type": "text",
+      "title": "A Note about Ritual Recipes",
+      "text": "Ritual recipe pages, such as the previous pageshow not only the ingredients, but also the pentacle that you need to draw with chalk in order to use the ritual.$(br2)$(bold)To show the pentacle, click the blue link$() at the center top of the $()",
+      "anchor": "pentacle_link_hint"
+    },
+    {
+      "type": "text",
+      "title": "A Note about Ritual Recipes",
+      "text": "ritual page. You can then even preview it in-world.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Let there be ... spirits!",
+      "text": "Finally, $(#ad03fc)right-click$() the $(item)Golden Sacrificial Bowl$() with the $(bold)bound$() book of binding you created before and wait until the crusher spawns.$(br2)Now all that remains is to drop appropriate ores near the crusher and wait for it to $()",
+      "anchor": "start_ritual"
+    },
+    {
+      "type": "text",
+      "title": "Let there be ... spirits!",
+      "text": "turn it into dust.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Automatic Rituals",
+      "text": "Instead of right-clicking the golden ritual bowl with the final ingredient, you can also use a Hopper or any type of pipe to insert the item into the bowl. The ritual will start automatically.$(br)Note that any rituals that summon tamed animals or $()",
+      "anchor": "automation"
+    },
+    {
+      "type": "text",
+      "title": "Automatic Rituals",
+      "text": "familiars will summon them untamed instead.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Don't let my items drop",
+      "text": "If you want to hold crafted items instead of dropping them into the world, place a sacrificial bowl facing down above the golden one.$(br)This works up to three blocks higher and can also be used with a copper or silver sacrificial bowl.$()",
+      "anchor": "upside_down_bowl"
+    },
+    {
+      "type": "text",
+      "title": "Don't let my items drop",
+      "text": "$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:spirit_fire",
+      "text": "",
+      "anchor": "automation_flame"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The setup of upside-down bowl, also produce $(item)Spiritfire$() when the ritual don't has an item as output.$(br)For example, this can be used to automate spirit summoning and possessing, as a return to your system (it will come with the NBT of the ritual $()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "performed).$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Redstone",
+      "text": "Depending on the ritual state the golden bowl will emit a different redstone level:$(br)$(li)$(bold)0$() if no ritual is active$(br)$(li)$(bold)1$() if the ritual is active, but waiting for a sacrifice$(br)$()",
+      "anchor": "redstone"
+    },
+    {
+      "type": "text",
+      "title": "Redstone",
+      "text": "$(li)$(bold)2$() if the ritual is active, but waiting for an item to be used$(br)$(li)$(bold)8$() if the ritual is active and running$(br)"
+    },
+    {
+      "type": "text",
+      "title": "All sides blocked?",
+      "text": "You can place another $(item)Golden Sacrificial Bowl$() in the third block below the$(br) original $(item)Golden Sacrificial Bowl$(). Every time this new bowl receives an$(br) block update, it clones the actual signal strength of the original bowl.$()",
+      "anchor": "clone_redstone"
+    },
+    {
+      "type": "text",
+      "title": "All sides blocked?",
+      "text": "$(br)"
+    },
+    {
+      "type": "image",
+      "images": [
+        "occultism:textures/gui/book/redstone_clone.png"
+      ],
+      "border": true,
+      "anchor": "clone_placement"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "One suggestion is to use any block that interacts with redstone and an observer.$(br)"
+    }
+  ]
+}

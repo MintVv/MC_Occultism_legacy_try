@@ -1,0 +1,51 @@
+{
+  "name": "Foliot Miner",
+  "icon": "occultism:miner_foliot_unspecialized",
+  "category": "crafting_rituals",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Foliot Miner",
+      "text": "Miner spirits use $(item)Dimensional Mineshaft$() to acquire resources from other dimensions.$(br) They are summoned and bound into magic lamps, which they can leave only through the mineshaft.$(br) The magic lamp degrades over time, once it breaks $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "Foliot Miner",
+      "text": "the spirit is released back to $(#AA00AA)The Other Place$().$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:magic_lamp_empty",
+      "text": "",
+      "anchor": "magic_lamp"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "To summon miner spirits, you first need to craft a $(l:getting_started/magic_lamps)Magic Lamp$(/l) to hold them.$(br) The key ingredient for that is $(item)Spirit Attuned Gem$().$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:miner_foliot_unspecialized",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(#AA00AA)Foliot$() miner harvests only resources considered more basic and less precious.$(br) The mining process is quite slow, due to this the Foliot expends only minor$(br) amounts of energy, damaging the lamp it is housed in slowly over time.$()"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_miner_foliot_unspecialized",
+      "anchor": "ritual"
+    }
+  ]
+}

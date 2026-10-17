@@ -1,0 +1,41 @@
+{
+  "name": "Chimera Familiar",
+  "icon": "occultism:textures/gui/book/familiar_chimera.png",
+  "category": "familiar_rituals",
+  "sortnum": 9,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:chimera_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Rideable Mount$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_chimera",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "The chimera familiar can be fed any meat to grow, gaining damage and speed. Once it has grown big enough, its owner can ride it. Feeding it a $(item)golden apple$() detaches the $(#ad03fc)Goat$() as a separate familiar.$(br2)The detached goat familiar can be $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "used to obtain the $(l:familiar_rituals/familiar_shub_niggurath)Shub Niggurath$(/l) familiar.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Upgrade Behaviour$()$(br)When upgraded by a blacksmith familiar, the detached goat familiar gets a warning bell. Hitting the goat rings the bell and attracts enemies in a large radius. Chimera itself cannot be upgraded.$(br)",
+      "anchor": "description2"
+    }
+  ]
+}

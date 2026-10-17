@@ -1,0 +1,19 @@
+{
+  "name": "Possess Unbound Afrit Prototype",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "possession_rituals",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_unbound_afrit_prototype",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "This ritual has no upstream counterpart. It is kept as a local bridging ritual so the $(#ad03fc)Odus' Open Convocation$() pentacle stays reachable and useful. Completing it produces $(item)Burnt Otherstone$() instead of a possession effect.",
+      "anchor": "description"
+    }
+  ]
+}

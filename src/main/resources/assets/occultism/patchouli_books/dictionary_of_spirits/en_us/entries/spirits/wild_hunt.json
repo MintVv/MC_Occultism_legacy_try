@@ -1,0 +1,30 @@
+{
+  "name": "The Wild Hunt",
+  "icon": "occultism:textures/gui/book/wild_hunt.png",
+  "category": "spirits",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "title": "The Wild Hunt",
+      "text": "A group of legendary Greater Spirits, usually appearing in the form of wither skeletons, with their skeleton minions. The Greater Spirits are bound to their minions in such fashion that they are virtually invulnerable until their minions have been $()",
+      "anchor": "intro"
+    },
+    {
+      "type": "text",
+      "title": "The Wild Hunt",
+      "text": "sent back to $(#ad03fc)The Other Place$().$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Wither Skeleton Skulls",
+      "text": "While it is incredibly dangerous to call on the Wild Hunt, some summoners have been known to do so for quick access to the rare wither skeleton skulls they are known to leave behind. Summoning the wild hunt is described in detail on the page on $()",
+      "anchor": "wither_skull"
+    },
+    {
+      "type": "text",
+      "title": "Wither Skeleton Skulls",
+      "text": "obtaining $(l:possession_rituals/wither_skull)Wither Skeleton Skulls$(/l).$(br)"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "奥杜斯的无羁召灵",
+  "icon": "occultism:textures/gui/book/possession.png",
+  "category": "pentacles",
+  "sortnum": 21,
+  "pages": [
+    {
+      "type": "text",
+      "title": "奥杜斯的无羁召灵",
+      "text": "$(bold)目的$()：$(#AA00AA)未受缚的火灵$()附身$(br2)$(bold)奥杜斯的无羁召灵$()是$(#AA00AA)波萨克召灵术$()的简化版本，无需红色粉笔，便能强迫$(#AA00AA)火灵$()附身于附近生物。$(br)由于五芒星阵的力量被大幅削弱，其使用效果有限。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:possess_unbound_afrit",
+      "name": "奥杜斯的无羁召灵",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:possession_rituals/possess_zombie_piglin)被附身的僵尸猪灵$(/l)$(br)$(li)$(l:possession_rituals/possess_guardian)被附身的守卫者$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

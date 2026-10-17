@@ -1,0 +1,28 @@
+{
+  "name": "波萨克召灵术",
+  "icon": "occultism:textures/gui/book/pentacle.png",
+  "category": "pentacles",
+  "sortnum": 25,
+  "pages": [
+    {
+      "type": "text",
+      "title": "波萨克召灵术",
+      "text": "$(bold)目的$()：$(#AA00AA)火灵$()附身$(br2)$(bold)波萨克召灵术$()是$(#FF55FF)阿布拉召唤术$()在附身几何学上的改良版本，能够实现实体附身，从而召唤使魔。$(br)",
+      "anchor": "intro"
+    },
+    {
+      "type": "multiblock",
+      "multiblock_id": "occultism:possess_afrit",
+      "name": "波萨克召灵术",
+      "enable_visualize": true,
+      "text": "",
+      "anchor": "multiblock"
+    },
+    {
+      "type": "text",
+      "title": "用途",
+      "text": "$(li)$(l:possession_rituals/possess_shulker)被附身的潜影贝$(/l)$(br)$(li)$(l:possession_rituals/possess_elder_guardian)被附身的远古守卫者$(/l)$(br)$(li)$(l:possession_rituals/possess_hoglin)被附身的疣猪兽$(/l)$(br)$(li)$(l:possession_rituals/possess_warden)被附身的监守者$(/l)$(br)",
+      "anchor": "uses"
+    }
+  ]
+}

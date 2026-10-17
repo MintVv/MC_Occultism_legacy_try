@@ -1,0 +1,40 @@
+{
+  "name": "Greedy Familiar",
+  "icon": "occultism:textures/gui/book/familiar_greedy.png",
+  "category": "familiar_rituals",
+  "sortnum": 15,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:greedy_familiar",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)Provides$(): $(#ad03fc)Picks up Items$(), $(#ad03fc)Locates selected Blocks after upgrading$()$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "familiar_greedy",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "The Greedy familiar is a Foliot that picks up nearby items directly for its master. Familiar Ring storage is supported, but the Curios pickup-range effect is not available on 1.12.$(br2)$(bold)Upgrade Behaviour$()$(br)After one $()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "Blacksmith upgrade, interact with it while holding a block to set the block type it should locate. Interact again to take the sample block back. It only points to and approaches matching blocks; it never mines them or consumes the sample.$()"
+    },
+    {
+      "type": "text",
+      "title": "Description",
+      "text": "$(br)"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "被附身的烈焰人",
+  "icon": "minecraft:blaze_rod",
+  "category": "possession_rituals",
+  "sortnum": 10,
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "occultism:possessed_blaze",
+      "text": "",
+      "anchor": "entity"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(bold)掉落物$()：2-6x$(item)blaze rod$()、0-13x$(item)blaze powder$()$(br)以及下界相关的物品（查看下一页）；$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "possess_blaze",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "在这个仪式中，一只$(#ad03fc)烈焰人$()将借由$(#ad03fc)下界$()的能量生成，并立即被召唤出的$(#ad03fc)巨灵$()附身。$(#ad03fc)被附身的烈焰人$()免疫水和雪球！$(br2)额外掉落物：$(br2)（固有）以下物品之一：$(item)nether wart$()、$(item)crimson fungus$()、$(item)warped fungus$()、$(item)red mushroom$()、$(item)brown mushroom$()、$(item)crimson roots$()、$(item)$()",
+      "anchor": "description"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "warped roots$()、$(item)weeping vines$()、$(item)twisting vines$()；$(br)"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "（通常）以下物品之一：$(item)netherrack$()、$(item)nether quartz ore$()、$(item)crimson nylium$()、$(item)warped nylium$()、$(item)nether wart block$()、$(item)warped wart block$()；$(br2)（一般）以下物品之一：$(item)soul sand$()、$(item)soul soil$()、$(item)basalt$()、$(item)blackstone$()、$(item)gravel$()、$(item)bone block$()、$(item)gilded blackstone$()；$()",
+      "anchor": "description2"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "$(br2)（有时）以下物品之一：$(item)glowstone dust$()、$(item)magma block$()、$(item)glowstone$()、$(item)shroomlight$()；$(br2)（偶尔）以下物品之一：$(item)obsidian$()、$(item)crying obsidian$()、$(item)ancient debris$()；$(br)"
+    }
+  ]
+}

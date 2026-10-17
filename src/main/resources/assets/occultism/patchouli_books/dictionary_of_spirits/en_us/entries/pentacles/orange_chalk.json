@@ -1,0 +1,41 @@
+{
+  "name": "The Tangy Chalk",
+  "icon": "occultism:chalk_orange",
+  "category": "pentacles",
+  "sortnum": 16,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Afrit Attractive",
+      "text": "The orange chalk is a perfect bait for spirits of the Afrit class, who,$(br) although impressed by the lime chalk, can resist its call.$(br)",
+      "anchor": "lore"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:chalk_orange",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Being a sweet and slightly warm chalk, it does not guarantee control over the invoked Afrit.$(br) Commanding an Afrit requires power directly related to its class of spirits and$(br) extreme stability in the pentacle.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:cursed_honey",
+      "text": "",
+      "anchor": "honey"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "To obtain the $(item)Cursed Honey$() for $(item)Orange Chalk$() you need to$(br) $(l:possession_rituals/possess_bee)summon and kill a Possessed Bee$(/l)$(br)"
+    },
+    {
+      "type": "occultism:spirit_fire",
+      "output": "occultism:chalk_orange",
+      "anchor": "recipe"
+    }
+  ]
+}

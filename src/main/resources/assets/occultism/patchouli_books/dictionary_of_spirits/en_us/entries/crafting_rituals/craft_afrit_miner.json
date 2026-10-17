@@ -1,0 +1,24 @@
+{
+  "name": "Afrit Miner",
+  "icon": "occultism:miner_afrit_deeps",
+  "category": "crafting_rituals",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:miner_afrit_deeps",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "The $(#AA00AA)Afrit$() miner harvests ores, like djinni miners, and additionally$(br) mines harder ores. This miner is faster and more efficient$(br) than the djinnis, causing less damage to the magic lamp with each use.$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "craft_miner_afrit_deeps",
+      "anchor": "ritual"
+    }
+  ]
+}

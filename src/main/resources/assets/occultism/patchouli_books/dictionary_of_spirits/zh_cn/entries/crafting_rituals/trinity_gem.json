@@ -1,0 +1,24 @@
+{
+  "name": "三位一体宝石",
+  "icon": "occultism:trinity_gem",
+  "category": "crafting_rituals",
+  "sortnum": 30,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:trinity_gem",
+      "text": "",
+      "anchor": "spotlight"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "铸造$(item)三位一体宝石$()是由$(#AA00AA)诡奇魔灵$()提供的一项服务。$(br)该宝石是升级版本的$(item)灵魂宝石$()，由3种不同灵髓、3种强大粉末，以及3份艾瑟金属粉制成。$(br)三位一体宝石的实体黑名单为空（默认）。$(br)"
+    },
+    {
+      "type": "occultism:ritual",
+      "ritual": "misc_trinity_gem",
+      "anchor": "ritual"
+    }
+  ]
+}

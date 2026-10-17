@@ -1,0 +1,48 @@
+{
+  "name": "Datura",
+  "icon": "occultism:datura_seeds",
+  "category": "getting_started",
+  "sortnum": 32,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "occultism:datura_seeds",
+      "text": "",
+      "anchor": "spotlight_seeds"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "Datura is a crop that can be grown like wheat. It has multiple uses in the mod.$(br)"
+    },
+    {
+      "type": "spotlight",
+      "item": "occultism:datura",
+      "text": "",
+      "anchor": "spotlight_crop"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "When the Datura crop reaches maturity, the full-grown plant drops datura. Harvest it before it dies to collect.$(br)"
+    },
+    {
+      "type": "text",
+      "title": "Healing Spirits",
+      "text": "Right-click a spirit with datura to heal it. Works on Familiars, Summoned Spirits, and Possessed Mobs.$(br)",
+      "anchor": "healing"
+    },
+    {
+      "type": "text",
+      "title": "Spirit Fire Fuel",
+      "text": "Throw datura to the ground and light it on fire with flint and steel to create a spirit fire.$(br)",
+      "anchor": "spirit_fire"
+    },
+    {
+      "type": "text",
+      "title": "Crushing",
+      "text": "Datura can be crushed by a Crusher spirit to produce seeds for replanting.$(br)",
+      "anchor": "crushing"
+    }
+  ]
+}

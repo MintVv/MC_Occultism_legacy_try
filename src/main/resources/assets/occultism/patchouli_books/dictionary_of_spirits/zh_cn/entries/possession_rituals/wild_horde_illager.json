@@ -1,0 +1,19 @@
+{
+  "name": "野性群：灾厄村民",
+  "icon": "minecraft:iron_axe",
+  "category": "possession_rituals",
+  "sortnum": 34,
+  "pages": [
+    {
+      "type": "occultism:ritual",
+      "ritual": "wild_horde_illager",
+      "anchor": "ritual"
+    },
+    {
+      "type": "text",
+      "title": "",
+      "text": "召唤一群野性灾厄村民，它们会攻击附近所有东西，包括施法者。除了它们的掉落物之外不会留下任何东西——配方页上的灵魂宝石仅供展示。",
+      "anchor": "description"
+    }
+  ]
+}

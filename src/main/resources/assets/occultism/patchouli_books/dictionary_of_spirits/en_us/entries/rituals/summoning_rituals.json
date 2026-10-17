@@ -1,0 +1,14 @@
+{
+  "name": "Summoning Rituals",
+  "icon": "occultism:textures/gui/book/summoning.png",
+  "category": "rituals",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "title": "Summoning Rituals",
+      "text": "",
+      "anchor": "summoning_rituals/description"
+    }
+  ]
+}
