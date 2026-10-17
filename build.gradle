@@ -269,6 +269,12 @@ test {
             showStandardStreams = true
         }
     }
+    // The suite normally runs under the machine's locale, which hides anything that reads the
+    // default locale. Pass -PtestLocale=tr (or ar, de, ...) to re-run it as a player would.
+    if (project.hasProperty('testLocale')) {
+        systemProperty 'user.language', project.property('testLocale')
+        systemProperty 'user.country', ''
+    }
 }
 
 String parserChangelog() {
