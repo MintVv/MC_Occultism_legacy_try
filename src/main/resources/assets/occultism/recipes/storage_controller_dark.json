@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:storage",
+  "pattern": [
+    "D",
+    "B"
+  ],
+  "key": {
+    "D": {
+      "item": "occultism:dimensional_matrix"
+    },
+    "B": {
+      "item": "occultism:storage_controller_base_dark"
+    }
+  },
+  "result": {
+    "item": "occultism:storage_controller_dark"
+  }
+}

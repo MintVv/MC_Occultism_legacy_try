@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:storage",
+  "pattern": [
+    "GTG",
+    "BGB",
+    "BBB"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "T": {
+      "item": "occultism:otherstone_tablet"
+    },
+    "B": {
+      "item": "minecraft:stone_button"
+    }
+  },
+  "result": {
+    "item": "occultism:storage_remote_inert"
+  }
+}
