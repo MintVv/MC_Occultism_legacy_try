@@ -32,6 +32,7 @@ $missingLangZh = New-Object System.Collections.Generic.List[string]
 $recipeSemanticErrors = New-Object System.Collections.Generic.List[string]
 $blockstateSemanticErrors = New-Object System.Collections.Generic.List[string]
 $dictionarySemanticErrors = New-Object System.Collections.Generic.List[string]
+$missingJavaTextures = New-Object System.Collections.Generic.List[string]
 
 function Read-JsonFile {
     param([string]$Path)
@@ -661,6 +662,28 @@ if (Test-Path -LiteralPath $dictionaryIndexPath) {
     }
 }
 
+# Textures referenced from Java (GUI backgrounds, HUD art, particle sheets). The model
+# checks above only cover art reached through JSON, so a GUI pointing at a missing png
+# would open a black screen without failing anything.
+$javaRoot = Join-Path $WorkspaceRoot 'src/main/java'
+Get-ChildItem -Path $javaRoot -Recurse -Filter *.java | ForEach-Object {
+    $source = Get-Content -LiteralPath $_.FullName -Raw
+    $patterns = @(
+        'new ResourceLocation\(\s*Tags\.MOD_ID\s*,\s*"([a-z0-9_/]+\.png)"',
+        '"(occultism:textures/[a-z0-9_/]+\.png)"'
+    )
+    $javaFile = $_.Name
+    foreach ($pattern in $patterns) {
+        [regex]::Matches($source, $pattern) | ForEach-Object {
+            $path = $_.Groups[1].Value -replace '^occultism:', ''
+            $full = Join-Path $assetRoot $path
+            if (-not (Test-Path -LiteralPath $full)) {
+                $missingJavaTextures.Add("$($_.Groups[1].Value) (referenced by $javaFile)")
+            }
+        }
+    }
+}
+
 $summary = [ordered]@{
     ModelJsonFiles = @(Get-ChildItem -LiteralPath $modelRoot -Recurse -File -Filter '*.json').Count
     BlockstateJsonFiles = @(Get-ChildItem -LiteralPath $blockstateRoot -File -Filter '*.json').Count
@@ -681,6 +704,7 @@ $summary = [ordered]@{
     RecipeSemanticErrors = $recipeSemanticErrors.Count
     BlockstateSemanticErrors = $blockstateSemanticErrors.Count
     DictionarySemanticErrors = $dictionarySemanticErrors.Count
+    MissingJavaTextures = $missingJavaTextures.Count
 }
 
 [pscustomobject]$summary | Format-List
@@ -699,6 +723,7 @@ $sections = [ordered]@{
     'Recipe semantic errors' = $recipeSemanticErrors
     'Blockstate semantic errors' = $blockstateSemanticErrors
     'Dictionary semantic errors' = $dictionarySemanticErrors
+    'Textures referenced from Java that do not exist' = $missingJavaTextures
 }
 
 $hasFailures = $false
