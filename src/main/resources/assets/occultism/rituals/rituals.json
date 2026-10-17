@@ -2429,7 +2429,7 @@
     "activation_item": "occultism:book_of_binding_bound_foliot",
     "duration_ticks": 1200,
     "ingredients": [
-      "occultism:otherstone_frame",
+      "occultism:wormhole_frame",
       "minecraft:ender_pearl",
       "minecraft:quartz",
       "minecraft:quartz",
