@@ -10,7 +10,7 @@
   },
   "display": {
     "icon": {
-      "item": "occultism:ritual_dummy/familiar_shub_niggurath"
+      "item": "occultism:familiar_ring"
     },
     "title": {
       "translate": "advancements.occultism.familiar.shub_niggurath_spawn.title"
