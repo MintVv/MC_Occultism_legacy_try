@@ -233,6 +233,15 @@ public final class ModItems {
             item("ritual_dummy/wild_random_animal_water", "ritual_dummy.wild_random_animal_water", 1);
     public static final Item RITUAL_DUMMY_WILD_VILLAGER =
             item("ritual_dummy/wild_villager", "ritual_dummy.wild_villager", 1);
+    /**
+     * Legacy id kept from before the wild hunt ritual was renamed to {@code summon_wild_hunt}.
+     *
+     * <p>No ritual references it, it is not in the creative tab and nothing produces it, so it is
+     * unreachable in game. It is intentionally left registered rather than deleted: deleting a
+     * registry name is not reversible for worlds that already store it, and this project has been
+     * burned before by removing content on a wrong assumption. {@code RitualDummyCoverageTest}
+     * pins this as the only unreferenced ritual dummy so no new one can pile up unnoticed.</p>
+     */
     public static final Item RITUAL_DUMMY_WILD_HUNT =
             legacyRitualDummy("ritual_dummy/wild_hunt", "ritual_dummy.wild_hunt");
     public static final Item RITUAL_DUMMY_WILD_HORDE_ILLAGER =
