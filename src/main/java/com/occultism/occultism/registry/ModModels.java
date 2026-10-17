@@ -88,7 +88,7 @@ public final class ModModels {
         ResourceLocation[] variants = new ResourceLocation[32];
         for (int i = 0; i < variants.length; i++) {
             variants[i] = new ResourceLocation(Tags.MOD_ID,
-                    String.format("vitality_compass/compass_%02d", i));
+                    String.format(java.util.Locale.ROOT, "vitality_compass/compass_%02d", i));
         }
         ModelLoader.registerItemVariants(ModItems.VITALITY_COMPASS, variants);
     }

@@ -223,12 +223,12 @@ public class GuiStorageController extends GuiContainer {
 
     private String getSortTypeLabel() {
         StorageSortType type = this.storageController.getSortType();
-        return I18n.format("gui.occultism.storage_controller.sort." + type.name().toLowerCase());
+        return I18n.format("gui.occultism.storage_controller.sort." + type.name().toLowerCase(java.util.Locale.ROOT));
     }
 
     private String getSortDirectionLabel() {
         StorageSortDirection direction = this.storageController.getSortDirection();
-        return I18n.format("gui.occultism.storage_controller.direction." + direction.name().toLowerCase());
+        return I18n.format("gui.occultism.storage_controller.direction." + direction.name().toLowerCase(java.util.Locale.ROOT));
     }
 
     private ContainerStorageController getStorageContainer() {
