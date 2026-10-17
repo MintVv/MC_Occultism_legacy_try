@@ -14,6 +14,7 @@ The copied/ported material is used under the following license notice:
 MIT License
 
 Copyright 2020 klikli-dev
+Copyright 2020 MrRiegel, Sam Bassett
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -34,7 +35,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## Modonomicon upstream UI assets
+The storage-terminal recipe-ID transfer and 3x3 ingredient layout are adapted
+from the pinned upstream `MessageSetRecipeByID` and storage recipe-transfer
+implementation, which also credit MrRiegel and Sam Bassett.
+
+## Patchouli runtime dependency
+
+The 1.12 guide integration uses the external Patchouli `1.0-23.6` artifact
+(`vazkii.patchouli:Patchouli:1.0-23.6`) from BlameJared Maven. Patchouli classes
+and textures are not bundled in the Occultism jar. The generated guide content
+derives from the Occultism material credited above; the integration pages are
+part of this port.
+
+## Modonomicon textures retained for the legacy guide
 
 This project includes a small subset of UI textures from Modonomicon 26.1.2 to
 render the 1.12 Dictionary of Spirits with the same upstream book/category/node

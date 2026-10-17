@@ -1,7 +1,21 @@
 # Occultism 1.12.2 移植进度报告
 
-> 快照日期：2026-08-31（Asia/Shanghai）；上一快照 2026-08-23
-> **本轮修正与新增见 `PORTING_STATUS_SUMMARY.md`**。要点：（1）全量测试基线更新为 **58 个测试类、345 项、0 失败/错误**；新增高阶灵体模型/renderer 契约。（2）修复 `EntityDjinniJob`、`EntityAfritJob`、`EntityMaridJob` 注册时缺少公开 `World` 构造器的问题。（3）修正 Otherworld Bird 野性仪式中的 1.12 物品 ID：`minecraft:cobweb` → `minecraft:web`。（4）`runClient` 已完成当前源码客户端加载烟测，仪式数据和 9 个 Mod 均成功加载。
+> 快照日期：2026-10-16（Asia/Shanghai）；下方旧日期验证记录保留为历史，不代表最新全量结果。
+> 2026-10-14：Patchouli 1.12 `1.0-23.6` 已接入，原辞典物品优先打开帕秋莉；英中各 9 类、203 条目，当前共 2065 页（初次接入时为2071页），生成器为 `tools/generate_patchouli_book.py`。仪式/灵火页接入运行期配方，法阵使用本地检测图案及骷髅 tile 检查；补齐两张功能性 0 阶稳定器配方。详细实现、验证与剩余边界见 `进度.md`、`PORTING_STATUS_SUMMARY.md` 最新段落。
+> Patchouli 接入阶段历史验证：Java 编译通过；最终仅定向执行 `PatchouliBookPortTest`，4 项通过。旧全量在新书缺失引用处失败，修复后没有重跑全量。客户端加载日志确认 10 个 Mod 和 170 条仪式，未做实际开书与世界投影回归；不代表后续源码已运行客户端验证。
+> 当前工作约束：不使用 computer，不跑全量测试；优先写代码，累计修改后必要时定向检查，不移植装饰类方块。
+> 2026-10-16 注册表追加：修复脚本删除最后一条/全部配方后查询恢复默认仪式及加载失败不断重试；普通初始化保留已加载表，新增 CraftTweaker `Ritual.removeAll()`。Java 编译与注册表/生命周期/献祭/数据四个定向类共39项通过，0失败/错误/跳过，未启动游戏或运行全量。明确重载和未验证边界见 `RITUAL_REGISTRY_1.12.md`。
+> 材料分配追加：现有170条仪式的单件追加成本改用有界 Forge 匹配，启动/持续校验/实际消费共用分配计划；多件及大型脚本成本保留兼容后备。Java 编译与六个定向类56项通过，未启动游戏/执行全量；局限及与上游贪心实现的明确偏离见 `RITUAL_MATERIAL_MATCHING_1.12.md`。
+> 仪式持续校验追加：等待/运行期间检查选定法阵、启动物和未消费材料；失效中断返还当前启动物，加载时跳过已消费材料，修复加速结束漏付成本。Java 编译和五个定向类48项通过，未启动游戏/执行全量；真实区块/多人/脚本回归仍未完成，详见 `RITUAL_LIFECYCLE_1.12.md`。
+> 献祭事件追加：删除金碗自动击杀，改为服务端玩家归因死亡事件（含箭矢）、金碗8格三维方块范围、tick末取消/复活/仪式代次确认；`humans` 对齐村民和玩家。编译及五个定向类47项通过，未用 computer/启动游戏/跑全量。真实多人及保存卸载边界见 `RITUAL_SACRIFICE_1.12.md`。
+> 天气/时间职业追加：五条仪式改为召唤本地 Djinni/Afrit 职业实体，迁入上游延迟施法、昼夜插值、五项配置开关与施法 NBT；正常完成后消散。Java 编译和四个定向类共 36 项通过，未启动客户端/执行全量。旧“直接修改世界状态”基线已被替代，剩余世界回归见 `WEATHER_TIME_PORT_1.12.md`。
+> 2026-10-14 交易 ID/NBT 追加：已支持按 ID 配方选择/替换/移除、四个上游同名存档字段和 CraftTweaker 入口，帕秋莉交易页读取当前定义；默认物品延迟解析修复初始化顺序问题。最新三个定向类共 26 项通过，编译通过；没有客户端或全量运行。脚本实际执行、多输入交易与自动同步仍未验证/完成，见 `SPIRIT_TRADE_1.12.md`。
+> 2026-10-14 交易职业批次：新增共享 `SpiritTradeRecipeRegistry`，实体与两套说明书共用交易定义；异界石/异界岩按上游 300 tick / 4 次，异界树苗按 400 tick / 1 次；新增 Patchouli 交易绘制页。定向 21 项测试（交易 7、高阶职业 10、说明书 4）通过，未运行全量。
+> 2026-10-16 多原料追加：最多 9 项无序成本、Forge `RecipeMatcher` 分配、复制式 `isValid/consume`、实体余料补入、Patchouli/旧辞典多成本显示和 CraftTweaker `addShapelessRecipe` 已完成。四个定向类共 38 项通过，编译通过；未使用 computer、未跑全量、未做页面实测。原生数据包、自定义交易同步、混合物品收集 AI 和世界回归仍未完成。
+> 2026-10-16 工程追加：移除 `gradle.properties` 的本机绝对 JDK 路径，改由 `gradlew-local.bat` 的 `JAVA_HOME` 选择本地 JDK；未编译、未运行测试。
+> 2026-10-16 存储追加：修复 tier5/tier5_dark 稳定器容量映射缺失，新增默认 1024 槽配置与定向契约；`StorageStabilizerPortContractTest` 8 项通过，Java 编译通过，未启动客户端/运行全量。
+> 2026-10-16 消息追加：170 条仪式均补齐中英文四类上游消息键；开始/完成/中断/条件失败使用 per-ritual 组件，CraftTweaker 动态定义保留通用回退。仪式本地化和资源定向测试通过，Java 编译通过，未启动客户端/运行全量。
+> 历史构造器修复批次（非当前验证）：（1）当时全量基线为 **58 个测试类、345 项、0 失败/错误**；新增高阶灵体模型/renderer 契约。（2）修复 `EntityDjinniJob`、`EntityAfritJob`、`EntityMaridJob` 注册时缺少公开 `World` 构造器的问题。（3）修正 Otherworld Bird 野性仪式中的 1.12 物品 ID：`minecraft:cobweb` → `minecraft:web`。（4）当时 `runClient` 加载烟测确认仪式数据和9个 Mod 成功加载。最新结果只认上方定向批次及 `进度.md`，不将旧全量/客户端结果推广到当前改动。
 > 2026-10-13 增补：仪式辞典页已接入按上游 `BookRitualRecipePageRenderer` 重建的专用布局；同时按维护者要求移除异界木板门、墙、按钮、台阶、楼梯、栅栏、压力板及镂空/裂纹装饰砖等装饰类方块与残留资源。`compileJava`、全量测试、资源审计和客户端加载烟测均通过。
 > 2026-10-13 追加：仪式页法阵标题采用上游本地化键并可点击跳转至法阵条目；12 个祭祀碗、中心金碗、启动物、产物、献祭/召唤/职业文本保持上游 renderer 坐标。
 > 2026-10-13 追加：仪式运行视觉按上游状态补齐灰色等待粒子、紫色运行粒子、等待献祭状态、祭祀碗内物品浮空旋转和完成时中心烟雾；未新增上游不存在的法阵光束。
@@ -138,7 +152,7 @@
 - 新增两张结构化 1.12 loot table：随从掉箭和骨；首领掉煤、骨，并仅在玩家击杀时按上游 `0.67..1.0` 映射生成 metadata 1 的骷髅头，再受 Looting 影响。1.12 不存在 Rib Armor Trim，因此不伪造该掉落；Iesnium 屠刀的通用 15% 额外头颅逻辑仍可能在此表之外追加头颅。恶魔之梦食物现可治疗两类 Wild Hunt 实体。
 - 新增通用 1.12 `RitualTrigger` 与隐藏 `occultism:occultism/summon_wild_hunt` advancement；成功完成专用仪式时会按 `occultism:ritual/summon_wild_hunt` 条件授予。Dictionary 新增 `summon_wild_greater_spirit` 三页和 `possess_warden` 三页并更新 Wither Skull 配方引用，现为 9 类、203 条目、717 页、20 个法阵条目；生成器支持本地 entry override/fallback，并用本地 resurrection override 保留此前 `summon_foliot` 解锁修正。
 - 新增 11 项 `WildHuntPortContractTest`，通过 Bootstrap 实体构造及源码/资源契约覆盖注册/renderer、属性、随从数量和装备、友军免疫与首领护盾、生成取消、日照/和平实现、UUID NBT 主从往返与已加载实体重连、掉落表、canonical 仪式/法阵/dummy、JEI/调试数量元数据、双语/辞典和隐藏进度。当前仍没有真实世界中的完整仪式、12-27 实体战斗、实际掉落、区块卸载或存档重载回归。
-- 本轮新增 `WildHuntMaster`/`WildHuntMinions` UUID NBT，并每 20 tick 在当前 `WorldServer` 的已加载实体中重连主从关系；不会为关系恢复强制加载区块，目标实体不存在时保留有限引用以等待后续加载。随从从世界移除时通知首领。通用献祭引擎仍在仪式启动时自动杀死村民或女巫，而固定上游要求由玩家击杀村民/流浪商人/玩家；为避免自动杀死附近玩家，本轮没有把 Player 直接加入本地 `humans`。法阵检测器也继续允许高阶粉笔替代低阶粉笔，完成消息/声音/粒子仍走本地通用仪式反馈，这些均是已记录的非等价边界。
+- 本轮新增 `WildHuntMaster`/`WildHuntMinions` UUID NBT，并每 20 tick 在当前 `WorldServer` 的已加载实体中重连主从关系；不会为关系恢复强制加载区块，目标实体不存在时保留有限引用以等待后续加载。随从从世界移除时通知首领。该历史批次的自动献祭已由后续玩家击杀事件实现替代，`humans` 现匹配村民/玩家；不会主动伤害玩家。法阵检测器仍允许高阶粉笔替代低阶粉笔，声音/粒子等视觉差异继续单独记录。
 
 ## 本轮新增：十类专用附身实体、Hoglin/Warden 兼容实现与通用仪式收尾
 
@@ -277,25 +291,25 @@
 
 | 模块 | 当前状态 | 现有成果 | 主要缺口 |
 | --- | --- | --- | --- |
-| Forge 工程与打包 | 基本完成 | 1.12.2 生命周期、注册、GUI、网络、世界生成和打包链已接通；全量重跑构建成功 | 本机 JDK 路径硬编码；无普通 push/PR 构建 CI |
+| Forge 工程与打包 | 基本完成 | 1.12.2 生命周期、注册、GUI、网络、世界生成和打包链已接通；本机 JDK 路径已移除，local wrapper 仍可选项目 JDK | 无普通 push/PR 构建 CI |
 | 方块、物品与模型 | 大部分完成 | `BLOCKS` 数组 127 项，`ITEMS` 数组 335 项；模型、贴图、blockstate 和语言键静态校验通过；slab、fence gate、门物品和动画元数据问题已修复；新增无 ItemBlock 的 `lighted_air`、Beaver Nugget 食物、Phantom Membrane、Otherworld Bird/机器操作员书籍与 dummy、Warden ritual dummy、`summon_wild_parrot`/`summon_wild_afrit` 资源及 Dragon/Fairy/Beholder/Chimera/Wild Hunt ritual dummy | 335 个物品中含 165 个 ritual dummy 和 9 个已从创造栏隐藏的调试/测试物品；legacy Wild Hunt dummy 也已隐藏但保留注册，16 个方块直接使用 `BlockModelOnly`；仍需游戏内抽查复杂模型和动态方块 |
-| 法阵与仪式引擎 | 大部分完成，基础加载已回归 | 20 个本地法阵、170 条仪式定义、65 条实体献祭要求；支持合成、召唤、职业召唤、升级、修复、复活和野性召唤；新增 Otherworld Bird 与 Djinni 机器操作员仪式；`resurrect_familiar` 已校正为 `summon_foliot`，Wild Hunt 使用专用 600 tick 三首领分支，Warden 使用 1200 tick 兼容分支，新增 Wild Afrit 使用 1200 tick 兼容分支；170 条定义已通过当前资源/契约校验 | 尚缺逐类仪式的游戏内执行回归；通用献祭仍在启动时自动击杀，且 prototype/替代实体仍不等于上游行为等价 |
+| 法阵与仪式引擎 | 大部分完成，基础加载已回归 | 20 个本地法阵、170 条仪式定义、65 条实体献祭要求；支持合成、召唤、职业召唤、升级、修复、复活和野性召唤；新增 Otherworld Bird 与 Djinni 机器操作员仪式；`resurrect_familiar` 已校正为 `summon_foliot`，Wild Hunt 使用专用 600 tick 三首领分支，Warden 使用 1200 tick 兼容分支，新增 Wild Afrit 使用 1200 tick 兼容分支；170 条定义已通过当前资源/契约校验 | 献祭现用玩家击杀事件并在tick末确认取消/复活，仍缺真实多人及保存卸载回归；prototype/替代实体仍不等于上游行为等价 |
 | Spirit Fire | 基本完成 | 有独立配方注册、方块逻辑、JEI 分类和 CraftTweaker 接口 | 需要运行期覆盖全部输入、掉落和自动化交互 |
 | Foliot 职业 | 大部分完成 | 清洁、搬运、农夫、伐木、熔炼、粉碎、结晶及 3 类交易者，共 10 条本地职业仪式；呼唤之书支持工作区、提取点、存放点和实体收纳 | 尚无自动化行为测试；复杂模组库存兼容仅由通用 Forge inventory/capability 路径保证 |
 | Djinni/Afrit/Marid 职业 | 部分完成 | 三个阶级均有粉碎、结晶、熔炼工人；Djinni 另有 gambler 和 `manage_machine` 机器操作员；复用本地职业循环、呼唤之书、神灯和灵魂碎片链路；机器操作员已有同维度导航、严格端点、状态持久化、有界订单重试和 linked machine/order 最小路由 | 主要是阶级化通用工人，不是上游专属模型、AI 和完整高阶职业；机器操作员仍缺 SmartBrain、跨维度/区块加载、完整 GUI、Storage Proxy 和真实机器回归 |
-| 天气和时间灵体 | 部分完成 | 5 条天气/时间职业数据会直接修改世界状态 | 未实现上游对应灵体实体与完整职业行为 |
+| 天气和时间灵体 | 实体职业已接入，世界回归未完成 | 五条仪式召唤本地 Djinni/Afrit 职业实体；晴天/降雨/雷暴延迟 300/600/1200 tick，昼夜 100 tick 插值，五项配置开关，进度与目标 NBT，完成消散 | 现代 Brain/GeckoLib 与信标音不等价；实际召唤、运输、中途死亡、跨维度和客户端回归未完成 |
 | 高阶灵体实体 | 部分完成 | 末尾追加了专用 Djinni、Afrit、Marid 类；`EntityBoundSpirit` 提供可命名、收纳、治疗、灵魂碎片恢复，以及 1 槽主库存、ITEM_HANDLER capability、同步/NBT 往返和独立服务端容器/GUI；职业路线同样复用 `EntityFoliotJob`，机器操作员已有同维度 handler 搬运第一阶段 | 仍非完整上游 SpiritEntity：缺少完整专属模型/AI、owner、filter、工作区/存取点统一状态、Job/Brain 和 Ancient 职业体系；机器订单/导航也只是 1.12 简化路径 |
 | 使魔 | 大部分完成，世界行为未回归 | 参考上游 16 条 Familiar 直接仪式已达到 `16/16`；Cthulhu、Blacksmith、Greedy、Dragon、Fairy、Beholder、Chimera 均有独立实体、AI、模型、仪式、戒指运输和手册闭环，Chimera -> Goat -> Shub Niggurath -> Spawn -> Beholder 的派生生存链也已接通；16 类本地 Familiar 已统一接入正常死亡 -> canonical shard -> 复活及施法者复绑定；`IFamiliar` effects/tick API、16 类 settings capability、固定顺序同步包、16 个客户端 settings 按键、原生 Familiar Ring capability 和 nearby/equipped `FamiliarUtil` 已接入；Blacksmith 可升级 12 类目标，升级 Beholder 的装备戒指失明免疫已修复，Fairy 支援/救援、Greedy/Dragon 骑乘代拾物等既有链路保留；`occultism:familiar` 26 类成功条件均已接入并有 25 个 Familiar advancement 文件 | 原版 Curios API 本身未引入；当前原生槽只允许一个 `IFamiliar` 戒中实体，非 `IFamiliar` 运输实体只能捕获/释放、不能装备或提供戒中效果；客户端 foil 与类型 tooltip 本地化已完成，但完整世界 AI、唱片机/升级/分离/爆炸交互、真实死亡/满背包/离线与跨维度主人/复活执行和专服回归仍未完成；vanilla Parrot/Otherworld Bird 按固定快照不走共享死亡 shard；Devil、Blacksmith、Fairy、Chimera、Otherworld Bird 不可升级 |
 | 附身与野性实体 | 大部分完成（固定上游核心阵容），世界行为未回归 | 固定 1.81.4 的十类专用附身实体已全部接线：八类使用 1.12 原版基类兼容，Hoglin/Warden 使用专用兼容实现；十条仪式、十张 loot table、模型/renderer、Dictionary canonical 映射/文字、普通召唤 `SUMMONED_ENTITY` 和四类召唤路径的 `SpecialSpawn`/`onInitialSpawn` 已同步。Hoglin 新增经典蘑菇回避替代、非下界 300 tick 转 Zombie Pigman 和计时 NBT；Warden 新增玩家扫描、魔法脉冲、Weakness、失明场和脉冲状态 NBT。另有专用 Otherworld Bird、本地 Possessed Bee、Mercy Goat、Purified Allay；Wild Hunt 已有专属双实体、3 首领、每首领 3-8 随从、护盾/友军免疫、专用掉落/法阵/仪式和隐藏进度 | Hoglin 仍缺现代 Brain、真实 Zoglin 属性、下界生物群系规则、Warped Fungus 身份和现代 loot 规则；Warden 缺现代 Brain、振动感知、Darkness、钻地和真正音波行为，当前以近战、周期魔法脉冲和失明场替代。Otherworld Bird 已有本地服务端校验的 Double Jump capability/网络兼容层，但仍使用原生 Parrot 模型/AI，真实客户端跳跃和世界运动尚未回归。刀具 Tallow 规则已有本地接线但仍缺世界回归；Blaze、Witch、Guardian、Iesnium Golem 及随机动物等现代数据仍多为原版替代/简化。所有新实体与 Wild Hunt 均缺真实世界战斗、掉落及区块/存档重载验证；复活路径按上游继续不走通用 spawn hook |
 | 维度矿井与战场 | 大部分完成 | 矿工耐久、加权产物、提取器输出、战场掉落捕获、GUI、比较器和 capability 交互均有本地实现 | 需要长时间运行、区块加载、满库存、死亡掉落和模组交互回归 |
-| 存储与虫洞 | 部分完成 | 基础 128 槽、tier1-4 stabilizer 容量、六向 5 格扫描、旧 NBT/便携物品无损扩容、缩容隐藏栈保留、1024 超大堆叠/物品上限覆盖、控制器/Remote 黑名单、动态容器和六行滚动 GUI、虚拟聚合条目/物理槽映射/跨槽提取、搜索/数量名称模组排序、客户端搜索框、排序/方向/清空控件、服务端设置同步、`ClientStorageCache`、有界压缩栈同步、第一阶段 3x3 终端合成、容器级瞬时 recipe lock、同维度已加载 linked machine/order 最小路由、`GlobalBlockPos`/`IStorageController`/`IStorageControllerProxy` loaded-only API 委托、远程访问器 ItemStack `ITEM_HANDLER` capability 和 `matrix`/`orderStack` 持久化已实现；远程访问器、稳定虫洞和实体虫洞仍只访问已加载目标并保留链接 | 未移植完整跨网络虚拟缓存、异步网络缓存和跨维度/区块加载代理；linked machine NBT 持久化、同维度/已加载约束及简化订单路由是 1.12 差异；合成尚无完整配方书、独立 order inventory 和客户端合成缓存，stabilizer 方向属性及放置/拆除即时通知未等价 |
+| 存储与虫洞 | 部分完成 | 基础 128 槽、tier1-5 stabilizer 容量、六向 5 格扫描、旧 NBT/便携物品无损扩容、缩容隐藏栈保留、1024 超大堆叠/物品上限覆盖、控制器/Remote 黑名单、动态容器和六行滚动 GUI、虚拟聚合条目/物理槽映射/跨槽提取、搜索/数量名称模组排序、客户端搜索框、排序/方向/清空控件、服务端设置同步、`ClientStorageCache`、有界压缩栈同步、第一阶段 3x3 终端合成、容器级瞬时 recipe lock、同维度已加载 linked machine/order 最小路由、`GlobalBlockPos`/`IStorageController`/`IStorageControllerProxy` loaded-only API 委托、远程访问器 ItemStack `ITEM_HANDLER` capability 和 `matrix`/`orderStack` 持久化已实现；远程访问器、稳定虫洞和实体虫洞仍只访问已加载目标并保留链接 | 未移植完整跨网络虚拟缓存、异步网络缓存和跨维度/区块加载代理；linked machine NBT 持久化、同维度/已加载约束及简化订单路由是 1.12 差异；合成尚无完整配方书、独立 order inventory 和客户端合成缓存；tier5 容量映射已于 2026-10-16 修复，真实放置/拆除世界回归仍未完成 |
 | 便携物品与工具 | 大部分完成 | 挎包、末影挎包、仪式挎包、灵魂宝石、神灯、生命指南针、知识石板、占卜工具、屠刀、自然糨糊等有本地行为 | 仍需覆盖 NBT 边界、死亡/复制、跨维度和模组容器兼容 |
 | 异界方块与世界生成 | 大部分完成 | 铜、银、Iesnium、异界石/木/树、隐藏/揭示状态、第三只眼和本地矿物/树生成已接入 | 高版本生态、地形和装饰内容只保留 1.12 可实现部分 |
 | 渲染、动画、音效与粒子 | 部分完成 | 有 1.12 原生实体模型/Renderer、第三只眼 overlay 和原版粒子/音效替代；Cthulhu 已迁入专属层级模型、状态动画和送花层，Blacksmith 已迁入双根模型、唱片舞蹈、坐姿、variant 和铁锭层；Mummy 显示双拳套，Bat 显示酒杯，Deer 显示八刺战锤与挥击，Headless 显示头盔及青色灵焰近似，Devil 保留专属挥击火焰；Greedy/Dragon/Fairy 分别迁入 16/42/36 部件模型及专属层；Goat/Shub/Spawn 分别迁入 36/51/25 部件模型，Beholder 迁入 39 部件四眼、睡眠/眼镜/吞食层，Chimera 迁入 48 部件成长、骑乘和三头攻击动画；Beaver 升级按上游没有新增外观 | 未迁入上游 GeckoLib geo/animation、专用 sounds/OGG、粒子定义和 shader；多种替代实体复用原版外观；已有 Familiar 视觉表现尚未游戏内人工检查，Bat jukebox partying 未迁移 |
 | Dictionary of Spirits | 部分至大部分完成 | 使用自研 1.12 GUI 读取迁移后的 Modonomicon 索引：9 类、203 条目、717 页；支持文本、配方、实体、图片和法阵预览等页面；新增 Wild Greater Spirit 三页和 Possessed Warden 三页，并把 Wither Skull 指向 canonical Wild Hunt，同时保留 Familiar 复活解锁修正 | 不是完整 Modonomicon 运行时；缺少完整的条件解锁、进度、搜索和书签能力；当前客户端烟测未人工逐页打开验证 |
 | JEI / CraftTweaker | 基本完成 | JEI 覆盖仪式、Spirit Fire、职业加工和矿井；CraftTweaker 提供仪式、Spirit Fire、职业及矿井增删接口 | 未做脚本级自动回归；上游 EMI、Almost Unified、Theurgy 等现代集成未移植 |
 | 配置、进度与数据驱动扩展 | 部分完成 | 新增标准 1.12 Forge `ModConfig`；Blacksmith 三项、Storage Controller 基础/Tier 1-4 容量、1024 堆叠和物品上限覆盖参数可配置；新增通用 `occultism:ritual` advancement trigger，并接入 Wild Hunt、Wild Afrit 与 4 条 Possessed 隐藏进度和本地辞典 entry override/fallback；普通配置实体、职业灵体、通用高阶灵体和 Wild Hunt 均共享 Forge spawn hook，并按上游在 `world.spawnEntity` 前发送原版 `SUMMONED_ENTITY` | 尚未形成对应上游 Client/Common/Server 的完整配置体系，矿工/仪式/灵体配置及其他自定义 trigger 未系统移植，固定上游 `DRAGON_RIDE` 本身也没有可达触发路径；数据包/标签能力受 1.12 限制 |
-| 自动化测试与发布 | 部分完成 | Gradle 已启用 JUnit；当前全量结果为 57 个测试类、342 项全部通过；新增通用高阶灵体主库存/容器/NBT 契约、Wild Hunt 主从 UUID 持久化、Soul Shard share-tag，以及此前 Storage Controller 自代理、矩阵持久化、recipe lock、linked machine/order、Storage Proxy API、FamiliarTrigger 全 26 类成功条件和 Familiar Ring 边界契约 | 测试仍以无世界实体、资源和源码契约为主，尚无 Wild Hunt/附身实体实际战斗、工人 AI、世界拾取/升级、真实死亡/复活、完整存档、满库存或跨维度集成测试；JDK 路径硬编码且根目录无有效 Git，专服及发布元数据/CI 未完成 |
+| 自动化测试与发布 | 部分完成 | Gradle 已启用 JUnit；当前全量结果为 57 个测试类、342 项全部通过；新增通用高阶灵体主库存/容器/NBT 契约、Wild Hunt 主从 UUID 持久化、Soul Shard share-tag，以及此前 Storage Controller 自代理、矩阵持久化、recipe lock、linked machine/order、Storage Proxy API、FamiliarTrigger 全 26 类成功条件和 Familiar Ring 边界契约 | 测试仍以无世界实体、资源和源码契约为主，尚无 Wild Hunt/附身实体实际战斗、工人 AI、世界拾取/升级、真实死亡/复活、完整存档、满库存或跨维度集成测试；根目录无有效 Git，专服及发布元数据/CI 未完成 |
 
 > 本轮矩阵中的 Familiar Ring 缺口已细化：客户端 foil、`familiarType` 服务端转换、类型 tooltip 本地化、非 `IFamiliar` 运输实体的装备边界和升级 Beholder 的装备戒指失明免疫已完成；剩余的是部分事件统一接入及真实世界回归。
 >
@@ -474,7 +488,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\verify_assets.ps1
 - 原版单只 Wither Skeleton 替代已删除；canonical 600 tick 仪式、专用 11x11 法阵、3 首领/每首领 3-8 随从、属性、装备、护盾、友军免疫、日晒/和平兼容、掉落、双语/辞典和隐藏进度均已实现并由 10 项契约测试固定。
 - 当前尚未在真实世界执行完整仪式或战斗，未验证 12-27 个实体同时寻路/攻击的 tick 成本、玩家击杀与 Looting 实际掉落、创造/虚空绕过、恶魔之梦治疗、附近玩家 `SUMMONED_ENTITY` 触发和隐藏进度授予。
 - 主从引用现在以 `WildHuntMaster`/`WildHuntMinions` UUID 写入 NBT，并在已加载实体可见时延迟重连；该行为是明确记录的本地上游缺陷修正，不会强制加载区块。真实区块卸载、服务端重启和存档重载仍需集成回归。
-- 本地 `humans` 仍是启动时自动击杀村民/女巫，未实现固定上游“玩家造成村民/流浪商人/玩家死亡”的事件式献祭；直接把 Player 加入当前匹配会自动杀死法阵附近玩家，因此需先重构通用献祭协议。法阵仍允许彩虹/虚空等高阶粉笔替代，完成反馈仍使用本地通用声音/粒子。
+- 本地 `humans` 已改为玩家击杀村民/玩家的死亡通知；不再自动击杀，也不再接受女巫替代。事件确认推迟至世界tick末避免救援取消误计，尚缺完整 Wild Hunt 世界内献祭回归。法阵仍允许彩虹/虚空等高阶粉笔替代，声音等视觉差异继续记录。
 
 ### P1：测试缺口
 
@@ -508,7 +522,7 @@ Nautilus armor 部分已于 2026-07-26 关闭：8 个 ID 经存档注册表反�
 ### P1：工程和发布信息未整理
 
 - 根目录 `.git` 是空目录，不是有效 Git 仓库；当前移植代码没有可用提交历史、分支或远端信息。
-- `gradle.properties:3` 将 `org.gradle.java.home` 硬编码为本机 `F:/MC_MOC_PJ/OCCULTISM/.jdks/jdk-25.0.3`，fresh clone 和 Linux CI 不可直接复用。
+- 2026-10-16 已移除 `gradle.properties:3` 的本机 `org.gradle.java.home`；fresh clone/CI 不再读取本机路径，local wrapper 通过 `JAVA_HOME` 选择项目 JDK。
 - `.github/workflows/deploy.yml` 只在版本 tag 上触发，且没有常规 build/test job。
 - `CHANGELOG.md` 仍是模板内容。
 - JAR 元数据仍为版本 `1.0.0`、作者 `Developer`、通用描述，URL、credits、update JSON 和 logo 为空。

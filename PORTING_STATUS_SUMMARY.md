@@ -1,12 +1,114 @@
 # Occultism 1.12.2 移植进度总结
 
-> 快照日期：2026-10-13（Asia/Shanghai）
-> 详细报告：见 `PORTING_PROGRESS_1.12.2.md`（本轮修复高阶职业实体 Forge 构造器、修正 1.12 仪式物品 ID，并完成当前源码客户端加载烟测）
+> 快照日期：2026-10-16（Asia/Shanghai）
+> 详细报告：见 `PORTING_PROGRESS_1.12.2.md`；最近批次为仪式注册表与脚本清空修复，仅做定向源码测试，旧客户端烟测不代表最新改动已完成游戏回归。
 > 上游基线：`_reference/occultism-upstream`，分支 `version/1.20.1`，提交 `84b8ad4`，Occultism `1.81.4`
 
 ## 一句话结论
 
 当前为**可构建、核心玩法已有较完整本地实现、但上游等价性与真实世界回归尚未完成的功能性 Alpha**。
+
+## 仪式注册表追加
+
+- 注册表以 `null` 区分未加载与合法空表。最后一条配方删除、整表清空及加载失败后，查询不再恢复默认仪式或不断重试/输出错误。
+- 普通初始化改为惰性查询，保留已加载/脚本修改的表；明确的 Java `load()` 仍替换整表。新增 `mods.occultism.Ritual.removeAll()`，复用现有 CraftTweaker action 机制。
+- 保留不可修改快照和整表发布/失败清空策略。生命周期测试现在通过真实删除接口检查最后一条仪式消失，并覆盖清空后从 NBT 恢复的献祭等待仪式中断、只返还一次启动物。
+- Java 编译与四个定向类共 **39项通过**（注册表9、生命周期13、献祭13、仪式数据4），0失败/错误/跳过。测试捕获日志，防止默认资源加载失败掩盖重复重载。
+- 未使用 computer、未启动游戏/专服、未运行全量。ZenScript 启动、同 ID 运行中替换、客户端同步和 GUI 刷新未验证；详见 `RITUAL_REGISTRY_1.12.md`。
+
+## 仪式材料分配追加
+
+- 固定上游也有通用候选抢占精确材料的贪心局限，本批明确修正而非宣称逐行等价。现有170条单件追加成本采用有界 Forge `RecipeMatcher`；保留本地一堆多件材料的兼容语义。
+- 启动检查、剩余检查和逐项扣料统一使用分配计划；实际消费按计划定位物理碗，保存后按已消费前缀重新分配。输入堆巨大时不全量展开。
+- 多件或超过32项的脚本成本保留旧首次匹配语义，但模拟与实际消费使用相同计划；其全局重叠分配仍有局限。非法零/负追加成本不能通过计划。
+- Java 编译与六个定向类共 **56项通过**（匹配7、生命周期12、献祭13、本地化11、视觉3、附身10），包括432个小型重叠场景及材料碗消费/存档后完成。
+- 未使用 computer、未启动游戏/专服、未运行全量。真实并发与性能回归仍未完成；详见 `RITUAL_MATERIAL_MATCHING_1.12.md`。
+
+## 仪式持续有效性追加
+
+- 对照 1.81.4 `GoldenSacrificialBowlBlockEntity.tick` / `Ritual.isValid`，本地在等待献祭/物品使用之前持续校验选定法阵、启动物及尚未消费的材料；不再只在启动时检查。
+- 条件失效或配方定义缺失会中断并返还当前启动物，不掉结果、不重新创造已取走的启动物、不退已消费材料；未加载的法阵必要格不强制读取，而是判为无效。
+- 新增按消费顺序跳过前缀的剩余材料校验；修复加速到少于材料项数的时长时，结果生成前未消费全部成本的问题。
+- 补齐动态仪式通用 `finished/interrupted/conditions` 双语键。Patchouli 概览解释等待期间仍需保持法阵和材料完整。
+- Java 编译与五个定向类共 **48 项通过**（生命周期11、献祭13、本地化11、视觉3、附身/召唤10）。共享内存 World 桩放置真实本地法阵图案、捕获掉落，并拒绝访问未加载格。
+- 未用 computer、未启动游戏/专服、未跑全量。后续材料分配批次已修正标准单件成本的贪心局限，计数脚本后备与真实区块/多人/脚本恢复仍需验证；见本页最新段落。
+
+## 玩家击杀献祭追加
+
+- 对照 1.81.4 `GoldenSacrificialBowlBlockEntity.onLivingDeath` 和 `Ritual.isValidSacrifice`，删除本地金碗自动寻找、攻击和强制删除祭品的路径。
+- `RitualSacrificeHandler` 监听服务端玩家归因击杀，包括玩家箭矢；用死亡脚下方块与金碗的三维距离平方 `<=64` 检查。任何玩家的击杀都可满足范围内多个活动仪式。
+- 在 WorldTick.END 确认同一事件未取消、受害者未获救、金碗与运行代次未变化，才写入既有 `SacrificeProvided`；卸载世界清理队列，不强制加载区块。确认可比上游即时通知晚一个 tick，队列不跨存档保留。
+- `humans` 对齐村民/玩家，不再接受女巫。仅通过真实死亡通知匹配，不会自动伤害法阵附近玩家。帕秋莉献祭正文、双语等待提示和帕秋莉/JEI 名称翻译同步更新。
+- Java 编译通过，五个定向类共 **47 项通过**（献祭事件 13、视觉 3、Wild Hunt 11、附身/召唤 10、本地化 10）。书籍生成检查通过；未用 computer、未启动游戏/专服、未跑全量。
+- 剩余验证和同 tick 保存/卸载边界见 `RITUAL_SACRIFICE_1.12.md`；下方旧报告的“自动击杀献祭”描述已由本批替代。
+
+## 天气与时间职业追加
+
+- 对照固定 1.81.4 的 `ChangeWeatherJob` / `ChangeTimeJob` 及其五个子类，新增本地 `WorldEffectJob`。金碗完成改为召唤本地 Djinni/Afrit 职业实体，不再直接修改世界状态。
+- 晴天/降雨/雷暴分别施法 300/600/1200 tick 后生效，天气计时使用上游 6000 tick；昼夜在 100 tick 中按上游公式插值到下一个黎明/黄昏。施法目标随 NBT 保留，完成后不重复执行。
+- 五条仪式补齐阶级、有限寿命、展示实体，召唤时长统一为上游 1200 tick；新增 Forge `rituals` 五项启用开关及双语禁用消息。正常职业完成消散，不掉可重复触发的魂片。
+- 世界效果由已有职业实体承载，复用 Spawn hook、模型和神灯 NBT。完成时 1.12 以附魔台音替代高版本信标启动音；不添加上游未加入世界的雷电实体，不新增装饰方块。
+- 本批 Java 编译通过，四个定向类 **36 项通过**（天气/时间 12、仪式数据 4、高阶职业 10、附身/召唤契约 10）。Patchouli 天气/时间正文和 tooltip 已同步；书籍仍为每语言 9 类、203 条目。
+- 这些证据覆盖 WorldInfo 和无世界实体状态、数据及源码契约，不覆盖实际仪式全流程、客户端渲染、跨维度或神灯操作。未用 computer、未启动客户端、未执行全量测试。
+- 细节与剩余边界：`WEATHER_TIME_PORT_1.12.md`。下方历史段落中“天气/时间直接效果”的描述已被本批替代。
+
+## 2026-10-14 帕秋莉说明书接入
+
+- 使用官方现有 1.12 版 Patchouli `1.0-23.6`，依赖坐标 `vazkii.patchouli:Patchouli:1.0-23.6`；开发运行时自动加载，发布时独立安装，不把其类打入 Occultism。不是重新移植高版本 Patchouli。
+- 原灵魂辞典物品通过服务端 API 打开 Patchouli 书 `occultism:dictionary_of_spirits`；缺少 Patchouli 时保留旧入口。潜行与法阵调试权限保持原逻辑。
+- 生成英中双语各 9 类、203 条目，共 2065 页，425 个 JSON（含 book.json）；转换文字标记、条目/锚点、物品 metadata、实体、图片、合成和熔炼引用。分类链接转为普通强调文字，因为固定版本的文本链接只支持条目。
+- 新增仪式、灵火页面：仪式图沿用上游祭祀碗布局并适配 Patchouli 页宽，材料/产物来自运行期注册表；法阵标题可跳转。多方块直接取本地检测器图案，转置 Patchouli 的 X/Z 索引，支持粉笔替代、野性火灵特殊符号和骷髅 tile 类型预览/检查。
+- 补齐功能配方 `storage_stabilizer_tier0` / `_dark`：按 26.1.2 参考配方从现有 otherstone/otherrock pedestal 转换；修正镜框替代配方引用。未新增装饰类方块。
+- **当前验证**：Java 编译通过；最新定向 `PatchouliBookPortTest` 为 4/4 通过，覆盖双语清单、物品/图片/配方/法阵引用、链接锚点和两张稳定器配方；资源审计通过。用户新增限制前的一次全量为 352 项、351 通过、1 项新书引用失败；随后仅定向修复并验证，不能将最终状态记为全量全绿。
+- 客户端日志确认 Patchouli 与其他 9 个 Mod、170 条仪式、JEI 加载成功。没有实际开书、页面截图或世界内投影验证；开发客户端已关闭，`runClient` 的 `-1` 来自主动终止。
+- **仍未完成**：长文分页只采用保守宽度估算，英中内容仍含历史上游差异及部分未译文本，须继续核对；交易页已接入动态配方查询和多成本绘制，但尚无真实页面视觉回归，也不宣称整模组移植完成。
+- 工作方式更新：不使用 computer，不运行全量测试；以代码为主，累计修改后只执行必要的定向检查。最新入口见 `进度.md`；下方旧日期段落与指标保留为历史记录。
+
+## 2026-10-14 交易职业与说明书配方页对齐
+
+- 新增 `spirit/SpiritTradeRecipeRegistry`，集中保存 `stone_to_otherstone`、`stone_to_otherrock`、`otherworld_sapling` 的输入、输出、上游处理时间和每轮交易次数。
+- `EntityFoliotJob` 改用共享定义：异界石/异界岩每 20 tick 推进一步、共 15 步（300 tick），每轮最多 4 次；异界树苗共 20 步（400 tick），每轮 1 次。交易只在完整输入上消耗，并支持已注册的 `stone` OreDictionary 输入。
+- 旧版自研辞典交易引用也改为共享注册表；Patchouli 新增 `occultism:spirit_trade` 自定义页，按上游 renderer 绘制输入框、抛物箭头、输出框和计时信息。生成器已从静态 spotlight 改为该页。
+- 定向验证：`SpiritTradePortContractTest` 7 项、`HighTierJobSpiritPortContractTest` 10 项、`PatchouliBookPortTest` 4 项全部通过；`compileJava` 通过，生成器 `--check` 通过，未运行全量。
+- 存档兼容：旧 `WorkTimer` 按交易定义折算为完整秒并限制在未完成步骤，避免旧逐 tick 计数直接跳过新计时。
+- 当前书籍页数更新为英中合计 2065 页（交易页合并减少 6 页），仍为每语言 9 类 / 203 条目。
+- 边界：共享表为三种固定单输入交易；尚未迁移上游任意多输入配方、交易 ID/NBT 配置或脚本增删。异界岩为本地后续版本路线，七种原版石头变种仍沿用旧本地输入；新增 OreDictionary 对应上游 stone tag。没有世界/GUI 实测证据，不标记完整 TraderJob 等价。
+
+## 2026-10-14 交易 ID / NBT / 脚本接口追加
+
+- 交易者新增 `setTradeRecipeId`、`setTimeToConvert`、`setMaxTradesPerRound`，恢复上游同名存档字段；旧 `WorkTimer` 仍兼容，秒数转 tick 受溢出边界保护。
+- 注册表支持短名与完整资源 ID、按 ID 替换/移除及防御性副本；错误定义在修改前拒绝，指定缺失/无效 ID 时停止处理并保留输入，不隐式选另一条配方。
+- 新增 `mods.occultism.SpiritTrade.addRecipe/addOreRecipe/removeRecipe`。数组表示单个输入的候选项，不是多成本列表；字段与示例见 `SPIRIT_TRADE_1.12.md`。
+- Patchouli 交易页查询当前配方；默认方块物品延迟解析，修复测试发现的早期类初始化空物品问题。
+- 本批只运行三个定向测试类，**26 项通过**（交易 12、说明书 4、高阶职业 10），编译通过。没有使用 computer、启动客户端或执行全量。
+- 未完成范围仍包括任意多输入交易、原生数据包与客户端配方同步；脚本入口尚未实跑 ZenScript，世界/GUI 回归仍未完成。下方旧批次“不支持 ID/NBT/脚本”的描述为历史状态。
+
+## 2026-10-16 多原料 SpiritTrade 对齐
+
+- `SpiritTradeIngredient` 和 `SpiritTradeRecipeRegistry.registerIngredients` 已支持最多 9 项无序成本；每项可包含普通物品候选或动态 OreDictionary 条目，metadata wildcard 和带 NBT 候选按 1.12 语义匹配。
+- `Recipe.isValid(List<ItemStack>)` 使用有界 Forge `RecipeMatcher` 做成本分配；`consume` 深拷贝并只扣除完整成本，输入不足或重叠候选无解时原数量保持不变。大堆栈不会按 count 展开。
+- `EntityFoliotJob` 会按成本数量限制拾取，能补入不足一轮的同类余料；不同物品不会覆盖手中材料。单主手堆仍保留上游 TraderJob 执行边界，多物品类型配方只在多堆 API 中完整消费。
+- Patchouli 自定义交易页和旧辞典交易引用会显示所有成本；单成本仍使用上游交易框布局，多成本使用最多 3x3 成本槽。新增 CraftTweaker `addShapelessRecipe`。
+- 定向验证：`SpiritTradeIngredientsTest` 12、`SpiritTradePortContractTest` 12、`PatchouliBookPortTest` 4、`HighTierJobSpiritPortContractTest` 10，共 38 项通过；未使用 computer、未运行全量、未做客户端页面实测。
+- 尚未完成：原生数据包交易配方、客户端自动同步、自定义交易设置 GUI、混合物品收集 AI 和世界内交易回归。旧段落中关于“多输入尚未实现”的内容属于历史状态，当前边界以本段为准。
+
+## 2026-10-16 工程可移植性
+
+- 移除 `gradle.properties` 中指向 `F:/MC_MOC_PJ/OCCULTISM/.jdks/jdk-25.0.3` 的绝对 `org.gradle.java.home`。`gradlew-local.bat` 仍通过 `JAVA_HOME` 选择项目 JDK，普通 wrapper 和 CI 不再被本机路径劫持。
+- 该构建元数据修复未单独启动客户端；后续集中验证已重新编译 Java，并运行存储稳定器定向契约。
+
+## 2026-10-16 5 阶存储稳定器修复
+
+- 发现 tier5/tier5_dark 已有注册、配方、仪式和说明书，但 `TileEntityStorageController.getSlotsForStabilizerBlock` 未处理它们，实际容量贡献为 0。
+- 新增 `stabilizerTier5Slots` Forge 配置，默认 1024，并将明暗两种 tier5 稳定器接入容量计算；保持 1.12 的六向定向扫描和动态配置边界。
+- 新增定向契约，固定两种 tier5 方块必须返回配置容量；`StorageStabilizerPortContractTest` 8 项通过，`compileJava` 通过。未启动客户端、未运行全量。
+
+## 2026-10-16 仪式消息协议对齐
+
+- 依据上游 `Ritual.java` 的四类消息协议，为全部 170 条本地仪式补齐中英文 `started/interrupted/finished/conditions` 键，共 680 条/语言。
+- `RitualDefinition` 新增四个协议组件；金碗开始/条件失败、祭祀碗完成/中断均使用 per-ritual 组件，额外的 `running`、献祭等待、物品使用和调试消息保持 1.12 本地扩展。
+- 无本地 `display_name_key` 的 CraftTweaker/运行时定义回退通用键，避免显示原始翻译键。
+- `RitualNameLocalizationContractTest` 与 `PortedResourceContractTest` 定向通过；Java 编译通过，未启动客户端、未运行全量。
 
 ## 进度区间（三个独立口径，不可合并为单一百分比）
 
@@ -31,7 +133,7 @@
 - **使魔（Familiar）**：上游 16 条直接 Familiar 仪式 `16/16` 落地；16 类本地 Familiar 有独立实体/AI/模型/仪式/辞典闭环；死亡→灵魂碎片→复活主循环、Blacksmith 12 类升级链、26 类 `FamiliarTrigger` 事件与 25 个隐藏进度、原生单槽 Familiar Ring capability 均已接入。
 - **附身与野性实体**：固定上游 10 类专用附身实体全部接线（8 类原版基类兼容 + Hoglin/Warden 专用 1.12 兼容实现）；Wild Hunt 专属双实体、3 首领/3-8 随从、护盾/友军免疫和主从 UUID 持久化/已加载实体重连均已接入；Wild Afrit、Wild Parrot、Otherworld Bird 仪式落地。
 - **存储网络（第一阶段）**：动态容量（128 + stabilizer 增量）、1024 超大堆叠、虚拟聚合/搜索/排序、有界压缩栈同步、3x3 终端合成、recipe lock、linked machine/order 最小路由、`GlobalBlockPos`/Proxy API、跨维度已加载访问。
-- **手册**：自研 1.12 GUI 承载 9 类 / 203 条目 / 717 页；英中双语各 2,939 个键完全一致。
+- **手册**：已接入 Patchouli 1.12，中英各 9 类 / 203 条目，共 2065 页；自研 GUI 保留为未安装依赖时的后备。文本和布局的完整回归尚未完成。
 - **集成**：JEI 覆盖仪式/灵火/职业/矿井；CraftTweaker 增删接口可用。
 
 ## 2026-10-13 仪式页面与装饰方块范围修正
@@ -104,11 +206,11 @@
 1. **6 条 prototype 桥接仪式**：法阵、材料、时长齐全且可启动，但结果仍是材料替代，未承接真实的召唤/附身/接触语义（`possess_djinni`、`possess_unbound_afrit`、`possess_afrit`、`craft_afrit`、`contact_wild_spirit`、`contact_eldritch_spirit` 六个法阵各对应一条）。这是真实待办，**不可删除**，详见上节。
    另一项仪式侧缺口是**消息协议未本地化**：上游每仪式 4 个翻译键 `ritual.occultism.<path>.{started|interrupted|finished|conditions}`，本地仅 7 条仪式有键，其余走硬编码英文 `display_name`；164/170 条可复用既有 `ritual_dummy` 名称键。
 2. **高阶灵体**：Djinni/Afrit/Marid 仍为单一 `EntityBoundSpirit`/`EntityFoliotJob` 按 tier 复用，非三套专属实体/AI/库存/工作区。
-3. **存储网络**：缺完整跨网络虚拟缓存、远程完整 capability 代理、JEI/配方书协同、stabilizer 方向属性。
+3. **存储网络**：缺完整跨网络虚拟缓存、异步网络缓存、跨维度/区块加载代理、JEI/配方书协同；1.12 的定向 stabilizer、loaded-only capability 代理和第一阶段终端合成已有本地实现。
 4. **真实世界回归**：几乎所有新批次（Familiar 升级链、Wild Hunt 群战、10 类附身实体、碎片/复活、机器操作员）只有静态/Bootstrap/契约验证，无游戏内执行证据；专服仅验证到 EULA。
 5. **视觉与音效**：未迁 GeckoLib geo/animation、专用 OGG、粒子定义；部分实体复用原版外观。
 6. **P2 已知问题**：旧存档 Nautilus armor 8 个 ID 已由 missing-mapping 处理器明确 `ignore()`；仪式名称本地化已完成，仍需真实客户端逐条回归。
-7. **工程发布**：无有效 Git 历史、JDK 路径硬编码、CI/CHANGELOG/JAR 元数据未整理。
+7. **工程发布**：无有效 Git 历史、CI/CHANGELOG/JAR 元数据未整理；JDK 绝对路径已在 2026-10-16 移除。
 
 ## 可量化指标
 
