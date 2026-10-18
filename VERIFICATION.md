@@ -114,6 +114,43 @@ Done (23.948s)! For help, type "help" or "?"
 
 **这道关卡不证明**：客户端渲染、GUI、手册翻页、多人同步。
 
+## 1.21.1 内容对齐核查（2026-10-18，收尾批）
+
+以 1.21.1 的 `OccultismBlocks.java` / `OccultismItems.java`（tag `release/v1.21.1-1.224.5`，
+commit `4877cde`）为基准逐项比对。
+
+**方块**
+
+| 指标 | 数值 |
+| --- | --- |
+| 上游注册名 | 165 |
+| 本地注册名 | 173 |
+| 上游有、本地无 | 8 |
+
+缺的 8 个，逐条给出处置：
+
+| id | 处置 |
+| --- | --- |
+| `otherplanks_sign` / `_wall_sign` / `_hanging_sign` / `_wall_hanging_sign` | 1.20+ 概念；1.12 无原版模型可参照，文字渲染依赖 `TileEntitySign` 渲染器，无客户端时无法验证 |
+| `spirit_wall_torch` | **有意合并**：1.12 用单一方块 + `facing` 覆盖地面与挂墙 |
+| `silver_ore_deepslate` | 1.17+ 深板岩变体，**1.12 不适用** |
+| `skeleton_skull_dummy` / `wither_skeleton_skull_dummy` | 仅 JEI 展示用的假方块 |
+
+**物品**
+
+上游 378 个物品 id 中本地缺 80 个，但绝大多数是统计口径或版本差异：
+
+| 类别 | 数量 | 说明 |
+| --- | --- | --- |
+| `spawn_egg/*` | 约 50 | 1.12 用单个 `ItemSpawnEgg` + metadata，不是每实体一个物品 |
+| 方块物品（`stable_wormhole`、`spirit_torch` 等） | 6 | 由 `registerItemBlocks` 生成，不在 `ModItems` 清单里 |
+| `*_icon` / `jei_dummy/*` / `pentacle_*` | 12 | 数据生成或 JEI 内部展示用 |
+| `wild_breeze` 等 | 3 | 微风怪是 1.21 生物，1.12 不存在 |
+| 命名差异 | 1 | 本地 `zombified_piglin` / 上游 `zombie_piglin` |
+
+**结论**：适用于 1.12 的内容已对齐；剩余差异要么版本不存在，要么是展示占位。
+
+
 ## 没被验证的部分
 
 **这一节比上面所有内容都重要。**
