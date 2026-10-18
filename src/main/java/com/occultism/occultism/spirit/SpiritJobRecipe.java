@@ -178,6 +178,9 @@ public class SpiritJobRecipe {
         recipes.add(crushing("gemEmerald", new ItemStack(Items.EMERALD), new ItemStack(ModItems.EMERALD_DUST)));
         recipes.add(crushing(amethystInputs(), new ItemStack(ModItems.AMETHYST_DUST)));
         recipes.add(crushing("enderpearl", new ItemStack(Items.ENDER_PEARL), new ItemStack(ModItems.ECHO_DUST)));
+        // Upstream crushes otherstone/otherrock into their cobbled forms.
+        recipes.add(crushing(new ItemStack(ModBlocks.OTHERSTONE), new ItemStack(ModBlocks.OTHERCOBBLESTONE)));
+        recipes.add(crushing(new ItemStack(ModBlocks.OTHERROCK), new ItemStack(ModBlocks.OTHERCOBBLEROCK)));
         return Collections.unmodifiableList(recipes);
     }
 

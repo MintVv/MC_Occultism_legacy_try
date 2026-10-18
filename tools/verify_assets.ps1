@@ -552,6 +552,8 @@ $noItemBlock = @('datura', 'lighted_air') + $glyphs + @(
     'polished_otherrock_double_slab',
     'otherstone_bricks_double_slab',
     'otherrock_bricks_double_slab',
+    'othercobblestone_double_slab',
+    'othercobblerock_double_slab',
     'otherstone_natural',
     'otherrock_natural',
     'otherworld_log_natural',

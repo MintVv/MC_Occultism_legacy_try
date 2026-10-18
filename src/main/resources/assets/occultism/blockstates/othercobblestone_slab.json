@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=bottom,variant=default": { "model": "occultism:othercobblestone_slab" },
+    "half=top,variant=default": { "model": "occultism:othercobblestone_slab_top" }
+  }
+}

@@ -1,0 +1,1 @@
+{ "parent": "block/outer_stairs", "textures": { "bottom": "occultism:block/othercobblerock", "top": "occultism:block/othercobblerock", "side": "occultism:block/othercobblerock" } }

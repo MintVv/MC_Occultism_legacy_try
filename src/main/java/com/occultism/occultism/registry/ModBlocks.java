@@ -324,6 +324,23 @@ public final class ModBlocks {
 
     public static final Block SPIRIT_TORCH = block("spirit_torch", new BlockSpiritTorch(), 0.0F, 0.0F, -1);
 
+    public static final Block OTHERCOBBLESTONE = block("othercobblestone", new Block(Material.ROCK), 1.5F, 30.0F, 0);
+    public static final BlockOccultismSlab OTHERCOBBLESTONE_SLAB = (BlockOccultismSlab) block("othercobblestone_slab",
+            new BlockOccultismHalfSlab("othercobblestone_slab"), 1.5F, 30.0F, 0);
+    public static final BlockOccultismSlab OTHERCOBBLESTONE_DOUBLE_SLAB = (BlockOccultismSlab) block("othercobblestone_double_slab",
+            new BlockOccultismDoubleSlab("othercobblestone_slab"), 1.5F, 30.0F, 0);
+    public static final Block OTHERCOBBLESTONE_STAIRS = block("othercobblestone_stairs",
+            new BlockOtherplanksStairs(OTHERCOBBLESTONE.getDefaultState()), 1.5F, 30.0F, 0);
+    public static final Block OTHERCOBBLESTONE_WALL = block("othercobblestone_wall", new BlockWall(OTHERCOBBLESTONE), 1.5F, 30.0F, 0);
+    public static final Block OTHERCOBBLEROCK = block("othercobblerock", new Block(Material.ROCK), 1.5F, 30.0F, 0);
+    public static final BlockOccultismSlab OTHERCOBBLEROCK_SLAB = (BlockOccultismSlab) block("othercobblerock_slab",
+            new BlockOccultismHalfSlab("othercobblerock_slab"), 1.5F, 30.0F, 0);
+    public static final BlockOccultismSlab OTHERCOBBLEROCK_DOUBLE_SLAB = (BlockOccultismSlab) block("othercobblerock_double_slab",
+            new BlockOccultismDoubleSlab("othercobblerock_slab"), 1.5F, 30.0F, 0);
+    public static final Block OTHERCOBBLEROCK_STAIRS = block("othercobblerock_stairs",
+            new BlockOtherplanksStairs(OTHERCOBBLEROCK.getDefaultState()), 1.5F, 30.0F, 0);
+    public static final Block OTHERCOBBLEROCK_WALL = block("othercobblerock_wall", new BlockWall(OTHERCOBBLEROCK), 1.5F, 30.0F, 0);
+
     public static final Block[] BLOCKS = {
             OTHERSTONE,
             OTHERSTONE_NATURAL,
@@ -461,6 +478,14 @@ public final class ModBlocks {
             OTHERPLANKS_DOOR,
             OTHERPLANKS_TRAPDOOR,
             SPIRIT_TORCH,
+            OTHERCOBBLESTONE,
+            OTHERCOBBLESTONE_SLAB,
+            OTHERCOBBLESTONE_STAIRS,
+            OTHERCOBBLESTONE_WALL,
+            OTHERCOBBLEROCK,
+            OTHERCOBBLEROCK_SLAB,
+            OTHERCOBBLEROCK_STAIRS,
+            OTHERCOBBLEROCK_WALL,
             LIGHTED_AIR
     };
 
@@ -536,6 +561,18 @@ public final class ModBlocks {
                         .setTranslationKey(block.getTranslationKey()));
                 continue;
             }
+            if (block == OTHERCOBBLESTONE_SLAB) {
+                event.getRegistry().register(new ItemSlab(block, OTHERCOBBLESTONE_SLAB, OTHERCOBBLESTONE_DOUBLE_SLAB)
+                        .setRegistryName(block.getRegistryName())
+                        .setTranslationKey(block.getTranslationKey()));
+                continue;
+            }
+            if (block == OTHERCOBBLEROCK_SLAB) {
+                event.getRegistry().register(new ItemSlab(block, OTHERCOBBLEROCK_SLAB, OTHERCOBBLEROCK_DOUBLE_SLAB)
+                        .setRegistryName(block.getRegistryName())
+                        .setTranslationKey(block.getTranslationKey()));
+                continue;
+            }
             ItemBlock itemBlock = new ItemBlock(block);
             if (block == OTHERWORLD_SAPLING || block == OTHERWORLD_SAPLING_NATURAL || block == OTHERFLOWER
                     || block == OTHERFLOWER_NATURAL) {
@@ -579,6 +616,8 @@ public final class ModBlocks {
 
     private static boolean skipItemBlock(Block block) {
         return block instanceof BlockChalkGlyph
+                || block == OTHERCOBBLESTONE_DOUBLE_SLAB
+                || block == OTHERCOBBLEROCK_DOUBLE_SLAB
                 || block == OTHERSTONE_DOUBLE_SLAB
                 || block == OTHERROCK_DOUBLE_SLAB
                 || block == POLISHED_OTHERSTONE_DOUBLE_SLAB

@@ -1,0 +1,1 @@
+{ "type": "minecraft:crafting_shaped", "group": "occultism:othercobblerock", "pattern": [ "O  ", "OO ", "OOO" ], "key": { "O": { "item": "occultism:othercobblerock" } }, "result": { "item": "occultism:othercobblerock_stairs", "count": 4 } }
