@@ -7,6 +7,8 @@ import com.occultism.occultism.tileentity.TileEntitySacrificialBowl;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
+import com.occultism.occultism.block.BlockLargeCandle;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ColorHandlerEvent;
@@ -50,8 +52,13 @@ public final class ModModels {
             }
             return 0xFFFFFF;
         }, ModBlocks.CHALK_GLYPHS);
-        event.getBlockColors().registerBlockColorHandler((state, worldIn, pos, tintIndex) -> 0xFFFFFF,
-                ModBlocks.LARGE_CANDLE);
+        // Every candle shares one model that carries tintindex 0, so the colour comes from the block.
+        event.getBlockColors().registerBlockColorHandler((state, worldIn, pos, tintIndex) -> {
+            if (tintIndex == 0 && state.getBlock() instanceof BlockLargeCandle) {
+                return ((BlockLargeCandle) state.getBlock()).getColor();
+            }
+            return 0xFFFFFF;
+        }, ModBlocks.LARGE_CANDLES);
     }
 
     @SubscribeEvent
@@ -72,8 +79,22 @@ public final class ModModels {
         registerImpureChalkColor(event, ModItems.CHALK_PURPLE_IMPURE, 0x8932B8);
         registerImpureChalkColor(event, ModItems.CHALK_MAGENTA_IMPURE, 0xC74EBD);
         registerImpureChalkColor(event, ModItems.CHALK_PINK_IMPURE, 0xF38BAA);
-        event.getItemColors().registerItemColorHandler((stack, tintIndex) -> 0xFFFFFF,
-                Item.getItemFromBlock(ModBlocks.LARGE_CANDLE));
+        event.getItemColors().registerItemColorHandler((stack, tintIndex) -> {
+            if (tintIndex == 0 && stack.getItem() instanceof ItemBlock
+                    && ((ItemBlock) stack.getItem()).getBlock() instanceof BlockLargeCandle) {
+                return ((BlockLargeCandle) ((ItemBlock) stack.getItem()).getBlock()).getColor();
+            }
+            return 0xFFFFFF;
+        }, itemBlocksOf(ModBlocks.LARGE_CANDLES));
+    }
+
+
+    private static Item[] itemBlocksOf(Block[] blocks) {
+        Item[] items = new Item[blocks.length];
+        for (int i = 0; i < blocks.length; i++) {
+            items[i] = Item.getItemFromBlock(blocks[i]);
+        }
+        return items;
     }
 
     private static void registerItemModel(Item item) {

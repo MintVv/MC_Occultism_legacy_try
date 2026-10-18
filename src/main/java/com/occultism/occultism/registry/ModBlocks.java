@@ -198,6 +198,22 @@ public final class ModBlocks {
     public static final Block ELDRITCH_CHALICE = block("eldritch_chalice",
             new BlockGoldenSacrificialBowl(Integer.MAX_VALUE), 2.0F, 10.0F, 0);
     public static final Block LARGE_CANDLE = block("large_candle", new BlockLargeCandle(), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_WHITE = block("large_candle_white", new BlockLargeCandle(0xF9FFFE), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_ORANGE = block("large_candle_orange", new BlockLargeCandle(0xF9801D), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_MAGENTA = block("large_candle_magenta", new BlockLargeCandle(0xC74EBD), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_LIGHT_BLUE = block("large_candle_light_blue", new BlockLargeCandle(0x3AB3DA), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_YELLOW = block("large_candle_yellow", new BlockLargeCandle(0xFED83D), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_LIME = block("large_candle_lime", new BlockLargeCandle(0x80C71F), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_PINK = block("large_candle_pink", new BlockLargeCandle(0xF38BAA), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_GRAY = block("large_candle_gray", new BlockLargeCandle(0x474F52), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_LIGHT_GRAY = block("large_candle_light_gray", new BlockLargeCandle(0x9D9D97), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_CYAN = block("large_candle_cyan", new BlockLargeCandle(0x169C9C), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_PURPLE = block("large_candle_purple", new BlockLargeCandle(0x8932B8), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_BLUE = block("large_candle_blue", new BlockLargeCandle(0x3C44AA), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_BROWN = block("large_candle_brown", new BlockLargeCandle(0x835432), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_GREEN = block("large_candle_green", new BlockLargeCandle(0x5E7C16), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_RED = block("large_candle_red", new BlockLargeCandle(0xB02E26), 0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE_BLACK = block("large_candle_black", new BlockLargeCandle(0x1D1D21), 0.2F, 0.2F, -1);
     public static final Block SPIRIT_ATTUNED_CRYSTAL = block("spirit_attuned_crystal",
             new BlockPentacleRequirement(Material.GLASS, SoundType.GLASS,
                     new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.75D, 0.75D), BlockRenderLayer.CUTOUT),
@@ -345,6 +361,27 @@ public final class ModBlocks {
     public static final Block OTHERCOBBLEROCK_STAIRS = block("othercobblerock_stairs",
             new BlockOtherplanksStairs(OTHERCOBBLEROCK.getDefaultState()), 1.5F, 30.0F, 0);
     public static final Block OTHERCOBBLEROCK_WALL = block("othercobblerock_wall", new BlockWall(OTHERCOBBLEROCK), 1.5F, 30.0F, 0);
+
+    /** Base candle plus the sixteen coloured variants, used by the colour handlers. */
+    public static final Block[] LARGE_CANDLES = {
+            LARGE_CANDLE,
+            LARGE_CANDLE_WHITE,
+            LARGE_CANDLE_ORANGE,
+            LARGE_CANDLE_MAGENTA,
+            LARGE_CANDLE_LIGHT_BLUE,
+            LARGE_CANDLE_YELLOW,
+            LARGE_CANDLE_LIME,
+            LARGE_CANDLE_PINK,
+            LARGE_CANDLE_GRAY,
+            LARGE_CANDLE_LIGHT_GRAY,
+            LARGE_CANDLE_CYAN,
+            LARGE_CANDLE_PURPLE,
+            LARGE_CANDLE_BLUE,
+            LARGE_CANDLE_BROWN,
+            LARGE_CANDLE_GREEN,
+            LARGE_CANDLE_RED,
+            LARGE_CANDLE_BLACK,
+    };
 
     public static final Block[] BLOCKS = {
             OTHERSTONE,
@@ -496,6 +533,22 @@ public final class ModBlocks {
             OTHERCOBBLEROCK_SLAB,
             OTHERCOBBLEROCK_STAIRS,
             OTHERCOBBLEROCK_WALL,
+            LARGE_CANDLE_WHITE,
+            LARGE_CANDLE_ORANGE,
+            LARGE_CANDLE_MAGENTA,
+            LARGE_CANDLE_LIGHT_BLUE,
+            LARGE_CANDLE_YELLOW,
+            LARGE_CANDLE_LIME,
+            LARGE_CANDLE_PINK,
+            LARGE_CANDLE_GRAY,
+            LARGE_CANDLE_LIGHT_GRAY,
+            LARGE_CANDLE_CYAN,
+            LARGE_CANDLE_PURPLE,
+            LARGE_CANDLE_BLUE,
+            LARGE_CANDLE_BROWN,
+            LARGE_CANDLE_GREEN,
+            LARGE_CANDLE_RED,
+            LARGE_CANDLE_BLACK,
             LIGHTED_AIR
     };
 

@@ -42,10 +42,23 @@ public class BlockLargeCandle extends BlockPentacleRequirement {
 
     public static final PropertyBool LIT = PropertyBool.create("lit");
 
+    /** White keeps the base candle unchanged; coloured variants tint the same model. */
+    private final int color;
+
     public BlockLargeCandle() {
+        this(0xFFFFFF);
+    }
+
+    public BlockLargeCandle(int color) {
         super(Material.CIRCUITS, SoundType.CLOTH,
                 new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.625D, 0.75D), BlockRenderLayer.CUTOUT);
+        this.color = color;
         this.setDefaultState(this.blockState.getBaseState().withProperty(LIT, Boolean.FALSE));
+    }
+
+    /** Tint applied by the block and item colour handlers; the model already carries tintindex 0. */
+    public int getColor() {
+        return this.color;
     }
 
     @Override
