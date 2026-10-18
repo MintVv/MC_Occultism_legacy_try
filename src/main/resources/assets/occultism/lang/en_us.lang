@@ -3787,3 +3787,6 @@ tile.occultism.spirit_campfire.name=Spirit Campfire
 tile.occultism.otherglass.name=Otherglass
 tile.occultism.tallow_block.name=Tallow Block
 tile.occultism.potted_otherflower.name=Potted Otherflower
+occultism.pentacle_preview.shown=Projecting pentacle: %s
+occultism.pentacle_preview.none=No completed pentacle is drawn around this bowl.
+occultism.pentacle_preview.unavailable=That pentacle has no projection registered.
