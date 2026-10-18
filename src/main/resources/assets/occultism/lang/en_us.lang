@@ -3785,3 +3785,6 @@ tile.occultism.large_candle_red.name=Red Large Candle
 tile.occultism.large_candle_black.name=Black Large Candle
 tile.occultism.spirit_lantern.name=Spirit Lantern
 tile.occultism.spirit_campfire.name=Spirit Campfire
+tile.occultism.otherglass.name=Otherglass
+tile.occultism.tallow_block.name=Tallow Block
+tile.occultism.potted_otherflower.name=Potted Otherflower

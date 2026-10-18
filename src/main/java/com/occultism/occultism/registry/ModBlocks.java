@@ -18,8 +18,10 @@ import com.occultism.occultism.block.BlockOtherworldLogNatural;
 import com.occultism.occultism.block.BlockOtherworldStrippedLogNatural;
 import com.occultism.occultism.block.BlockOtherworldOreNatural;
 import com.occultism.occultism.block.BlockOtherflowerNatural;
+import com.occultism.occultism.block.BlockOtherglass;
 import com.occultism.occultism.block.BlockOtherglassNatural;
 import com.occultism.occultism.block.BlockPentacleRequirement;
+import com.occultism.occultism.block.BlockPottedOtherflower;
 import com.occultism.occultism.block.BlockOtherworldSapling;
 import com.occultism.occultism.block.BlockOtherworldSaplingNatural;
 import com.occultism.occultism.block.BlockOtherworldStoneNatural;
@@ -365,6 +367,10 @@ public final class ModBlocks {
     public static final Block OTHERCOBBLEROCK_WALL = block("othercobblerock_wall", new BlockWall(OTHERCOBBLEROCK), 1.5F, 30.0F, 0);
 
     /** Base candle plus the sixteen coloured variants, used by the colour handlers. */
+    public static final Block OTHERGLASS = block("otherglass", new BlockOtherglass(), 2.5F, 50.0F, 0);
+    public static final Block TALLOW_BLOCK = block("tallow_block", new Block(Material.CLAY), 0.2F, 3.0F, -1);
+    public static final Block POTTED_OTHERFLOWER = block("potted_otherflower", new BlockPottedOtherflower(), 0.0F, 0.0F, -1);
+
     public static final Block SPIRIT_CAMPFIRE = block("spirit_campfire", new BlockSpiritCampfire(), 2.0F, 2.0F, 0);
     public static final Block SPIRIT_LANTERN = block("spirit_lantern", new BlockSpiritLantern(), 3.5F, 3.5F, 0);
 
@@ -556,6 +562,9 @@ public final class ModBlocks {
             LARGE_CANDLE_BLACK,
             SPIRIT_LANTERN,
             SPIRIT_CAMPFIRE,
+            OTHERGLASS,
+            TALLOW_BLOCK,
+            POTTED_OTHERFLOWER,
             LIGHTED_AIR
     };
 
