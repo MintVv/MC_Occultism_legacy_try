@@ -180,6 +180,11 @@ public final class ModBlocks {
             10.0F, 0);
     public static final Block SACRIFICIAL_BOWL = block("sacrificial_bowl", new BlockSacrificialBowl(), 2.0F, 10.0F,
             0);
+    public static final Block COPPER_SACRIFICIAL_BOWL = block("copper_sacrificial_bowl", new BlockSacrificialBowl(), 2.0F, 10.0F, 0);
+    public static final Block SILVER_SACRIFICIAL_BOWL = block("silver_sacrificial_bowl", new BlockSacrificialBowl(), 2.0F, 10.0F, 0);
+    public static final Block DARK_SACRIFICIAL_BOWL = block("dark_sacrificial_bowl", new BlockSacrificialBowl(), 2.0F, 10.0F, 0);
+    public static final Block DARK_COPPER_SACRIFICIAL_BOWL = block("dark_copper_sacrificial_bowl", new BlockSacrificialBowl(), 2.0F, 10.0F, 0);
+    public static final Block DARK_SILVER_SACRIFICIAL_BOWL = block("dark_silver_sacrificial_bowl", new BlockSacrificialBowl(), 2.0F, 10.0F, 0);
     public static final Block GOLDEN_SACRIFICIAL_BOWL = block("golden_sacrificial_bowl", new BlockGoldenSacrificialBowl(),
             2.0F, 10.0F, 0);
     public static final Block DARK_GOLDEN_SACRIFICIAL_BOWL = block("dark_golden_sacrificial_bowl",
@@ -409,6 +414,11 @@ public final class ModBlocks {
             IESNIUM_ANVIL,
             ENTITY_WORMHOLE,
             ENTITY_WORMHOLE_DARK,
+            COPPER_SACRIFICIAL_BOWL,
+            SILVER_SACRIFICIAL_BOWL,
+            DARK_SACRIFICIAL_BOWL,
+            DARK_COPPER_SACRIFICIAL_BOWL,
+            DARK_SILVER_SACRIFICIAL_BOWL,
             SACRIFICIAL_BOWL,
             GOLDEN_SACRIFICIAL_BOWL,
             DARK_GOLDEN_SACRIFICIAL_BOWL,

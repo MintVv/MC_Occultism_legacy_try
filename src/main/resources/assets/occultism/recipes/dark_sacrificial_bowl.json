@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:ritual",
+  "pattern": [
+    "o o",
+    "ooo"
+  ],
+  "key": {
+    "o": {
+      "item": "occultism:otherrock"
+    }
+  },
+  "result": {
+    "item": "occultism:dark_sacrificial_bowl",
+    "count": 1
+  }
+}
