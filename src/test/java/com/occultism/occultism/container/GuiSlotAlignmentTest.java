@@ -30,7 +30,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class GuiSlotAlignmentTest {
 
     private static final Path ASSETS = Paths.get("src/main/resources/assets/occultism");
-    private static final int SLOT_GREY = 0xFF8B8B8B;
+    /** Vanilla slot interiors: normal slots, and the darker filter slots the transporter draws. */
+    private static final int[] SLOT_COLOURS = {0xFF8B8B8B, 0xFF474747};
 
     @Test
     void satchelSlotsSitOnTheTextureGrid() throws IOException {
@@ -66,6 +67,39 @@ class GuiSlotAlignmentTest {
         String miner = read("container/ContainerDimensionalMineshaft.java");
         assertTrue(miner.contains("8 + column * 18, 142"), "mineshaft hotbar must match the texture");
         assertTrue(miner.contains("8 + column * 18, 84 + row * 18"), "mineshaft inventory must match the texture");
+    }
+
+    @Test
+    void spiritScreenSlotsSitOnTheTextureGrid() throws IOException {
+        Grid grid = Grid.of(ASSETS.resolve("textures/gui/inventory_spirit.png"));
+        // ContainerSpirit: player inventory at y 84, hotbar at y 142, spirit slot at (152, 54).
+        assertTrue(grid.rowStarts().contains(84), "the spirit screen inventory starts at y 84");
+        assertTrue(grid.rowStarts().contains(142), "the spirit screen hotbar sits at y 142");
+        assertTrue(grid.rowStarts().contains(54), "the spirit slot sits at y 54");
+        assertEquals(9, grid.columnCount(), "the spirit screen shows 9 slot columns");
+    }
+
+    @Test
+    void transporterScreenSlotsSitOnTheTextureGrid() throws IOException {
+        Grid grid = Grid.of(ASSETS.resolve("textures/gui/inventory_spirit_transporter_tagfilter.png"));
+        // ContainerSpiritTransporter: filter rows at 84 and 102, player inventory at 138, hotbar at 196.
+        assertTrue(grid.rowStarts().contains(84), "the first filter row sits at y 84");
+        assertTrue(grid.rowStarts().contains(102), "the second filter row sits at y 102");
+        assertTrue(grid.rowStarts().contains(138), "the transporter inventory starts at y 138");
+        assertTrue(grid.rowStarts().contains(196), "the transporter hotbar sits at y 196");
+    }
+
+    @Test
+    void theSpiritContainersUseStartsTheTexturesAgreeWith() throws IOException {
+        String spirit = read("container/ContainerSpirit.java");
+        assertTrue(spirit.contains("playerInventoryTop = 84"), "the spirit inventory must start at y 84");
+        assertTrue(spirit.contains("hotbarTop = 142"), "the spirit hotbar must sit at y 142");
+        assertTrue(spirit.contains("152, 54"), "the spirit slot must sit at 152,54");
+
+        String transporter = read("container/ContainerSpiritTransporter.java");
+        assertTrue(transporter.contains("playerInventoryTop = 138"), "the transporter inventory starts at 138");
+        assertTrue(transporter.contains("hotbarTop = 196"), "the transporter hotbar sits at 196");
+        assertTrue(transporter.contains("top = 84;"), "the filter rows start at y 84");
     }
 
     private static String read(String relative) throws IOException {
@@ -111,9 +145,18 @@ class GuiSlotAlignmentTest {
         }
 
         private static boolean isSlotCell(BufferedImage image, int x, int y) {
+            for (int colour : SLOT_COLOURS) {
+                if (isUniform(image, x, y, colour)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static boolean isUniform(BufferedImage image, int x, int y, int colour) {
             for (int dy = 0; dy < 16; dy++) {
                 for (int dx = 0; dx < 16; dx++) {
-                    if ((image.getRGB(x + dx, y + dy) & 0xFFFFFFFF) != SLOT_GREY) {
+                    if ((image.getRGB(x + dx, y + dy) & 0xFFFFFFFF) != colour) {
                         return false;
                     }
                 }
