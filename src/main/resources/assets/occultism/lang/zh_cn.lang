@@ -231,7 +231,6 @@ jei.occultism.ritual.result=产物
 jei.occultism.ritual.ingredients=碗中材料
 jei.occultism.ritual.duration=%s秒
 jei.occultism.ritual.pentacle=法阵：%s
-jei.occultism.ritual.pentacle_id=ID：%s
 jei.occultism.ritual.summon_foliot=召唤：魔精
 jei.occultism.ritual.summon_djinni=召唤：巨灵
 jei.occultism.ritual.summon_afrit=召唤：火灵

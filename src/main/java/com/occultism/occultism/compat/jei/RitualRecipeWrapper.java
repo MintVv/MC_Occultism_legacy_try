@@ -85,8 +85,8 @@ public class RitualRecipeWrapper implements IRecipeWrapper {
         if (mouseX >= PATTERN_X && mouseX < PATTERN_X + PATTERN_SIZE && mouseY >= PATTERN_Y
                 && mouseY < PATTERN_Y + PATTERN_SIZE && this.pentacle != null) {
             List<String> tooltip = new ArrayList<>();
+            // Upstream shows the pentacle name only; the registry id is not player-facing.
             tooltip.add(I18n.format("jei.occultism.ritual.pentacle", this.pentacle.getDisplayName()));
-            tooltip.add(I18n.format("jei.occultism.ritual.pentacle_id", this.pentacle.getId()));
             return tooltip;
         }
         return Collections.emptyList();

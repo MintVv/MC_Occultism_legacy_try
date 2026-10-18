@@ -231,7 +231,6 @@ jei.occultism.ritual.result=Result
 jei.occultism.ritual.ingredients=Bowl Materials
 jei.occultism.ritual.duration=%ss
 jei.occultism.ritual.pentacle=Pentacle: %s
-jei.occultism.ritual.pentacle_id=ID: %s
 jei.occultism.ritual.summon_foliot=Summon: Foliot
 jei.occultism.ritual.summon_djinni=Summon: Djinni
 jei.occultism.ritual.summon_afrit=Summon: Afrit
