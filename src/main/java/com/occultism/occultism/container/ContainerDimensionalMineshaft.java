@@ -24,19 +24,19 @@ public class ContainerDimensionalMineshaft extends Container {
     public ContainerDimensionalMineshaft(InventoryPlayer playerInventory, TileEntityDimensionalMineshaft mineshaft) {
         this.mineshaft = mineshaft;
 
-        this.addSlotToContainer(new MinerSlot(mineshaft, TileEntityDimensionalMineshaft.MINER_SLOT, 26, 34));
+        this.addSlotToContainer(new MinerSlot(mineshaft, TileEntityDimensionalMineshaft.MINER_SLOT, 26, 35));
 
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 3; column++) {
                 int slot = TileEntityDimensionalMineshaft.FIRST_OUTPUT_SLOT + column + row * 3;
-                this.addSlotToContainer(new OutputSlot(mineshaft, slot, 98 + column * 18, 18 + row * 18));
+                this.addSlotToContainer(new OutputSlot(mineshaft, slot, 98 + column * 18, 17 + row * 18));
             }
         }
 
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 9; column++) {
                 this.addSlotToContainer(new Slot(playerInventory, column + row * 9 + 9,
-                        8 + column * 18, 96 + row * 18));
+                        8 + column * 18, 84 + row * 18));
             }
         }
 

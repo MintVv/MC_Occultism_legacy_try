@@ -9,7 +9,7 @@ import net.minecraft.util.NonNullList;
 
 public class SatchelInventory extends InventoryBasic {
 
-    public static final int SIZE = 119;
+    public static final int SIZE = 13 * 9; // upstream SatchelContainer.SATCHEL_SIZE
     private static final String TAG_ITEMS = "Items";
 
     private final ItemStack satchelStack;

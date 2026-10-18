@@ -13,13 +13,13 @@ public class ContainerSatchel extends Container {
     private static final int PLAYER_INVENTORY_START = SATCHEL_SIZE;
     private static final int PLAYER_HOTBAR_START = PLAYER_INVENTORY_START + 27;
     private static final int PLAYER_SLOT_END = PLAYER_HOTBAR_START + 9;
-    private static final int SATCHEL_ROW_LENGTH = 17;
+    private static final int SATCHEL_ROW_LENGTH = 13;
     private static final int SATCHEL_LEFT = 8;
-    private static final int SATCHEL_TOP = 23;
-    private static final int PLAYER_INVENTORY_LEFT = 77;
-    private static final int PLAYER_INVENTORY_TOP = 166;
-    private static final int HOTBAR_LEFT = 77;
-    private static final int HOTBAR_TOP = 224;
+    private static final int SATCHEL_TOP = 8;
+    private static final int PLAYER_INVENTORY_LEFT = 44;
+    private static final int PLAYER_INVENTORY_TOP = 174;
+    private static final int HOTBAR_LEFT = 44;
+    private static final int HOTBAR_TOP = 232;
 
     private final InventoryPlayer playerInventory;
     private final SatchelInventory satchelInventory;
