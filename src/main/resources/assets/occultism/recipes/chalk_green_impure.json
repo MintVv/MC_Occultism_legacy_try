@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "occultism:chalk",
+  "ingredients": [
+    {
+      "item": "occultism:chalk_white_impure"
+    },
+    {
+      "item": "occultism:nature_paste"
+    }
+  ],
+  "result": {
+    "item": "occultism:chalk_green_impure"
+  }
+}

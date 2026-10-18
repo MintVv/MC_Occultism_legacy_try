@@ -61,8 +61,47 @@ class RitualInputReachabilityTest {
             "entity", "handler", "item", "capability"));
 
     private static final Set<String> KNOWN_UNSOURCED = new LinkedHashSet<>(Arrays.asList(
+            // Coloured impure chalks still missing a dye recipe: their 1.21.1 recipes need vanilla
+            // items that do not exist in 1.12 (torchflower, glow berries, glow ink sac, tube coral),
+            // and the substitutes are the maintainer's call.
+            "occultism:chalk_blue_impure", "occultism:chalk_cyan_impure",
+            "occultism:chalk_orange_impure", "occultism:chalk_red_impure",
             "occultism:dark_golden_sacrificial_bowl", // consumed by craft_dark_iesnium_sacrificial_bowl
             "occultism:netherite_scrap_dust"));      // consumed by possess_hoglin; a 1.16 material
+
+    @Test
+    void everyImpureChalkHasARecipeThatMakesIt() throws Exception {
+        // Only white impure chalk could be crafted: the other fifteen colours existed as items,
+        // were consumed by spirit fire and by pentacles, and nothing produced them. That made every
+        // coloured chalk unobtainable and most pentacles impossible to draw. Checked here so a
+        // missing colour cannot hide behind the spirit fire table again.
+        Set<String> declared = new LinkedHashSet<>();
+        Matcher chalkField = Pattern.compile("public static final Item \\w+\\s*=\\s*\\n?\\s*\\w+\\("
+                + "\"(chalk_[a-z_]+_impure)\"")
+                .matcher(new String(Files.readAllBytes(
+                        Paths.get("src/main/java/com/occultism/occultism/registry/ModItems.java")),
+                        StandardCharsets.UTF_8));
+        while (chalkField.find()) {
+            declared.add(chalkField.group(1));
+        }
+        assertTrue(declared.size() >= 16, "Expected the full impure chalk palette, found " + declared.size());
+
+        Set<String> craftable = new LinkedHashSet<>();
+        for (Path file : jsonFiles(ASSETS.resolve("recipes"))) {
+            String result = itemOf(readJson(file).getAsJsonObject().get("result"));
+            if (result != null && result.startsWith("occultism:chalk_") && result.endsWith("_impure")) {
+                craftable.add(result.substring("occultism:".length()));
+            }
+        }
+        Set<String> missing = new LinkedHashSet<>(declared);
+        missing.removeAll(craftable);
+        for (String known : KNOWN_UNSOURCED) {
+            if (known.startsWith("occultism:")) {
+                missing.remove(known.substring("occultism:".length()));
+            }
+        }
+        assertTrue(missing.isEmpty(), "Impure chalks nothing can craft: " + missing);
+    }
 
     @Test
     void everyRitualOrRecipeInputCanBeObtained() throws Exception {
