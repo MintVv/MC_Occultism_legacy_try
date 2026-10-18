@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:campfire",
+  "pattern": [
+    " S ",
+    "S#S",
+    "LLL"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "item": "occultism:datura"
+    },
+    "L": {
+      "type": "forge:ore_dict",
+      "ore": "logWood"
+    }
+  },
+  "result": {
+    "item": "occultism:spirit_campfire",
+    "count": 1
+  }
+}

@@ -26,7 +26,9 @@ import com.occultism.occultism.block.BlockOtherworldStoneNatural;
 import com.occultism.occultism.block.BlockSacrificialBowl;
 import com.occultism.occultism.block.BlockSimplePlant;
 import com.occultism.occultism.block.BlockSpiritFire;
+import com.occultism.occultism.block.BlockSpiritCampfire;
 import com.occultism.occultism.block.BlockSpiritGrindstone;
+import com.occultism.occultism.block.BlockSpiritLantern;
 import com.occultism.occultism.block.BlockSpiritTorch;
 import com.occultism.occultism.block.BlockStableWormhole;
 import com.occultism.occultism.block.BlockStorageController;
@@ -363,6 +365,9 @@ public final class ModBlocks {
     public static final Block OTHERCOBBLEROCK_WALL = block("othercobblerock_wall", new BlockWall(OTHERCOBBLEROCK), 1.5F, 30.0F, 0);
 
     /** Base candle plus the sixteen coloured variants, used by the colour handlers. */
+    public static final Block SPIRIT_CAMPFIRE = block("spirit_campfire", new BlockSpiritCampfire(), 2.0F, 2.0F, 0);
+    public static final Block SPIRIT_LANTERN = block("spirit_lantern", new BlockSpiritLantern(), 3.5F, 3.5F, 0);
+
     public static final Block[] LARGE_CANDLES = {
             LARGE_CANDLE,
             LARGE_CANDLE_WHITE,
@@ -549,6 +554,8 @@ public final class ModBlocks {
             LARGE_CANDLE_GREEN,
             LARGE_CANDLE_RED,
             LARGE_CANDLE_BLACK,
+            SPIRIT_LANTERN,
+            SPIRIT_CAMPFIRE,
             LIGHTED_AIR
     };
 

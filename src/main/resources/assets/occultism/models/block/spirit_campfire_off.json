@@ -1,0 +1,177 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "occultism:block/spirit_campfire_log_lit",
+    "lit_log": "occultism:block/spirit_campfire_log_lit"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        2
+      ],
+      "to": [
+        16,
+        4,
+        6
+      ],
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 22.5,
+        "rescale": true
+      },
+      "faces": {
+        "down": {
+          "texture": "#lit_log"
+        },
+        "up": {
+          "texture": "#lit_log"
+        },
+        "north": {
+          "texture": "#lit_log"
+        },
+        "south": {
+          "texture": "#lit_log"
+        },
+        "west": {
+          "texture": "#lit_log"
+        },
+        "east": {
+          "texture": "#lit_log"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        10
+      ],
+      "to": [
+        16,
+        4,
+        14
+      ],
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": 22.5,
+        "rescale": true
+      },
+      "faces": {
+        "down": {
+          "texture": "#lit_log"
+        },
+        "up": {
+          "texture": "#lit_log"
+        },
+        "north": {
+          "texture": "#lit_log"
+        },
+        "south": {
+          "texture": "#lit_log"
+        },
+        "west": {
+          "texture": "#lit_log"
+        },
+        "east": {
+          "texture": "#lit_log"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        2
+      ],
+      "to": [
+        16,
+        4,
+        6
+      ],
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -22.5,
+        "rescale": true
+      },
+      "faces": {
+        "down": {
+          "texture": "#lit_log"
+        },
+        "up": {
+          "texture": "#lit_log"
+        },
+        "north": {
+          "texture": "#lit_log"
+        },
+        "south": {
+          "texture": "#lit_log"
+        },
+        "west": {
+          "texture": "#lit_log"
+        },
+        "east": {
+          "texture": "#lit_log"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        10
+      ],
+      "to": [
+        16,
+        4,
+        14
+      ],
+      "rotation": {
+        "origin": [
+          8,
+          0,
+          8
+        ],
+        "axis": "y",
+        "angle": -22.5,
+        "rescale": true
+      },
+      "faces": {
+        "down": {
+          "texture": "#lit_log"
+        },
+        "up": {
+          "texture": "#lit_log"
+        },
+        "north": {
+          "texture": "#lit_log"
+        },
+        "south": {
+          "texture": "#lit_log"
+        },
+        "west": {
+          "texture": "#lit_log"
+        },
+        "east": {
+          "texture": "#lit_log"
+        }
+      }
+    }
+  ]
+}

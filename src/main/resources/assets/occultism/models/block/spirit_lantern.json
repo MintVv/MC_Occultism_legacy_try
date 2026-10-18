@@ -1,0 +1,73 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "occultism:block/spirit_lantern",
+    "lantern": "occultism:block/spirit_lantern"
+  },
+  "elements": [
+    {
+      "from": [
+        5,
+        0,
+        5
+      ],
+      "to": [
+        11,
+        7,
+        11
+      ],
+      "faces": {
+        "down": {
+          "texture": "#lantern"
+        },
+        "up": {
+          "texture": "#lantern"
+        },
+        "north": {
+          "texture": "#lantern"
+        },
+        "south": {
+          "texture": "#lantern"
+        },
+        "west": {
+          "texture": "#lantern"
+        },
+        "east": {
+          "texture": "#lantern"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        6,
+        6
+      ],
+      "to": [
+        10,
+        8,
+        10
+      ],
+      "faces": {
+        "down": {
+          "texture": "#lantern"
+        },
+        "up": {
+          "texture": "#lantern"
+        },
+        "north": {
+          "texture": "#lantern"
+        },
+        "south": {
+          "texture": "#lantern"
+        },
+        "west": {
+          "texture": "#lantern"
+        },
+        "east": {
+          "texture": "#lantern"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:lantern",
+  "pattern": [
+    "XXX",
+    "X#X",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:iron_nugget"
+    },
+    "#": {
+      "item": "occultism:spirit_torch"
+    }
+  },
+  "result": {
+    "item": "occultism:spirit_lantern",
+    "count": 1
+  }
+}
