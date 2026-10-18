@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "occultism:spirit_torch"
+    },
+    "facing=east": {
+      "model": "occultism:spirit_torch_wall"
+    },
+    "facing=south": {
+      "model": "occultism:spirit_torch_wall",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "occultism:spirit_torch_wall",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "occultism:spirit_torch_wall",
+      "y": 270
+    }
+  }
+}

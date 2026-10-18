@@ -52,7 +52,7 @@
     {
       "type": "text",
       "title": "",
-      "text": "Just like the candles from Minecraft, $(item)Large Candle$() and colored versions can be lit, turning in a great light source.$(br2)In addition, you can use a $(item)torch$(), $(item)soul torch$(), $(item)copper torch$(), $(item)redstone torch$() or $(item)spirit torch$() to change the $()",
+      "text": "Just like the candles from Minecraft, $(item)Large Candle$() and colored versions can be lit, turning in a great light source.$(br2)In addition, you can use a $(item)torch$(), $(item)soul torch$(), $(item)copper torch$(), $(item)redstone torch$() or $(item)Spirit Torch$() to change the $()",
       "anchor": "lit_candle"
     },
     {

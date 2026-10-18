@@ -26,6 +26,7 @@ import com.occultism.occultism.block.BlockSacrificialBowl;
 import com.occultism.occultism.block.BlockSimplePlant;
 import com.occultism.occultism.block.BlockSpiritFire;
 import com.occultism.occultism.block.BlockSpiritGrindstone;
+import com.occultism.occultism.block.BlockSpiritTorch;
 import com.occultism.occultism.block.BlockStableWormhole;
 import com.occultism.occultism.block.BlockStorageController;
 import com.occultism.occultism.block.BlockStorageStabilizer;
@@ -323,6 +324,8 @@ public final class ModBlocks {
             5.0F, 0);
     public static final ItemDoor OTHERPLANKS_DOOR_ITEM = doorItem(OTHERPLANKS_DOOR);
 
+    public static final Block SPIRIT_TORCH = block("spirit_torch", new BlockSpiritTorch(), 0.0F, 0.0F, -1);
+
     public static final Block[] BLOCKS = {
             OTHERSTONE,
             OTHERSTONE_NATURAL,
@@ -459,6 +462,7 @@ public final class ModBlocks {
             OTHERPLANKS_FENCE_GATE,
             OTHERPLANKS_DOOR,
             OTHERPLANKS_TRAPDOOR,
+            SPIRIT_TORCH,
             LIGHTED_AIR
     };
 

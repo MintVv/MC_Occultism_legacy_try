@@ -47,7 +47,7 @@
     {
       "type": "text",
       "title": "",
-      "text": "与Minecraft原版的蜡烛类似，$(item)大号蜡烛$()以及其染色变体都可被点燃，从而充当完美的光源。$(br2)此外，还可用$(item)torch$()、$(item)soul torch$()、$(item)redstone torch$()或$(item)spirit torch$()来改变蜡烛的火焰种类。$(br2)这些蜡烛同样也能含水。$(br)",
+      "text": "与Minecraft原版的蜡烛类似，$(item)大号蜡烛$()以及其染色变体都可被点燃，从而充当完美的光源。$(br2)此外，还可用$(item)torch$()、$(item)soul torch$()、$(item)redstone torch$()或$(item)灵火火把$()来改变蜡烛的火焰种类。$(br2)这些蜡烛同样也能含水。$(br)",
       "anchor": "lit_candle"
     }
   ]
