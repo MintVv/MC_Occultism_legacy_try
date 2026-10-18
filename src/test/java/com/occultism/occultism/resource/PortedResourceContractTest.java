@@ -46,23 +46,12 @@ class PortedResourceContractTest {
     }
 
     @Test
-    void otherplanksDoorIsNotPorted() throws IOException {
+    void upstreamBuildingBlocksArePorted() throws IOException {
+        // These blocks were removed once as "decorative". Upstream 1.21.1 registers the whole
+        // family (OccultismBlocks.java), and removing it stranded 69 registry ids in existing
+        // saves, so the decision is now to port them. This pins that.
         String blocks = readUtf8(REGISTRY_ROOT.resolve("ModBlocks.java"));
-        String oreDictionary = readUtf8(REGISTRY_ROOT.resolve("ModOreDictionary.java"));
-
-        assertFalse(blocks.contains("OTHERPLANKS_DOOR"),
-                "The decorative otherplanks door must not be registered");
-        assertFalse(oreDictionary.contains("OreDictionary.registerOre(\"doorWood\""),
-                "The removed door must not remain in the OreDictionary");
-        assertFalse(Files.exists(ASSET_ROOT.resolve("blockstates").resolve("otherplanks_door.json")));
-        assertFalse(Files.exists(ASSET_ROOT.resolve("recipes").resolve("otherplanks_door.json")));
-    }
-
-    @Test
-    void decorativeOtherworldBlocksAreNotPorted() throws IOException {
-        String blocks = readUtf8(REGISTRY_ROOT.resolve("ModBlocks.java"));
-        String oreDictionary = readUtf8(REGISTRY_ROOT.resolve("ModOreDictionary.java"));
-        String[] decorativeIds = {
+        String[] buildingIds = {
                 "otherstone_stairs", "otherrock_stairs", "polished_otherstone_stairs",
                 "polished_otherrock_stairs", "otherstone_bricks_stairs", "otherrock_bricks_stairs",
                 "otherstone_slab", "otherrock_slab", "polished_otherstone_slab", "polished_otherrock_slab",
@@ -72,25 +61,19 @@ class PortedResourceContractTest {
                 "otherstone_pressure_plate", "otherrock_pressure_plate", "otherplanks_slab",
                 "otherplanks_stairs", "otherplanks_button", "otherplanks_pressure_plate",
                 "otherplanks_fence", "otherplanks_fence_gate", "otherplanks_trapdoor",
-                "chiseled_otherstone_bricks", "chiseled_otherrock_bricks",
+                "otherplanks_door", "chiseled_otherstone_bricks", "chiseled_otherrock_bricks",
                 "cracked_otherstone_bricks", "cracked_otherrock_bricks"
         };
-        for (String id : decorativeIds) {
-            assertFalse(blocks.contains("\"" + id + "\""),
-                    "Decorative block must not be registered: " + id);
-            assertFalse(Files.exists(ASSET_ROOT.resolve("blockstates").resolve(id + ".json")));
-            assertFalse(Files.exists(ASSET_ROOT.resolve("models").resolve("item").resolve(id + ".json")));
-            assertFalse(Files.exists(ASSET_ROOT.resolve("recipes").resolve(id + ".json")));
+        for (String id : buildingIds) {
+            assertTrue(blocks.contains("\"" + id + "\""), "Building block missing from the registry: " + id);
+            assertTrue(Files.exists(ASSET_ROOT.resolve("blockstates").resolve(id + ".json")),
+                    "Missing blockstate for restored block: " + id);
+            boolean smelted = id.endsWith("cracked_otherstone_bricks") || id.endsWith("cracked_otherrock_bricks");
+            if (!smelted) {
+                assertTrue(Files.exists(ASSET_ROOT.resolve("recipes").resolve(id + ".json")),
+                        "Missing recipe for restored block: " + id);
+            }
         }
-        assertFalse(oreDictionary.contains("stairOtherstone"));
-        assertFalse(oreDictionary.contains("slabOtherstone"));
-        assertFalse(oreDictionary.contains("buttonOtherstone"));
-        assertFalse(oreDictionary.contains("plateOtherstone"));
-        assertFalse(oreDictionary.contains("slabWood"));
-        assertFalse(oreDictionary.contains("stairWood"));
-        assertFalse(oreDictionary.contains("fenceWood"));
-        assertFalse(oreDictionary.contains("fenceGateWood"));
-        assertFalse(oreDictionary.contains("trapdoorWood"));
     }
 
     @Test

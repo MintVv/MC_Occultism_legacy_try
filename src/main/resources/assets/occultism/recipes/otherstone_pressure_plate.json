@@ -1,0 +1,1 @@
+{ "type": "minecraft:crafting_shaped", "group": "occultism:otherstone", "pattern": [ "OO" ], "key": { "O": { "item": "occultism:otherstone" } }, "result": { "item": "occultism:otherstone_pressure_plate" } }

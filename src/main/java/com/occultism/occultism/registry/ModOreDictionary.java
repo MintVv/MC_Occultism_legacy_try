@@ -264,5 +264,28 @@ public final class ModOreDictionary {
 
     private static void registerWildcard(String oreName, Item item) {
         OreDictionary.registerOre(oreName, new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
+        // Restored upstream building blocks (present in Occultism 1.21.1).
+        OreDictionary.registerOre("stairOtherstone", ModBlocks.OTHERSTONE_STAIRS);
+        OreDictionary.registerOre("stairOtherrock", ModBlocks.OTHERROCK_STAIRS);
+        OreDictionary.registerOre("stairOtherstone", ModBlocks.POLISHED_OTHERSTONE_STAIRS);
+        OreDictionary.registerOre("stairOtherrock", ModBlocks.POLISHED_OTHERROCK_STAIRS);
+        OreDictionary.registerOre("stairOtherstone", ModBlocks.OTHERSTONE_BRICKS_STAIRS);
+        OreDictionary.registerOre("stairOtherrock", ModBlocks.OTHERROCK_BRICKS_STAIRS);
+        OreDictionary.registerOre("slabOtherstone", ModBlocks.OTHERSTONE_SLAB);
+        OreDictionary.registerOre("slabOtherrock", ModBlocks.OTHERROCK_SLAB);
+        OreDictionary.registerOre("slabOtherstone", ModBlocks.POLISHED_OTHERSTONE_SLAB);
+        OreDictionary.registerOre("slabOtherrock", ModBlocks.POLISHED_OTHERROCK_SLAB);
+        OreDictionary.registerOre("slabOtherstone", ModBlocks.OTHERSTONE_BRICKS_SLAB);
+        OreDictionary.registerOre("slabOtherrock", ModBlocks.OTHERROCK_BRICKS_SLAB);
+        OreDictionary.registerOre("buttonOtherstone", ModBlocks.OTHERSTONE_BUTTON);
+        OreDictionary.registerOre("buttonOtherrock", ModBlocks.OTHERROCK_BUTTON);
+        OreDictionary.registerOre("plateOtherstone", ModBlocks.OTHERSTONE_PRESSURE_PLATE);
+        OreDictionary.registerOre("plateOtherrock", ModBlocks.OTHERROCK_PRESSURE_PLATE);
+        OreDictionary.registerOre("slabWood", ModBlocks.OTHERPLANKS_SLAB);
+        OreDictionary.registerOre("stairWood", ModBlocks.OTHERPLANKS_STAIRS);
+        OreDictionary.registerOre("fenceWood", ModBlocks.OTHERPLANKS_FENCE);
+        OreDictionary.registerOre("fenceGateWood", ModBlocks.OTHERPLANKS_FENCE_GATE);
+        OreDictionary.registerOre("doorWood", ModBlocks.OTHERPLANKS_DOOR_ITEM);
+        OreDictionary.registerOre("trapdoorWood", ModBlocks.OTHERPLANKS_TRAPDOOR);
     }
 }

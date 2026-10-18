@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:building",
+  "pattern": [
+    "P  ",
+    "PP ",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "occultism:otherplanks"
+    }
+  },
+  "result": {
+    "item": "occultism:otherplanks_stairs",
+    "count": 4
+  }
+}

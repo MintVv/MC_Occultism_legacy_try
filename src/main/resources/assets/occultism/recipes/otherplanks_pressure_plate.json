@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:redstone",
+  "pattern": [
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "occultism:otherplanks"
+    }
+  },
+  "result": {
+    "item": "occultism:otherplanks_pressure_plate"
+  }
+}

@@ -525,8 +525,8 @@ Get-ChildItem -LiteralPath $ritualRoot -File -Filter '*.json' | ForEach-Object {
 $modBlocks = Get-Content -LiteralPath $modBlocksPath -Raw
 $modItems = Get-Content -LiteralPath $modItemsPath -Raw
 $dictionaryGui = Get-Content -LiteralPath $dictionaryGuiPath -Raw
-$enLang = Get-Content -LiteralPath $enLangPath -Raw
-$zhLang = Get-Content -LiteralPath $zhLangPath -Raw
+$enLang = Get-Content -LiteralPath $enLangPath -Raw -Encoding UTF8
+$zhLang = Get-Content -LiteralPath $zhLangPath -Raw -Encoding UTF8
 $enLangKeys = Get-LangKeys $enLang
 $zhLangKeys = Get-LangKeys $zhLang
 
