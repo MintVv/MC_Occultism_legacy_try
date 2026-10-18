@@ -49,6 +49,8 @@ public class GuiDimensionalMineshaft extends GuiContainer {
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
+        // JEI warns (and the screen looks flat) when the standard dark backdrop is missing.
+        this.drawDefaultBackground();
         int x = this.guiLeft;
         int y = this.guiTop;
         drawRect(x, y, x + this.xSize, y + this.ySize, PANEL);

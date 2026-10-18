@@ -24,7 +24,9 @@ public final class ModRecipes {
         GameRegistry.addSmelting(ModBlocks.IESNIUM_ORE, new ItemStack(ModItems.IESNIUM_INGOT), 1.0F);
         GameRegistry.addSmelting(ModItems.RAW_IESNIUM, new ItemStack(ModItems.IESNIUM_INGOT), 1.0F);
         GameRegistry.addSmelting(ModItems.IESNIUM_DUST, new ItemStack(ModItems.IESNIUM_INGOT), 0.8F);
-        GameRegistry.addSmelting(ModItems.NETHERITE_DUST, new ItemStack(ModItems.IESNIUM_INGOT), 0.8F);
+        // No netherite_dust -> iesnium_ingot line: upstream crushes netherite INTO dust, and
+        // iesnium is this mod's endgame metal - turning a 1.16 leftover into an iesnium source
+        // would bypass that progression. netherite_scrap_dust has no source in 1.12 anyway.
 
         GameRegistry.addSmelting(ModBlocks.OTHERSTONE, new ItemStack(ModBlocks.POLISHED_OTHERSTONE), 0.5F);
         GameRegistry.addSmelting(ModBlocks.OTHERROCK, new ItemStack(ModBlocks.POLISHED_OTHERROCK), 0.5F);
