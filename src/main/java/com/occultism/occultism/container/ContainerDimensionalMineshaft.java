@@ -41,7 +41,7 @@ public class ContainerDimensionalMineshaft extends Container {
         }
 
         for (int column = 0; column < 9; column++) {
-            this.addSlotToContainer(new Slot(playerInventory, column, 8 + column * 18, 154));
+            this.addSlotToContainer(new Slot(playerInventory, column, 8 + column * 18, 142));
         }
     }
 
