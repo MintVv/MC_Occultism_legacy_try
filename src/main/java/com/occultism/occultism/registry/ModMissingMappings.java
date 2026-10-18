@@ -1,17 +1,21 @@
 package com.occultism.occultism.registry;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 import com.occultism.occultism.Tags;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 /**
  * Silently retires registry names that older development saves still reference but that this port
@@ -80,10 +84,59 @@ public final class ModMissingMappings {
     @SubscribeEvent
     public static void onMissingItemMappings(RegistryEvent.MissingMappings<Item> event) {
         for (RegistryEvent.MissingMappings.Mapping<Item> mapping : event.getAllMappings()) {
+            String renamed = RENAMED.get(mapping.key.getPath());
+            if (renamed != null) {
+                Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(Tags.MOD_ID, renamed));
+                if (item != null) {
+                    mapping.remap(item);
+                    continue;
+                }
+            }
             if (isRetiredItem(mapping.key)) {
                 // Abandon the stale save reference. Never remap: see the class javadoc.
                 mapping.ignore();
             }
         }
     }
+
+    /**
+     * Registry paths renamed to match upstream 1.21.1. Existing worlds keep the old reference, so
+     * it is remapped rather than ignored: the player keeps the item or block they already own.
+     */
+    private static final Map<String, String> RENAMED = Collections.unmodifiableMap(
+            new LinkedHashMap<String, String>() {{
+                put("chalk_yellow", "chalk_gold");
+                put("chalk_glyph_yellow", "chalk_glyph_gold");
+                put("otherrock_pedestal", "otherstone_pedestal_silver");
+            }});
+
+    private static final String[] RENAMED_FOR_BLOCKS = {
+            "chalk_glyph_yellow", "otherrock_pedestal"
+    };
+
+    /** @return the new path for a renamed entry, or null when the path was not renamed. */
+    public static String renamedPath(String path) {
+        return RENAMED.get(path);
+    }
+
+    /** Exposed for contract tests. */
+    public static Map<String, String> getRenamedPaths() {
+        return RENAMED;
+    }
+
+    @SubscribeEvent
+    public static void onMissingBlockMappings(RegistryEvent.MissingMappings<Block> event) {
+        for (RegistryEvent.MissingMappings.Mapping<Block> mapping : event.getAllMappings()) {
+            String path = mapping.key.getPath();
+            String target = RENAMED.get(path);
+            if (target == null) {
+                continue;
+            }
+            Block block = ForgeRegistries.BLOCKS.getValue(new ResourceLocation(Tags.MOD_ID, target));
+            if (block != null) {
+                mapping.remap(block);
+            }
+        }
+    }
+
 }

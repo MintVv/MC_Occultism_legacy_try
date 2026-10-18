@@ -89,6 +89,9 @@ $checks = [ordered]@{
     'server reached Done'   = $ready
     'no fatal error'        = -not ($log -match 'A fatal error has been detected')
     'no missing registry'   = -not ($log -match 'Missing registr|registry entry is null')
+    # A recipe or advancement that fails to parse is dropped silently and never surfaces in a build.
+    'no recipe parse error' = -not ($log -match 'Parsing error loading recipe')
+    'no advancement error'  = -not ($log -match 'Parsing error loading built-in advancement')
 }
 
 Write-Host ''

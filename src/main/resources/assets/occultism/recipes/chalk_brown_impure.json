@@ -9,7 +9,8 @@
       "item": "occultism:cruelty_essence"
     },
     {
-      "item": "minecraft:cocoa_beans"
+      "item": "minecraft:dye",
+      "data": 3
     },
     {
       "item": "minecraft:brown_mushroom"

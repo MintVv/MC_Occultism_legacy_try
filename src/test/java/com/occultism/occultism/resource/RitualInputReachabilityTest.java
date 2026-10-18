@@ -237,12 +237,40 @@ class RitualInputReachabilityTest {
     }
 
     private static Set<String> modItemNames(String source) {
+        // Registry names are read from the declarations instead of lower-casing the field name:
+        // after a rename (chalk_yellow -> chalk_gold) the field and the registry path differ.
         Set<String> names = new LinkedHashSet<>();
         Matcher matcher = Pattern.compile("Mod(?:Items|Blocks)\\.([A-Z_0-9]+)").matcher(source);
         while (matcher.find()) {
-            names.add("occultism:" + matcher.group(1).toLowerCase(java.util.Locale.ROOT));
+            String registryName = FIELD_TO_REGISTRY.get(matcher.group(1));
+            if (registryName != null) {
+                names.add("occultism:" + registryName);
+            }
         }
         return names;
+    }
+
+    /** Field name -> registry path, parsed once from the registry classes. */
+    private static final java.util.Map<String, String> FIELD_TO_REGISTRY = buildFieldMap();
+
+    private static java.util.Map<String, String> buildFieldMap() {
+        java.util.Map<String, String> map = new java.util.LinkedHashMap<>();
+        Pattern declaration = Pattern.compile(
+                "public static final \\w+ ([A-Z_0-9]+)\\s*=\\s*\\n?\\s*\\w+\\(\"([a-z_0-9/]+)\"");
+        try {
+            for (Path file : new Path[] {
+                    Paths.get("src/main/java/com/occultism/occultism/registry/ModItems.java"),
+                    Paths.get("src/main/java/com/occultism/occultism/registry/ModBlocks.java") }) {
+                Matcher matcher = declaration.matcher(
+                        new String(Files.readAllBytes(file), StandardCharsets.UTF_8));
+                while (matcher.find()) {
+                    map.put(matcher.group(1), matcher.group(2));
+                }
+            }
+        } catch (IOException exception) {
+            throw new IllegalStateException(exception);
+        }
+        return map;
     }
 
     // -- helpers -----------------------------------------------------------------------------

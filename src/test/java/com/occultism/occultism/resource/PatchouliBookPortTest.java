@@ -177,7 +177,8 @@ class PatchouliBookPortTest {
             JsonObject recipe = json(ASSETS.resolve("recipes/storage_stabilizer_tier0" + suffix + ".json"));
             assertEquals("minecraft:crafting_shapeless", recipe.get("type").getAsString());
             assertEquals(1, recipe.getAsJsonArray("ingredients").size());
-            assertEquals("occultism:" + (suffix.isEmpty() ? "otherstone" : "otherrock") + "_pedestal",
+            // Upstream 1.21.1 keeps the dark pedestal on a legacy id: otherstone_pedestal_silver.
+            assertEquals(suffix.isEmpty() ? "occultism:otherstone_pedestal" : "occultism:otherstone_pedestal_silver",
                     recipe.getAsJsonArray("ingredients").get(0).getAsJsonObject().get("item").getAsString());
             assertEquals("occultism:storage_stabilizer_tier0" + suffix,
                     recipe.getAsJsonObject("result").get("item").getAsString());

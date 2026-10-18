@@ -1,6 +1,6 @@
 {
   "name": "The Chalk of Possession",
-  "icon": "occultism:chalk_yellow",
+  "icon": "occultism:chalk_gold",
   "category": "pentacles",
   "sortnum": 6,
   "pages": [
@@ -12,7 +12,7 @@
     },
     {
       "type": "spotlight",
-      "item": "occultism:chalk_yellow",
+      "item": "occultism:chalk_gold",
       "text": "",
       "anchor": "spotlight"
     },
@@ -23,7 +23,7 @@
     },
     {
       "type": "occultism:spirit_fire",
-      "output": "occultism:chalk_yellow",
+      "output": "occultism:chalk_gold",
       "anchor": "recipe"
     }
   ]

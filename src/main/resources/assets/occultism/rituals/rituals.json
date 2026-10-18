@@ -2540,7 +2540,7 @@
     "activation_item": "occultism:book_of_binding_bound_foliot",
     "duration_ticks": 1200,
     "ingredients": [
-      "occultism:otherrock_pedestal",
+      "occultism:otherstone_pedestal_silver",
       "#c:ingots/copper",
       "#c:ingots/copper",
       "minecraft:gold_ingot"
@@ -2897,7 +2897,7 @@
     "ingredients": [
       [
         "occultism:otherstone_pedestal",
-        "occultism:otherrock_pedestal"
+        "occultism:otherstone_pedestal_silver"
       ],
       "minecraft:hopper",
       "#c:storage_blocks/gold",
@@ -3306,7 +3306,7 @@
       "occultism:chalk_red",
       "occultism:chalk_brown",
       "occultism:chalk_orange",
-      "occultism:chalk_yellow",
+      "occultism:chalk_gold",
       "occultism:chalk_lime",
       "occultism:chalk_green",
       "occultism:chalk_cyan",

@@ -3590,7 +3590,7 @@
           },
           "description": "book.occultism.dictionary_of_spirits.pentacles.yellow_chalk.description",
           "icon": {
-            "id": "occultism:chalk_yellow"
+            "id": "occultism:chalk_gold"
           },
           "name": "book.occultism.dictionary_of_spirits.pentacles.yellow_chalk.name",
           "parents": [
@@ -3620,11 +3620,11 @@
                 "type": "modonomicon:none"
               },
               "id": "spotlight",
-              "item": "occultism:chalk_yellow",
+              "item": "occultism:chalk_gold",
               "sort_number": 1,
               "text": "book.occultism.dictionary_of_spirits.pentacles.yellow_chalk.spotlight.text",
               "title": "",
-              "detail": "Item: occultism:chalk_yellow"
+              "detail": "Item: occultism:chalk_gold"
             },
             {
               "type": "occultism:spirit_fire_recipe",
@@ -3632,11 +3632,11 @@
                 "type": "modonomicon:none"
               },
               "id": "recipe",
-              "recipe_id_1": "occultism:spirit_fire/chalk_yellow",
+              "recipe_id_1": "occultism:spirit_fire/chalk_gold",
               "sort_number": 3,
               "title": "",
               "text": "",
-              "detail": "Recipe: occultism:spirit_fire/chalk_yellow"
+              "detail": "Recipe: occultism:spirit_fire/chalk_gold"
             }
           ]
         },
@@ -16348,12 +16348,12 @@
                 "type": "modonomicon:none"
               },
               "id": "recipe_dark",
-              "recipe_id_1": "occultism:crafting/otherrock_pedestal",
+              "recipe_id_1": "occultism:crafting/otherstone_pedestal_silver",
               "recipe_id_2": "occultism:crafting/storage_stabilizer_tier0_dark",
               "sort_number": 3,
               "title": "",
               "text": "",
-              "detail": "Recipe: occultism:crafting/otherrock_pedestal"
+              "detail": "Recipe: occultism:crafting/otherstone_pedestal_silver"
             },
             {
               "type": "modonomicon:text",

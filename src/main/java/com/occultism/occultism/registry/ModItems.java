@@ -630,7 +630,7 @@ public final class ModItems {
     public static final Item CHALK_WHITE_IMPURE = item("chalk_white_impure");
     public static final Item CHALK_WHITE = chalk("chalk_white", ModBlocks.CHALK_GLYPH_WHITE);
     public static final Item CHALK_YELLOW_IMPURE = item("chalk_yellow_impure");
-    public static final Item CHALK_YELLOW = chalk("chalk_yellow", ModBlocks.CHALK_GLYPH_YELLOW);
+    public static final Item CHALK_YELLOW = chalk("chalk_gold", ModBlocks.CHALK_GLYPH_YELLOW);
     public static final Item CHALK_RAINBOW = chalk("chalk_rainbow", ModBlocks.CHALK_GLYPH_RAINBOW);
     public static final Item CHALK_VOID = chalk("chalk_void", ModBlocks.CHALK_GLYPH_VOID);
     public static final Item SOUL_GEM = soulGem("soul_gem", false);

@@ -126,7 +126,7 @@ public final class ModBlocks {
             10.0F, 0);
     public static final Block STORAGE_CONTROLLER_BASE = block("storage_controller_base", new BlockModelOnly(Material.ROCK),
             2.0F, 10.0F, 0);
-    public static final Block OTHERROCK_PEDESTAL = block("otherrock_pedestal", new BlockModelOnly(Material.ROCK), 2.0F,
+    public static final Block OTHERROCK_PEDESTAL = block("otherstone_pedestal_silver", new BlockModelOnly(Material.ROCK), 2.0F,
             10.0F, 0);
     public static final Block STABLE_WORMHOLE_DARK = block("stable_wormhole_dark", new BlockStableWormhole(),
             2.0F, 10.0F, 0);
@@ -206,7 +206,7 @@ public final class ModBlocks {
     public static final BlockChalkGlyph CHALK_GLYPH_BROWN = glyph("chalk_glyph_brown", 0x835432);
     public static final BlockChalkGlyph CHALK_GLYPH_RED = glyph("chalk_glyph_red", 0xB02E26);
     public static final BlockChalkGlyph CHALK_GLYPH_ORANGE = glyph("chalk_glyph_orange", 0xF9801D);
-    public static final BlockChalkGlyph CHALK_GLYPH_YELLOW = glyph("chalk_glyph_yellow", 0xFED83D);
+    public static final BlockChalkGlyph CHALK_GLYPH_YELLOW = glyph("chalk_glyph_gold", 0xFED83D);
     public static final BlockChalkGlyph CHALK_GLYPH_LIME = glyph("chalk_glyph_lime", 0x80C71F);
     public static final BlockChalkGlyph CHALK_GLYPH_GREEN = glyph("chalk_glyph_green", 0x5E7C16);
     public static final BlockChalkGlyph CHALK_GLYPH_CYAN = glyph("chalk_glyph_cyan", 0x169C9C);

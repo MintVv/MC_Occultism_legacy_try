@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    { "item": "occultism:otherrock_pedestal" }
+    { "item": "occultism:otherstone_pedestal_silver" }
   ],
   "result": { "item": "occultism:storage_stabilizer_tier0_dark" }
 }

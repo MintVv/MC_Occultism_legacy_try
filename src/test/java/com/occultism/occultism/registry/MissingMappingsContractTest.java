@@ -3,6 +3,7 @@ package com.occultism.occultism.registry;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -103,18 +104,35 @@ class MissingMappingsContractTest {
     }
 
     @Test
-    void dispositionStaysIgnoreAndNeverRemapsPlayerItems() throws Exception {
+    void retiredEntriesAreDroppedAndRenamesAreRemapped() throws Exception {
+        // Two different dispositions, both deliberate:
+        //  - retired content (the Nautilus armour family) is abandoned, because remapping it onto
+        //    something else would silently swap a different item into player inventories;
+        //  - renamed content keeps the id the player already owns, remapped from an explicit table
+        //    so nothing is substituted by guesswork.
         String source = readSource("src", "main", "java", "com", "occultism", "occultism", "registry",
                 "ModMissingMappings.java");
-        assertTrue(source.contains("mapping.ignore()"),
-                "retired entries must be dropped with ignore()");
-        assertFalse(source.contains(".remap("),
-                "remapping would silently substitute a different item into existing saves");
+        assertTrue(source.contains("mapping.ignore()"), "retired entries must be dropped with ignore()");
+        assertTrue(source.contains("isRetiredItem(mapping.key)"), "retired entries are matched by key");
+        assertTrue(source.contains("RENAMED.get("), "renames must come from the explicit table");
+        assertTrue(source.contains("mapping.remap("), "renames must remap so the player keeps the item");
         assertFalse(source.contains("mapping.warn()"));
         assertFalse(source.contains("mapping.fail()"));
         assertTrue(source.contains("event.getAllMappings()"));
         assertTrue(source.contains("en_us.lang"),
-                "the ignore-over-remap rationale must cite the intentional non-migration note");
+                "the ignore rationale must cite the intentional non-migration note");
+    }
+
+    @Test
+    void theRenameTableMatchesUpstream121Ids() {
+        assertEquals("chalk_gold",
+                com.occultism.occultism.registry.ModMissingMappings.renamedPath("chalk_yellow"));
+        assertEquals("chalk_glyph_gold",
+                com.occultism.occultism.registry.ModMissingMappings.renamedPath("chalk_glyph_yellow"));
+        assertEquals("otherstone_pedestal_silver",
+                com.occultism.occultism.registry.ModMissingMappings.renamedPath("otherrock_pedestal"));
+        assertNull(com.occultism.occultism.registry.ModMissingMappings.renamedPath("chalk_yellow_impure"),
+                "the impure chalk keeps the upstream id and must not be renamed");
     }
 
     @Test

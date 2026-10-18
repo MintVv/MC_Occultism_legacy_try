@@ -34,7 +34,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "occultism:otherrock_pedestal",
+      "recipe": "occultism:otherstone_pedestal_silver",
       "text": "",
       "anchor": "recipe_dark"
     },
