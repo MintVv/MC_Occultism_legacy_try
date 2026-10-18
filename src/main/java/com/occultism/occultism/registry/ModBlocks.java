@@ -8,6 +8,7 @@ import com.occultism.occultism.block.BlockDimensionalMineshaft;
 import com.occultism.occultism.block.BlockEntityWormhole;
 import com.occultism.occultism.block.BlockGoldenSacrificialBowl;
 import com.occultism.occultism.block.BlockIesniumAnvil;
+import com.occultism.occultism.block.BlockLargeCandle;
 import com.occultism.occultism.block.BlockLightedAir;
 import com.occultism.occultism.block.BlockModelOnly;
 import com.occultism.occultism.block.BlockOtherworldLeaves;
@@ -191,10 +192,7 @@ public final class ModBlocks {
             new BlockGoldenSacrificialBowl(Integer.MAX_VALUE), 2.0F, 10.0F, 0);
     public static final Block ELDRITCH_CHALICE = block("eldritch_chalice",
             new BlockGoldenSacrificialBowl(Integer.MAX_VALUE), 2.0F, 10.0F, 0);
-    public static final Block LARGE_CANDLE = block("large_candle",
-            new BlockPentacleRequirement(Material.CIRCUITS, SoundType.CLOTH,
-                    new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.625D, 0.75D), BlockRenderLayer.CUTOUT),
-            0.2F, 0.2F, -1);
+    public static final Block LARGE_CANDLE = block("large_candle", new BlockLargeCandle(), 0.2F, 0.2F, -1);
     public static final Block SPIRIT_ATTUNED_CRYSTAL = block("spirit_attuned_crystal",
             new BlockPentacleRequirement(Material.GLASS, SoundType.GLASS,
                     new AxisAlignedBB(0.25D, 0.0D, 0.25D, 0.75D, 0.75D, 0.75D), BlockRenderLayer.CUTOUT),

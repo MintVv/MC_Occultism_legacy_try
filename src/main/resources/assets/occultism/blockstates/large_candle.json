@@ -1,7 +1,10 @@
 {
   "variants": {
-    "normal": {
+    "lit=false": {
       "model": "occultism:large_candle"
+    },
+    "lit=true": {
+      "model": "occultism:large_candle_lit"
     }
   }
 }
