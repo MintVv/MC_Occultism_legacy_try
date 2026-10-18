@@ -10,7 +10,7 @@
   },
   "display": {
     "icon": {
-      "item": "minecraft:poppy"
+      "item": "minecraft:red_flower", "data": 0
     },
     "title": {
       "translate": "advancements.occultism.familiar.shub_cthulhu_friends.title"

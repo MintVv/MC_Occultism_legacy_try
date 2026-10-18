@@ -108,9 +108,15 @@ public class EntityBeholderFamiliar extends EntityFamiliarBase implements IBlack
             new Eye(-0.15D + 0.06D, 1.3D, 0.2D - 0.09D)
     };
 
-    private Vec2f bigEyePos = new Vec2f(0.0F, 0.0F);
-    private Vec2f bigEyePos0 = new Vec2f(0.0F, 0.0F);
-    private Vec2f bigEyeTarget = new Vec2f(0.0F, 0.0F);
+    // Plain floats on purpose: these used to be Vec2f, a client-only class. A field initialiser
+    // runs in the constructor on both sides, so summoning this familiar on a dedicated server
+    // threw NoClassDefFoundError before the entity existed. Render code builds a Vec2f on demand.
+    private float bigEyePosX;
+    private float bigEyePosY;
+    private float bigEyePos0X;
+    private float bigEyePos0Y;
+    private float bigEyeTargetX;
+    private float bigEyeTargetY;
     private int eatTimer = -1;
     private float mouthRot;
     private float actualMouthRot;
@@ -347,10 +353,13 @@ public class EntityBeholderFamiliar extends EntityFamiliarBase implements IBlack
         return this.eatTimer != -1;
     }
 
+    @SideOnly(Side.CLIENT)
     public Vec2f getBigEyePos(float partialTicks) {
-        return lerpVec(partialTicks, this.bigEyePos0, this.bigEyePos);
+        return new Vec2f(lerp(partialTicks, this.bigEyePos0X, this.bigEyePosX),
+                lerp(partialTicks, this.bigEyePos0Y, this.bigEyePosY));
     }
 
+    @SideOnly(Side.CLIENT)
     public Vec2f getEyeRot(float partialTicks, int index) {
         return this.eyes[index].getEyeRot(partialTicks);
     }
@@ -447,13 +456,15 @@ public class EntityBeholderFamiliar extends EntityFamiliarBase implements IBlack
             eye.tick();
         }
 
-        this.bigEyePos0 = new Vec2f(this.bigEyePos.x, this.bigEyePos.y);
-        if (Math.abs(this.bigEyePos.x - this.bigEyeTarget.x)
-                + Math.abs(this.bigEyePos.y - this.bigEyeTarget.y) < 0.05F) {
-            this.bigEyeTarget = new Vec2f((this.rand.nextFloat() - 0.5F) * 2.9F,
-                    (this.rand.nextFloat() - 0.5F) * 1.9F);
+        this.bigEyePos0X = this.bigEyePosX;
+        this.bigEyePos0Y = this.bigEyePosY;
+        if (Math.abs(this.bigEyePosX - this.bigEyeTargetX)
+                + Math.abs(this.bigEyePosY - this.bigEyeTargetY) < 0.05F) {
+            this.bigEyeTargetX = (this.rand.nextFloat() - 0.5F) * 2.9F;
+            this.bigEyeTargetY = (this.rand.nextFloat() - 0.5F) * 1.9F;
         }
-        this.bigEyePos = lerpVec(0.1F, this.bigEyePos, this.bigEyeTarget);
+        this.bigEyePosX = lerp(0.1F, this.bigEyePosX, this.bigEyeTargetX);
+        this.bigEyePosY = lerp(0.1F, this.bigEyePosY, this.bigEyeTargetY);
 
         this.actualMouthRot0 = this.actualMouthRot;
         this.mouthRot = MathHelper.cos(this.ticksExisted * 0.1F) * toRads(10.0F) + toRads(27.0F);
@@ -527,10 +538,6 @@ public class EntityBeholderFamiliar extends EntityFamiliarBase implements IBlack
 
     private static float lerp(float amount, float start, float end) {
         return start + amount * (end - start);
-    }
-
-    private static Vec2f lerpVec(float amount, Vec2f start, Vec2f end) {
-        return new Vec2f(lerp(amount, start.x, end.x), lerp(amount, start.y, end.y));
     }
 
     private static Vec3d lerpVec(float amount, Vec3d start, Vec3d end) {

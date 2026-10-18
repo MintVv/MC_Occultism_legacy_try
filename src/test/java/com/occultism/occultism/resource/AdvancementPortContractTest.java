@@ -42,6 +42,16 @@ class AdvancementPortContractTest {
     private static final Path BLOCKS = Paths.get("src/main/java/com/occultism/occultism/registry/ModBlocks.java");
     private static final Path TRIGGERS = Paths.get("src/main/java/com/occultism/occultism/advancement");
 
+    /** Vanilla ids that only exist after 1.12; renamed or added later than the target version. */
+    private static final Set<String> POST_1_12_IDS = new LinkedHashSet<>(java.util.Arrays.asList(
+            "minecraft:poppy", "minecraft:cornflower", "minecraft:oxeye_daisy",
+            "minecraft:lily_of_the_valley", "minecraft:cobweb", "minecraft:sugar_cane",
+            "minecraft:carved_pumpkin", "minecraft:dead_bush", "minecraft:melon",
+            "minecraft:netherite_scrap", "minecraft:netherite_ingot", "minecraft:echo_shard",
+            "minecraft:amethyst_shard", "minecraft:calcite", "minecraft:tuff",
+            "minecraft:deepslate", "minecraft:raw_iron", "minecraft:raw_gold",
+            "minecraft:raw_copper", "minecraft:copper_ingot", "minecraft:glow_ink_sac"));
+
     @Test
     void everyAdvancementResolvesItsParentIconTriggerAndReward() throws IOException {
         List<Path> files = jsonFiles(ADVANCEMENTS);
@@ -103,6 +113,27 @@ class AdvancementPortContractTest {
         }
 
         assertTrue(problems.isEmpty(), "Advancements that would misbehave in game: " + problems);
+    }
+
+    @Test
+    void noAdvancementUsesAnItemIdThatDoesNotExistIn1_12() throws IOException {
+        // A real server run caught this: an advancement icon named minecraft:poppy, an id that
+        // only exists from 1.13 onwards. Vanilla logged a parsing error and dropped the whole
+        // advancement, and no static check noticed because the id is not in our namespace.
+        Set<String> problems = new LinkedHashSet<>();
+        for (Path file : jsonFiles(ADVANCEMENTS)) {
+            JsonObject advancement = read(file).getAsJsonObject();
+            if (!advancement.has("display")) {
+                continue;
+            }
+            JsonObject icon = advancement.getAsJsonObject("display").has("icon")
+                    ? advancement.getAsJsonObject("display").getAsJsonObject("icon") : null;
+            String item = stringOf(icon, "item");
+            if (item != null && POST_1_12_IDS.contains(item)) {
+                problems.add(relativeId(file) + ": " + item + " does not exist in 1.12");
+            }
+        }
+        assertTrue(problems.isEmpty(), "Advancement icons that cannot resolve in 1.12: " + problems);
     }
 
     @Test

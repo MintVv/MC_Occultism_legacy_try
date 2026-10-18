@@ -85,17 +85,47 @@ All verifications passed.
 
 ---
 
+## 第七道关卡：真实服务端启动（2026-10-18 首次跑通）
+
+```
+powershell -ExecutionPolicy Bypass -File tools\run_server_smoke.ps1
+```
+
+无头启动专用服务端，等待 `Done (...)!`，并断言模组加载、仪式表注册、无致命错误。
+
+**实测结果**：
+
+```
+[Occultism]: Hello From Occultism!
+[Occultism]: Loaded 170 Occultism ritual recipes from JSON.
+Done (23.948s)! For help, type "help" or "?"
+```
+
+无成就解析错误、无注册冲突。剩余 4 条 `[ERROR]` 均为开发环境警告（Maven 库目录格式、缺签名数据），与模组无关。
+
+**这道关卡抓到的两个静态检查漏掉的缺陷**：
+
+| 缺陷 | 后果 |
+| --- | --- |
+| `EntityBeholderFamiliar` 作为双端事件订阅者，public 方法签名为 `Vec2f`（客户端专用类） | **服务端启动即崩溃**：`Attempted to load class net/minecraft/util/math/Vec2f for invalid side SERVER` |
+| 成就 `familiar_shub_cthulhu_friends` 图标用 `minecraft:poppy` | 1.13+ 才有的 id，原版记录解析错误并**丢弃整个成就** |
+
+第一个已通过去掉 common 路径上的 `Vec2f`（字段改 float 对、getter 标 `@SideOnly(CLIENT)`）修复；第二个改为 `minecraft:red_flower` + data 0，并新增静态检查防止复发。
+
+**这道关卡不证明**：客户端渲染、GUI、手册翻页、多人同步。
+
 ## 没被验证的部分
 
 **这一节比上面所有内容都重要。**
 
 | 未验证 | 为什么 | 后果 |
 | --- | --- | --- |
-| **jar 在真实游戏里跑过没有** | 需要接受 Minecraft EULA 启动专用服务端，或人工开客户端 | 静态全绿 ≠ 能玩。启动期崩溃、注册冲突、渲染问题都不会在这份清单里暴露 |
+| ~~jar 在真实游戏里跑过没有~~ | ✅ 2026-10-18 已在专用服务端启动成功（见上） | 服务端侧已排除启动崩溃与注册冲突；客户端仍未跑过 |
 | **GUI 在屏幕上长什么样** | 无图形界面 | 排版溢出、文字截断、按钮错位无法发现 |
 | **手册在 Patchouli 里翻得动吗** | 同上 | 结构正确 ≠ 渲染正确 |
 | **法阵投影的视觉效果** | 同上 | — |
 | **多人环境** | 未测试 | 服务端/客户端数据同步问题无法发现 |
+| **实际玩法循环** | 服务端为空服，未召唤实体、未画画、未跑仪式 | 「能不能玩通」仍无证据 |
 
 冒烟脚本已就绪：`tools/run_server_smoke.ps1`。它**不会**替你写 `run/eula.txt`——接受 EULA 是你的决定。文件存在且为 `eula=true` 时，它会无头启动服务端、等待 `Done (...)!`、并断言 Forge/模组/仪式表加载成功。
 
