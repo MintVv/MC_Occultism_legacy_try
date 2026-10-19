@@ -3,7 +3,6 @@ package com.occultism.occultism.client.gui;
 import com.occultism.occultism.container.ContainerDimensionalMineshaft;
 import com.occultism.occultism.tileentity.TileEntityDimensionalMineshaft;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
@@ -38,11 +37,8 @@ public class GuiDimensionalMineshaft extends GuiContainer {
 
     @Override
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        String title = this.mineshaft.getDisplayName().getUnformattedText();
-        this.fontRenderer.drawString(title, 8, 6, 0xE6E6E6);
-        this.fontRenderer.drawString(this.playerInventory.getDisplayName().getUnformattedText(), 8, 72, 0xD0D0D0);
-        this.fontRenderer.drawString(I18n.format("gui.occultism.dimensional_mineshaft.miner"), 18, 20, 0xD0D0D0);
-        this.fontRenderer.drawString(I18n.format("gui.occultism.dimensional_mineshaft.outputs"), 98, 6, 0xD0D0D0);
+        // Upstream draws no labels on this screen - the texture has no room for them, and drawing
+        // our own put "miner", "outputs" and "inventory" straight across the slot grids.
     }
 
     @Override
