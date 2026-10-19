@@ -1,6 +1,51 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/block",
+  "ambientocclusion": true,
   "textures": {
-    "all": "occultism:block/bee_nest"
-  }
+    "bottom": "occultism:block/bee_nest_bottom",
+    "top": "occultism:block/bee_nest_top",
+    "front": "occultism:block/bee_nest_front",
+    "side": "occultism:block/bee_nest_side",
+    "particle": "occultism:block/bee_nest_side"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#bottom",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#top",
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#front",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#side",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#side",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#side",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
 }

@@ -98,3 +98,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## Farmer's Future Delight (未世之乐)
+
+- 来源：https://github.com/xy177/Farmers-Future-Delight
+- 许可：MIT License
+- 使用范围：以下贴图与模型按 MIT 条款引入，用于本移植的 1.13+ 原版内容替身：
+  - `textures/block/bee_nest_{bottom,front,side,top}.png` 与 `models/block/bee_nest.json`
+  - `textures/block/amethyst_block.png`
+  - `textures/block/budding_amethyst.png`
+  - `textures/item/nautilus_shell.png`
+  - `textures/item/phantom_membrane.png`
+- 说明：仅搬移美术资源与模型几何，未引入其代码。

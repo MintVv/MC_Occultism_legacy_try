@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "occultism:budding_amethyst" }
+    "normal": {
+      "model": "occultism:budding_amethyst"
+    }
   }
 }

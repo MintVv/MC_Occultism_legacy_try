@@ -94,6 +94,9 @@ Main files:
 Porting notes:
 
 - Upstream Occultism reference source is stored in `_reference/occultism-upstream`.
+- Farmer's Future Delight reference code is stored separately in
+  `_reference/farmers-future-delight`. Source revision, omitted audio and
+  integration boundaries are recorded in `FARMERS_FUTURE_DELIGHT_REFERENCE.md`.
 - Copied/ported upstream assets and references are covered by `THIRD_PARTY_NOTICES.md`.
 
 For IntelliJ IDEA, set Gradle JVM to `.jdks/jdk-25.0.3` before refreshing Gradle.

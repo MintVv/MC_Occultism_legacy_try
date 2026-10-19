@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "occultism:bee_nest" }
+    "normal": {
+      "model": "occultism:bee_nest"
+    }
   }
 }

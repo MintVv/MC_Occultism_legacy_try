@@ -1,6 +1,136 @@
 {
-  "parent": "block/cube_all",
+  "ambientocclusion": false,
   "textures": {
-    "all": "occultism:block/bell"
-  }
+    "particle": "minecraft:blocks/gold_block"
+  },
+  "elements": [
+    {
+      "from": [
+        7,
+        0,
+        7
+      ],
+      "to": [
+        9,
+        8,
+        9
+      ],
+      "faces": {
+        "down": {
+          "texture": "minecraft:blocks/stone"
+        },
+        "up": {
+          "texture": "minecraft:blocks/stone"
+        },
+        "north": {
+          "texture": "minecraft:blocks/stone"
+        },
+        "south": {
+          "texture": "minecraft:blocks/stone"
+        },
+        "west": {
+          "texture": "minecraft:blocks/stone"
+        },
+        "east": {
+          "texture": "minecraft:blocks/stone"
+        }
+      }
+    },
+    {
+      "from": [
+        5.5,
+        8,
+        5.5
+      ],
+      "to": [
+        10.5,
+        10,
+        10.5
+      ],
+      "faces": {
+        "down": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "up": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "north": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "south": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "west": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "east": {
+          "texture": "minecraft:blocks/gold_block"
+        }
+      }
+    },
+    {
+      "from": [
+        6,
+        6,
+        6
+      ],
+      "to": [
+        10,
+        8,
+        10
+      ],
+      "faces": {
+        "down": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "up": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "north": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "south": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "west": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "east": {
+          "texture": "minecraft:blocks/gold_block"
+        }
+      }
+    },
+    {
+      "from": [
+        6.5,
+        5,
+        6.5
+      ],
+      "to": [
+        9.5,
+        6,
+        9.5
+      ],
+      "faces": {
+        "down": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "up": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "north": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "south": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "west": {
+          "texture": "minecraft:blocks/gold_block"
+        },
+        "east": {
+          "texture": "minecraft:blocks/gold_block"
+        }
+      }
+    }
+  ]
 }

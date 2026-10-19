@@ -1,5 +1,7 @@
 {
   "variants": {
-    "normal": { "model": "occultism:bell" }
+    "normal": {
+      "model": "occultism:bell"
+    }
   }
 }

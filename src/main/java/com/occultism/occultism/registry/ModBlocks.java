@@ -119,7 +119,7 @@ public final class ModBlocks {
     public static final Block IESNIUM_BLOCK = block("iesnium_block", new Block(Material.IRON), 5.0F, 10.0F, 2);
     public static final Block RAW_IESNIUM_BLOCK = block("raw_iesnium_block", new Block(Material.IRON), 5.0F, 10.0F, 2);
     public static final Block BEE_NEST = block("bee_nest", new Block(Material.WOOD), 1.5F, 5.0F, 0);
-    public static final Block BELL = block("bell", new Block(Material.IRON), 5.0F, 10.0F, 0);
+    public static final Block BELL = block("bell", new com.occultism.occultism.block.BlockBell(), 5.0F, 10.0F, 0);
     public static final Block AMETHYST_BLOCK = block("amethyst_block", new Block(Material.ROCK), 1.5F, 5.0F, 0);
     public static final Block BUDDING_AMETHYST = block("budding_amethyst", new Block(Material.ROCK), 1.5F, 5.0F, 0);
     public static final Block REINFORCED_DEEPSLATE = block("reinforced_deepslate", new Block(Material.ROCK), 50.0F,
