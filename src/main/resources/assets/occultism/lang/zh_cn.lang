@@ -3790,3 +3790,5 @@ tile.occultism.potted_otherflower.name=异界花盆栽
 occultism.pentacle_preview.shown=正在投影法阵：%s
 occultism.pentacle_preview.none=这个祭坛碗周围没有画好的法阵。
 occultism.pentacle_preview.unavailable=该法阵没有注册投影。
+key.occultism.pentacle_preview=投影法阵
+occultism.pentacle_preview.no_bowl=8 格内没有祭坛碗。

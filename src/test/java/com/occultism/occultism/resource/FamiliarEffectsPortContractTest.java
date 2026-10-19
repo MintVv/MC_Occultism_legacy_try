@@ -143,10 +143,13 @@ class FamiliarEffectsPortContractTest {
 
         String english = readSource("src", "main", "resources", "assets", "occultism", "lang", "en_us.lang");
         String chinese = readSource("src", "main", "resources", "assets", "occultism", "lang", "zh_cn.lang");
-        assertEquals(18, keyLineCount(english, "key.occultism."));
-        assertEquals(18, uniqueKeyCount(english, "key.occultism."));
-        assertEquals(18, keyLineCount(chinese, "key.occultism."));
-        assertEquals(18, uniqueKeyCount(chinese, "key.occultism."));
+        // 18 familiar switches plus the pentacle preview key added with the in-world projection.
+        assertEquals(19, keyLineCount(english, "key.occultism."));
+        assertEquals(19, uniqueKeyCount(english, "key.occultism."));
+        assertEquals(19, keyLineCount(chinese, "key.occultism."));
+        assertEquals(19, uniqueKeyCount(chinese, "key.occultism."));
+        assertTrue(english.contains("key.occultism.pentacle_preview="));
+        assertTrue(chinese.contains("key.occultism.pentacle_preview="));
     }
 
     private static void assertEffect(IFamiliar familiar, Potion potion, int duration, int amplifier) {

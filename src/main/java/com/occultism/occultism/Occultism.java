@@ -68,6 +68,7 @@ public class Occultism {
         ModNetworking.register();
         if (event.getSide().isClient()) {
             com.occultism.occultism.client.ClientFamiliarSettingsHandler.register();
+            com.occultism.occultism.client.ClientPentaclePreviewHandler.register();
             if (net.minecraftforge.fml.common.Loader.isModLoaded("patchouli")) {
                 com.occultism.occultism.compat.patchouli.PatchouliClient.register();
             }
