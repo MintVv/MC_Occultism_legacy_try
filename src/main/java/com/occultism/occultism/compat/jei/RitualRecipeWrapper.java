@@ -242,12 +242,36 @@ public class RitualRecipeWrapper implements IRecipeWrapper {
     }
 
     private String getEntitySummonLine() {
-        String entityId = this.ritual.getEntityToSummon().getDisplayId();
+        String displayName = displayEntityName(this.ritual.getEntityToSummon().getDisplayId());
         int summonNumber = this.ritual.getEntityToSummon().getSummonNumber();
         if (summonNumber > 1) {
-            return I18n.format("jei.occultism.ritual.summon_entities", summonNumber, entityId);
+            return I18n.format("jei.occultism.ritual.summon_entities", summonNumber, displayName);
         }
-        return I18n.format("jei.occultism.ritual.summon_entity", entityId);
+        return I18n.format("jei.occultism.ritual.summon_entity", displayName);
+    }
+
+    /**
+     * Turns a summon id into the entity's localized name.
+     *
+     * <p>The page printed the raw id, so a possessed warden read "occultism:possessed_warden" in
+     * every language even though the name was translated all along. Mod entities resolve through
+     * entity.&lt;namespace&gt;.&lt;path&gt;.name; vanilla ones go through the registry, which knows the
+     * CamelCase keys 1.12 uses. An unknown id falls back to the id rather than to a raw key.</p>
+     */
+    private static String displayEntityName(String entityId) {
+        ResourceLocation id = entityId.indexOf(':') >= 0
+                ? new ResourceLocation(entityId)
+                : new ResourceLocation("minecraft", entityId);
+
+        String ownKey = "entity." + id.getNamespace() + "." + id.getPath() + ".name";
+        if (I18n.hasKey(ownKey)) {
+            return I18n.format(ownKey);
+        }
+        String registryKey = net.minecraft.entity.EntityList.getTranslationName(id);
+        if (registryKey != null && I18n.hasKey(registryKey)) {
+            return I18n.format(registryKey);
+        }
+        return entityId;
     }
 
     /**
