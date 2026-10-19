@@ -40,7 +40,11 @@ public class RitualRecipeWrapper implements IRecipeWrapper {
         this.inputs = this.createInputs(ritual);
         this.bowlInputs = this.createBowlInputs(ritual);
         this.itemToUse = ritual.requiresItemUse() ? ritual.getItemToUse().createDisplayStack() : ItemStack.EMPTY;
-        this.output = ritual.getRitualDummy().createStack();
+        // Show the real product so the ritual is findable by what it makes. Upstream does the
+        // same; before this the page always displayed the ritual dummy, so searching JEI for
+        // e.g. afrit essence found nothing even though the ritual produces it.
+        ItemStack result = ritual.getResult().createStack();
+        this.output = result.isEmpty() ? ritual.getRitualDummy().createStack() : result;
     }
 
     public static List<RitualRecipeWrapper> createAll() {

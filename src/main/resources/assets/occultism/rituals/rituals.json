@@ -3593,7 +3593,7 @@
     ],
     "pentacle_id": "occultism:summon_unbound_afrit",
     "result": {
-      "id": "occultism:ritual_dummy/summon_unbound_afrit"
+      "id": "occultism:afrit_essence"
     },
     "ritual_dummy": {
       "id": "occultism:ritual_dummy/summon_unbound_afrit"
@@ -3638,7 +3638,7 @@
     "item_to_use": "minecraft:ender_eye",
     "pentacle_id": "occultism:summon_unbound_marid",
     "result": {
-      "id": "occultism:ritual_dummy/summon_unbound_marid"
+      "id": "occultism:marid_essence"
     },
     "ritual_dummy": {
       "id": "occultism:ritual_dummy/summon_unbound_marid"
