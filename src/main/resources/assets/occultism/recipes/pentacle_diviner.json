@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "occultism:tools",
+  "ingredients": [
+    {
+      "item": "occultism:brush"
+    },
+    {
+      "item": "occultism:chalk_white"
+    }
+  ],
+  "result": {
+    "item": "occultism:pentacle_diviner",
+    "count": 1
+  }
+}

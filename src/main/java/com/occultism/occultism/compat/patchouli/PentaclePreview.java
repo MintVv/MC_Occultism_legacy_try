@@ -54,7 +54,14 @@ public final class PentaclePreview {
             return false;
         }
 
-        PentacleDefinition definition = matches.get(0).getDefinition();
+        return showFor(matches.get(0).getDefinition(), player);
+    }
+
+    /**
+     * Projects the given pentacle, whether or not it is currently drawn in the world. Used by the
+     * diviner to show a pentacle as a template to build.
+     */
+    public static boolean showFor(PentacleDefinition definition, EntityPlayer player) {
         ResourceLocation id = new ResourceLocation(Tags.MOD_ID, definition.getId());
         IMultiblock multiblock = PatchouliAPI.instance.getMultiblock(id);
         if (!(multiblock instanceof Multiblock)) {
@@ -80,6 +87,20 @@ public final class PentaclePreview {
     /** True when the client currently has a projection running, so a second click does not stack. */
     public static boolean isShowing() {
         return Loader.isModLoaded("patchouli") && MultiblockVisualizationHandler.hasMultiblock;
+    }
+
+    /** Drops the current projection; the second activation of a diviner clears instead of stacking. */
+    public static boolean clear(EntityPlayer player) {
+        if (!isShowing()) {
+            return false;
+        }
+        try {
+            MultiblockVisualizationHandler.hasMultiblock = false;
+        } catch (RuntimeException | LinkageError failure) {
+            return false;
+        }
+        player.sendStatusMessage(new TextComponentTranslation("occultism.pentacle_preview.cleared"), true);
+        return true;
     }
 
     /** Used only to keep the Minecraft import meaningful for future hud work; safe to drop. */
