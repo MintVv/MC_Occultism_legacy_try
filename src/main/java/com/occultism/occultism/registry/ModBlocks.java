@@ -18,7 +18,6 @@ import com.occultism.occultism.block.BlockOtherworldLogNatural;
 import com.occultism.occultism.block.BlockOtherworldStrippedLogNatural;
 import com.occultism.occultism.block.BlockOtherworldOreNatural;
 import com.occultism.occultism.block.BlockOtherflowerNatural;
-import com.occultism.occultism.block.BlockOtherglass;
 import com.occultism.occultism.block.BlockOtherglassNatural;
 import com.occultism.occultism.block.BlockPentacleRequirement;
 import com.occultism.occultism.block.BlockPottedOtherflower;
@@ -367,7 +366,6 @@ public final class ModBlocks {
     public static final Block OTHERCOBBLEROCK_WALL = block("othercobblerock_wall", new BlockWall(OTHERCOBBLEROCK), 1.5F, 30.0F, 0);
 
     /** Base candle plus the sixteen coloured variants, used by the colour handlers. */
-    public static final Block OTHERGLASS = block("otherglass", new BlockOtherglass(), 2.5F, 50.0F, 0);
     public static final Block TALLOW_BLOCK = block("tallow_block", new Block(Material.CLAY), 0.2F, 3.0F, -1);
     public static final Block POTTED_OTHERFLOWER = block("potted_otherflower", new BlockPottedOtherflower(), 0.0F, 0.0F, -1);
 
@@ -562,7 +560,6 @@ public final class ModBlocks {
             LARGE_CANDLE_BLACK,
             SPIRIT_LANTERN,
             SPIRIT_CAMPFIRE,
-            OTHERGLASS,
             TALLOW_BLOCK,
             POTTED_OTHERFLOWER,
             LIGHTED_AIR
@@ -666,7 +663,8 @@ public final class ModBlocks {
     private static ItemDoor doorItem(Block block) {
         ItemDoor item = new ItemDoor(block);
         item.setRegistryName(block.getRegistryName());
-        item.setTranslationKey(block.getTranslationKey());
+        // ItemDoor is not an ItemBlock: copying the block key yields item.tile.occultism.otherplanks_door.
+        item.setTranslationKey(Tags.MOD_ID + ".otherplanks_door");
         item.setCreativeTab(com.occultism.occultism.registry.ModCreativeTabs.OCCULTISM);
         return item;
     }

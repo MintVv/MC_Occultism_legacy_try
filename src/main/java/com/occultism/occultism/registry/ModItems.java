@@ -599,7 +599,10 @@ public final class ModItems {
             .addEffect(MobEffects.ABSORPTION, Integer.MAX_VALUE, 9, 1.0F);
     public static final Item TRINITY_GEM = soulGem("trinity_gem", false);
     public static final Item BRUSH = brush("brush");
-    public static final Item PENTACLE_DIVINER = item("pentacle_diviner");
+    public static final Item PENTACLE_DIVINER = new com.occultism.occultism.item.ItemPentacleDiviner()
+            .setRegistryName(Tags.MOD_ID, "pentacle_diviner")
+            .setTranslationKey(Tags.MOD_ID + ".pentacle_diviner")
+            .setCreativeTab(ModCreativeTabs.OCCULTISM);
     public static final Item CHALK_BLACK_IMPURE = item("chalk_black_impure");
     public static final Item CHALK_BLACK = chalk("chalk_black", ModBlocks.CHALK_GLYPH_BLACK);
     public static final Item CHALK_BLUE_IMPURE = item("chalk_blue_impure");
