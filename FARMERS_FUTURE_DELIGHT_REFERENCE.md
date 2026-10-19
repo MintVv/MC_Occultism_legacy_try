@@ -56,3 +56,25 @@ git -C _reference/farmers-future-delight sparse-checkout disable
 
 以上路径均相对于参考目录。本次仅核对本地文件、固定提交和 Git 工作副本，不执行上游构建脚本。
 不编译 Occultism，不运行全量测试，不启动客户端或专服，不使用 computer。
+
+## 实际移入的资源（2026-10-19）
+
+按上文「复用具体代码或资源时须核对来源、保留许可声明、记录实际移入的文件」的要求补充记录。
+
+许可核对：该仓库根目录 `LICENSE` 为 MIT；本次只搬移**美术资源与模型几何**，未搬移任何 Java 代码。
+
+移入 Occultism 的文件（来源均为 `_reference/farmers-future-delight/src/main/resources/assets/farmers_future_delight/`）：
+
+| 目标文件 | 说明 |
+| --- | --- |
+| `assets/occultism/textures/block/bee_nest_bottom.png` | 蜂巢模型底面 |
+| `assets/occultism/textures/block/bee_nest_top.png` | 蜂巢模型顶面 |
+| `assets/occultism/textures/block/bee_nest_front.png` | 蜂巢模型正面 |
+| `assets/occultism/textures/block/bee_nest_side.png` | 蜂巢模型侧面 |
+| `assets/occultism/models/block/bee_nest.json` | 由 `models/block/bee_nest_empty.json` 改名空间而来 |
+| `assets/occultism/textures/block/amethyst_block.png` | 紫水晶块 |
+| `assets/occultism/textures/block/budding_amethyst.png` | 紫水晶芽床 |
+| `assets/occultism/textures/item/nautilus_shell.png` | 鹦鹉螺壳 |
+| `assets/occultism/textures/item/phantom_membrane.png` | 幻翼膜 |
+
+许可声明记录在 `THIRD_PARTY_NOTICES.md`。该仓库不提供钟、强化深板岩、野性纹饰，这三项仍为本移植自建或派生。
