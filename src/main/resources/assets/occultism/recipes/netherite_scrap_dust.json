@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "occultism:dust",
+  "ingredients": [
+    { "item": "occultism:obsidian_dust" },
+    { "item": "occultism:obsidian_dust" },
+    { "item": "minecraft:quartz" },
+    { "item": "minecraft:blaze_powder" }
+  ],
+  "result": { "item": "occultism:netherite_scrap_dust" }
+}

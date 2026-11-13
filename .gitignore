@@ -17,6 +17,7 @@ out
 build
 .gradle
 .gradle-user-home
+.gradle-local-env.bat
 .jdks
 
 # other

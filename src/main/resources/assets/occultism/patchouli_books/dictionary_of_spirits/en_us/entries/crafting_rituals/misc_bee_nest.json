@@ -12,7 +12,7 @@
     {
       "type": "text",
       "title": "",
-      "text": "Produces a bee nest block. 1.12 has no bees, so this is a decorative building result only.",
+      "text": "Produces a local bee nest block for decoration and attracting nearby Possessed Bees with no attack target; a bee disappears when it enters. It produces no vanilla bees or honey and is not required for the first Cursed Honey.",
       "anchor": "description"
     }
   ]

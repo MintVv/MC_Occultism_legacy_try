@@ -23,13 +23,13 @@
     {
       "type": "text",
       "title": "",
-      "text": "In this ritual an $(#ad03fc)djinni$() will possess an $(#ad03fc)Bee$(), Be careful,$(br) a bee invoked by this way does not lose its stinger, always poison the target,$(br) attacks faster and can summon other bees when it takes damage.$(br) This is the $()",
+      "text": "This 1.12 compatibility ritual uses a bound Djinni book, sugar, a glass bottle, a dandelion and wheat. It waits for a player to kill a chicken near the golden bowl. No bee nest or cursed honey is required beforehand. The summoned local Possessed Bee $()",
       "anchor": "description"
     },
     {
       "type": "text",
       "title": "",
-      "text": "only known method to obtain $(item)Cursed Honey$(), eating will grants$(br) a short regeneration buff.$(br2) If this bee enters a hive, the djinni will return to $(#ad03fc)The Other Place$().$(br)"
+      "text": "poisons targets and calls allies when hurt. Killing it drops $(item)Cursed Honey$() for orange impure chalk.$(br2)A nearby bee nest attracts a bee that has no attack target; it disappears when it enters the nest."
     }
   ]
 }

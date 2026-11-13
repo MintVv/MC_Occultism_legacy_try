@@ -115,7 +115,7 @@ public class ContainerStorageController extends Container {
         this.playerHotbarStart = this.playerInventoryStart + 27;
         this.playerSlotEnd = this.playerHotbarStart + 9;
 
-        this.addSlotToContainer(new StorageCraftingResultSlot(playerInventory.player, this.craftMatrix,
+        this.addSlotToContainer(new StorageCraftingResultSlot(this, playerInventory.player, this.craftMatrix,
                 this.craftResult, 0, CRAFTING_OUTPUT_X, CRAFTING_OUTPUT_Y));
         for (int row = 0; row < 3; row++) {
             for (int column = 0; column < 3; column++) {
@@ -1090,10 +1090,10 @@ public class ContainerStorageController extends Container {
 
         private final ContainerStorageController container;
 
-        private StorageCraftingResultSlot(EntityPlayer player, InventoryCrafting matrix, InventoryCraftResult result,
-                int index, int xPosition, int yPosition) {
+        private StorageCraftingResultSlot(ContainerStorageController container, EntityPlayer player,
+                InventoryCrafting matrix, InventoryCraftResult result, int index, int xPosition, int yPosition) {
             super(player, matrix, result, index, xPosition, yPosition);
-            this.container = (ContainerStorageController) matrix.eventHandler;
+            this.container = container;
         }
 
         @Override

@@ -28,13 +28,13 @@
     {
       "type": "text",
       "title": "Operation",
-      "text": "The dimensional mineshaft will discard any items it cannot store, so it is important$(br)to regularly empty the mineshaft, either manually, with hoppers or using a transporter spirit.$(br)Interactions per side:$(br)+ Top -> lamp $()",
+      "text": "This 1.12 mineshaft checks space for the whole batch before producing items or spending durability. Empty its output regularly. An extractor routes items into a loaded inventory two blocks below, then falls back to internal output. Redstone stops $()",
       "anchor": "description"
     },
     {
       "type": "text",
       "title": "Operation",
-      "text": "slot;$(br)+ Bottom -> ores slots;$(br)+ Other -> all slots;$(br)"
+      "text": "mining and resets progress.$(br)Top automation inserts a miner; bottom and side automation extract output. Replacing the miner starts a fresh countdown."
     },
     {
       "type": "text",
@@ -50,30 +50,35 @@
     {
       "type": "text",
       "title": "Enchantments",
-      "text": "You've noticed that your miner can be enchanted? Here's how effective it is!$(br) $(bold)Efficiency:$() Increase the progress bar by the smaller of two RNB;$(br) $(bold)Fortune:$() Mine a number of extra results equals smaller of three RNB;$(br) $(bold)Silk touch:$() $()",
+      "text": "This 1.12 port uses fixed enchantment effects, unlike the modern upstream random formulas.$(br) $(bold)Efficiency:$() subtract 30 ticks per level, with a minimum of 1 tick;$(br) $(bold)Fortune:$() add one result roll per level;$(br) $(bold)Silk Touch:$() $()",
       "anchor": "enchantment"
     },
     {
       "type": "text",
       "title": "Enchantments",
-      "text": "Multiply the count of mined result by 1 plus a RNB;$(br) RNB = random number between 0 and the enchantment level.$(br)"
+      "text": "multiply each roll by 1 plus the enchantment level, together with the miner's base multiplier. Mining dimension core counts are capped to one per roll."
     },
     {
       "type": "text",
       "title": "Durability",
-      "text": "The $(bold)Unbreaking$() and $(bold)Mending$() enchantments function as vanilla.$(br2) With other methods (mods) you can make your miner unusable ($(bold)unusing$())$(br) when it's close to breaking, or even truly unbreakable ($(bold)eternal$()).$(br)",
+      "text": "Each successful operation spends exactly one durability. This local implementation directly changes damage; it does not apply Unbreaking or external unusing/eternal hooks. It does not consume durability when no output recipe exists or the whole batch $()",
       "anchor": "enchantment2"
     },
     {
       "type": "text",
+      "title": "Durability",
+      "text": "cannot fit. Use the repair ritual to restore a saved miner."
+    },
+    {
+      "type": "text",
       "title": "Config",
-      "text": "If you want to save your miners before they break, check \"Server Configuration > Items\".$(br) By setting the \"Save miners before breaking\" option to \"on\", a miner will go to the output$(br) of the dimensional mineshaft when it reaches 1 $()",
+      "text": "This 1.12 port always moves a miner to output when a successful operation leaves one durability. Its name, enchantments and NBT are preserved. There are no local switches for this or the enchantment effects. If the drops and saved miner cannot all $()",
       "anchor": "config"
     },
     {
       "type": "text",
       "title": "Config",
-      "text": "durability. The effects of enchantments can also be turned off.$(br)"
+      "text": "fit, the operation produces nothing and consumes no durability. An already exhausted miner can still break if reinserted."
     }
   ]
 }

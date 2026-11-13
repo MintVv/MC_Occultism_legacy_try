@@ -36,6 +36,11 @@
       "type": "occultism:spirit_fire",
       "output": "occultism:chalk_orange",
       "anchor": "recipe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:chalk_orange_impure",
+      "text": "1.12 compatibility recipe."
     }
   ]
 }

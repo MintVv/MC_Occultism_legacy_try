@@ -224,6 +224,17 @@ def generate(check=False):
                 "icon": icon(category["icon"]), "sortnum": category.get("sort_number", 0)}}
             for order, entry in enumerate(category["entries"]):
                 pages = [p for source in entry["pages"] for p in convert_page(source, lang, entries)]
+                compatibility_recipes = {
+                    ("pentacles", "red_chalk"): ["chalk_red_impure"],
+                    ("pentacles", "orange_chalk"): ["chalk_orange_impure"],
+                    ("pentacles", "cyan_chalk"): ["chalk_cyan_impure"],
+                    ("pentacles", "blue_chalk"): ["chalk_blue_impure"],
+                    ("possession_rituals", "possess_hoglin"): ["netherite_scrap_dust", "netherite_dust"],
+                    ("crafting_rituals", "misc_budding_amethyst"): ["amethyst_block"],
+                }
+                for recipe in compatibility_recipes.get((category_id, entry["id"]), []):
+                    pages.append({"type": "crafting", "recipe": "occultism:" + recipe,
+                                  "text": "1.12 兼容配方。" if locale == "zh_cn" else "1.12 compatibility recipe."})
                 documents[f"entries/{category_id}/{entry['id']}.json"] = {
                     "name": lang.get(entry["name"], entry["name"]),
                     "icon": icon(entry["icon"]), "category": category_id,
@@ -235,9 +246,11 @@ def generate(check=False):
                 if check:
                     if not path.exists() or path.read_text(encoding="utf-8") != data:
                         differences.append(str(path.relative_to(ROOT)))
-                else:
+                elif not path.exists() or path.read_text(encoding="utf-8") != data:
+                    newline = "\r\n" if path.exists() and b"\r\n" in path.read_bytes() else "\n"
                     path.parent.mkdir(parents=True, exist_ok=True)
-                    path.write_text(data, encoding="utf-8", newline="\n")
+                    with path.open("w", encoding="utf-8", newline=newline) as output:
+                        output.write(data)
     if differences:
         raise SystemExit("Patchouli generated files are stale:\n" + "\n".join(differences))
     print(f"Patchouli: {len(index['categories'])} categories, {len(entries)} entries per language; "

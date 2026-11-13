@@ -1,10 +1,7 @@
-# Dedicated-server smoke test for the 1.12 port.
+# Dedicated-server smoke test for Cleanroom. Do not run on the office computer.
+# This starts a real Minecraft server, unlike compilation and unit tests.
 #
-# The unit tests cover registries, ritual data, the book and the GUI code, but nothing has ever
-# started a real server. This runs `runServer` headlessly, waits for the server to finish loading
-# and reports what the log says, so a startup regression cannot hide behind green unit tests.
-#
-# It does NOT accept the Minecraft EULA for you. If run/eula.txt is missing or not accepted the
+# It does NOT accept the Minecraft EULA for you. If run/server/eula.txt is missing or not accepted the
 # script stops and prints what to do; accepting it is your decision.
 #
 # Exit codes: 0 = server came up and stopped cleanly, 1 = startup failed or timed out,
@@ -17,7 +14,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-$runDir = Join-Path $WorkspaceRoot 'run'
+$runDir = Join-Path $WorkspaceRoot 'run/server'
 $eulaFile = Join-Path $runDir 'eula.txt'
 $serverLog = Join-Path $runDir 'logs/latest.log'
 $gradlew = Join-Path $WorkspaceRoot 'gradlew-local.bat'
@@ -25,7 +22,7 @@ $gradlew = Join-Path $WorkspaceRoot 'gradlew-local.bat'
 function Write-Step($message) { Write-Host "==> $message" }
 
 if (-not (Test-Path -LiteralPath $eulaFile)) {
-    Write-Host "run/eula.txt does not exist - the dedicated server will refuse to start." -ForegroundColor Yellow
+    Write-Host "run/server/eula.txt does not exist - the dedicated server will refuse to start." -ForegroundColor Yellow
     Write-Host ''
     Write-Host 'To enable the smoke test, create that file with this single line:'
     Write-Host ''
@@ -37,7 +34,7 @@ if (-not (Test-Path -LiteralPath $eulaFile)) {
 }
 
 if ((Get-Content -LiteralPath $eulaFile -Raw) -notmatch 'eula\s*=\s*true') {
-    Write-Host 'run/eula.txt exists but does not accept the EULA (expected "eula=true").' -ForegroundColor Yellow
+    Write-Host 'run/server/eula.txt exists but does not accept the EULA (expected "eula=true").' -ForegroundColor Yellow
     exit 2
 }
 
@@ -71,7 +68,7 @@ while ((Get-Date) -lt $deadline) {
 Write-Step 'stopping the server'
 Stop-Job -Job $job -ErrorAction SilentlyContinue
 Remove-Job -Job $job -Force -ErrorAction SilentlyContinue
-# RFG runs the server in a child JVM; stop anything still holding the run directory.
+# Legacy server-process cleanup; Foundation process termination still needs runtime verification.
 Get-CimInstance Win32_Process -Filter "Name = 'java.exe'" -ErrorAction SilentlyContinue |
     Where-Object { $_.CommandLine -and $_.CommandLine -match 'net\.minecraft\.server|GradleStartServer' } |
     ForEach-Object { Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }
@@ -83,7 +80,7 @@ if (-not (Test-Path -LiteralPath $serverLog)) {
 
 $log = Get-Content -LiteralPath $serverLog -Raw
 $checks = [ordered]@{
-    'Forge loaded'          = $log -match 'Forge Mod Loader version 14\.23\.5\.2847'
+    'Cleanroom loaded'      = $log -match 'Cleanroom'
     'Occultism loaded'      = $log -match 'Hello From Occultism|Occultism'
     'ritual table loaded'   = $log -match 'Loaded \d+ Occultism ritual recipes'
     'server reached Done'   = $ready

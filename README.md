@@ -1,25 +1,42 @@
 ## OCCULTISM
 
-Minecraft 1.12.2 mod development workspace based on CleanroomMC ForgeDevEnv.
+Minecraft 1.12.2 mod workspace targeting Cleanroom exclusively. Ordinary Forge and Java 8 are no longer supported.
 
 Environment:
 
 - Minecraft 1.12.2
-- Forge 14.23.5.2847
-- Gradle 9.2.1
-- RetroFuturaGradle 2.0.2
-- `gradlew-local.bat` selects the project-local JDK 25 when present; `gradlew.bat` remains portable.
+- Cleanroom 0.7.14-alpha
+- Java 25 for compilation, tests, and game runtime (class-file major 69)
+- Gradle 9.8.1
+- CleanroomGradle 0.22.0
+- `gradlew-local.bat` respects `JAVA_HOME`, otherwise selects `.jdks/jdk-25.0.5+8` when present. It does not install Java or change system settings.
 
-Use the local wrapper script so Gradle always runs with the project JDK:
+Non-game checks and packaging:
 
 ```bat
-.\gradlew-local.bat build
-.\gradlew-local.bat runClient
-.\gradlew-local.bat runServer
+.\gradlew-local.bat compileJava
+.\gradlew-local.bat test --tests com.occultism.occultism.ritual.RitualLifecycleTest
+.\gradlew-local.bat assemble
 ```
 
-`gradle.properties` intentionally does not set `org.gradle.java.home`; the
-absolute path would make a fresh clone and CI host-specific.
+These commands do not start a Minecraft client or server. Do not execute `runClient`, `runServer`, or `tools/run_server_smoke.ps1` on the office computer.
+
+`gradle.properties` intentionally does not set `org.gradle.java.home`; use a Java 25 `JAVA_HOME` on other machines. Gameplay code still uses the Forge-compatible interfaces provided by Cleanroom; switching Java versions does not supply newer Minecraft APIs.
+
+Migration build verification: compilation, 40 targeted tests (five classes), `assemble`, Java 25 artifact/reobfuscation validation, and book checks pass through `gradlew-local.bat`. Minecraft client/server startup and gameplay remain untested for Cleanroom; no full test suite was run.
+
+The wrapper optionally loads `.gradle-local-env.bat` (Git-ignored, scoped by `setlocal`) for machine-specific settings. On this Windows 10 LTSC machine, Java UNIX-domain sockets bind but fail to connect while TCP loopback works. The local file sets `jdk.net.unixdomain.tmpdir` to an intentionally nonexistent project path so the JDK selector falls back to TCP, and selects `Windows-ROOT` as the TLS trust store. Do not create that socket-directory path. These settings propagate to Gradle and its child Java processes without changing system Java, firewall rules, or certificate-validation requirements. Other machines do not need this file unless they have the same issue. Historical Forge verification results in other documents remain historical.
+
+Progression compatibility choices (not upstream-equivalent recipes):
+
+- The Foliot crusher uses iron, gold, copper and silver ingots, matching the pinned 1.21.1 ritual instead of requiring unobtainable raw silver.
+- Red impure chalk retains Afrit essence/redstone and uses a poppy instead of torchflower. Orange retains cursed honey/blaze powder and uses glowstone instead of glow berries. Blue retains Marid essence/lapis dust and uses prismarine shard instead of tube coral. Cyan retains iesnium/echo dust and uses ink sac plus glowstone instead of glow ink sac. Every recipe also consumes white impure chalk and still requires spirit fire purification.
+- Two obsidian dust, quartz and blaze powder craft one netherite scrap dust. Four scrap dust plus four gold dust retain the existing netherite dust recipe. This is a local Nether-material substitute, not ancient-debris backporting, and requires neither a miner nor Netherite to bootstrap.
+- Four amethyst dust in a 2x2 grid make one amethyst block; there is no reverse unpacking recipe. This supplies the existing crystallizer and budding-amethyst rituals without introducing a new shard item.
+- Possessed Bee retains the bound Djinni book and uses the upstream chicken sacrifice. Its local sugar/bottle/dandelion costs now use wheat in place of bee nest, avoiding the nest -> pink chalk -> demonic meat -> orange chalk -> honey bootstrap cycle. Bee nests remain obtainable through their separate ritual.
+- Patchouli chalk, Hoglin and budding-amethyst entries display the relevant compatibility recipes. The bee entry describes the chicken/wheat route. Survival balance and full gameplay still require in-game validation.
+
+Mineshaft behavior: a successful operation costs one durability; no recipe or insufficient combined output space costs none. Redstone resets progress. Replacing the miner restarts timing. Extractors only access loaded blocks and otherwise use internal output. This port uses deterministic enchantment formulas (30 fewer ticks per Efficiency level, extra rolls equal to Fortune level, count multiplier of Silk Touch level + 1) and always saves a miner when an operation leaves one durability; the corresponding modern upstream configuration toggles are not implemented. These are local compatibility semantics, not full upstream behavior parity.
 
 The development client loads JEI 4.16.1.1013 from Modrinth Maven automatically.
 It is a dev dependency only and is not bundled into the generated mod jar.
@@ -99,4 +116,4 @@ Porting notes:
   integration boundaries are recorded in `FARMERS_FUTURE_DELIGHT_REFERENCE.md`.
 - Copied/ported upstream assets and references are covered by `THIRD_PARTY_NOTICES.md`.
 
-For IntelliJ IDEA, set Gradle JVM to `.jdks/jdk-25.0.3` before refreshing Gradle.
+For IntelliJ IDEA, select a Java 25 JDK as Gradle JVM before refreshing Gradle.

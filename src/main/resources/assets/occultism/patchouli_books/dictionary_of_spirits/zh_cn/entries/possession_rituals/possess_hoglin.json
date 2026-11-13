@@ -30,6 +30,16 @@
       "type": "text",
       "title": "",
       "text": "在 1.12 中不可用。$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:netherite_scrap_dust",
+      "text": "1.12 兼容配方。"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:netherite_dust",
+      "text": "1.12 兼容配方。"
     }
   ]
 }

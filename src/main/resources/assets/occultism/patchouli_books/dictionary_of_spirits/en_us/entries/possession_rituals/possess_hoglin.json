@@ -35,6 +35,16 @@
       "type": "text",
       "title": "",
       "text": "loot remain unavailable in 1.12.$(br)"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:netherite_scrap_dust",
+      "text": "1.12 compatibility recipe."
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:netherite_dust",
+      "text": "1.12 compatibility recipe."
     }
   ]
 }

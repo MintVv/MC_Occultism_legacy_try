@@ -59,6 +59,9 @@ public class EntityAfritWild extends EntityMob {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(50.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+        if (this.getEntityAttribute(SharedMonsterAttributes.ATTACK_SPEED) == null) {
+            this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_SPEED);
+        }
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_SPEED).setBaseValue(8.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(100.0D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.4D);

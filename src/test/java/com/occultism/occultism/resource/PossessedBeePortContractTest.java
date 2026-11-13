@@ -66,7 +66,9 @@ class PossessedBeePortContractTest {
                 .getAsJsonArray();
         JsonObject ritual = findRitual(rituals, "possess_bee");
         assertEquals("occultism:possessed_bee", ritual.get("entity_to_summon").getAsString());
-        assertEquals("occultism:bee_nest", ritual.getAsJsonArray("ingredients").get(3).getAsString());
+        assertEquals("minecraft:wheat", ritual.getAsJsonArray("ingredients").get(3).getAsString());
+        assertEquals("c:chickens", ritual.getAsJsonObject("entity_to_sacrifice").get("tag").getAsString());
+        assertTrue(!ritual.getAsJsonArray("ingredients").toString().contains("occultism:bee_nest"));
 
         String english = readUtf8(ASSET_ROOT.resolve("lang").resolve("en_us.lang"));
         String chinese = readUtf8(ASSET_ROOT.resolve("lang").resolve("zh_cn.lang"));

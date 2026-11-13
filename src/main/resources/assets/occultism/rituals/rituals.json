@@ -134,10 +134,10 @@
     "entity_to_summon": "occultism:foliot",
     "spirit_job_type": "occultism:crush_tier1",
     "ingredients": [
-      "minecraft:iron_ingot",
-      "minecraft:gold_ingot",
-      "occultism:silver_ingot",
-      "occultism:raw_silver"
+      "#c:ingots/iron",
+      "#c:ingots/gold",
+      "#c:ingots/copper",
+      "#c:ingots/silver"
     ],
     "pentacle_id": "occultism:summon_foliot",
     "result": {
@@ -1600,15 +1600,15 @@
     "activation_item": "occultism:book_of_binding_bound_djinni",
     "duration_ticks": 800,
     "entity_to_sacrifice": {
-      "display_name": "ritual.occultism.sacrifice.bees",
-      "tag": "c:bees"
+      "display_name": "ritual.occultism.sacrifice.chicken",
+      "tag": "c:chickens"
     },
     "entity_to_summon": "occultism:possessed_bee",
     "ingredients": [
       "minecraft:sugar",
       "minecraft:glass_bottle",
       "minecraft:yellow_flower",
-      "occultism:bee_nest"
+      "minecraft:wheat"
     ],
     "pentacle_id": "occultism:possess_djinni",
     "result": {

@@ -28,7 +28,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.storage.WorldInfo;
 
 /** In-memory block/tile/item fixture; no server, rendering, chunks, or disk saves. */
-final class RitualTestWorld extends World {
+class RitualTestWorld extends World {
     final Map<BlockPos, TileEntity> tiles = new HashMap<>();
     final Map<BlockPos, IBlockState> states = new HashMap<>();
     final Set<BlockPos> unloaded = new HashSet<>();

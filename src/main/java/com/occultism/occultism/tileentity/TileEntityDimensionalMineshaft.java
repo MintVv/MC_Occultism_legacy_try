@@ -135,6 +135,10 @@ public class TileEntityDimensionalMineshaft extends TileEntity implements ITicka
             this.mergeBatched(outputs, result);
         }
 
+        if (outputs.isEmpty()) {
+            return;
+        }
+
         ItemStack minerToSave = this.getMinerToSaveAfterOperation(miner);
         List<ItemStack> requiredOutputs = new ArrayList<>(outputs);
         if (!minerToSave.isEmpty()) {
@@ -225,7 +229,9 @@ public class TileEntityDimensionalMineshaft extends TileEntity implements ITicka
 
     @Nullable
     private TileEntity getExtractorOutputTarget() {
-        if (this.world.getBlockState(this.pos.down()).getBlock() != ModBlocks.DIMENSIONAL_EXTRACTOR) {
+        if (!this.world.isBlockLoaded(this.pos.down())
+                || this.world.getBlockState(this.pos.down()).getBlock() != ModBlocks.DIMENSIONAL_EXTRACTOR
+                || !this.world.isBlockLoaded(this.pos.down(2))) {
             return null;
         }
         TileEntity tile = this.world.getTileEntity(this.pos.down(2));
@@ -615,11 +621,14 @@ public class TileEntityDimensionalMineshaft extends TileEntity implements ITicka
 
     @Override
     public void setInventorySlotContents(int index, ItemStack stack) {
+        boolean replaceMiner = index == MINER_SLOT
+                && (stack.isEmpty() || stack.getItem() != this.currentMinerItem
+                        || stack != this.stacks.get(MINER_SLOT));
         this.stacks.set(index, stack);
         if (!stack.isEmpty() && stack.getCount() > this.getInventoryStackLimit()) {
             stack.setCount(this.getInventoryStackLimit());
         }
-        if (index == MINER_SLOT && (stack.isEmpty() || stack.getItem() != this.currentMinerItem)) {
+        if (replaceMiner) {
             this.resetMining();
         }
         this.markDirty();

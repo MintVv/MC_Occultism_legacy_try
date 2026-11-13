@@ -27,7 +27,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION,
-        dependencies = "after:patchouli")
+        dependencies = "required-after:cleanroom@[0.7.14-alpha,);after:patchouli")
 public class Occultism {
 
     public static final Logger LOGGER = LogManager.getLogger(Tags.MOD_NAME);

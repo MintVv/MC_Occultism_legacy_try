@@ -1,4 +1,4 @@
-﻿# 创造模式标签页
+# 创造模式标签页
 itemGroup.occultism=神秘学
 
 # 模组通用文本
@@ -1665,14 +1665,14 @@ book.occultism.dictionary_of_spirits.crafting_rituals.craft_ancient_miner.spotli
 book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_matrix.description=存储大脑
 book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_matrix.name=维度矩阵
 book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_matrix.spotlight.text=维度矩阵是通往用于存储的小型维度的入口。\n一个束缚于矩阵的[#](AA00AA)巨灵[#]()保证了维度的稳定。矩阵可以通过存储稳定器中的其他魔灵\n拓展存储维度的空间。\n
-book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.config.text=若想避免矿工损坏，前往“服务端设置 > 物品”界面进行设置。\n将“损坏前输出矿工”选项设为“开”后，当矿工的耐久度降至1时，其将被自动传输至维度矿井的输出位置。魔咒的效果也可以被关闭。\n
+book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.config.text=本 1.12 版会在一次成功操作后剩余 1 点耐久时，把矿工移入输出并保留名称、附魔和 NBT。这项行为与附魔效果目前没有本地开关。若产物和待保存的矿工不能全部放入输出空间，本次操作不产出，也不扣耐久。把已剩 1 点耐久的矿工重新放入后，它仍可能损坏。
 book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.config.title=设置
 book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.description=虚空采矿
-book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.description.text=维度矿井会丢弃无法储存的物品，因此定期清空矿井很重要，可以通过手动、使用漏斗或搬运工魔灵来实现。\\n各面交互：\n+ 顶面 -> 神灯槽位；\n+ 底面 -> 矿石槽位；\n+ 其他 -> 所有槽位；\n
+book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.description.text=本 1.12 矿井会先检查整批产物的空间，再产出和扣耐久，请定期清理输出。抽取器会尝试把产物送到下方两格处已加载的容器，不足部分使用内部输出槽。红石信号停止采矿并重置进度。\\n顶部自动化插入矿工，底部和侧面自动化取出产物；替换矿工会重新计时。
 book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.description.title=操作
-book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.enchantment.text=你有没有注意到矿工能够被附魔？来看看它的效果！\\n **效率**：增加进度条，增加值取两个随机数中较小值；\\n **时运**：额外挖掘次数取三个随机数中最小值；\\n **精准采集**：挖掘数量乘以(1+随机数)；\\n 随机数范围：0至附魔等级。\n
+book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.enchantment.text=本 1.12 版使用固定附魔公式，与现代上游的随机公式不同。\\n **效率**：每级减少 30 tick，最短 1 tick；\\n **时运**：每级增加一次产物抽取；\\n **精准采集**：每次抽取的数量乘以附魔等级加 1，再乘以矿工基础倍率。采矿维度核心每次抽取最多 1 个。
 book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.enchantment.title=魔咒
-book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.enchantment2.text=**耐久**和**经验修补**魔咒的工作机制和原版一样。\n\\n搭配其他思路（模组），能够让矿工在快要损坏时无法被使用（**保险**魔咒），\n甚至实现真正意义上的不毁（**永恒**魔咒）。\n
+book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.enchantment2.text=每次成功操作固定消耗 1 点耐久。本地实现直接修改损伤值，不应用耐久魔咒或其他模组的保险、永恒钩子。没有产出配方或整批产物空间不足时不扣耐久。可通过修复仪式恢复已保存矿工的耐久。
 book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.enchantment2.title=耐久度
 book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.name=维度矿井
 book.occultism.dictionary_of_spirits.crafting_rituals.craft_dimensional_mineshaft.redstone.text=维度矿井与红石有两种交互模式：\n1. 接收到红石信号时，魔灵将停止工作；\n2. 可以使用比较器根据已占用槽位和神灯耐久度输出信号。\n提示：如果比较器发出的红石信号强度达到10，最好停止矿井运作。\n
@@ -2374,7 +2374,7 @@ book.occultism.dictionary_of_spirits.possession_rituals.overview.intro.text=附�
 book.occultism.dictionary_of_spirits.possession_rituals.overview.intro.title=附身仪式
 book.occultism.dictionary_of_spirits.possession_rituals.overview.name=附身仪式
 book.occultism.dictionary_of_spirits.possession_rituals.possess_bee.description=
-book.occultism.dictionary_of_spirits.possession_rituals.possess_bee.description.text=在这个仪式中，一只[#](ad03fc)巨灵[#]()将附身于[#](ad03fc)蜜蜂[#]()，小心，通过此法召唤的蜜蜂不会失去螫针，总是能使目标中毒，攻击速度更快，并且在受到伤害时会召唤其他蜜蜂。\n这是获取[](item://occultism:cursed_honey)的唯一已知方式，食用者将获得短时间的生命恢复效果。\\n \\n若该蜜蜂进入蜂巢，巨灵将返回[#](ad03fc)异世界[#]()。\n
+book.occultism.dictionary_of_spirits.possession_rituals.possess_bee.description.text=1.12 兼容仪式使用巨灵束缚之书启动，消耗糖、玻璃瓶、蒲公英和小麦，并等待玩家在金碗附近击杀一只鸡。无需预先获得蜂巢或诅咒蜂蜜。召唤出的本地附身蜂能使目标中毒，受伤时会召唤同伴；击杀后掉落[](item://occultism:cursed_honey)，可用于制作橙色粗粉笔。\\n\\n附近的蜂巢可吸引没有攻击目标的附身蜂；它进入蜂巢后会消失。
 book.occultism.dictionary_of_spirits.possession_rituals.possess_bee.entity.text=  **掉落物**：[](item://occultism:cursed_honey)；\n
 book.occultism.dictionary_of_spirits.possession_rituals.possess_bee.name=被附身的蜜蜂
 book.occultism.dictionary_of_spirits.possession_rituals.possess_blaze.description=
@@ -2818,7 +2818,7 @@ book.occultism.dictionary_of_spirits.summoning_rituals.summon_unbound_afrit_prot
 book.occultism.dictionary_of_spirits.possession_rituals.wild_horde_illager.name=野性群：灾厄村民
 book.occultism.dictionary_of_spirits.possession_rituals.wild_horde_illager.description.text=召唤一群野性灾厄村民，它们会攻击附近所有东西，包括施法者。除了它们的掉落物之外不会留下任何东西——配方页上的灵魂宝石仅供展示。
 book.occultism.dictionary_of_spirits.crafting_rituals.misc_bee_nest.name=制造蜂巢
-book.occultism.dictionary_of_spirits.crafting_rituals.misc_bee_nest.description.text=产出一个蜂巢方块。1.12 没有蜜蜂，因此它仅作为建筑装饰物使用。
+book.occultism.dictionary_of_spirits.crafting_rituals.misc_bee_nest.description.text=产出一个本地蜂巢方块，可作为装饰，也会吸引附近没有攻击目标的附身蜂；附身蜂进入后会消失。它不生成原版蜜蜂或蜂蜜，也不是获取第一份诅咒蜂蜜的前置材料。
 book.occultism.dictionary_of_spirits.crafting_rituals.misc_bell.name=制造钟
 book.occultism.dictionary_of_spirits.crafting_rituals.misc_bell.description.text=产出一个钟方块。在 1.12 中它不会召唤袭击，仅作为建筑装饰物使用。
 book.occultism.dictionary_of_spirits.crafting_rituals.misc_budding_amethyst.name=制造紫水晶母岩

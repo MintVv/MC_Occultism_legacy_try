@@ -14,6 +14,11 @@
       "title": "",
       "text": "Produces a budding amethyst block. 1.12 amethyst does not grow buds, so this is a decorative building result.",
       "anchor": "description"
+    },
+    {
+      "type": "crafting",
+      "recipe": "occultism:amethyst_block",
+      "text": "1.12 compatibility recipe."
     }
   ]
 }

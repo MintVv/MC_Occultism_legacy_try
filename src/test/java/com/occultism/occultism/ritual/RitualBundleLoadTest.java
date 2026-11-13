@@ -33,12 +33,12 @@ import org.junit.jupiter.api.Test;
  * unparsable ingredient would therefore only ever show up as a failed ritual table on a running
  * server. This parses the actual resource with every mod item available.</p>
  */
-class RitualBundleLoadTest {
+public class RitualBundleLoadTest {
 
     private static final String RITUAL_RESOURCE = "/assets/occultism/rituals/rituals.json";
 
     @BeforeAll
-    static void bootstrap() throws Exception {
+    public static void bootstrap() throws Exception {
         Bootstrap.register();
         withRegistryUnlocked(() -> {
             try {

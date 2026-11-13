@@ -1,15 +1,12 @@
 package com.occultism.occultism.resource;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -19,215 +16,138 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.occultism.occultism.entity.WonderingTrades;
+import com.occultism.occultism.mineshaft.DimensionalMineshaftRecipe;
+import com.occultism.occultism.registry.ModRecipes;
+import com.occultism.occultism.ritual.RitualBundleLoadTest;
+import com.occultism.occultism.ritual.SpiritFireRecipeRegistry;
+import com.occultism.occultism.spirit.SpiritJobRecipe;
+import com.occultism.occultism.spirit.SpiritJobType;
+import com.occultism.occultism.spirit.SpiritTradeRecipeRegistry;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.FurnaceRecipes;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-/**
- * Every occultism item consumed by a recipe or a ritual must have some way to be obtained.
- *
- * <p>A ritual that demands an item nothing produces is a dead end: the pentacle lights up, the
- * player collects the ingredients, and the ritual can never start. Five such dead ends existed -
- * including the storage controller, whose absence broke the entire storage progression - and none
- * of the other tests noticed, because they all checked internal consistency rather than whether a
- * player can actually walk the chain.</p>
- *
- * <p>Producers counted here: JSON recipe results, ritual results, the Java-side spirit fire, trade,
- * job and smelting tables, entity drop code and world generation. Anything genuinely obtained
- * outside those (a mob drop, a world-gen block) is covered by {@link #KNOWN_UNSOURCED} with the
- * reason spelled out, so the list stays short and reviewable.</p>
- */
 class RitualInputReachabilityTest {
+    private static final Path ASSETS = Path.of("src/main/resources/assets/occultism");
+    private static final Path JAVA = Path.of("src/main/java");
+    private static final Set<String> DROP_PACKAGES = Set.of("entity", "handler", "item", "capability");
+    private static final Map<String, String> FIELD_TO_REGISTRY = buildFieldMap();
 
-    private static final Path ASSETS = Paths.get("src/main/resources/assets/occultism");
-    private static final Path JAVA = Paths.get("src/main/java");
-
-    private static final Stream<String> JAVA_PRODUCER_TABLES = Stream.of(
-            "SpiritFireRecipeRegistry", "SpiritTradeRecipeRegistry", "SpiritJobRecipe",
-            "WonderingTrades", "DimensionalMineshaftRecipe", "ModRecipes");
-
-    /**
-     * Inputs that are deliberately allowed to have no producer in the modelled systems.
-     *
-     * <p>Both are real gaps found by the audit and left in place on purpose: neither has an
-     * upstream counterpart, any documentation, or an obvious material in 1.12, so giving them a
-     * source would be inventing a design decision rather than porting one. They stay listed here
-     * so the audit keeps passing for everything else while the choice is still open.</p>
-     */
-    /** Packages whose code drops items on death or on use; see {@link #dropAndWorldGenNames}. */
-    private static final Set<String> DROP_PACKAGES = new LinkedHashSet<>(Arrays.asList(
-            "entity", "handler", "item", "capability"));
-
-    private static final Set<String> KNOWN_UNSOURCED = new LinkedHashSet<>(Arrays.asList(
-            // Coloured impure chalks still missing a dye recipe: their 1.21.1 recipes need vanilla
-            // items that do not exist in 1.12 (torchflower, glow berries, glow ink sac, tube coral),
-            // and the substitutes are the maintainer's call.
-            "occultism:chalk_blue_impure", "occultism:chalk_cyan_impure",
-            "occultism:chalk_orange_impure", "occultism:chalk_red_impure",
-            "occultism:dark_golden_sacrificial_bowl", // consumed by craft_dark_iesnium_sacrificial_bowl
-            "occultism:netherite_scrap_dust"));      // consumed by possess_hoglin; a 1.16 material
+    @BeforeAll
+    static void bootstrap() throws Exception {
+        RitualBundleLoadTest.bootstrap();
+        ModRecipes.register();
+    }
 
     @Test
     void everyImpureChalkHasARecipeThatMakesIt() throws Exception {
-        // Only white impure chalk could be crafted: the other fifteen colours existed as items,
-        // were consumed by spirit fire and by pentacles, and nothing produced them. That made every
-        // coloured chalk unobtainable and most pentacles impossible to draw. Checked here so a
-        // missing colour cannot hide behind the spirit fire table again.
         Set<String> declared = new LinkedHashSet<>();
-        Matcher chalkField = Pattern.compile("public static final Item \\w+\\s*=\\s*\\n?\\s*\\w+\\("
-                + "\"(chalk_[a-z_]+_impure)\"")
-                .matcher(new String(Files.readAllBytes(
-                        Paths.get("src/main/java/com/occultism/occultism/registry/ModItems.java")),
-                        StandardCharsets.UTF_8));
-        while (chalkField.find()) {
-            declared.add(chalkField.group(1));
+        Matcher matcher = Pattern.compile("public static final Item \\w+\\s*=\\s*\\w+\\("
+                + "\"(chalk_[a-z_]+_impure)\"").matcher(readText(
+                        Path.of("src/main/java/com/occultism/occultism/registry/ModItems.java")));
+        while (matcher.find()) {
+            declared.add("occultism:" + matcher.group(1));
         }
-        assertTrue(declared.size() >= 16, "Expected the full impure chalk palette, found " + declared.size());
-
-        Set<String> craftable = new LinkedHashSet<>();
-        for (Path file : jsonFiles(ASSETS.resolve("recipes"))) {
-            String result = itemOf(readJson(file).getAsJsonObject().get("result"));
-            if (result != null && result.startsWith("occultism:chalk_") && result.endsWith("_impure")) {
-                craftable.add(result.substring("occultism:".length()));
-            }
+        assertEquals(16, declared.size());
+        Set<String> crafted = new LinkedHashSet<>();
+        for (Path file : files(ASSETS.resolve("recipes"), ".json")) {
+            crafted.add(itemOf(readJson(file).get("result")));
         }
-        Set<String> missing = new LinkedHashSet<>(declared);
-        missing.removeAll(craftable);
-        for (String known : KNOWN_UNSOURCED) {
-            if (known.startsWith("occultism:")) {
-                missing.remove(known.substring("occultism:".length()));
-            }
-        }
-        assertTrue(missing.isEmpty(), "Impure chalks nothing can craft: " + missing);
+        declared.removeAll(crafted);
+        assertTrue(declared.isEmpty(), "Impure chalks without crafting recipes: " + declared);
     }
 
     @Test
-    void everyRitualOrRecipeInputCanBeObtained() throws Exception {
+    void everyRitualOrRecipeInputHasADeclaredSource() throws Exception {
         Map<String, List<String>> inputs = new LinkedHashMap<>();
         Set<String> produced = new LinkedHashSet<>();
-
-        collectRecipes(inputs, produced);
-        collectRituals(inputs, produced);
-        produced.addAll(javaProducerNames());
-        produced.addAll(dropAndWorldGenNames());
-
-        Set<String> unsourced = new LinkedHashSet<>();
-        for (String input : inputs.keySet()) {
-            if (produced.contains(input) || KNOWN_UNSOURCED.contains(input)) {
-                continue;
-            }
-            unsourced.add(input + " (used by " + inputs.get(input).get(0) + ")");
-        }
-
-        assertTrue(unsourced.isEmpty(),
-                "Ritual/recipe inputs nothing can supply, so the chain dead-ends: " + unsourced);
-    }
-
-    // -- resource data -----------------------------------------------------------------------
-
-    private static void collectRecipes(Map<String, List<String>> inputs, Set<String> produced)
-            throws IOException {
-        for (Path file : jsonFiles(ASSETS.resolve("recipes"))) {
-            JsonObject recipe = readJson(file).getAsJsonObject();
-            String result = itemOf(recipe.get("result"));
-            if (result != null) {
-                produced.add(result);
-            }
-            List<JsonElement> keys = new ArrayList<>();
+        for (Path file : files(ASSETS.resolve("recipes"), ".json")) {
+            JsonObject recipe = readJson(file);
+            produced.add(itemOf(recipe.get("result")));
             if (recipe.has("key")) {
-                keys.addAll(recipe.getAsJsonObject("key").entrySet().stream()
-                        .map(Map.Entry::getValue).collect(java.util.stream.Collectors.toList()));
+                recipe.getAsJsonObject("key").entrySet().forEach(entry ->
+                        collectInput(entry.getValue(), file.getFileName().toString(), inputs));
             }
             if (recipe.has("ingredients")) {
-                for (JsonElement ingredient : recipe.getAsJsonArray("ingredients")) {
-                    addIngredient(ingredient, keys);
-                }
-            }
-            for (JsonElement key : keys) {
-                for (JsonElement single : flatten(key)) {
-                    String item = itemOf(single);
-                    if (item != null && item.startsWith("occultism:")) {
-                        inputs.computeIfAbsent(item, k -> new ArrayList<>()).add("recipe:" + file.getFileName());
-                    }
-                }
+                collectInput(recipe.get("ingredients"), file.getFileName().toString(), inputs);
             }
         }
-    }
-
-    private static void collectRituals(Map<String, List<String>> inputs, Set<String> produced)
-            throws IOException {
-        try (InputStreamReader reader = reader("/assets/occultism/rituals/rituals.json")) {
-            for (JsonElement element : new JsonParser().parse(reader).getAsJsonArray()) {
-                JsonObject ritual = element.getAsJsonObject();
-                String id = ritual.get("id").getAsString();
-                String result = itemOf(ritual.get("result"));
-                if (result != null) {
-                    produced.add(result);
-                }
-                List<JsonElement> singles = new ArrayList<>();
-                if (ritual.has("activation_item")) {
-                    for (JsonElement single : flatten(ritual.get("activation_item"))) {
-                        singles.add(single);
-                    }
-                }
-                if (ritual.has("ingredients")) {
-                    for (JsonElement ingredient : ritual.getAsJsonArray("ingredients")) {
-                        addIngredient(ingredient, singles);
-                    }
-                }
-                for (JsonElement single : singles) {
-                    String item = itemOf(single);
-                    if (item != null && item.startsWith("occultism:")) {
-                        inputs.computeIfAbsent(item, k -> new ArrayList<>()).add("ritual:" + id);
-                    }
-                }
+        JsonElement bundle = new JsonParser().parse(readText(ASSETS.resolve("rituals/rituals.json")));
+        for (JsonElement element : bundle.getAsJsonArray()) {
+            JsonObject ritual = element.getAsJsonObject();
+            String id = ritual.get("id").getAsString();
+            if (!ritual.has("entity_to_summon") && !ritual.has("spirit_job_type") && !ritual.has("spirit_tier")) {
+                produced.add(itemOf(ritual.get("result")));
+            }
+            collectInput(ritual.get("activation_item"), id, inputs);
+            collectInput(ritual.get("ingredients"), id, inputs);
+            collectInput(ritual.get("item_to_use"), id, inputs);
+        }
+        produced.addAll(javaProducerNames());
+        produced.addAll(dropAndWorldGenNames());
+        Set<String> missing = new LinkedHashSet<>();
+        for (var input : inputs.entrySet()) {
+            if (!produced.contains(input.getKey())) {
+                missing.add(input.getKey() + " (" + input.getValue().getFirst() + ")");
             }
         }
+        assertTrue(missing.isEmpty(), "Inputs without declared producers: " + missing);
     }
 
-    // -- java-side sources -------------------------------------------------------------------
+    @Test
+    void runtimeInputsAreNotMistakenForOutputs() {
+        Set<String> outputs = javaProducerNames();
+        assertTrue(outputs.contains("occultism:iron_dust"));
+        assertTrue(outputs.contains("occultism:netherite_dust"));
+        assertFalse(outputs.contains("occultism:raw_silver"));
+        assertFalse(outputs.contains("occultism:netherite_scrap_dust"));
+        assertFalse(outputs.contains("occultism:chalk_red_impure"));
+    }
 
-    private static Set<String> javaProducerNames() throws IOException {
+    private static Set<String> javaProducerNames() {
         Set<String> names = new LinkedHashSet<>();
-        for (String table : JAVA_PRODUCER_TABLES.collect(java.util.stream.Collectors.toList())) {
-            for (Path file : javaFiles()) {
-                if (file.getFileName().toString().equals(table + ".java")) {
-                    names.addAll(modItemNames(readText(file)));
-                }
-            }
+        SpiritFireRecipeRegistry.getRecipes().forEach(recipe -> addOutput(names, recipe.getOutput()));
+        for (SpiritJobType type : List.of(SpiritJobType.CRUSHER, SpiritJobType.CRYSTALLIZER)) {
+            SpiritJobRecipe.getRecipes(type).forEach(recipe -> addOutput(names, recipe.getOutput()));
         }
+        SpiritTradeRecipeRegistry.getRecipes().forEach(recipe -> addOutput(names, recipe.getOutput()));
+        WonderingTrades.createOtherworldTrades().forEach(recipe -> addOutput(names, recipe.getItemToSell()));
+        DimensionalMineshaftRecipe.getRecipes().forEach(recipe ->
+                recipe.getOutputs().forEach(output -> addOutput(names, output.getStack())));
+        FurnaceRecipes.instance().getSmeltingList().values().forEach(stack -> addOutput(names, stack));
         return names;
     }
 
-    /**
-     * Items dropped by entity code or placed by world generation. The registry field name is a
-     * faithful upper-case spelling of the registry path, so lower-casing it recovers the id.
-     */
+    private static void addOutput(Set<String> names, ItemStack output) {
+        if (!output.isEmpty() && output.getItem().getRegistryName() != null) {
+            names.add(output.getItem().getRegistryName().toString());
+        }
+    }
+
     private static Set<String> dropAndWorldGenNames() throws IOException {
         Set<String> names = new LinkedHashSet<>();
         Pattern dropCall = Pattern.compile("dropItem|entityDropItem|spawnAtLocation|addDrop");
-        for (Path file : javaFiles()) {
-            // Only where drops actually happen. Scanning every file that merely mentions a drop
-            // call made the terminal blocks look obtainable just because a tile entity refers to
-            // them, which is exactly the mistake this test is supposed to catch.
-            if (!DROP_PACKAGES.contains(file.getParent().getFileName().toString())) {
-                continue;
-            }
-            String source = readText(file);
-            if (dropCall.matcher(source).find()) {
-                names.addAll(modItemNames(source));
+        for (Path file : files(JAVA, ".java")) {
+            if (DROP_PACKAGES.contains(file.getParent().getFileName().toString())) {
+                String source = readText(file);
+                if (dropCall.matcher(source).find()) {
+                    names.addAll(modItemNames(source));
+                }
             }
         }
-        for (Path file : jsonFiles(ASSETS.resolve("loot_tables"))) {
+        for (Path file : files(ASSETS.resolve("loot_tables"), ".json")) {
             Matcher matcher = Pattern.compile("\"name\"\\s*:\\s*\"([a-z_]+:[a-z_/0-9]+)\"")
                     .matcher(readText(file));
             while (matcher.find()) {
                 names.add(matcher.group(1));
             }
         }
-        for (Path file : javaFiles()) {
+        for (Path file : files(JAVA, ".java")) {
             Matcher matcher = Pattern.compile("\"([a-z_/0-9]*natural[a-z_/0-9]*)\"").matcher(readText(file));
             while (matcher.find()) {
                 names.add("occultism:" + matcher.group(1));
@@ -237,32 +157,24 @@ class RitualInputReachabilityTest {
     }
 
     private static Set<String> modItemNames(String source) {
-        // Registry names are read from the declarations instead of lower-casing the field name:
-        // after a rename (chalk_yellow -> chalk_gold) the field and the registry path differ.
         Set<String> names = new LinkedHashSet<>();
         Matcher matcher = Pattern.compile("Mod(?:Items|Blocks)\\.([A-Z_0-9]+)").matcher(source);
         while (matcher.find()) {
-            String registryName = FIELD_TO_REGISTRY.get(matcher.group(1));
-            if (registryName != null) {
-                names.add("occultism:" + registryName);
+            String name = FIELD_TO_REGISTRY.get(matcher.group(1));
+            if (name != null) {
+                names.add("occultism:" + name);
             }
         }
         return names;
     }
 
-    /** Field name -> registry path, parsed once from the registry classes. */
-    private static final java.util.Map<String, String> FIELD_TO_REGISTRY = buildFieldMap();
-
-    private static java.util.Map<String, String> buildFieldMap() {
-        java.util.Map<String, String> map = new java.util.LinkedHashMap<>();
-        Pattern declaration = Pattern.compile(
-                "public static final \\w+ ([A-Z_0-9]+)\\s*=\\s*\\n?\\s*\\w+\\(\"([a-z_0-9/]+)\"");
+    private static Map<String, String> buildFieldMap() {
+        Map<String, String> map = new LinkedHashMap<>();
+        Pattern declaration = Pattern.compile("public static final \\w+ ([A-Z_0-9]+)\\s*=\\s*\\w+\\(\"([a-z_0-9/]+)\"");
         try {
-            for (Path file : new Path[] {
-                    Paths.get("src/main/java/com/occultism/occultism/registry/ModItems.java"),
-                    Paths.get("src/main/java/com/occultism/occultism/registry/ModBlocks.java") }) {
-                Matcher matcher = declaration.matcher(
-                        new String(Files.readAllBytes(file), StandardCharsets.UTF_8));
+            for (String name : List.of("ModItems", "ModBlocks")) {
+                Matcher matcher = declaration.matcher(readText(Path.of(
+                        "src/main/java/com/occultism/occultism/registry/" + name + ".java")));
                 while (matcher.find()) {
                     map.put(matcher.group(1), matcher.group(2));
                 }
@@ -273,80 +185,43 @@ class RitualInputReachabilityTest {
         return map;
     }
 
-    // -- helpers -----------------------------------------------------------------------------
-
-    private static void addIngredient(JsonElement ingredient, List<JsonElement> sink) {
-        for (JsonElement single : flatten(ingredient)) {
-            sink.add(single);
-        }
-    }
-
-    /** A slot may be a single stack, an object, or an array of alternatives. */
-    private static List<JsonElement> flatten(JsonElement element) {
-        List<JsonElement> singles = new ArrayList<>();
+    private static void collectInput(JsonElement element, String source, Map<String, List<String>> inputs) {
         if (element == null || element.isJsonNull()) {
-            return singles;
+            return;
         }
         if (element.isJsonArray()) {
-            JsonArray array = element.getAsJsonArray();
-            for (JsonElement child : array) {
-                singles.addAll(flatten(child));
-            }
-            return singles;
+            element.getAsJsonArray().forEach(child -> collectInput(child, source, inputs));
+            return;
         }
-        singles.add(element);
-        return singles;
+        String item = itemOf(element);
+        if (item != null && item.startsWith("occultism:")) {
+            inputs.computeIfAbsent(item, key -> new ArrayList<>()).add(source);
+        }
     }
 
     private static String itemOf(JsonElement element) {
         if (element == null || element.isJsonNull()) {
             return null;
         }
-        // Ingredients are written as bare id strings ("occultism:copper_block") far more often
-        // than as objects. Treating only objects as items made this whole audit skip them.
         if (element.isJsonPrimitive()) {
             return element.getAsString();
         }
-        if (!element.isJsonObject()) {
-            return null;
-        }
         JsonObject object = element.getAsJsonObject();
-        if (object.has("item")) {
-            return object.get("item").getAsString();
-        }
-        if (object.has("id")) {
-            return object.get("id").getAsString();
-        }
-        return null;
+        return object.has("item") ? object.get("item").getAsString()
+                : object.has("id") ? object.get("id").getAsString() : null;
     }
 
-    private static JsonElement readJson(Path file) throws IOException {
-        return new JsonParser().parse(readText(file));
+    private static JsonObject readJson(Path file) throws IOException {
+        return new JsonParser().parse(readText(file)).getAsJsonObject();
     }
 
     private static String readText(Path file) throws IOException {
-        return new String(Files.readAllBytes(file), StandardCharsets.UTF_8);
+        return Files.readString(file, StandardCharsets.UTF_8);
     }
 
-    private static InputStreamReader reader(String resource) {
-        java.io.InputStream stream = RitualInputReachabilityTest.class.getResourceAsStream(resource);
-        assertTrue(stream != null, "Missing resource " + resource);
-        return new InputStreamReader(stream, StandardCharsets.UTF_8);
-    }
-
-    private static List<Path> jsonFiles(Path root) throws IOException {
-        return collectFiles(root, ".json");
-    }
-
-    private static List<Path> javaFiles() throws IOException {
-        return collectFiles(JAVA, ".java");
-    }
-
-    private static List<Path> collectFiles(Path root, String suffix) throws IOException {
-        List<Path> files = new ArrayList<>();
+    private static List<Path> files(Path root, String suffix) throws IOException {
         try (Stream<Path> stream = Files.walk(root)) {
-            stream.filter(path -> path.toString().endsWith(suffix)).forEach(files::add);
+            return stream.filter(path -> path.toString().endsWith(suffix)).toList();
         }
-        return files;
     }
 }

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "occultism:chalk",
+  "ingredients": [
+    { "item": "occultism:chalk_white_impure" },
+    { "item": "occultism:cursed_honey" },
+    { "item": "minecraft:glowstone_dust" },
+    { "item": "minecraft:blaze_powder" }
+  ],
+  "result": { "item": "occultism:chalk_orange_impure" }
+}

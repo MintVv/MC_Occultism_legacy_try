@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "occultism:amethyst",
+  "pattern": ["DD", "DD"],
+  "key": {
+    "D": { "item": "occultism:amethyst_dust" }
+  },
+  "result": { "item": "occultism:amethyst_block" }
+}

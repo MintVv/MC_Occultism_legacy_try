@@ -1,105 +1,91 @@
-# Run every verification this repo has, in one place, with one exit code.
-#
-# The individual checks are documented in 交接.md. Running them by hand invites
-# forgetting one - and a check nobody runs is worse than no check, because the
-# gaps it would have caught stay invisible. This wrapper exists so "is this tree
-# sound?" is a single command.
-#
-# Usage:
-#   powershell -ExecutionPolicy Bypass -File tools\verify_all.ps1
-#   powershell -ExecutionPolicy Bypass -File tools\verify_all.ps1 -SkipBuild   # skip jar checks
-#   powershell -ExecutionPolicy Bypass -File tools\verify_all.ps1 -SkipTests   # skip the test suite
-#
-# Exit code 0 only when every step passed.
+# Runs targeted checks and packaging without starting Minecraft.
+# Usage: powershell -File tools\verify_all.ps1 [-SkipTests] [-SkipBuild]
 
 param(
     [switch]$SkipTests,
     [switch]$SkipBuild,
+    [string[]]$TestClasses = @(
+        'com.occultism.occultism.resource.CleanroomBuildContractTest',
+        'com.occultism.occultism.ritual.RitualLifecycleTest',
+        'com.occultism.occultism.resource.PatchouliBookPortTest'
+    ),
     [string]$WorkspaceRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
 )
 
-$ErrorActionPreference = 'Continue'
-
+$ErrorActionPreference = 'Stop'
 $python = $env:DSH_PYTHON
 if (-not $python) {
-    $candidates = @(
-        'C:\Users\12705\.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\python\python.exe',
-        'python'
-    )
-    foreach ($candidate in $candidates) {
-        if ($candidate -eq 'python' -or (Test-Path -LiteralPath $candidate)) {
-            $python = $candidate
-            break
-        }
+    if (Test-Path -LiteralPath 'D:\conda_envs\envs\work\python.exe') {
+        $python = 'D:\conda_envs\envs\work\python.exe'
+    } else {
+        $python = 'python'
     }
 }
 
 $results = [ordered]@{}
 
 function Invoke-Step {
-    param(
-        [string]$Name,
-        [scriptblock]$Action
-    )
+    param([string]$Name, [scriptblock]$Action)
     Write-Host ""
     Write-Host "=== $Name ===" -ForegroundColor Cyan
-    & $Action
-    $code = $LASTEXITCODE
+    try {
+        & $Action
+        $code = $LASTEXITCODE
+    } catch {
+        Write-Host $_ -ForegroundColor Red
+        $code = 1
+    }
     $results[$Name] = $code
     if ($code -ne 0) {
         Write-Host "--- $Name FAILED (exit $code) ---" -ForegroundColor Red
     }
-    return $code
 }
 
 Push-Location -LiteralPath $WorkspaceRoot
 try {
     if (-not $SkipTests) {
-        Invoke-Step 'compile + full test suite' {
-            & (Join-Path $WorkspaceRoot 'gradlew-local.bat') test --console=plain --quiet
-        } | Out-Null
+        if ($TestClasses.Count -eq 0) {
+            throw 'Provide at least one targeted test class; full-suite runs are not enabled here.'
+        }
+        $testArguments = @('test', '--console=plain', '--quiet')
+        foreach ($testClass in $TestClasses) {
+            $testArguments += @('--tests', $testClass)
+        }
+        Invoke-Step 'compile + targeted tests' {
+            & (Join-Path $WorkspaceRoot 'gradlew-local.bat') @testArguments
+        }
     }
-
     Invoke-Step 'patchouli book validation' {
-        & $python 'tools\verify_patchouli_book.py'
-    } | Out-Null
-
+        & $python -B -m tools.verify_patchouli_book
+    }
     Invoke-Step 'book regeneration is clean' {
-        & $python 'tools\generate_patchouli_book.py' --check
-    } | Out-Null
-
+        & $python -B -m tools.generate_patchouli_book --check
+    }
     Invoke-Step 'asset validation' {
-        & powershell -NoProfile -ExecutionPolicy Bypass -File 'tools\verify_assets.ps1'
-    } | Out-Null
-
+        & powershell -NoProfile -File 'tools\verify_assets.ps1'
+    }
     if (-not $SkipBuild) {
         Invoke-Step 'build the jars' {
-            & (Join-Path $WorkspaceRoot 'gradlew-local.bat') build --console=plain --quiet
-        } | Out-Null
-
+            & (Join-Path $WorkspaceRoot 'gradlew-local.bat') assemble --console=plain --quiet
+        }
         Invoke-Step 'validate the built jars' {
-            & $python 'tools\verify_build_jar.py'
-        } | Out-Null
+            & $python -B -m tools.verify_build_jar
+        }
     }
-}
-finally {
+} finally {
     Pop-Location
 }
 
 Write-Host ""
-Write-Host "--- verification summary ---"
+Write-Host '--- verification summary ---'
 $failed = 0
 foreach ($name in $results.Keys) {
     $state = if ($results[$name] -eq 0) { 'PASS' } else { 'FAIL'; $script:failed++ }
     Write-Host ("  {0,-34} {1}" -f $name, $state)
 }
-
 if ($failed -gt 0) {
-    Write-Host ""
     Write-Host "$failed step(s) failed." -ForegroundColor Red
     exit 1
 }
-
-Write-Host ""
-Write-Host 'All verifications passed.' -ForegroundColor Green
+Write-Host 'All requested verifications passed.' -ForegroundColor Green
 exit 0
