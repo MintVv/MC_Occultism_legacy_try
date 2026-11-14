@@ -34,6 +34,9 @@ public class ItemBlockStorageController extends ItemBlock {
         TileEntity tile = world.getTileEntity(pos);
         if (tile instanceof TileEntityStorageController) {
             ((TileEntityStorageController) tile).readInventoryFromStack(stack);
+            if (!world.isRemote) {
+                ((TileEntityStorageController) tile).updateStabilizers();
+            }
             world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 3);
         }
         return true;

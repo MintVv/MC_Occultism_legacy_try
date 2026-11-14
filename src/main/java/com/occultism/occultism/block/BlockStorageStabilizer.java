@@ -95,6 +95,9 @@ public class BlockStorageStabilizer extends BlockModelOnly {
         BlockPos start = facing.getAxis().isHorizontal() ? pos.down() : pos;
         for (int distance = 0; distance <= TileEntityStorageController.MAX_STABILIZER_DISTANCE; distance++) {
             BlockPos candidate = start.offset(facing, distance);
+            if (!worldIn.isBlockLoaded(candidate)) {
+                continue;
+            }
             net.minecraft.tileentity.TileEntity tile = worldIn.getTileEntity(candidate);
             if (tile instanceof TileEntityStorageController) {
                 // Keep tracing after a hit: more than one controller can share

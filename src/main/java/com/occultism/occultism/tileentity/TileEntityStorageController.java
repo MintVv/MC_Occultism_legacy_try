@@ -143,11 +143,12 @@ public class TileEntityStorageController extends TileEntity
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
         int requiredSlots = getRequiredItemListSize(compound);
-        this.storageSlotCount = Math.max(this.readStorageSlotCount(compound, LEGACY_SLOT_COUNT), requiredSlots);
+        this.storageSlotCount = compound.hasKey(TAG_STORAGE_SLOT_COUNT, 3)
+                ? readStorageSlotCount(compound, LEGACY_SLOT_COUNT) : Math.max(LEGACY_SLOT_COUNT, requiredSlots);
         this.readStorageSettings(compound);
         this.readCraftingState(compound);
         this.readLinkedMachines(compound);
-        this.stacks = NonNullList.withSize(this.storageSlotCount, ItemStack.EMPTY);
+        this.stacks = NonNullList.withSize(Math.max(this.storageSlotCount, requiredSlots), ItemStack.EMPTY);
         this.loadItems(compound);
         this.invalidateMessageUpdateStacks();
     }
@@ -177,10 +178,11 @@ public class TileEntityStorageController extends TileEntity
 
     public void readInventoryFromNBT(NBTTagCompound compound) {
         int requiredSlots = getRequiredItemListSize(compound);
-        this.storageSlotCount = Math.max(this.readStorageSlotCount(compound, LEGACY_SLOT_COUNT), requiredSlots);
+        this.storageSlotCount = compound.hasKey(TAG_STORAGE_SLOT_COUNT, 3)
+                ? readStorageSlotCount(compound, LEGACY_SLOT_COUNT) : Math.max(LEGACY_SLOT_COUNT, requiredSlots);
         this.readStorageSettings(compound);
         this.readCraftingState(compound);
-        this.stacks = NonNullList.withSize(this.storageSlotCount, ItemStack.EMPTY);
+        this.stacks = NonNullList.withSize(Math.max(this.storageSlotCount, requiredSlots), ItemStack.EMPTY);
         this.loadItems(compound);
         this.invalidateMessageUpdateStacks();
         this.markDirty();
@@ -1176,6 +1178,9 @@ public class TileEntityStorageController extends TileEntity
         for (EnumFacing facing : EnumFacing.values()) {
             BlockPos current = start;
             for (int distance = 0; distance <= MAX_STABILIZER_DISTANCE; distance++) {
+                if (!this.world.isBlockLoaded(current)) {
+                    break;
+                }
                 IBlockState state = this.world.getBlockState(current);
                 Block block = state.getBlock();
                 // The downward ray starts one block above the controller and
@@ -1555,12 +1560,7 @@ public class TileEntityStorageController extends TileEntity
                     this.controller.getStackLimit(existing)));
             ItemStack result = ItemHandlerHelper.copyStackWithSize(existing, extracted);
             if (!simulate) {
-                if (extracted >= existing.getCount()) {
-                    this.controller.setInventorySlotContents(slot, ItemStack.EMPTY);
-                } else {
-                    existing.shrink(extracted);
-                    this.controller.setInventorySlotContents(slot, existing);
-                }
+                this.controller.decrStackSize(slot, extracted);
             }
             return result;
         }

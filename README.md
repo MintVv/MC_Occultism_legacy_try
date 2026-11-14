@@ -38,6 +38,8 @@ Progression compatibility choices (not upstream-equivalent recipes):
 
 Mineshaft behavior: a successful operation costs one durability; no recipe or insufficient combined output space costs none. Redstone resets progress. Replacing the miner restarts timing. Extractors only access loaded blocks and otherwise use internal output. This port uses deterministic enchantment formulas (30 fewer ticks per Efficiency level, extra rolls equal to Fortune level, count multiplier of Silk Touch level + 1) and always saves a miner when an operation leaves one durability; the corresponding modern upstream configuration toggles are not implemented. These are local compatibility semantics, not full upstream behavior parity.
 
+Storage behavior: active capacity is separate from the backing inventory. Slots hidden by stabilizer removal remain serialized but stay inaccessible across reloads; legacy saves without an explicit capacity still expand to retain their highest slot. Portable controllers recalculate capacity after placement. Lowering the stack limit or disabling stack-size overrides must not truncate an existing stack when extracting items. Stabilizer scans and notifications access loaded positions only. The storage flow is covered by targeted in-memory tests; real world break/place events, packets and multiplayer still need runtime validation.
+
 The development client loads JEI 4.16.1.1013 from Modrinth Maven automatically.
 It is a dev dependency only and is not bundled into the generated mod jar.
 
